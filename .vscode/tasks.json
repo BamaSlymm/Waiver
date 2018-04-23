@@ -16,7 +16,7 @@
             "dependsOn": "build",
             "type": "shell",
             "command": "dotnet publish -c Release",
-        }
+        },
         {
             "label": "deployToGAE",
             "dependsOn": "publish",
