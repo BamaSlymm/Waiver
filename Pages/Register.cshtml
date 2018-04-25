@@ -1,0 +1,75 @@
+﻿@page 
+@model RegisterModel 
+@{ ViewData["Title"] = "Register - New User"; }
+
+
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Request System</h3>
+    </div>
+    <form action="/Login.asp" role="form">
+        <div class="panel-body" style="padding: 20px">
+            <div class="col-md-4 col-md-push-4">
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="firstName" class="control-label">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" required="true" placeholder="Your First Name">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="lastName" class="control-label">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" required="true" placeholder="Your Last Name">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="email" class="control-label">Email Address:</label>
+                    <input type="email" class="form-control" id="email" required="true" placeholder="State Email Address">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="pwd1" class="control-label">Password:</label>
+                    <input type="password" class="form-control" id="pwd1" required="true" placeholder="Your password">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="pwd2" class="control-label">Re-type Password:</label>
+                    <input type="passowrd" class="form-control" id="pwd2" required="true" placeholder="Your password one more time">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="phone" class="control-label">Phone:</label>
+                    <input type="tel" class="form-control" id="phone" required="true" placeholder="Your Phone 555-389-3940">
+                </div>
+                <div class="form-group" style="margin-top: 20px">
+                    <label for="phoneExt" class="control-label">Phone Ext:</label>
+                    <input type="number" class="form-control" id="phoneExt" required="true" placeholder="Phone extension if needed">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="department" class="control-label">Department:</label>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 
+                        Select Your Department
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="#">Agriculture</a>
+                        </li>
+                        <li>
+                            <a href="#">Corrections</a>
+                        </li>
+                        <li>
+                            <a href="#">Education</a>
+                        </li>
+                        <li>
+                            <a href="#">General Assembly</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="division" class="control-label">Division:</label>
+                    <input type="text" class="form-control" id="division" required="true" placeholder="Your Phone 555-389-3940">
+                </div>
+                <a type="submit" class="btn btn-primary pull-right">Login&nbsp;
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                </a>
+                <a type="submit" class="btn btn-default pull-left">
+                    <span class="text-primary">Forgot Password</span>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
