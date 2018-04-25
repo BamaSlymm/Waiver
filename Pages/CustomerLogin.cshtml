@@ -1,28 +1,26 @@
-﻿@page
-@model CustomerLoginModel
-@{
-    ViewData["Title"] = "Existing Customer Login";
-}
+﻿@page 
+@model CustomerLoginModel 
+@{ ViewData["Title"] = "Existing Customer Login"; }
 
 
 <div class="panel panel-success" style="margin-top: 20px">
-  <div class="panel-heading">
-    <h3 class="panel-title text-center">Waiver Request System</h3>
-  </div>
-  <form action="/Login.asp">
-  <div class="panel-body" style="padding: 20px">
-      <div class="col-md-4 col-md-push-4">
-      <div class="form-group"  style="margin-top: 20px">
-          <label for="email">Email Address:</label>
-          <input type="email" class="form-control" id="email">
-      </div>
-      <div class="form-group"  style="margin-top: 20px">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd">
-      </div>
-      <a type="submit" class="btn btn-primary">Submit</a>
-      <a type="submit" class="btn btn-default">Clear Form</a>
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Request System</h3>
     </div>
-    </div>
-  </form>
+    <form action="/Login.asp" role="form">
+        <div class="panel-body" style="padding: 20px">
+            <div class="col-md-4 col-md-push-4">
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="email" class="control-label">Email Address:</label>
+                    <input type="email" class="form-control" id="email" required="true" placeholder="Email Address you have registered with">
+                </div>
+                <div class="form-group required" style="margin-top: 20px">
+                    <label for="pwd" class="control-label">Password:</label>
+                    <input type="password" class="form-control" id="pwd" required="true" placeholder="Your password">
+                </div>
+                <a type="submit" class="btn btn-primary pull-right">Login&nbsp;<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+                <a type="submit" class="btn btn-default pull-left"><span class="text-primary">Forgot Password</span></a>
+            </div>
+        </div>
+    </form>
 </div>
