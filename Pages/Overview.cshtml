@@ -1,0 +1,84 @@
+﻿@page 
+@model OverviewModel 
+@{ ViewData["Title"] = "Overview on How To Use DPA Waivers"; }
+
+
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Request System</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+        The purpose of the Waiver Request System is to automate and enhance the workflow that comprises the creation, submission,
+        review and approval of waiver requests. It replaces the paper-based process. As a customer seeking to obtain authorization
+        to acquire equipment and/or services that would otherwise be provided by the Department of Personnel & Administration,
+        Division of Central Services, you no longer need to obtain paper based forms and communicate them through the internal
+        (Snell) mail system. A brief description of how the Waiver Request System (WRS) works follows.
+    </div>
+</div>
+
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">First Steps</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+        When you open the WRS web page for the first time, you will be prompted to enter your e-mail address. The system uses this
+        e-mail address to route progress and status information to you, as your waiver request is processed. Since this is
+        your first time using the system, click on the "Create New Customer" button. You will need to enter your customer
+        information i.e. name, department, division and phone number. Once you click on "Submit" your customer account is
+        created and you will receive an email confirmation. You will then be able to create a new waiver at this point. Select
+        the Purpose and Type of this waiver and press "Continue". You will then be directed to the appropriate form. At this
+        time you will be able to print the waiver form to use as a worksheet. We recommend that you print the waiver form
+        first, so you can gather the data you will need to complete the actual waiver, offline. When you have gathered the
+        waiver data and have it in hand, you can log back in to the system to complete the actual waiver online.
+    </div>
+</div>
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Entering Your Waiver Information</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+
+        When you log back into the WRS, you will be taken directly to the waiver center. Your customer data will be pre filled for
+        you. After selecting the "Create New Waiver" option and answering the Purpose and Type questions, you will be taken
+        to the appropriate waiver input form.
+        <br/>
+        <br/> Enter your data into the boxes and options lists provided. After entering the waiver information you can click the
+        "Continue" button. If waiver is being created for someone other than the customer, enter their name otherwise leave
+        blank. Add any additional comments and/or instructions that you would like to include with the waiver. Press the
+        "Submit" button. You then have the option to "Upload Supporting Documents" or "Add Invoice Information" if available.
+        Otherwise press the "Continue" button to return to the waiver center or press the "Logout" button if you are finished.
+        <br/>
+        <br/> Now that your waiver is in the system, processing begins. An e-mail is sent to the individual responsible for reviewing
+        your type of waiver request. This person is known by the system as a reviewer. The designated reviewer has a number
+        of actions he or she may take regarding your waiver once he or she is notified by the system of your new submission.
+    </div>
+</div>
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">After Steps</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+        Your reviewer may immediately approve or deny your waiver request. Or, more commonly, your reviewer will place your waiver
+        into "Under Review" status. In any case, the system will notify you by e-mail, of any actions the reviewer takes.
+        Reviewer actions are also maintained in a waiver history log by the system. After you receive an e-mail confirmation
+        that an action has been taken regarding your waiver, you can log in to the WRS and review the action recorded.
+        <br/>
+        <br/> A reviewer may need more information before he or she can act on your waiver request. In this case, a reviewer will
+        change the waiver's status to "Need More Information" and you will receive an e-mail message describing the additional
+        information needed by your reviewer. To satisfy a reviewer's request for more information, you can log in to the
+        system. Once you are at the waiver center screen, press "View Existing Waivers" button. The next screen will display
+        all waivers you have submitted. Find the waiver your reviewer needs more information on and press the "View" button
+        on the far right. Update the input boxes and lists and send additional comments and instructions to your reviewer.
+        The system will notify your reviewer of your updates and he or she can return to your waiver to complete processing.
+        <br/>
+        <br/> When a reviewer has approved or denied your waiver request, waiver processing ends. All data pertaining to your
+        waiver is stored in the database and can be retrieved at any time.
+    </div>
+</div>
+
+<a asp-page="./Index" class="btn btn-primary pull-right">Home&nbsp;
+    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+</a>
+</div>
+</div>
+</div>
