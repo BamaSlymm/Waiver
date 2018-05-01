@@ -45,3 +45,15 @@ body {
     padding: 0;
     list-style-type: none ;
 }
+
+.btn-space {
+    margin-right: 6px;
+}
+
+.add-gutter {
+    padding-left: 15px !important;
+}
+  
+.marginTop20px {
+    margin-top: 20px ;
+}
