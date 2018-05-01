@@ -50,6 +50,10 @@ body {
     margin-right: 6px;
 }
 
+.btn-space-2x {
+    margin-right: 12px;
+}
+
 .add-gutter {
     padding-left: 15px !important;
 }

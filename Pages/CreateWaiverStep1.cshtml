@@ -1,0 +1,72 @@
+﻿@page 
+@model CreateWaiverStep1Model 
+@{ ViewData["Title"] = "Create Waiver"; }
+
+
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Request System</h3>
+    </div>
+    <form action="/Login.asp" role="form">
+
+        <div class="panel-body" style="padding: 20px">
+            In order to provide you with the appropriate form, please select from the options below.
+            <br/> Select the Purpose of this waiver.
+            <div class="row marginTop20px">
+                <div class="col-md-6 col-xs-6">
+                    <div class="form-group required">
+                        <label for="purpose" class="control-label">Purpose:</label>
+                        <select class="form-control" id="purpose">
+                            <option>Service</option>
+                            <option>Personal Service</option>
+                            <option>Equipment and / or Software Related To the Equipment</option>
+                            <option>Equipment (includes related software) And Personal Services</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="form-group required">
+                        <label for="type" class="control-label">Type:</label>
+                        <select class="form-control" id="type">
+                            <option>Data Entry</option>
+                            <option>Design Services</option>
+                            <option>Mail Service</option>
+                            <option>Print / Copy</option>
+                            <option>Scanning / Imaging / Microfilm</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div class="form-group required">
+                        <label for="subtype" class="control-label">Subtype</label>
+                        <select class="form-control" id="subtype">
+                            <option>Service</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row marginTop20px">
+                <div class="col-md-12 col-xs-12">
+                    <small class="text-muted">
+                        If you have any questions, please contact Diana Wiant at 719.948.5751 for data entry, microfilm and scanning / imaging / conversion
+                        services or equipment typically provided by Integrated Document Solutions (IDS). <br/>Contact Mike Lincoln
+                        at 303.866.3874 for mail service, print/copy and graphic design services or equipment typically provided
+                        by Integrated Document Solutions (IDS). For technical support, <a href="https://oitservicedesk.state.co.us/" target="_blank">click here to submit a Customer IT
+                        Request</a>.
+                    </small>
+                </div>
+            </div>
+
+<div class="row add-gutter marginTop20px pull-right">
+            <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+            <a type="submit" class="btn btn-primary">Continue&nbsp;</a>
+            </a>
+</div>
+
+
+        </div>
+</div>
+</form>
+</div>
