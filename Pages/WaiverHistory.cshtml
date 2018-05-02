@@ -1,0 +1,129 @@
+﻿@page 
+@model WaiverHistoryModel 
+@{ ViewData["Title"] = "Waiver History"; }
+
+<div class="panel panel-success" style="margin-top: 20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">User Information</h3>
+    </div>
+    <form action="/Login.asp" role="form">
+        <div class="panel-body" style="padding: 20px">
+            <div class="row">
+                <div class="col-md-4 col-xs-4">
+                         <span class="text-muted">First Name: Dogan</span>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                        <span class="text-muted">Last Name: Cibiceli</span>
+                </div>
+                <div class="col-md-5 col-xs-5">
+                    <span class="text-muted">Email Address: dogan.cibiceli@state.co.us</span>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-4">
+                    <span class="text-muted">Department: Education</span>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                    <span class="text-muted">Division: Education</span>
+                </div>
+                <div class="col-md-5 col-xs-5">
+                    <span class="text-muted">Phone: 555-330-3303</span>
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+
+
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>
+                Submitted Date
+            </th>
+            <th>
+                Purpose Code
+            </th>
+            <th>
+                Type Code
+            </th>
+            <th>
+                Status Code
+            </th>
+            <th>
+                Waiver Number
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                5/1/2012
+            </td>
+            <td>
+                Equipment Including Related Software And Personal Services
+            </td>
+            <td>
+                Scanning/Imaging
+            </td>
+            <td>
+                Need More Info
+            </td>
+            <td>
+                394949
+            </td>
+            <td>
+                <a class="btn btn-default" asp-action="Details">Details</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5/1/2014
+            </td>
+            <td>
+                Equipment Including Related Software And Personal Services
+            </td>
+            <td>
+                Mail Service
+            </td>
+            <td>
+                Denied
+            </td>
+            <td>
+                430949
+            </td>
+            <td>
+                <a class="btn btn-default" asp-action="Details">Details</a>
+            </td>
+        </tr>
+        </tr>
+        <tr>
+            <td>
+                2/12/2016
+            </td>
+            <td>
+                Service
+            </td>
+            <td>
+                Data Entry
+            </td>
+            <td>
+                Pending
+            </td>
+            <td>
+                450949
+            </td>
+            <td>
+                <a class="btn btn-default" asp-action="Details">Details</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="row add-gutter marginTop20px pull-right">
+            <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+            <a type="submit" class="btn btn-primary">Create New Waiver</a>
+            </a>
+</div>
