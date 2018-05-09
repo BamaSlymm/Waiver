@@ -2,12 +2,11 @@
 @model CreateWaiverStep1Model 
 @{ ViewData["Title"] = "Create Waiver"; }
 
-
-<div class="panel panel-success" style="margin-top: 20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">Waiver Request System</h3>
-    </div>
-    <form action="/Login.asp" role="form">
+<form method="POST">
+    <div class="panel panel-success" style="margin-top: 20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Request System</h3>
+        </div>
 
         <div class="panel-body" style="padding: 20px">
             In order to provide you with the appropriate form, please select from the options below.
@@ -27,13 +26,10 @@
                 <div class="col-md-6 col-xs-6">
                     <div class="form-group required">
                         <label for="type" class="control-label">Type:</label>
-                        <select class="form-control" id="type">
-                            <option>Data Entry</option>
-                            <option>Design Services</option>
-                            <option>Mail Service</option>
-                            <option>Print / Copy</option>
-                            <option>Scanning / Imaging / Microfilm</option>
+                        <select class="form-control" id="type" asp-for="selectedType" asp-items="Model.types">
+                            <option>Please select one</option>
                         </select>
+                        <span asp-validation-for="selectedType" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -50,23 +46,21 @@
             <div class="row marginTop20px">
                 <div class="col-md-12 col-xs-12">
                     <small class="text-muted">
-                        If you have any questions, please contact Diana Wiant at 719.948.5751 for data entry, microfilm and scanning / imaging / conversion
-                        services or equipment typically provided by Integrated Document Solutions (IDS). <br/>Contact Mike Lincoln
-                        at 303.866.3874 for mail service, print/copy and graphic design services or equipment typically provided
-                        by Integrated Document Solutions (IDS). For technical support, <a href="https://oitservicedesk.state.co.us/" target="_blank">click here to submit a Customer IT
-                        Request</a>.
+                        If you have any questions, please contact Diana Wiant at 719.948.5751 for data entry, microfilm and scanning / imaging /
+                        conversion services or equipment typically provided by Integrated Document Solutions (IDS).
+                        <br/>Contact Mike Lincoln at 303.866.3874 for mail service, print/copy and graphic design services or
+                        equipment typically provided by Integrated Document Solutions (IDS). For technical support,
+                        <a href="https://oitservicedesk.state.co.us/" target="_blank">click here to submit a Customer IT Request
+                        </a>.
                     </small>
                 </div>
             </div>
 
-<div class="row add-gutter marginTop20px pull-right">
-            <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
-            <a asp-page="./CreateWaiverServiceDataEntry" type="submit" class="btn btn-primary">Continue&nbsp;</a>
-            </a>
-</div>
-
-
+            <div class="row add-gutter marginTop20px pull-right">
+                <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                </a>
+                <input type="submit" class="btn btn-primary" value="Continue">
+            </div>
         </div>
-</div>
 </form>
-</div>
