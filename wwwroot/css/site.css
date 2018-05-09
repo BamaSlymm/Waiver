@@ -65,3 +65,7 @@ body {
 .padding20px {
     padding: 20px;
 }
+
+.fontWeightNormal {
+    font-weight: normal !important;
+}
