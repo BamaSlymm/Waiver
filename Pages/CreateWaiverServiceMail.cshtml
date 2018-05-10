@@ -1,6 +1,6 @@
 ﻿@page 
-@model CreateWaiverServiceMailProcessingModel 
-@{ ViewData["Title"] = "Create Waiver - Service - Design Service"; }
+@model CreateWaiverServiceMailModel 
+@{ ViewData["Title"] = "Create Waiver - Service - Mail Service"; }
 
 <div class="panel panel-success marginTop20px">
     <div class="panel-heading">
@@ -42,7 +42,7 @@
                 Purpose: Service
             </div>
             <div class="col-md-4 col-xs-4">
-                Type: Data Entry
+                Type: Mail Service
             </div>
             <div class="col-md-4 col-xs-4">
                 Status: Started
@@ -82,42 +82,56 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="itemDescription" class="control-label fontWeightNormal">Describe the item to be designed:</label>
-            <textarea class="form-control" id="workflowDescription" rows="3"></textarea>
+            <label for="itemDescription" class="control-label fontWeightNormal">Describe the item to be mailed:</label>
+            <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group required">
+            <label for="jobDescription" class="control-label fontWeightNormal">Describe the job and services required:</label>
+            <textarea class="form-control" id="jobDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group required">
+            <label for="typeOfStock" class="control-label fontWeightNormal">What stock is the item to be mailed and/or printed on::</label>
+            <select class="form-control" id="typeOfDesign">
+                <option>10x14</option>
+                <option>Regular size business</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group required">
+            <label for="otherDescription" class="control-label fontWeightNormal">If other, please explain:</label>
+            <input type="text" class="form-control" id="otherDescription">
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="startDate" class="control-label fontWeightNormal">Project Start Date:</label>
-                    <input type="date" class="form-control" id="startDate" aria-describedby="startDate" placeholder="Start Date (mm/dd/yyyy)">
+                    <label for="numberOfPackets" class="control-label fontWeightNormal">Number of packets to be mailed:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the number of packets to be mailed. 
+This is a numeric field."></span></label>
+                    <input type="number" class="form-control" id="numberOfPackets" aria-describedby="numberOfPackets" placeholder="Number of Packets">
                 </div>
             </div>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="dueDate" class="control-label fontWeightNormal">Project Due Date:</label>
-                    <input type="date" class="form-control" id="dueDate" aria-describedby="dueDate" placeholder="Due Date (mm/dd/yyyy)">
+                    <label for="mailingDate" class="control-label fontWeightNormal">Mailing Date:</label>
+                    <input type="date" class="form-control" id="mailingDate" aria-describedby="mailingDate" placeholder="Date To Mail On(mm/dd/yyyy)">
                 </div>
             </div>
         </div>
-        <div class="form-group required">
-            <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
-This is a numeric field.Decimal can be used.(i.e. 1.5 which would = 1 1/2 hours"></span></label>
-            <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
-        </div>
-        <div class="form-group required">
-            <label for="typeOfDesign" class="control-label fontWeightNormal">Type of Design:</label>
-            <select class="form-control" id="typeOfDesign">
-                <option>Graphic Art</option>
-                <option>Web</option>
-                <option>Forms</option>
-                <option>Publication</option>
-                <option>Other</option>
-            </select>
-        </div>
-
-        <div class="form-group required">
-            <label for="otherDescription" class="control-label fontWeightNormal">If other, please explain:</label>
-            <textarea class="form-control" id="systemRequirementsDescription" rows="3"></textarea>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group required">
+                    <label for="mailPermit" class="control-label fontWeightNormal">Do you plan to use our mail permit:</label>
+                    <select class="form-control" id="mailPermit">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group required">
+                    <label for="mailRate" class="control-label fontWeightNormal">Mail Rate:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the mail rate. This is a numeric field; decimal can be used (i.e. 0.44)"></span></label>
+                    <input type="number" class="form-control" id="mailRate" aria-describedby="mailRate" placeholder="Mail Rate">
+                </div>
+            </div>
         </div>
 
     </div>

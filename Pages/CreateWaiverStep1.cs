@@ -16,7 +16,7 @@ namespace DPAWaiver.Pages
         [BindProperty]
         [Range(1, int.MaxValue)]
         public int selectedType { set; get; }
-        public async Task OnGetAsync()
+        public void OnGet()
         {
             types = new List<SelectListItem> {
                 new SelectListItem {Text = "Data Entry", Value = "1"},
@@ -27,7 +27,7 @@ namespace DPAWaiver.Pages
             };
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public  IActionResult  OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -43,8 +43,10 @@ namespace DPAWaiver.Pages
             if (selectedType == 1)
             {
                 return RedirectToPage("./CreateWaiverServiceDataEntry");
+            } else if (selectedType == 2) {
+                return RedirectToPage("./CreateWaiverServiceDesign");
             }
-            return RedirectToPage("./CreateWaiverServiceDesign");
+            return RedirectToPage("./CreateWaiverServiceMail");
 
         }
 

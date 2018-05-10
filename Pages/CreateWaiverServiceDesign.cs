@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DPAWaiver.Pages
 {
-    public class CreateWaiverServiceDesignModel : PageModel
+    public class CreateWaiverServiceMailProcessing : PageModel
     {
         public void OnGet()
         {
