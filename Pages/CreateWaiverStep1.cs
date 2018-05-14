@@ -47,8 +47,10 @@ namespace DPAWaiver.Pages
                 return RedirectToPage("./CreateWaiverServiceDesign");
             } else if (selectedType == 3) {
                 return RedirectToPage("./CreateWaiverServiceMail");
+            } else if (selectedType == 4) {
+                return RedirectToPage("./CreateWaiverServicePrint");
             }
-            return RedirectToPage("./CreateWaiverServicePrint");
+            return RedirectToPage("./CreateWaiverServiceMicrofilm");
 
         }
 
