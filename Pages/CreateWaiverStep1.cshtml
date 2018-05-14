@@ -25,8 +25,8 @@
                 </div>
                 <div class="col-md-6 col-xs-6">
                     <div class="form-group required">
-                        <label for="type" class="control-label">Type:</label>
-                        <select class="form-control" id="type" asp-for="selectedType" asp-items="Model.types">
+                        <label for="selectedType" class="control-label">Type:</label>
+                        <select class="form-control" id="selectedType" asp-for="selectedType" asp-items="Model.types">
                             <option>Please select one</option>
                         </select>
                         <span asp-validation-for="selectedType" class="text-danger"></span>
@@ -35,11 +35,12 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-xs-6">
-                    <div class="form-group required">
+                    <div class="form-group required" id="subtypeDiv">
                         <label for="subtype" class="control-label">Subtype</label>
-                        <select class="form-control" id="subtype">
-                            <option>Service</option>
+                        <select class="form-control" id="subtype" asp-for="selectedSubtype" asp-items="Model.microfilmSubtypes">
+                            <option>Please select one</option>
                         </select>
+                        <span asp-validation-for="selectedSubtype" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -63,4 +64,20 @@
                 <input type="submit" class="btn btn-primary" value="Continue">
             </div>
         </div>
+    </div>
 </form>
+
+<div style="clear:both"></div>
+
+@section Scripts {
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
+    });
+
+    $("#selectedType").on("change", function () {
+        showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
+    });
+</script>
+}

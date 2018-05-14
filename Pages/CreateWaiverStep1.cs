@@ -12,32 +12,40 @@ namespace DPAWaiver.Pages
     public class CreateWaiverStep1Model : PageModel
     {
         public List<SelectListItem> types { set; get; }
+        public List<SelectListItem> microfilmSubtypes { set; get; }
 
         [BindProperty]
         [Range(1, int.MaxValue)]
         public int selectedType { set; get; }
-        public void OnGet()
-        {
+        [BindProperty]
+        public int selectedSubtype { set; get;}
+        
+        private void setSelects() {
             types = new List<SelectListItem> {
                 new SelectListItem {Text = "Data Entry", Value = "1"},
                 new SelectListItem {Text = "Design Services", Value = "2"},
                 new SelectListItem {Text = "Mail Service", Value = "3"},
                 new SelectListItem {Text = "Print / Copy", Value = "4"},
-                new SelectListItem {Text = "Scanning / Imaging / Microfilm", Value = "5"},
+                new SelectListItem {Text = "Microfilm / Microfilm Conversion", Value = "5"},
             };
+
+            microfilmSubtypes = new List<SelectListItem> {
+                new SelectListItem {Text = "Microfilm ", Value = "1"},
+                new SelectListItem {Text = "Microfilm Conversion", Value = "2"},
+            };
+
+
+        }
+        public void OnGet()
+        {
+            setSelects();
         }
 
         public  IActionResult  OnPost()
         {
             if (!ModelState.IsValid)
             {
-                types = new List<SelectListItem> {
-                new SelectListItem {Text = "Data Entry", Value = "1"},
-                new SelectListItem {Text = "Design Services", Value = "2"},
-                new SelectListItem {Text = "Mail Service", Value = "3"},
-                new SelectListItem {Text = "Print / Copy", Value = "4"},
-                new SelectListItem {Text = "Scanning / Imaging / Microfilm", Value = "5"},
-                };
+                setSelects();
                 return Page();
             }
             if (selectedType == 1)
@@ -49,6 +57,12 @@ namespace DPAWaiver.Pages
                 return RedirectToPage("./CreateWaiverServiceMail");
             } else if (selectedType == 4) {
                 return RedirectToPage("./CreateWaiverServicePrint");
+            } else if (selectedType == 5) {
+                if (selectedSubtype == 1) {
+                    return RedirectToPage("./CreateWaiverServiceMicrofilm");        
+                } else if (selectedSubtype == 2) {
+                    return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");        
+                }
             }
             return RedirectToPage("./CreateWaiverServiceMicrofilm");
 

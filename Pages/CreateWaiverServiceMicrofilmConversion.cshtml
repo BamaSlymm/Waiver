@@ -1,6 +1,6 @@
 ﻿@page 
-@model CreateWaiverServiceMicrofilmModel 
-@{ ViewData["Title"] = "Create Waiver - Service - Microfilm"; }
+@model CreateWaiverServiceMicrofilmConversionModel 
+@{ ViewData["Title"] = "Create Waiver - Service - Microfilm Conversion"; }
 
 <div class="panel panel-success marginTop20px">
     <div class="panel-heading">
@@ -47,7 +47,7 @@
         </div>
         <div class="row"  style="margin-bottom: 20px">
             <div class="col-md-6 col-xs-6">
-                Subtype: Microfilm
+                Subtype: Microfilm Conversion
             </div>
             <div class="col-md-6 col-xs-6">
                 Status: Started
@@ -94,19 +94,29 @@
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="microfilmDuplication" class="control-label fontWeightNormal">Are you requesting only microfilm duplication:</label>
-                    <select class="form-control control-label" id="microfilmDuplication">
-                        <option>No</option>
-                        <option>Yes</option>
+                    <label for="typeOfFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
+                    <select class="form-control control-label" id="typeOfFilm">
+                        <option>Please select one</option>
+                        <option>16 mm microfilm</option>
+                        <option>35 mm microfilm</option>
+                        <option>aperture card</option>
+                        <option>microfiche</option>
                     </select>
                 </div>
             </div>
             <div class="col-md-6 col-xs-6" id="numberOfRollsDiv">
                 <div class="form-group required">
-                    <label for="numberOfRolls" class="control-label fontWeightNormal">How many rolls are you requesting:</label>
+                    <label for="numberOfRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
                     <input type="number" class="form-control" id="numberOfRolls">
                 </div>
             </div>
+            <div class="col-md-6 col-xs-6" id="numberOfCardsDiv">
+                <div class="form-group required">
+                    <label for="numberOfCards" class="control-label fontWeightNormal">Estimated number of cards/sheets:</label>
+                    <input type="number" class="form-control" id="numberOfCards">
+                </div>
+            </div>
+
         </div>
 
         <div class="row">
@@ -134,19 +144,19 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="estimatedNumberOfDocuments" class="control-label fontWeightNormal">Estimated number of documents:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
-This is a numeric field."></span></label>
-                    <input type="number" class="form-control" id="estimatedNumberOfDocuments" aria-describedby="estimatedNumberOfDocuments" placeholder="Estimated number of documents">
+                    <label for="indexingNeeded" class="control-label fontWeightNormal">Will the job require indexing</label>
+                        <select class="form-control control-label" id="indexingNeeded">
+                            <option>No</option>
+                            <option>Yes</option>
+                    </select>
                 </div>
             </div>
             <div class="col-md-6 col-xs-6">
-                <div class="form-group required">
-                    <label for="outputType" class="control-label fontWeightNormal">What output type is needed:</label>
-                    <select class="form-control control-label" id="outputType">
-                        <option>Output Type 1</option>
-                        <option>Output Type 2</option>
-                        <option>Output Type 3</option>
-                    </select>
+                <div class="form-group required" id="estimatedNumberOfFieldsDiv">
+                    <label for="estimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+This is a numeric field."></span>
+                    </label>
+                    <input type="number" class="form-control" id="estimatedNumberOfFields" aria-describedby="estimatedNumberOfFields" placeholder="Estimated number of fields per document">
                 </div>
             </div>
         </div>
@@ -219,11 +229,21 @@ This is a numeric field."></span></label>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', ['Yes']);
+        showIfSelected('#typeOfFilm', '#numberOfRollsDiv', ['16 mm microfilm','35 mm microfilm']);
+        showIfSelected('#typeOfFilm', '#numberOfCardsDiv', ['aperture card','microfiche']);
     });
 
-    $("#microfilmDuplication").on("change", function () {
-        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', ['Yes']);
+    $("#typeOfFilm").on("change", function () {
+        showIfSelected('#typeOfFilm', '#numberOfRollsDiv', ['16 mm microfilm','35 mm microfilm']);
     });
+   
+    $("#typeOfFilm").on("change", function () {
+        showIfSelected('#typeOfFilm', '#numberOfCardsDiv', ['aperture card','microfiche']);
+    });
+
+    $("#indexingNeeded").on("change", function () {
+        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', ['Yes']);
+    });
+
 </script>
 }
