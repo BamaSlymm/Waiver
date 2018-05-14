@@ -113,7 +113,7 @@
             </select>
         </div>
 
-        <div class="form-group required"  id="otherPaperStockReasonDiv">
+        <div class="form-group required" id="otherPaperStockReasonDiv">
             <label for="otherPaperStockReason" class="control-label fontWeightNormal">If Other, please explain</label>
             <textarea class="form-control" id="otherPaperStockReason" rows="1"></textarea>
         </div>
@@ -206,7 +206,7 @@ If you are needing digital printing, select 'No'."></i>
             <textarea class="form-control" id="additionalComments" rows="3"></textarea>
         </div>
 
-   </div>
+    </div>
 
 </div>
 
@@ -226,33 +226,31 @@ If you are needing digital printing, select 'No'."></i>
     </a>
     </a>
 </div>
+<div style="clear:both"></div>
 
 @section Scripts {
 <script type="text/javascript">
-
-    $(document).ready(function(){
-        showIfSelected('#estimateObtained','#estimateFileDiv','Yes');
-        showIfSelected('#paperStockType','#otherPaperStockReasonDiv','Other');
-        showIfSelected('#reprint','#previousPrinterDiv','Yes');
-        showIfSelected('#fourColorJob','#numberOfInksDiv','Yes');
-    });
-    
-    $("#estimateObtained").on("change", function() {
-        showIfSelected('#estimateObtained','#estimateFileDiv','Yes');
+    $(document).ready(function () {
+        showIfSelected('#estimateObtained', '#estimateFileDiv', 'Yes');
+        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', 'Other');
+        showIfSelected('#reprint', '#previousPrinterDiv', 'Yes');
+        showIfSelected('#fourColorJob', '#numberOfInksDiv', 'Yes');
     });
 
-    $("#paperStockType").on("change", function() {
-        showIfSelected('#paperStockType','#otherPaperStockReasonDiv','Other');
+    $("#estimateObtained").on("change", function () {
+        showIfSelected('#estimateObtained', '#estimateFileDiv', 'Yes');
     });
 
-    $("#reprint").on("change", function() {
-        showIfSelected('#reprint','#previousPrinterDiv','Yes');
+    $("#paperStockType").on("change", function () {
+        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', 'Other');
     });
 
-    $("#fourColorJob").on("change", function() {
-        showIfSelected('#fourColorJob','#numberOfInksDiv','Yes');
+    $("#reprint").on("change", function () {
+        showIfSelected('#reprint', '#previousPrinterDiv', 'Yes');
     });
 
-
+    $("#fourColorJob").on("change", function () {
+        showIfSelected('#fourColorJob', '#numberOfInksDiv', 'Yes');
+    });
 </script>
 }
