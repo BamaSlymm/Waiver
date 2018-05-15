@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
 
 namespace DPAWaiver.Pages
 {
@@ -18,9 +19,18 @@ namespace DPAWaiver.Pages
         [Range(1, int.MaxValue)]
         public int selectedType { set; get; }
         [BindProperty]
-        public int selectedSubtype { set; get;}
-        
-        private void setSelects() {
+        public int selectedSubtype { set; get; }
+
+        public CreateWaiverStep1Model(ILogger<CreateWaiverStep1Model> logger)
+        {
+            _logger = logger;
+
+        }
+        private readonly ILogger _logger;
+
+
+        private void setSelects()
+        {
             types = new List<SelectListItem> {
                 new SelectListItem {Text = "Data Entry", Value = "1"},
                 new SelectListItem {Text = "Design Services", Value = "2"},
@@ -41,27 +51,39 @@ namespace DPAWaiver.Pages
             setSelects();
         }
 
-        public  IActionResult  OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 setSelects();
                 return Page();
             }
+            _logger.LogInformation("Selected Type {selectedType} ",selectedType);
             if (selectedType == 1)
             {
                 return RedirectToPage("./CreateWaiverServiceDataEntry");
-            } else if (selectedType == 2) {
+            }
+            else if (selectedType == 2)
+            {
                 return RedirectToPage("./CreateWaiverServiceDesign");
-            } else if (selectedType == 3) {
+            }
+            else if (selectedType == 3)
+            {
                 return RedirectToPage("./CreateWaiverServiceMail");
-            } else if (selectedType == 4) {
+            }
+            else if (selectedType == 4)
+            {
                 return RedirectToPage("./CreateWaiverServicePrint");
-            } else if (selectedType == 5) {
-                if (selectedSubtype == 1) {
-                    return RedirectToPage("./CreateWaiverServiceMicrofilm");        
-                } else if (selectedSubtype == 2) {
-                    return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");        
+            }
+            else if (selectedType == 5)
+            {
+                if (selectedSubtype == 1)
+                {
+                    return RedirectToPage("./CreateWaiverServiceMicrofilm");
+                }
+                else if (selectedSubtype == 2)
+                {
+                    return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
                 }
             }
             return RedirectToPage("./CreateWaiverServiceMicrofilm");

@@ -38,7 +38,7 @@
                     <div class="form-group required" id="subtypeDiv">
                         <label for="subtype" class="control-label">Subtype</label>
                         <select class="form-control" id="subtype" asp-for="selectedSubtype" asp-items="Model.microfilmSubtypes">
-                            <option>Please select one</option>
+                            <option value="0">Please select one</option>
                         </select>
                         <span asp-validation-for="selectedSubtype" class="text-danger"></span>
                     </div>
