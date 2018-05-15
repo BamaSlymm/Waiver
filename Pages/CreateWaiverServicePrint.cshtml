@@ -231,26 +231,26 @@ If you are needing digital printing, select 'No'."></i>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#estimateObtained', '#estimateFileDiv', 'Yes');
-        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', 'Other');
-        showIfSelected('#reprint', '#previousPrinterDiv', 'Yes');
-        showIfSelected('#fourColorJob', '#numberOfInksDiv', 'Yes');
+        showIfSelected('#estimateObtained', '#estimateFileDiv', ['Yes']);
+        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', ['Other']);
+        showIfSelected('#reprint', '#previousPrinterDiv', ['Yes']);
+        showIfSelected('#fourColorJob', '#numberOfInksDiv', ['Yes']);
     });
 
     $("#estimateObtained").on("change", function () {
-        showIfSelected('#estimateObtained', '#estimateFileDiv', 'Yes');
+        showIfSelected('#estimateObtained', '#estimateFileDiv', ['Yes']);
     });
 
     $("#paperStockType").on("change", function () {
-        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', 'Other');
+        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', ['Other']);
     });
 
     $("#reprint").on("change", function () {
-        showIfSelected('#reprint', '#previousPrinterDiv', 'Yes');
+        showIfSelected('#reprint', '#previousPrinterDiv', ['Yes']);
     });
 
     $("#fourColorJob").on("change", function () {
-        showIfSelected('#fourColorJob', '#numberOfInksDiv', 'Yes');
+        showIfSelected('#fourColorJob', '#numberOfInksDiv', ['Yes']);
     });
 </script>
 }

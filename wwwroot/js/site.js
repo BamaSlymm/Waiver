@@ -3,13 +3,18 @@
 var globalObj = {
     debugOn: true
 };
-function showIfSelected(selectItemId, divToHide, textToCheck) {
-        writeToConsole(selectItemId + ' : ' + divToHide + ' : ' + textToCheck);
-        if ($(selectItemId +' option:selected').text() === textToCheck) {
-            $(divToHide).show();
-        } else {
-            $(divToHide).hide();
-        }        
+
+function showIfSelected(selectItemId, divToHide, textToCheckList) {
+        writeToConsole(selectItemId + ' : ' + divToHide + ' : ' + textToCheckList);
+        textToCheckList.some(function(textToCheck) {
+            if ($(selectItemId +' option:selected').text() === textToCheck) {
+                $(divToHide).show();
+                return true ;
+            } else {
+                $(divToHide).hide();
+                return false;
+            }        
+        });
 }
 
 function turnOnDebug() {
