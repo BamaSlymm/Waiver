@@ -37,6 +37,7 @@ namespace DPAWaiver.Pages
                 new SelectListItem {Text = "Mail Service", Value = "3"},
                 new SelectListItem {Text = "Print / Copy", Value = "4"},
                 new SelectListItem {Text = "Microfilm / Microfilm Conversion", Value = "5"},
+                new SelectListItem {Text = "Scanning", Value = "6"},
             };
 
             microfilmSubtypes = new List<SelectListItem> {
@@ -53,6 +54,7 @@ namespace DPAWaiver.Pages
 
         public IActionResult OnPost()
         {
+            _logger.LogInformation("Selected type {1}, subtype {2}", selectedType, selectedSubtype);
             if (!ModelState.IsValid)
             {
                 setSelects();
@@ -74,6 +76,14 @@ namespace DPAWaiver.Pages
             else if (selectedType == 4)
             {
                 return RedirectToPage("./CreateWaiverServicePrint");
+            } else if (selectedType == 5) {
+                if (selectedSubtype == 1) {
+                    return RedirectToPage("./CreateWaiverServiceMicrofilm");        
+                } else if (selectedSubtype == 2) {
+                    return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");        
+                }
+            } else if (selectedType == 6) {
+                    return RedirectToPage("./CreateWaiverServiceScanning");        
             }
             else if (selectedType == 5)
             {

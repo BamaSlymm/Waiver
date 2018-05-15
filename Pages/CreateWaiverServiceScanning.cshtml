@@ -1,6 +1,6 @@
 ﻿@page 
-@model CreateWaiverServiceMicrofilmConversionModel 
-@{ ViewData["Title"] = "Create Waiver - Service - Microfilm Conversion"; }
+@model CreateWaiverServicePrintModel 
+@{ ViewData["Title"] = "Create Waiver - Service - Print"; }
 
 <div class="panel panel-success marginTop20px">
     <div class="panel-heading">
@@ -37,19 +37,14 @@
         <h3 class="panel-title text-center">Waiver Information</h3>
     </div>
     <div class="panel-body">
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-4 col-xs-4">
                 Purpose: Service
             </div>
-            <div class="col-md-6 col-xs-6">
-                Type: Microfilm / Microfilm Conversion
+            <div class="col-md-4 col-xs-4">
+                Type: Print / Copy
             </div>
-        </div>
-        <div class="row"  style="margin-bottom: 20px">
-            <div class="col-md-6 col-xs-6">
-                Subtype: Microfilm Conversion
-            </div>
-            <div class="col-md-6 col-xs-6">
+            <div class="col-md-4 col-xs-4">
                 Status: Started
             </div>
         </div>
@@ -91,47 +86,16 @@
             <textarea class="form-control" id="workflowDescription" rows="3"></textarea>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <div class="form-group required">
-                    <label for="typeOfFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
-                    <select class="form-control control-label" id="typeOfFilm">
-                        <option>Please select one</option>
-                        <option>16 mm microfilm</option>
-                        <option>35 mm microfilm</option>
-                        <option>aperture card</option>
-                        <option>microfiche</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-6" id="numberOfRollsDiv">
-                <div class="form-group required">
-                    <label for="numberOfRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
-                    <input type="number" class="form-control" id="numberOfRolls">
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-6" id="numberOfCardsDiv">
-                <div class="form-group required">
-                    <label for="numberOfCards" class="control-label fontWeightNormal">Estimated number of cards/sheets:</label>
-                    <input type="number" class="form-control" id="numberOfCards">
-                </div>
-            </div>
-
-        </div>
 
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="estimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
-                        <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
-This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
-                    </label>
-                    
-                    <input type="number" class="form-control" id="estimatedNumberOfFTE" aria-describedby="estimatedNumberOfFTE" placeholder="Full Time Employee Count">
+                    <label for="estimatedNumberOfDocuments" class="control-label fontWeightNormal">Estimated number of documents:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
+This is a numeric field."></span></label>
+                    <input type="number" class="form-control" id="estimatedNumberOfDocuments" aria-describedby="estimatedNumberOfDocuments" placeholder="Estimated number of documents">
                 </div>
             </div>
             <div class="col-md-6 col-xs-6">
-
                 <div class="form-group required">
                     <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
@@ -173,18 +137,35 @@ This is a numeric field."></span>
             </div>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="imageDelivery" class="control-label fontWeightNormal">How do you need the receive the images?</label>
-                    <select class="form-control control-label" id="imageDelivery">
-                        <option>DVD</option>
-                        <option>USB</option>
-                        <option>Email</option>
-                        <option>Other</option>
+                    <label for="imageDPI" class="control-label fontWeightNormal">What DPI would you like the images scanned at?</label>
+                    <select class="form-control control-label" id="imageDPI">
+                        <option>100</option>
+                        <option>200</option>
+                        <option>400</option>
+                        <option>800</option>
                     </select>
                 </div>
             </div>
         </div>
 
+        <div class="form-group required">
+            <label for="colorFormat" class="control-label fontWeightNormal">What color format do you need the images scanned in?</label>
+            <select class="form-control control-label" id="colorFormat">
+                <option>Black &amp; White</option>
+                <option>Grayscale</option>
+                <option>Full Color</option>
+            </select>
+        </div>
 
+        <div class="form-group required">
+            <label for="imageDelivery" class="control-label fontWeightNormal">How do you need to receive the images?</label>
+            <select class="form-control control-label" id="imageDelivery">
+                <option>DVD</option>
+                <option>USB</option>
+                <option>Email</option>
+                <option>Other</option>
+            </select>
+        </div>
 
         <div class="form-group required" id="otherImageDeliveryDiv">
             <label for="otherImageDelivery" class="control-label fontWeightNormal">Please specify other delivery method:</label>
@@ -197,14 +178,25 @@ This is a numeric field."></span>
         </div>
 
         <div class="form-group required">
-            <label for="internalDatabaseConversion" class="control-label fontWeightNormal">Can the data be converted and imported into your department's internal database.</label>
-            <textarea class="form-control" id="internalDatabaseConversion" rows="2"></textarea>
+            <label for="alternativeMethods" class="control-label fontWeightNormal">What other alternative methods have you looked at? Please provide details.</label>
+            <textarea class="form-control" id="alternativeMethods" rows="2"></textarea>
         </div>
 
         <div class="form-group required">
-            <label for="notInHouseReason" class="control-label fontWeightNormal">Customer believes that this microfilm conversion cannot be performed by the State's scanning unit. Please provide details as to why:</label>
+            <label for="scanningInternally" class="control-label fontWeightNormal">Have you looked at scanning on your MultiFunction printer?</label>
+            <textarea class="form-control" id="scanningInternally" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required">
+            <label for="importConversion" class="control-label fontWeightNormal">Can the data be scanned into an external system and imported into your department's application.</label>
+            <textarea class="form-control" id="importConversion" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required">
+            <label for="notInHouseReason" class="control-label fontWeightNormal">Customer believes that this scanning function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
             <textarea class="form-control" id="notInHouseReason" rows="2"></textarea>
         </div>
+
 
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
@@ -236,18 +228,8 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#typeOfFilm', '#numberOfRollsDiv', ['16 mm microfilm','35 mm microfilm']);
-        showIfSelected('#typeOfFilm', '#numberOfCardsDiv', ['aperture card','microfiche']);
         showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', ['Yes']);
         showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', ['Other']);
-    });
-
-    $("#typeOfFilm").on("change", function () {
-        showIfSelected('#typeOfFilm', '#numberOfRollsDiv', ['16 mm microfilm','35 mm microfilm']);
-    });
-   
-    $("#typeOfFilm").on("change", function () {
-        showIfSelected('#typeOfFilm', '#numberOfCardsDiv', ['aperture card','microfiche']);
     });
 
     $("#indexingNeeded").on("change", function () {
