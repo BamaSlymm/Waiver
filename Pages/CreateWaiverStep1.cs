@@ -27,6 +27,7 @@ namespace DPAWaiver.Pages
                 new SelectListItem {Text = "Mail Service", Value = "3"},
                 new SelectListItem {Text = "Print / Copy", Value = "4"},
                 new SelectListItem {Text = "Microfilm / Microfilm Conversion", Value = "5"},
+                new SelectListItem {Text = "Scanning", Value = "6"},
             };
 
             microfilmSubtypes = new List<SelectListItem> {
@@ -63,6 +64,8 @@ namespace DPAWaiver.Pages
                 } else if (selectedSubtype == 2) {
                     return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");        
                 }
+            } else if (selectedType == 6) {
+                    return RedirectToPage("./CreateWaiverServiceScanning");        
             }
             return RedirectToPage("./CreateWaiverServiceMicrofilm");
 
