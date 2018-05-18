@@ -1,5 +1,6 @@
-﻿@page 
-@model CreateWaiverStep1Model 
+﻿@page
+
+@model CreateWaiverStep1Model
 @{ ViewData["Title"] = "Create Waiver"; }
 
 <form method="POST">
@@ -10,23 +11,21 @@
 
         <div class="panel-body" style="padding: 20px">
             In order to provide you with the appropriate form, please select from the options below.
-            <br/> Select the Purpose of this waiver.
+            <br /> Select the Purpose of this waiver.
             <div class="row marginTop20px">
                 <div class="col-md-6 col-xs-6">
                     <div class="form-group required">
                         <label for="purpose" class="control-label">Purpose:</label>
-                        <select class="form-control" id="purpose">
-                            <option>Service</option>
-                            <option>Personal Service</option>
-                            <option>Equipment and / or Software Related To the Equipment</option>
-                            <option>Equipment (includes related software) And Personal Services</option>
+                        <select class="form-control" id="purpose" asp-for="selectedPurpose" asp-items="Model.purposes">
+                            <option>Please select one</option>
                         </select>
+                        <span asp-validation-for="selectedPurpose" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-6">
                     <div class="form-group required">
                         <label for="selectedType" class="control-label">Type:</label>
-                        <select class="form-control" id="selectedType" asp-for="selectedType" asp-items="Model.types">
+                        <select class="form-control" id="selectedType" asp-for="selectedType">
                             <option>Please select one</option>
                         </select>
                         <span asp-validation-for="selectedType" class="text-danger"></span>
@@ -49,16 +48,18 @@
                     <small class="text-muted">
                         If you have any questions, please contact Diana Wiant at 719.948.5751 for data entry, microfilm and scanning / imaging /
                         conversion services or equipment typically provided by Integrated Document Solutions (IDS).
-                        <br/>Contact Mike Lincoln at 303.866.3874 for mail service, print/copy and graphic design services or
+                        <br />Contact Mike Lincoln at 303.866.3874 for mail service, print/copy and graphic design services or
                         equipment typically provided by Integrated Document Solutions (IDS). For technical support,
-                        <a href="https://oitservicedesk.state.co.us/" target="_blank">click here to submit a Customer IT Request
+                        <a href="https://oitservicedesk.state.co.us/" target="_blank">
+                            click here to submit a Customer IT Request
                         </a>.
                     </small>
                 </div>
             </div>
 
             <div class="row add-gutter marginTop20px pull-right">
-                <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
+                <a type="submit" class="btn btn-default btn-space-2x">
+                    Logout&nbsp;
                     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                 </a>
                 <input type="submit" class="btn btn-primary" value="Continue">
@@ -70,14 +71,21 @@
 <div style="clear:both"></div>
 
 @section Scripts {
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $(document).ready(function () {
-        showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
-    });
+        $(document).ready(function () {
+            showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
+        });
 
-    $("#selectedType").on("change", function () {
-        showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
-    });
-</script>
+        $("#purpose").on("change", function () {
+            var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
+            var myData = { purposeId: $("#purpose").val(),  '__RequestVerificationToken': token};
+
+            getSelectList("/CreateWaiverStep1?handler=type",myData, '#selectedType');
+        });
+
+        $("#selectedType").on("change", function () {
+            showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
+        });
+    </script>
 }

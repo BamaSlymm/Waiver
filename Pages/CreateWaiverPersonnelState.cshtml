@@ -1,0 +1,176 @@
+﻿@page 
+@model CreateWaiverServicePrintModel 
+@{ ViewData["Title"] = "Create Waiver - Personnel - State Employee"; }
+
+<div class="panel panel-success marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">User Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                First Name: Dogan
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Last Name: Cibiceli
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Email Address: dogan.cibiceli@state.co.us
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                Department: Education
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Division: Teacher
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Phone: 555-330-3303
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-success marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-4 col-xs-4">
+                Purpose: Personnel Request
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Type: State Employee
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Status: Started
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group required">
+                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group required">
+                    <label for="submittedDate" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" id="submittedDate" required="true" value="05/04/2018">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group required">
+                    <label for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-success marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group required">
+            <label for="jobDuties" class="control-label fontWeightNormal">Describe the job duties:</label>
+            <textarea class="form-control" id="jobDuties" rows="3"></textarea>
+        </div>
+
+
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <div class="form-group required">
+                <label for="employeeType" class="control-label fontWeightNormal">Employee Type:</label>
+                <select class="form-control control-label" id="employeeType">
+                    <option>Full Time Employee</option>
+                    <option>Permanent Part Time Employee</option>
+                    <option>Temporary Full Time Employee</option>
+                    <option>Temporary Part Time Employee</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="form-group required">
+                <label for="estimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
+                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
+This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
+                </label>
+
+                <input type="number" class="form-control" id="estimatedNumberOfFTE" aria-describedby="estimatedNumberOfFTE" placeholder="Full Time Employee Count">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 col-xs-6">
+            <div class="form-group required">
+                <label for="positionFile" class="control-label fontWeightNormal">Upload State Position Description</label>
+                <input type="file" class="form-control-file" id="positionFile">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="form-group required">
+                <label for="requestedClassification" class="control-label fontWeightNormal">Requested Classification:</label>
+                <select class="form-control control-label" id="requestedClassification">
+                    <option>Accountant I</option>
+                    <option>Accountant II</option>
+                    <option>Accountant III</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+        <div class="form-group required">
+            <label for="requestedSalary" class="control-label fontWeightNormal">Requested Loaded Salary</label>
+            <input type="number" class="form-control" id="requestedSalary" aria-describedby="requestedSalary" placeholder="Requested Loaded Salary">
+        </div>
+
+
+
+    <div class="form-group required">
+        <label for="detailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
+        <textarea class="form-control" id="detailJustification" rows="2"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+        <textarea class="form-control" id="additionalComments" rows="3"></textarea>
+    </div>
+
+</div>
+
+</div>
+
+
+<div class="row add-gutter marginTop20px pull-right">
+    <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+    <a type="submit" class="btn btn-primary">Create Waiver&nbsp;
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    </a>
+</div>
+<div style="clear:both"></div>
+
+@section Scripts {
+<script type="text/javascript">
+</script>
+}
