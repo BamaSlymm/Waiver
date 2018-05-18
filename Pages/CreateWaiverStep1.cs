@@ -108,7 +108,7 @@ namespace DPAWaiver.Pages
                     switch (selectedType)
                     {
                         case 1: return RedirectToPage("./CreateWaiverPersonnelState");
-                        case 2: return RedirectToPage("./CreateWaiverPersonnelThird");
+                        case 2: return RedirectToPage("./CreateWaiverPersonnelContractor");
                     }
                     break;
             }

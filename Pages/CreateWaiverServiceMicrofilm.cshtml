@@ -219,11 +219,11 @@ This is a numeric field."></span></label>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', ['Yes']);
+        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', {textList: ['Yes']});
     });
 
     $("#microfilmDuplication").on("change", function () {
-        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', ['Yes']);
+        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', {textList: ['Yes']});
     });
 </script>
 }

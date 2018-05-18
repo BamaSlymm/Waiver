@@ -4,20 +4,44 @@ var globalObj = {
     debugOn: true
 };
 
-function showIfSelected(selectItemId, divToHide, textToCheckList) {
-        writeToConsole(selectItemId + ' : ' + divToHide + ' : ' + textToCheckList);
-        textToCheckList.some(function(textToCheck) {
-            if ($(selectItemId +' option:selected').text() === textToCheck) {
-                $(divToHide).show({duration: 560});
-                return true ;
+function showIfSelected(selectItemId, divToHide, opts) {
+    writeToConsole(selectItemId + ' : ' + divToHide + ' : ' + JSON.stringify(opts));
+    let myList = [];
+    if (opts && opts.textList) {
+        myList = opts.textList;
+    }
+    if (opts && opts.valueList) {
+        myList = opts.valueList;
+    }
+
+    myList.some(function (toCheck) {
+        let matchFound = false ;
+        if (opts && opts.textList) {
+            matchFound = ( $(selectItemId + ' option:selected').text() === toCheck );
+        }
+        if (opts && opts.valueList) {
+            matchFound = ( $(selectItemId + ' option:selected').val() === toCheck );
+        }
+        if (opts && opts.hide) {
+            if (matchFound) {
+                $(divToHide).hide({duration: 560});
+                return true;
             } else {
-                $(divToHide).hide({duration: 200});
+                $(divToHide).show({duration: 200});
                 return false;
-            }        
-        });
+            }
+        }
+        if (matchFound) {
+            $(divToHide).show({duration: 560});
+            return true;
+        } else {
+            $(divToHide).hide({duration: 200});
+            return false;
+        }
+    });
 }
 
-function getSelectList(inURL,inData, inSelectId, opts) {
+function getSelectList(inURL, inData, inSelectId, opts) {
     writeToConsole('inURL [' + inURL + '] inData [' + JSON.stringify(inData) + '] inSelectId [' + inSelectId + ']');
     $.ajax({
         url: inURL,
@@ -35,19 +59,19 @@ function getSelectList(inURL,inData, inSelectId, opts) {
             });
         },
         error: function () {
-                $(inSelectId).empty();
-                var option = $('<option></option>').text(opts.errorText);
-                $(inSelectId).append(option);
+            $(inSelectId).empty();
+            var option = $('<option></option>').text(opts.errorText);
+            $(inSelectId).append(option);
         }
     });
 }
 
 function turnOnDebug() {
-    globalObj.debugOn = true ;
+    globalObj.debugOn = true;
 }
 
 function turnOffDebug() {
-    globalObj.debugOn = false ;
+    globalObj.debugOn = false;
 }
 
 function writeToConsole(aMessage) {

@@ -228,16 +228,16 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', ['Yes']);
-        showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', ['Other']);
+        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', {textList:['Yes']});
+        showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', {textList:['Other']});
     });
 
     $("#indexingNeeded").on("change", function () {
-        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', ['Yes']);
+        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', {textList:['Yes']});
     });
 
     $("#imageDelivery").on("change", function () {
-        showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', ['Other']);
+        showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', {textList:['Other']});
     });
 
 </script>

@@ -74,7 +74,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
+            showIfSelected('#selectedType', '#subtypeDiv', {textList:['Microfilm / Microfilm Conversion']});
         });
 
         $("#purpose").on("change", function () {
@@ -85,7 +85,7 @@
         });
 
         $("#selectedType").on("change", function () {
-            showIfSelected('#selectedType', '#subtypeDiv', ['Microfilm / Microfilm Conversion']);
+            showIfSelected('#selectedType', '#subtypeDiv', {textList:['Microfilm / Microfilm Conversion']});
         });
     </script>
 }
