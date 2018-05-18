@@ -17,6 +17,31 @@ function showIfSelected(selectItemId, divToHide, textToCheckList) {
         });
 }
 
+function getSelectList(inURL,inData, inSelectId, opts) {
+    writeToConsole('inURL [' + inURL + '] inData [' + JSON.stringify(inData) + '] inSelectId [' + inSelectId + ']');
+    $.ajax({
+        url: inURL,
+        type: "POST",
+        data: inData,
+        success: function (data) {
+            $(inSelectId).empty();
+            if (opts && opts.selectOne) {
+                var option = $('<option></option>').text(opts.selectOne);
+                $(inSelectId).append(option);
+            }
+            data.forEach(function (element) {
+                var option = $('<option></option>').attr("value", element.value).text(element.text);
+                $(inSelectId).append(option);
+            });
+        },
+        error: function () {
+                $(inSelectId).empty();
+                var option = $('<option></option>').text(opts.errorText);
+                $(inSelectId).append(option);
+        }
+    });
+}
+
 function turnOnDebug() {
     globalObj.debugOn = true ;
 }
