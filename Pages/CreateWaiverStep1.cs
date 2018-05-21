@@ -123,7 +123,7 @@ namespace DPAWaiver.Pages
                     switch (selectedType)
                     {
                         case 1: return RedirectToPage("./CreateWaiverEquipmentMail");
-                        case 2: return RedirectToPage("./CreateWaiverPersonnelContractor");
+                        case 2: return RedirectToPage("./CreateWaiverEquipmentScanning");
                     }
                     break;
             }
