@@ -16,6 +16,7 @@ namespace DPAWaiver.Pages
         public List<SelectListItem> serviceTypes { set; get; }
         public List<SelectListItem> personalServiceTypes { set; get; }
         public List<SelectListItem> microfilmSubtypes { set; get; }
+        public List<SelectListItem> equipmentTypes { set; get; }
 
         [BindProperty]
         public int selectedPurpose { set; get; }
@@ -37,8 +38,14 @@ namespace DPAWaiver.Pages
             purposes = new List<SelectListItem> {
                 new SelectListItem {Text = "Service", Value = "1"},
                 new SelectListItem {Text = "Personal Request", Value = "2"},
-                new SelectListItem {Text = "Equipment and/or Software Related To The Equipment", Value = "3"},
+                new SelectListItem {Text = "Equipment", Value = "3"},
                 new SelectListItem {Text = "Equipment (includes related software) And Personal Services", Value = "4"},
+            };
+
+            equipmentTypes = new List<SelectListItem> {
+                new SelectListItem {Text = "Mail Processing", Value = "1"},
+                new SelectListItem {Text = "Scanning/Imaging/Microfilm", Value = "2"},
+                new SelectListItem {Text = "Print/Copy", Value = "3"}
             };
 
             personalServiceTypes = new List<SelectListItem> {
@@ -74,6 +81,7 @@ namespace DPAWaiver.Pages
             switch(purposeId) {
                 case 1: return new JsonResult(serviceTypes);
                 case 2: return new JsonResult(personalServiceTypes);
+                case 3: return new JsonResult(equipmentTypes);
             }
             return new JsonResult(new object[]{new object()}) ;
         }
@@ -108,6 +116,13 @@ namespace DPAWaiver.Pages
                     switch (selectedType)
                     {
                         case 1: return RedirectToPage("./CreateWaiverPersonnelState");
+                        case 2: return RedirectToPage("./CreateWaiverPersonnelContractor");
+                    }
+                    break;
+                case 3:
+                    switch (selectedType)
+                    {
+                        case 1: return RedirectToPage("./CreateWaiverEquipmentMail");
                         case 2: return RedirectToPage("./CreateWaiverPersonnelContractor");
                     }
                     break;

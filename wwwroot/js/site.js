@@ -41,6 +41,19 @@ function showIfSelected(selectItemId, divToHide, opts) {
     });
 }
 
+function showIfNotEmpty(inputItemId, divToHide, opts) {
+    writeToConsole(inputItemId + ' : ' + divToHide + ' : ' + JSON.stringify(opts));
+
+    let notEmptyString = false ;
+    notEmptyString = ( $(inputItemId).val() );
+    if (notEmptyString) {
+        $(divToHide).show({duration: 560});
+    } else {
+        $(divToHide).hide({duration: 200});
+    }
+}
+
+
 function getSelectList(inURL, inData, inSelectId, opts) {
     writeToConsole('inURL [' + inURL + '] inData [' + JSON.stringify(inData) + '] inSelectId [' + inSelectId + ']');
     $.ajax({
