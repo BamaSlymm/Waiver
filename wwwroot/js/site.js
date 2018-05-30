@@ -4,8 +4,8 @@ var globalObj = {
     debugOn: true
 };
 
-function showIfSelected(selectItemId, divToHide, opts) {
-    writeToConsole(selectItemId + ' : ' + divToHide + ' : ' + JSON.stringify(opts));
+function showIfSelected(selectItemId, divsToHide, opts) {
+    writeToConsole(selectItemId + ' : ' + divsToHide + ' : ' + JSON.stringify(opts));
     let myList = [];
     if (opts && opts.textList) {
         myList = opts.textList;
@@ -18,24 +18,35 @@ function showIfSelected(selectItemId, divToHide, opts) {
         let matchFound = false ;
         if (opts && opts.textList) {
             matchFound = ( $(selectItemId + ' option:selected').text() === toCheck );
+            writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').text());
         }
         if (opts && opts.valueList) {
             matchFound = ( $(selectItemId + ' option:selected').val() === toCheck );
+            writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').val());
         }
+
         if (opts && opts.hide) {
             if (matchFound) {
-                $(divToHide).hide({duration: 560});
+                divsToHide.forEach(function(divToHide) {
+                    $(divToHide).hide({duration: 560});
+                });
                 return true;
             } else {
-                $(divToHide).show({duration: 200});
+                divsToHide.forEach(function(divToHide) {
+                    $(divToHide).show({duration: 200});
+                });
                 return false;
             }
         }
         if (matchFound) {
-            $(divToHide).show({duration: 560});
+            divsToHide.forEach(function(divToHide) {
+                $(divToHide).show({duration: 560});
+            });
             return true;
         } else {
-            $(divToHide).hide({duration: 200});
+            divsToHide.forEach(function(divToHide) {
+                $(divToHide).hide({duration: 200});
+            });
             return false;
         }
     });
@@ -91,4 +102,12 @@ function writeToConsole(aMessage) {
     if (globalObj.debugOn) {
         console.log(aMessage);
     }
+}
+
+function convertToFloat(inputId) {
+    return parseFloat($(inputId).val() || 0) ;
+}
+
+function convertToDollar(aFloat) {
+    return '$ ' + aFloat.toFixed(2) ;
 }

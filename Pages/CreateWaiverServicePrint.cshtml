@@ -83,7 +83,7 @@
     <div class="panel-body">
         <div class="form-group required">
             <label for="itemDescription" class="control-label fontWeightNormal">Describe the item to be printed/copied:</label>
-            <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+            <textarea class="form-control" id="itemDescription" rows='2'></textarea>
         </div>
 
         <div class="row">
@@ -203,7 +203,7 @@ If you are needing digital printing, select 'No'."></i>
         </div>
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="additionalComments" rows="3"></textarea>
+            <textarea class="form-control" id="additionalComments" rows='2'></textarea>
         </div>
 
     </div>
@@ -231,26 +231,26 @@ If you are needing digital printing, select 'No'."></i>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#estimateObtained', '#estimateFileDiv', {textList:['Yes']});
-        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', {textList:['Other']});
-        showIfSelected('#reprint', '#previousPrinterDiv', {textList:['Yes']});
-        showIfSelected('#fourColorJob', '#numberOfInksDiv', {textList:['Yes']});
+        showIfSelected('#estimateObtained', ['#estimateFileDiv'], {textList:['Yes']});
+        showIfSelected('#paperStockType', ['#otherPaperStockReasonDiv'], {textList:['Other']});
+        showIfSelected('#reprint', ['#previousPrinterDiv'], {textList:['Yes']});
+        showIfSelected('#fourColorJob', ['#numberOfInksDiv'], {textList:['Yes']});
     });
 
     $("#estimateObtained").on("change", function () {
-        showIfSelected('#estimateObtained', '#estimateFileDiv', {textList:['Yes']});
+        showIfSelected('#estimateObtained', ['#estimateFileDiv'], {textList:['Yes']});
     });
 
     $("#paperStockType").on("change", function () {
-        showIfSelected('#paperStockType', '#otherPaperStockReasonDiv', {textList:['Other']});
+        showIfSelected('#paperStockType', ['#otherPaperStockReasonDiv'], {textList:['Other']});
     });
 
     $("#reprint").on("change", function () {
-        showIfSelected('#reprint', '#previousPrinterDiv', {textList:['Yes']});
+        showIfSelected('#reprint', ['#previousPrinterDiv'], {textList:['Yes']});
     });
 
     $("#fourColorJob").on("change", function () {
-        showIfSelected('#fourColorJob', '#numberOfInksDiv', {textList:['Yes']});
+        showIfSelected('#fourColorJob', ['#numberOfInksDiv'], {textList:['Yes']});
     });
 </script>
 }

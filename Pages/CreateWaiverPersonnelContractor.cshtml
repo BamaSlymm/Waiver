@@ -83,7 +83,7 @@
     <div class="panel-body">
         <div class="form-group required">
             <label for="scopeOfWork" class="control-label fontWeightNormal">Describe the scope of work to be performed:</label>
-            <textarea class="form-control" id="scopeOfWork" rows="3"></textarea>
+            <textarea class="form-control" id="scopeOfWork" rows='2'></textarea>
         </div>
 
 
@@ -132,7 +132,7 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         <div id="otherSPADiv">
             <div class="form-group required">
                 <label for="spaOtherDescription" class="control-label fontWeightNormal">Please Describe Other for SPA:</label>
-                <textarea class="form-control" id="spaOtherDescription" rows="3"></textarea>
+                <textarea class="form-control" id="spaOtherDescription" rows='2'></textarea>
             </div>
         </div>
 
@@ -163,7 +163,7 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="additionalComments" rows="3"></textarea>
+            <textarea class="form-control" id="additionalComments" rows='2'></textarea>
         </div>
 
     </div>
@@ -190,17 +190,17 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#contractorType', '#designDiv', {valueList: ['1']});
-        showIfSelected('#spaType', '#otherSPADiv', {textList: ['Other']});
-        showIfSelected('#spaType', '#spaNumberDiv', {textList: ['Other'], hide:true});
+        showIfSelected('#contractorType', ['#designDiv'], {valueList: ['1']});
+        showIfSelected('#spaType', ['#otherSPADiv'], {textList: ['Other']});
+        showIfSelected('#spaType', ['#spaNumberDiv'], {textList: ['Other'], hide:true});
     });
 
     $("#contractorType").on("change", function () { 
-        showIfSelected('#contractorType', '#designDiv', {valueList: ['1']}); 
+        showIfSelected('#contractorType', ['#designDiv'], {valueList: ['1']}); 
     });
     $("#spaType").on("change", function () { 
-        showIfSelected('#spaType', '#otherSPADiv', {textList: ['Other']});
-        showIfSelected('#spaType', '#spaNumberDiv', {textList: ['Other'], hide:true});
+        showIfSelected('#spaType', ['#otherSPADiv'], {textList: ['Other']});
+        showIfSelected('#spaType', ['#spaNumberDiv'], {textList: ['Other'], hide:true});
     });
 
 

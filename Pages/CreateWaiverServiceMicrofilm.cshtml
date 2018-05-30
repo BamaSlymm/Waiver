@@ -88,7 +88,7 @@
     <div class="panel-body">
         <div class="form-group required">
             <label for="itemDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
-            <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+            <textarea class="form-control" id="itemDescription" rows='2'></textarea>
         </div>
 
         <div class="row">
@@ -191,7 +191,7 @@ This is a numeric field."></span></label>
 
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="additionalComments" rows="3"></textarea>
+            <textarea class="form-control" id="additionalComments" rows='2'></textarea>
         </div>
 
     </div>
@@ -219,11 +219,11 @@ This is a numeric field."></span></label>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', {textList: ['Yes']});
+        showIfSelected('#microfilmDuplication', ['#numberOfRollsDiv'], {textList: ['Yes']});
     });
 
     $("#microfilmDuplication").on("change", function () {
-        showIfSelected('#microfilmDuplication', '#numberOfRollsDiv', {textList: ['Yes']});
+        showIfSelected('#microfilmDuplication', ['#numberOfRollsDiv'], {textList: ['Yes']});
     });
 </script>
 }

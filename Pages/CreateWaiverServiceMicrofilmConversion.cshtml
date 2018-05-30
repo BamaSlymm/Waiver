@@ -88,7 +88,7 @@
     <div class="panel-body">
         <div class="form-group required">
             <label for="workflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
-            <textarea class="form-control" id="workflowDescription" rows="3"></textarea>
+            <textarea class="form-control" id="workflowDescription" rows='2'></textarea>
         </div>
 
         <div class="row">
@@ -208,7 +208,7 @@ This is a numeric field."></span>
 
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="additionalComments" rows="3"></textarea>
+            <textarea class="form-control" id="additionalComments" rows='2'></textarea>
         </div>
 
     </div>
@@ -236,26 +236,26 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#typeOfFilm', '#numberOfRollsDiv', {textList:['16 mm microfilm','35 mm microfilm']});
-        showIfSelected('#typeOfFilm', '#numberOfCardsDiv', {textList:['aperture card','microfiche']});
-        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', {textList:['Yes']});
-        showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', {textList:['Other']});
+        showIfSelected('#typeOfFilm', ['#numberOfRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
+        showIfSelected('#typeOfFilm', ['#numberOfCardsDiv'], {textList:['aperture card','microfiche']});
+        showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
+        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
     });
 
     $("#typeOfFilm").on("change", function () {
-        showIfSelected('#typeOfFilm', '#numberOfRollsDiv', {textList:['16 mm microfilm','35 mm microfilm']});
+        showIfSelected('#typeOfFilm', ['#numberOfRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
     });
    
     $("#typeOfFilm").on("change", function () {
-        showIfSelected('#typeOfFilm', '#numberOfCardsDiv', {textList:['aperture card','microfiche']});
+        showIfSelected('#typeOfFilm', ['#numberOfCardsDiv'], {textList:['aperture card','microfiche']});
     });
 
     $("#indexingNeeded").on("change", function () {
-        showIfSelected('#indexingNeeded', '#estimatedNumberOfFieldsDiv', {textList:['Yes']});
+        showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
     });
 
     $("#imageDelivery").on("change", function () {
-        showIfSelected('#imageDelivery', '#otherImageDeliveryDiv', {textList:['Other']});
+        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
     });
 
 </script>

@@ -1,0 +1,77 @@
+{
+  "Input number as bootstrap": {
+    "prefix": "inbs",
+    "body": [
+      "<div class='form-group required'>",
+      "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
+      "\t<input type='number' class='form-control' id='$1' aria-describedby='$1' placeholder='$2'>",
+      "</div>"
+    ],
+    "description": "form-group as number input in bootstrap"
+  },
+  "Input text as bootstrap": {
+    "prefix": "itbs",
+    "body": [
+      "<div class='form-group required'>",
+      "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
+      "\t<input type='text' class='form-control' id='$1' aria-describedby='$1' placeholder='$2'>",
+      "</div>"
+    ],
+    "description": "form-group as text input in bootstrap"
+  },
+  "Select as bootstrap": {
+    "prefix": "sbs",
+    "body": [
+      "<div class='form-group required'>",
+      "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
+      "\t<select class='form-control' id='$1' aria-describedby='$1'>",
+      "\t\t<option value='0'></option>",
+      "\t\t<option value='1'></option>",
+      "\t</select>",
+      "</div>"
+    ],
+    "description": "form-group as select in bootstrap"
+  },
+  "textarea as bootstrap": {
+    "prefix": "tabs",
+    "body": [
+      "<div class='form-group required'>",
+      "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
+      "\t<textarea class='form-control' id='$1' aria-describedby='$1' placeholder='$2' rows='2'></textarea>",
+      "</div>"
+    ],
+    "description": "form-group as text area in bootstrap rows 3"
+  },
+  "hover icon as bootstrap": {
+    "prefix": "hibs",
+    "body": [
+      "<span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='$1'></span>"
+    ],
+    "description": "hover icon using glyphicon in bootstrap"
+  },
+  "create two columns in one row": {
+    "prefix": "ctbs",
+    "body": [
+      "<div class='row'>",
+      "\t<div class='col-sm-6 col-xs-12'>",
+      "\t</div>",
+      "\t<div class='col-sm-6 col-xs-12'>",
+      "\t</div>",
+      "</div>"
+    ],
+    "description": "create two columns under one row"
+  },
+  "bootstrap panel default with header": {
+    "prefix": "pbs",
+    "body": [
+      "<div class='panel panel-primary marginTop20px'>",
+      "\t<div class='panel-heading'>",
+      "\t\t<h3 class='panel-title text-center'>$1</h3>",
+      "\t</div>",
+      "\t<div class='panel-body'>",
+      "\t</div>",
+      "</div> <!-- End of Panel $1 -->"
+    ],
+    "description": "bootstrap default panel with header input"
+  }
+}

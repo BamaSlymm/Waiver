@@ -21,5 +21,7 @@
                 "cshtml"
             ]
         }
-    }
+    },
+    "todo-tree.flat": true,
+    "todo-tree.expanded": true
 }

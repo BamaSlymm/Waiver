@@ -83,7 +83,7 @@
     <div class="panel-body">
         <div class="form-group required">
             <label for="justificationDescription" class="control-label fontWeightNormal">Justification for the request:</label>
-            <textarea class="form-control" id="justificationDescription" rows="3"></textarea>
+            <textarea class="form-control" id="justificationDescription" rows='2'></textarea>
         </div>
 
         <div class="form-group required">
@@ -209,7 +209,7 @@ This is a numeric field."></span>
         <div class="form-group required">
             <label for="selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular equipment:</label>
             <textarea class="form-control" id="selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
-                rows="3"></textarea>
+                rows='2'></textarea>
         </div>
 
         <div class="row">
@@ -426,6 +426,11 @@ This is a numeric field."></span>
                     <textarea class="form-control" id="overheadDescription" rows="2"></textarea>
                 </div>
 
+
+                <div class="form-group">
+                    <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+                    <textarea class="form-control" id="additionalComments" rows='2'></textarea>
+                </div>
             </div>
         </div>
     </div>
@@ -451,14 +456,14 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#acquisitionType', '#solicitationSubDiv', {valueList: ['1']});
-        showIfSelected('#acquisitionType', '#statepriceSubDiv', {valueList: ['2']});
+        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
+        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
         showIfNotEmpty('#miscellaneousCosts', '#overHeadCostsDescription');
     });
 
     $("#acquisitionType").on("change", function () {
-        showIfSelected('#acquisitionType', '#solicitationSubDiv', {valueList: ['1']});
-        showIfSelected('#acquisitionType', '#statepriceSubDiv', {valueList: ['2']});
+        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
+        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
     });
     $("#miscellaneousCosts").on("change paste keyup", function () {
            showIfNotEmpty('#miscellaneousCosts', '#overHeadCostsDescription');
