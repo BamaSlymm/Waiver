@@ -90,6 +90,29 @@ function getSelectList(inURL, inData, inSelectId, opts) {
     });
 }
 
+/**
+ * 
+ * @param {string} inURL 
+ * @param {string} inData 
+ * @param {function} onSuccess gets a JSON data structure
+ * @param {function} onError
+ */
+function getJSONData(inURL, inData, onSuccess, onError) {
+    writeToConsole('inURL [' + inURL + '] inData [' + JSON.stringify(inData) );
+    $.ajax({
+        url: inURL,
+        type: "POST",
+        data: inData,
+        success: function(data) {
+            onSuccess(data);
+        },
+        error: function() {
+            onError();
+        }
+    });
+}
+
+
 function turnOnDebug() {
     globalObj.debugOn = true;
 }
@@ -108,6 +131,30 @@ function convertToFloat(inputId) {
     return parseFloat($(inputId).val() || 0) ;
 }
 
-function convertToDollar(aFloat) {
-    return '$ ' + aFloat.toFixed(2) ;
+function convertFloatToDollarAsString(aFloat,decimalPlaces) {
+    if (typeof decimalPlaces === 'undefined') {
+        decimalPlaces = 2 ;
+    }
+    return '$ ' + aFloat.toFixed(decimalPlaces) ;
+}
+
+function roundFloat(aFloat,decimalPlaces) {
+    if (typeof decimalPlaces === 'undefined') {
+        decimalPlaces = 2 ;
+    }
+    return aFloat.toFixed(decimalPlaces) ;
+}
+
+function calculatePerItemCost(totalCost, itemCount, decimalPlaces) {
+    writeToConsole('totalCost=[' + totalCost + '] itemCount=[' +itemCount +'] decimalPlaces=[' + decimalPlaces + ']');
+    if (typeof itemCount === 'undefined') {
+        return ;
+    }
+    if (typeof decimalPlaces === 'undefined') {
+        decimalPlaces = 2 ;
+    }
+    if (itemCount == 0) {
+        return Number(0).toFixed(decimalPlaces);
+    }
+    return (totalCost/itemCount).toFixed(decimalPlaces);
 }

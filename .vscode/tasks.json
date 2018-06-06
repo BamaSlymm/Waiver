@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/DPAWaiver.csproj"
+                "${workspaceFolder}/DPAWaiver/DPAWaiver.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -20,7 +20,7 @@
         {
             "label": "deployToGAE",
             "dependsOn": "publish",
-            "command": "cd bin/Release/netcoreapp2.0/publish && gcloud app deploy --project=dpa-waiver --version dev",
+            "command": "cd DPAWaiver/bin/Release/netcoreapp2.0/publish && gcloud app deploy --project=dpa-waiver --version dev",
             "type": "shell",
         }
 

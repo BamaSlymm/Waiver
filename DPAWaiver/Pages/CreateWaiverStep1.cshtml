@@ -74,18 +74,22 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            showIfSelected('#selectedType', ['#subtypeDiv'], {textList:['Microfilm / Microfilm Conversion']});
+            showIfSelected('#selectedType', ['#subtypeDiv'], {valueList:['5','3']});
         });
 
         $("#purpose").on("change", function () {
             var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
             var myData = { purposeId: $("#purpose").val(),  '__RequestVerificationToken': token};
 
-            getSelectList("/CreateWaiverStep1?handler=type",myData, '#selectedType');
+            getSelectList("/CreateWaiverStep1?handler=purpose",myData, '#selectedType');
         });
 
         $("#selectedType").on("change", function () {
-            showIfSelected('#selectedType', ['#subtypeDiv'], {textList:['Microfilm / Microfilm Conversion']});
+            var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
+            var myData = { typeId: $("#selectedType").val(),  '__RequestVerificationToken': token};
+            getSelectList("/CreateWaiverStep1?handler=type",myData, '#subtype');
+
+            showIfSelected('#selectedType', ['#subtypeDiv'], {valueList:['5','3']});
         });
     </script>
 }

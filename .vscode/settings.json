@@ -23,5 +23,6 @@
         }
     },
     "todo-tree.flat": true,
-    "todo-tree.expanded": true
+    "todo-tree.expanded": true,
+    "AllAutocomplete.showCurrentDocument": false
 }

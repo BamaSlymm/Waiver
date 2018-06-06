@@ -57,7 +57,8 @@
       "\t</div>",
       "\t<div class='col-sm-6 col-xs-12'>",
       "\t</div>",
-      "</div>"
+      "</div> <!-- end of row -->",
+      ""
     ],
     "description": "create two columns under one row"
   },
@@ -69,7 +70,7 @@
       "\t\t<h3 class='panel-title text-center'>$1</h3>",
       "\t</div>",
       "\t<div class='panel-body'>",
-      "\t</div>",
+      "\t</div> <!-- End of Panel Head $1 -->",
       "</div> <!-- End of Panel $1 -->"
     ],
     "description": "bootstrap default panel with header input"

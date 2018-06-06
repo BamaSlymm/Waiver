@@ -16,6 +16,9 @@ namespace DPAWaiver.Pages
         public List<SelectListItem> serviceTypes { set; get; }
         public List<SelectListItem> personalServiceTypes { set; get; }
         public List<SelectListItem> microfilmSubtypes { set; get; }
+
+        public List<SelectListItem> printerSubtypes;
+
         public List<SelectListItem> equipmentTypes { set; get; }
 
         [BindProperty]
@@ -68,6 +71,14 @@ namespace DPAWaiver.Pages
                 new SelectListItem {Text = "Microfilm Conversion", Value = "2"},
             };
 
+            printerSubtypes = new List<SelectListItem> {
+                new SelectListItem {Text = "A4 Single Function Printer", Value = "1"},
+                new SelectListItem {Text = "A4 Multi  Function Printer", Value = "2"},
+                new SelectListItem {Text = "A3 Multi  Function Printer", Value = "3"},
+                new SelectListItem {Text = "Production Copier Press", Value = "4"},
+                new SelectListItem {Text = "Large Format Printer", Value = "5"},
+                new SelectListItem {Text = "Label Printers", Value = "6"},
+            };
 
         }
         public void OnGet()
@@ -75,19 +86,32 @@ namespace DPAWaiver.Pages
             setSelects();
         }
 
-        public JsonResult OnPostType(int purposeId)
+        public JsonResult OnPostPurpose(int purposeId)
         {
             setSelects();
-            switch(purposeId) {
+            switch (purposeId)
+            {
                 case 1: return new JsonResult(serviceTypes);
                 case 2: return new JsonResult(personalServiceTypes);
                 case 3: return new JsonResult(equipmentTypes);
             }
-            return new JsonResult(new object[]{new object()}) ;
+            return new JsonResult(new object[] {});
         }
+
+        public JsonResult OnPostType(int typeId)
+        {
+            setSelects();
+            switch (typeId)
+            {
+                case 5: return new JsonResult(microfilmSubtypes);
+                case 3: return new JsonResult(printerSubtypes);
+            }
+            return new JsonResult(new object[] {});
+        }
+
         public IActionResult OnPost()
         {
-            _logger.LogInformation("Selected type {1}, subtype {2}", selectedType, selectedSubtype);
+            _logger.LogInformation("Selected purpose {1} Selected type {2}, subtype {3}", selectedPurpose, selectedType, selectedSubtype);
             if (!ModelState.IsValid)
             {
                 setSelects();
@@ -108,8 +132,8 @@ namespace DPAWaiver.Pages
                                 case 1: return RedirectToPage("./CreateWaiverServiceMicrofilm");
                                 case 2: return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
                             }
-                            return RedirectToPage("./CreateWaiverServiceDataEntry");
-                        case 6: return RedirectToPage("./CreateWaiverServiceScanning"); ;
+                            break;
+                        case 6: return RedirectToPage("./CreateWaiverServiceScanning");
                     }
                     break;
                 case 2:
@@ -124,6 +148,13 @@ namespace DPAWaiver.Pages
                     {
                         case 1: return RedirectToPage("./CreateWaiverEquipmentMail");
                         case 2: return RedirectToPage("./CreateWaiverEquipmentScanning");
+                        case 3:
+                            switch (selectedSubtype)
+                            {
+                                case 1: return RedirectToPage("./CreateWaiverEquipmentPrinter");
+                                case 2: return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
+                            }
+                            break;
                     }
                     break;
             }

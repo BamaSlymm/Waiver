@@ -73,3 +73,12 @@ body {
 .fontWeightNormal {
     font-weight: normal !important;
 }
+
+.sectionHeaderHR {
+    height:1px;
+    border:none;
+    color:#333;
+    background-color:#333;
+    margin-top: 16px !important; 
+    margin-bottom: 32px !important;
+}
