@@ -152,7 +152,7 @@ namespace DPAWaiver.Pages
                             switch (selectedSubtype)
                             {
                                 case 1: return RedirectToPage("./CreateWaiverEquipmentPrinter");
-                                case 2: return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
+                                case 2: return RedirectToPage("./CreateWaiverEquipmentPrinterA4MultiFunction");
                             }
                             break;
                     }

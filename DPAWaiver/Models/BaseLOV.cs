@@ -20,7 +20,7 @@ namespace DPAWaiver.Models
 
         public bool isDeletable { get; set; }
 
-        private bool isDisabled {get; set;}
+        public bool isDisabled {get; set;}
 
         int IComparable<BaseLOV>.CompareTo(BaseLOV other)
         {

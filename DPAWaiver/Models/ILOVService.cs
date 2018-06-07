@@ -5,7 +5,11 @@ namespace DPAWaiver.Models
 {
     public interface ILOVService
     {
-         IEnumerable<SelectListItem> GetAllSingleFunctionPrinterPreferencesAsSelectList();
-         List<SingleFunctionPrinterPreferences> getSingleFunctionPrinterPreferences() ;
+        List<SingleFunctionPrinterPreferences> getSingleFunctionPrinterPreferences();
+        IEnumerable<SelectListItem> GetAllSingleFunctionPrinterPreferencesAsSelectList();
+
+
+        List<MultiFunctionPrinter> getMultiFunctionPrinterPreferences();
+        IEnumerable<SelectListItem> GetAllMultiFunctionPrinterPreferencesAsSelectList();
     }
 }
