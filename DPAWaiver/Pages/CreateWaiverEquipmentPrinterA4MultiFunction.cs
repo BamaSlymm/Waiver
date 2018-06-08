@@ -13,7 +13,7 @@ namespace DPAWaiver.Pages {
 
         }
 
-        public IEnumerable<SelectListItem> PrinterListSelectList => iLOVService.GetAllMultiFunctionPrinterPreferencesAsSelectList();
+        public IEnumerable<SelectListItem> PrinterListSelectList => iLOVService.GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder();
         private readonly ILOVService iLOVService;
 
         public CreateWaiverEquipmentPrinterA4MultiFunctionModel (ILOVService iLOVService) {

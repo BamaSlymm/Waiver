@@ -8,18 +8,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DPAWaiver.Pages {
-    public class CreateWaiverEquipmentPrinterModel : PageModel {
+    public class CreateWaiverEquipmentPrinterA3MultiFunctionModel : PageModel {
         public void OnGet () {
 
         }
-        public IEnumerable<SelectListItem> PrinterListSelectList => iLOVService.GetAllSingleFunctionPrinterPreferencesAsSelectListBySortOrder();
+
+        public IEnumerable<SelectListItem> SelectList => iLOVService.GetEquipmentAsSelectListBySortOrder();
         private readonly ILOVService iLOVService;
 
-        public CreateWaiverEquipmentPrinterModel (ILOVService iLOVService) {
+        public CreateWaiverEquipmentPrinterA3MultiFunctionModel (ILOVService iLOVService) {
             this.iLOVService = iLOVService;
         }
         public JsonResult OnPostPrinter (int printerId) {
-            foreach (var printer in iLOVService.getSingleFunctionPrinterPreferences())
+            foreach (var printer in iLOVService.getEquipment())
             {
                 if (printer.ID == printerId) {
                     return new JsonResult(new object[] {printer});

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DPAWaiver.Models
@@ -36,51 +38,60 @@ namespace DPAWaiver.Models
             printerList.Sort();
             return printerList;
         }
-        IEnumerable<SelectListItem> ILOVService.GetAllSingleFunctionPrinterPreferencesAsSelectList()
+        IEnumerable<SelectListItem> ILOVService.GetAllSingleFunctionPrinterPreferencesAsSelectListBySortOrder()
         {
-            var printerListSelectList = new List<SelectListItem>();
-
-            foreach (var printer in getSingleFunctionPrinterPreferences())
-            {
-                printerListSelectList.Add(new SelectListItem { Text = printer.name, Value = printer.ID.ToString() });
-            }
-
-            return printerListSelectList;
+            return convertToSelectListBySortOrder(getSingleFunctionPrinterPreferences());
         }
 
         public List<MultiFunctionPrinter> getMultiFunctionPrinterPreferences()
         {
-            var printerList = new List<MultiFunctionPrinter>();
-            var other = new MultiFunctionPrinter(1, "Other", 9999, false, false);
-            var canon = new MultiFunctionPrinter(2, "Canon", 1, true, false);
-            var hp = new MultiFunctionPrinter(3, "HP", 2, true, false);
-            var konica = new MultiFunctionPrinter(4, "Konica", 3, true, false);
-            var minolta = new MultiFunctionPrinter(5, "Minolta", 4, true, false);
-            var ricoh = new MultiFunctionPrinter(6, "Ricoh", 5, true, false);
-            var xerox = new MultiFunctionPrinter(7, "Xerox", 6, true, false);
 
-            printerList.Add(canon);
-            printerList.Add(hp);
-            printerList.Add(konica);
-            printerList.Add(minolta);
-            printerList.Add(ricoh);
-            printerList.Add(xerox);
-            printerList.Add(other);
-            printerList.Sort();
-            return printerList;
+            var aList = new List<MultiFunctionPrinter>();
+            aList.Add(new MultiFunctionPrinter(1, "Other", 9999, false, false));
+            aList.Add(new MultiFunctionPrinter(2, "Canon", 1, true, false));
+            aList.Add(new MultiFunctionPrinter(3, "HP", 2, true, false));
+            aList.Add(new MultiFunctionPrinter(4, "Konica", 3, true, false));
+            aList.Add(new MultiFunctionPrinter(5, "Minolta", 4, true, false));
+            aList.Add(new MultiFunctionPrinter(6, "Ricoh", 5, true, false));
+            aList.Add(new MultiFunctionPrinter(7, "Xerox", 6, true, false));
+
+            return aList;
         }
 
 
-        IEnumerable<SelectListItem> ILOVService.GetAllMultiFunctionPrinterPreferencesAsSelectList()
+        IEnumerable<SelectListItem> ILOVService.GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder()
         {
-            var printerListSelectList = new List<SelectListItem>();
+            return convertToSelectListBySortOrder(getMultiFunctionPrinterPreferences());
+        }
 
-            foreach (var printer in getMultiFunctionPrinterPreferences())
+        public List<Equipment> getEquipment()
+        {
+            var aList = new List<Equipment>();
+            aList.Add(new Equipment(1, "Other", 9999, false, false));
+            aList.Add(new Equipment(2, "Canon", 1, true, false));
+            aList.Add(new Equipment(4, "Konica", 3, true, false));
+            aList.Add(new Equipment(5, "Minolta", 4, true, false));
+            aList.Add(new Equipment(6, "Ricoh", 5, true, false));
+            aList.Add(new Equipment(7, "Xerox", 6, true, false));
+
+            return aList;
+        }
+
+        public IEnumerable<SelectListItem> GetEquipmentAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getEquipment());
+        }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<BaseLOV> enumerableList) {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item=>item.sortOrder);
+            foreach (var record in bySortOrderList)
             {
-                printerListSelectList.Add(new SelectListItem { Text = printer.name, Value = printer.ID.ToString(), Disabled = printer.isDisabled });
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
             }
 
-            return printerListSelectList;
+            return selectList;
         }
     }
 }
