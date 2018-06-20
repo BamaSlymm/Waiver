@@ -1,6 +1,6 @@
 ﻿@page 
 @model CreateWaiverEquipmentPrinterProductionCopierPressModel 
-@{ ViewData["Title"] = "Create Waiver - Equipment - Print/Copy- Production Copier Press";}
+@{ ViewData["Title"] = "Create Waiver - Equipment - Print/Copy-Production Copier Press";}
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -17,7 +17,7 @@
             <div class="col-md-5 col-xs-5">
                 Email Address: dogan.cibiceli@state.co.us
             </div>
-            
+
         </div>
         <div class="row">
             <div class="col-md-4 col-xs-4">
@@ -48,7 +48,7 @@
         </div>
         <div class="row" style="margin-bottom: 20px">
             <div class="col-md-6 col-xs-6">
-                Subtype: A3 Multi Function Printer
+                Subtype: Production Copier/Press
             </div>
             <div class="col-md-6 col-xs-6">
                 Status: Started
@@ -520,8 +520,7 @@ This is a numeric field."></span>
                         <div class='col-sm-6 col-xs-12'>
                             <div class='form-group required'>
                                 <label for='monthlySupervisionAmount' class='control-label fontWeightNormal'>Monthly Supervision Amount
-                                    <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip'
-                                        title='Monthly Supervision Amount'></span>
+                                    <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Monthly Supervision Amount'></span>
                                 </label>
                                 <input type='number' class='form-control' id='monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
                             </div>
@@ -529,8 +528,7 @@ This is a numeric field."></span>
                         <div class='col-sm-6 col-xs-12'>
                             <div class='form-group required'>
                                 <label for='monthlyManagementAmount' class='control-label fontWeightNormal'>Monthly Management Amount
-                                    <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip'
-                                        title='Monthly Management Amount'></span>
+                                    <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Monthly Management Amount'></span>
                                 </label>
                                 <input type='number' class='form-control' id='monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
                             </div>
@@ -548,8 +546,7 @@ This is a numeric field."></span>
                         <div class='col-sm-6 col-xs-12'>
                             <div class='form-group required'>
                                 <label for='totalSpaceRequiredInSQFT' class='control-label fontWeightNormal'>Total Space Required in Square Feet
-                                    <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip'
-                                        title='Total Space Required in sq. ft'></span>
+                                    <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Total Space Required in sq. ft'></span>
                                 </label>
                                 <input type='number' class='form-control' id='totalSpaceRequiredInSQFT' aria-describedby='totalSpaceRequiredInSQFT' placeholder='Total Space Required in Square Feet'>
                             </div>
@@ -678,11 +675,11 @@ This is a numeric field."></span>
 <div style="clear: both"></div>
 
 @section Scripts {
-    <environment include="Development">
-        <script type="text/javascript" src="~/js/equipment.scanning.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script type="text/javascript" src="~/js/equipment.scanning.min.js"></script>
-    </environment>
+<environment include="Development">
+    <script type="text/javascript" src="~/js/equipment.scanning.js"></script>
+</environment>
+<environment exclude="Development">
+    <script type="text/javascript" src="~/js/equipment.scanning.min.js"></script>
+</environment>
 
 }
