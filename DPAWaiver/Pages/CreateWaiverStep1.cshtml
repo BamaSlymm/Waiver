@@ -75,21 +75,25 @@
 
         $(document).ready(function () {
             showIfSelected('#selectedType', ['#subtypeDiv'], {valueList:['5','3']});
+            loadTypes();
         });
 
         $("#purpose").on("change", function () {
-            var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
-            var myData = { purposeId: $("#purpose").val(),  '__RequestVerificationToken': token};
-
-            getSelectList("/CreateWaiverStep1?handler=purpose",myData, '#selectedType');
+            loadTypes();
         });
 
         $("#selectedType").on("change", function () {
             var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
             var myData = { typeId: $("#selectedType").val(),  '__RequestVerificationToken': token};
             getSelectList("/CreateWaiverStep1?handler=type",myData, '#subtype');
-
             showIfSelected('#selectedType', ['#subtypeDiv'], {valueList:['5','3']});
         });
+
+        function loadTypes() {
+            var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
+            var myData = { purposeId: $("#purpose").val(),  '__RequestVerificationToken': token};
+            var option = $('<option></option>').text('Please select one');
+            getSelectList("/CreateWaiverStep1?handler=purpose",myData, '#selectedType', {optsToAdd:[option]});
+        }
     </script>
 }

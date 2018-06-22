@@ -73,9 +73,10 @@ function getSelectList(inURL, inData, inSelectId, opts) {
         data: inData,
         success: function (data) {
             $(inSelectId).empty();
-            if (opts && opts.selectOne) {
-                var option = $('<option></option>').text(opts.selectOne);
-                $(inSelectId).append(option);
+            if (opts && opts.optsToAdd) {
+                opts.optsToAdd.forEach(function(anOption) {
+                    $(inSelectId).append(anOption);
+                });
             }
             data.forEach(function (element) {
                 var option = $('<option></option>').attr("value", element.value).text(element.text);
@@ -84,7 +85,7 @@ function getSelectList(inURL, inData, inSelectId, opts) {
         },
         error: function () {
             $(inSelectId).empty();
-            var option = $('<option></option>').text(opts.errorText);
+            var option = $('<option></option>').text('An error has occurred');
             $(inSelectId).append(option);
         }
     });
