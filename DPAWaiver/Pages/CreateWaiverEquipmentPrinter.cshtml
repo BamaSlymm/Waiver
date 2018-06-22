@@ -219,8 +219,8 @@
                     <div class='form-group required'>
                         <label for='printerReplacementCycle' class='control-label fontWeightNormal'>Printer Replacement Cycle</label>
                         <select class='form-control' id='printerReplacementCycle' aria-describedby='printerReplacementCycle'>
-                            <option value='1'>48 months</option>
-                            <option value='2'>60 months</option>
+                            <option value='48'>48 months</option>
+                            <option value='60'>60 months</option>
                             <option value='0'>Other</option>
                         </select>
                     </div>
@@ -535,5 +535,28 @@
     $("#printerType").on("change", function () {
         getPrinterData($('#printerType option:checked').val())
     });
+
+    $("#purchaseAmount, #agreementOrWarrantyCost, #printerReplacementCycle, #otherReplacementCycle").on("change paste keyup", function () {
+        calculateMonthlyCostlyWithoutToner();
+    });
+
+    function calculateMonthlyCostlyWithoutToner() {
+        let purchaseAmount = $('#purchaseAmount').val();
+        let agreementOrWarrantyCost = $('#agreementOrWarrantyCost').val()
+        if ($.isNumeric(purchaseAmount) && $.isNumeric(agreementOrWarrantyCost)) {
+            let replacementMonths = $('#printerReplacementCycle option:selected').val();
+            if (replacementMonths === '0') {
+                replacementMonths = $('#otherReplacementCycle').val();
+            }
+            if ($.isNumeric(replacementMonths)) {
+                let monthlyCostWithoutToner = parseFloat(purchaseAmount) + (agreementOrWarrantyCost / replacementMonths);
+                $('#monthlyCostWithoutToner').val(Number(monthlyCostWithoutToner).toFixed(2));
+            }
+            return ;
+        }
+        $('#monthlyCostWithoutToner').val('');
+        return ;
+    }
+
 </script>
 }

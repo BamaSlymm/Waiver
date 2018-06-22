@@ -4,8 +4,8 @@ var globalObj = {
     debugOn: true
 };
 
-function showIfSelected(selectItemId, divsToHide, opts) {
-    writeToConsole(selectItemId + ' : ' + divsToHide + ' : ' + JSON.stringify(opts));
+function showIfSelected(selectItemId, divsToShow, opts) {
+    writeToConsole(selectItemId + ' : ' + divsToShow + ' : ' + JSON.stringify(opts));
     let myList = [];
     if (opts && opts.textList) {
         myList = opts.textList;
@@ -27,24 +27,24 @@ function showIfSelected(selectItemId, divsToHide, opts) {
 
         if (opts && opts.hide) {
             if (matchFound) {
-                divsToHide.forEach(function(divToHide) {
+                divsToShow.forEach(function(divToHide) {
                     $(divToHide).hide({duration: 560});
                 });
                 return true;
             } else {
-                divsToHide.forEach(function(divToHide) {
+                divsToShow.forEach(function(divToHide) {
                     $(divToHide).show({duration: 200});
                 });
                 return false;
             }
         }
         if (matchFound) {
-            divsToHide.forEach(function(divToHide) {
-                $(divToHide).show({duration: 560});
+            divsToShow.forEach(function(divToShow) {
+                $(divToShow).show({duration: 560});
             });
             return true;
         } else {
-            divsToHide.forEach(function(divToHide) {
+            divsToShow.forEach(function(divToHide) {
                 $(divToHide).hide({duration: 200});
             });
             return false;

@@ -156,6 +156,7 @@ namespace DPAWaiver.Pages
                                 case 3: return RedirectToPage("./CreateWaiverEquipmentPrinterA3MultiFunction");
                                 case 4: return RedirectToPage("./CreateWaiverEquipmentPrinterProductionCopierPress");
                                 case 5: return RedirectToPage("./CreateWaiverEquipmentPrinterLargeFormat");
+                                case 6: return RedirectToPage("./CreateWaiverEquipmentPrinterLabel");
                             }
                             break;
                     }
