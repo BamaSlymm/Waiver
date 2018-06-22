@@ -74,11 +74,12 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            showIfSelected('#selectedType', ['#subtypeDiv'], {valueList:['5','3']});
+            showWhenTrue(['#subtypeDiv'], {cb:whenToShowSubType});
             loadTypes();
         });
 
         $("#purpose").on("change", function () {
+            showWhenTrue(['#subtypeDiv'], {cb:whenToShowSubType});
             loadTypes();
         });
 
@@ -86,9 +87,20 @@
             var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
             var myData = { typeId: $("#selectedType").val(),  '__RequestVerificationToken': token};
             getSelectList("/CreateWaiverStep1?handler=type",myData, '#subtype');
-            showIfSelected('#selectedType', ['#subtypeDiv'], {valueList:['5','3']});
+            showWhenTrue(['#subtypeDiv'], {cb:whenToShowSubType});
         });
 
+        function whenToShowSubType() {
+            writeToConsole('purpose [' + $('#purpose option:selected').val() + 
+                           '] selectedType [' + $('#selectedType option:selected').val() + ']');
+            let returnValue =  
+                ( $('#purpose option:selected').val() === '1' &&
+                  $('#selectedType  option:selected').val() ===  '5' ) || 
+                ( $('#purpose option:selected').val() === '3' &&
+                  $('#selectedType option:selected').val() === '3') ;
+            writeToConsole('return Value ' + returnValue) ;
+            return returnValue;
+        }
         function loadTypes() {
             var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
             var myData = { purposeId: $("#purpose").val(),  '__RequestVerificationToken': token};

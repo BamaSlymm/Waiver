@@ -111,11 +111,11 @@ This is a numeric field.Decimal can be used.(i.e. 1.5 which would = 1 1/2 hours"
                 <option>Web</option>
                 <option>Forms</option>
                 <option>Publication</option>
-                <option>Other</option>
+                <option value="0">Other</option>
             </select>
         </div>
 
-        <div class="form-group required">
+        <div class="form-group required" id="otherDescriptionId">
             <label for="otherDescription" class="control-label fontWeightNormal">If other, please explain:</label>
             <textarea class="form-control" id="systemRequirementsDescription" rows='2'></textarea>
         </div>
@@ -131,6 +131,26 @@ This is a numeric field.Decimal can be used.(i.e. 1.5 which would = 1 1/2 hours"
     <a class="btn btn-default" onclick="print();">Print&nbsp;
         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
     </a>
-    <a type="submit" class="btn btn-primary">Continue&nbsp;</a>
+    <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+    <a type="submit" class="btn btn-primary">Create Waiver&nbsp;
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
 </div>
+
+<div style="clear: both"></div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
+}        

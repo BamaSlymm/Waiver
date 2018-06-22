@@ -4,52 +4,77 @@ var globalObj = {
     debugOn: true
 };
 
+function showWhenTrue(divsToShow, opts) {
+    writeToConsole(divsToShow + ' : ' + JSON.stringify(opts));
+    let matchFound = false ;
+
+    if (opts && opts.cb) {
+        matchFound = opts.cb();
+        writeToConsole('match found for cb ' + matchFound);
+    }
+
+    showDOMElements(divsToShow,opts, matchFound);
+}
 function showIfSelected(selectItemId, divsToShow, opts) {
     writeToConsole(selectItemId + ' : ' + divsToShow + ' : ' + JSON.stringify(opts));
-    let myList = [];
-    if (opts && opts.textList) {
-        myList = opts.textList;
-    }
-    if (opts && opts.valueList) {
-        myList = opts.valueList;
-    }
+    let matchFound = false ;
 
-    myList.some(function (toCheck) {
-        let matchFound = false ;
+    
+    if ((opts && opts.textList) || (opts && opts.valueList)) {
+        let myList = [];
+
         if (opts && opts.textList) {
-            matchFound = ( $(selectItemId + ' option:selected').text() === toCheck );
-            writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').text());
+            myList = opts.textList;
         }
         if (opts && opts.valueList) {
-            matchFound = ( $(selectItemId + ' option:selected').val() === toCheck );
-            writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').val());
+            myList = opts.valueList;
         }
 
-        if (opts && opts.hide) {
-            if (matchFound) {
-                divsToShow.forEach(function(divToHide) {
-                    $(divToHide).hide({duration: 560});
-                });
-                return true;
-            } else {
-                divsToShow.forEach(function(divToHide) {
-                    $(divToHide).show({duration: 200});
-                });
-                return false;
+        matchFound = myList.some(function (toCheck) {
+            let matchFound = false ;
+            
+            if (opts && opts.textList) {
+                matchFound = ( $(selectItemId + ' option:selected').text() === toCheck );
+                writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').text());
             }
-        }
+
+            if (opts && opts.valueList) {
+                matchFound = ( $(selectItemId + ' option:selected').val() === toCheck );
+                writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').val());
+            }
+            return matchFound;
+        });   
+        showDOMElements(divsToShow,opts, matchFound);
+    }
+    
+}
+
+function showDOMElements(elementIDs, opts, matchFound) {
+    if (opts && opts.hide) {
         if (matchFound) {
-            divsToShow.forEach(function(divToShow) {
-                $(divToShow).show({duration: 560});
+            elementIDs.forEach(function(anId) {
+                $(anId).hide({duration: 560});
             });
             return true;
         } else {
-            divsToShow.forEach(function(divToHide) {
-                $(divToHide).hide({duration: 200});
+            elementIDs.forEach(function(anId) {
+                $(anId).show({duration: 200});
             });
             return false;
         }
-    });
+    }
+
+    if (matchFound) {
+        elementIDs.forEach(function(anId) {
+            $(anId).show({duration: 560});
+        });
+        return true;
+    } else {
+        elementIDs.forEach(function(anId) {
+            $(anId).hide({duration: 200});
+        });
+        return false;
+    }
 }
 
 function showIfNotEmpty(inputItemId, divToHide, opts) {

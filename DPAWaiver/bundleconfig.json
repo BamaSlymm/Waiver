@@ -20,5 +20,17 @@
     },
     // Optionally generate .map file
     "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/equipment.scanning.min.js",
+    "inputFiles": [
+      "wwwroot/js/equipment.scanning.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
   }
+
 ]
