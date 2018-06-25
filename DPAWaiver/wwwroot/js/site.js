@@ -43,13 +43,14 @@ function showIfSelected(selectItemId, divsToShow, opts) {
                 writeToConsole('matchFound : ' + matchFound + ' : ' + ' val ' + $(selectItemId + ' option:selected').val());
             }
             return matchFound;
-        });   
+        }); 
         showDOMElements(divsToShow,opts, matchFound);
     }
     
 }
 
 function showDOMElements(elementIDs, opts, matchFound) {
+    writeToConsole(elementIDs + ' : ' + JSON.stringify(opts) + ' : ' + matchFound);
     if (opts && opts.hide) {
         if (matchFound) {
             elementIDs.forEach(function(anId) {
