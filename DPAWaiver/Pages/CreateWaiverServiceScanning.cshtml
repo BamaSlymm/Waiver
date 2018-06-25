@@ -184,7 +184,10 @@ This is a numeric field."></span>
 
         <div class="form-group required">
             <label for="scanningInternally" class="control-label fontWeightNormal">Have you looked at scanning on your MultiFunction printer?</label>
-            <textarea class="form-control" id="scanningInternally" rows="2"></textarea>
+            <select class='form-control' id='scanningInternally' aria-describedby='scanningInternally'>
+                <option value='0'>No</option>
+                <option value='1'>Yes</option>
+            </select>
         </div>
 
         <div class="form-group required">
