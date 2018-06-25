@@ -37,6 +37,7 @@ body {
 
 .form-group.required .control-label:after { 
     content:" *";
+    font-size: 14pt;
     color:red;
  }
  
