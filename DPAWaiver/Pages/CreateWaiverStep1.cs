@@ -125,7 +125,7 @@ namespace DPAWaiver.Pages
                         case 1: return RedirectToPage("./CreateWaiverServiceDataEntry");
                         case 2: return RedirectToPage("./CreateWaiverServiceDesign");
                         case 3: return RedirectToPage("./CreateWaiverServiceMail");
-                        case 4: return RedirectToPage("./CreateWaiverServicePrint");
+                        case 4: return RedirectToPage("./CreateWaiverServicePrinter");
                         case 5:
                             switch (selectedSubtype)
                             {
