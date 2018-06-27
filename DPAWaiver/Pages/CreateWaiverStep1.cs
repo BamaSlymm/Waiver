@@ -40,7 +40,7 @@ namespace DPAWaiver.Pages
         {
             purposes = new List<SelectListItem> {
                 new SelectListItem {Text = "Service", Value = "1"},
-                new SelectListItem {Text = "Personal Request", Value = "2"},
+                new SelectListItem {Text = "Personnel Request", Value = "2"},
                 new SelectListItem {Text = "Equipment", Value = "3"},
                 new SelectListItem {Text = "Equipment (includes related software) And Personal Services", Value = "4"},
             };
@@ -63,7 +63,7 @@ namespace DPAWaiver.Pages
                 new SelectListItem {Text = "Mail Service", Value = "3"},
                 new SelectListItem {Text = "Print / Copy", Value = "4"},
                 new SelectListItem {Text = "Microfilm / Microfilm Conversion", Value = "5"},
-                new SelectListItem {Text = "Scanning", Value = "6"},
+                new SelectListItem {Text = "Scanning / Imaging / Microfilm", Value = "6"},
             };
 
             microfilmSubtypes = new List<SelectListItem> {
