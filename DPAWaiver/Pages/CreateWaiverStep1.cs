@@ -21,6 +21,8 @@ namespace DPAWaiver.Pages
 
         public List<SelectListItem> equipmentTypes { set; get; }
 
+        public List<SelectListItem> softwareTypes { set; get; }
+
         [BindProperty]
         public int selectedPurpose { set; get; }
 
@@ -42,7 +44,7 @@ namespace DPAWaiver.Pages
                 new SelectListItem {Text = "Service", Value = "1"},
                 new SelectListItem {Text = "Personnel Request", Value = "2"},
                 new SelectListItem {Text = "Equipment", Value = "3"},
-                new SelectListItem {Text = "Equipment (includes related software) And Personal Services", Value = "4"},
+                new SelectListItem {Text = "Software Related To Services", Value = "4"},
             };
 
             equipmentTypes = new List<SelectListItem> {
@@ -80,6 +82,11 @@ namespace DPAWaiver.Pages
                 new SelectListItem {Text = "Label Printers", Value = "6"},
             };
 
+            
+            softwareTypes = new List<SelectListItem> {
+                new SelectListItem {Text = "Data Entry", Value = "1"},
+            };
+
         }
         public void OnGet()
         {
@@ -94,8 +101,9 @@ namespace DPAWaiver.Pages
                 case 1: return new JsonResult(serviceTypes);
                 case 2: return new JsonResult(personalServiceTypes);
                 case 3: return new JsonResult(equipmentTypes);
+                case 4: return new JsonResult(softwareTypes);
             }
-            return new JsonResult(new object[] {});
+            return new JsonResult(new object[] { });
         }
 
         public JsonResult OnPostType(int typeId)
@@ -106,7 +114,7 @@ namespace DPAWaiver.Pages
                 case 5: return new JsonResult(microfilmSubtypes);
                 case 3: return new JsonResult(printerSubtypes);
             }
-            return new JsonResult(new object[] {});
+            return new JsonResult(new object[] { });
         }
 
         public IActionResult OnPost()
@@ -161,9 +169,16 @@ namespace DPAWaiver.Pages
                             break;
                     }
                     break;
+                case 4:
+                    switch (selectedType)
+                    {
+                        case 1: return RedirectToPage("./CreateWaiverSoftwareDataEntry");
+                            break;
+                    }
+                    break;
+
             }
             return RedirectToPage(pageName: "./CreateWaiverStep1");
-
         }
     }
 }
