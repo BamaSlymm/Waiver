@@ -133,8 +133,8 @@
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='uploadFile' class='control-label fontWeightNormal'>Employees and printer location spreadsheet
+                    <div class='form-group required' id='uploadFileDiv'>
+                        <label for='uploadFile' class='control-label fontWeightNormal'>Upload supporting documentation
                             <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Please provide spreadsheet that includes Employee Name, Printer Asset Location'></span>
                         </label>
                         <input type='file' class='form-control' id='uploadFile' aria-describedby='uploadFile' placeholder='Attach list of employees and printer location'>
@@ -157,9 +157,6 @@
                         <select class="form-control" id="acquisitionType">
                             <option value="1">Solicitation</option>
                             <option value="2">State Price Agreement</option>
-                            <option>Lease</option>
-                            <option>Discretionary Purchase</option>
-                            <option>Cancelable Rental</option>
                         </select>
                     </div>
                 </div>
@@ -180,6 +177,7 @@
                         <select class="form-control" id="statepriceSubType">
                             <option>Cancelable Rental</option>
                             <option>Lease</option>
+                            <option>Purchase</option>
                         </select>
                     </div>
                 </div>
@@ -416,13 +414,21 @@
 
             <hr class='sectionHeaderHR' />
             <div class='form-group required'>
-                <label for='justificationDescription' class='control-label fontWeightNormal'>Justification For Request</label>
-                <textarea class='form-control' id='justificationDescription' aria-describedby='justificationDescription' placeholder='Justification For Request'
-                    rows='2'></textarea>
-            </div>
-            <div class='form-group required'>
                 <label for='complianceDescription' class='control-label fontWeightNormal'>Please describe how OIT/DPA recommendations to consolidate printing assets are followed</label>
                 <textarea class='form-control' id='complianceDescription' aria-describedby='complianceDescription' placeholder='Please describe what printing practices are being made to comply with the DPA/OIT recommendations to consolidate printing assets and move print to more cost effective centralized network devices.'
+                    rows='2'></textarea>
+            </div>
+
+            
+            <div class="form-group required">
+                <label for="alternativesDescription" class="control-label fontWeightNormal">Please describe the alternatives you have examined before making the request</label>
+                <textarea class="form-control" id="alternativesDescription" rows="2"></textarea>
+            </div>
+
+
+            <div class='form-group required'>
+                <label for='justificationDescription' class='control-label fontWeightNormal'>Justification For Request</label>
+                <textarea class='form-control' id='justificationDescription' aria-describedby='justificationDescription' placeholder='Justification For Request'
                     rows='2'></textarea>
             </div>
 
@@ -460,6 +466,7 @@
         showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1'] });
         showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2'] });
         showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1'] });
+        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1'] });
 
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
         getPrinterData(1);
@@ -472,6 +479,10 @@
 
     $("#printerType").on("change", function () {
         showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1'] });
+    });
+
+    $("#forGroupOfIndividuals").on("change", function () {
+        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1'] });
     });
 
 
@@ -501,14 +512,20 @@
 
                 $('#cyanTonerCost').val(roundFloat(data[0].cyanTonerCost));
                 $('#pageYieldForCyanToner').val(data[0].pageYieldForCyanToner);
+                $('#cyanTonerCost').prop('readonly', data[0].cyanReadOnly);
+                $('#pageYieldForCyanToner').prop('readonly', data[0].cyanReadOnly);
                 calculateInkCostPerPage('#cyanTonerCost', '#pageYieldForCyanToner', '#cyanInkCostPerPage');
 
                 $('#magentaTonerCost').val(roundFloat(data[0].magentaTonerCost));
                 $('#pageYieldForMagentaToner').val(data[0].pageYieldForMagentaToner);
+                $('#magentaTonerCost').prop('readonly', data[0].magentaReadOnly);
+                $('#pageYieldForMagentaToner').prop('readonly', data[0].magentaReadOnly);
                 calculateInkCostPerPage('#magentaTonerCost', '#pageYieldForMagentaToner', '#magentaInkCostPerPage');
 
                 $('#yellowTonerCost').val(roundFloat(data[0].yellowTonerCost));
                 $('#pageYieldForYellowToner').val(data[0].pageYieldForYellowToner);
+                $('#yellowTonerCost').prop('readonly', data[0].yellowReadOnly);
+                $('#pageYieldForYellowToner').prop('readonly', data[0].yellowReadOnly);
                 calculateInkCostPerPage('#yellowTonerCost', '#pageYieldForYellowToner', '#yellowInkCostPerPage');
             },
             function () {

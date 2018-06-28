@@ -173,7 +173,6 @@ namespace DPAWaiver.Pages
                     switch (selectedType)
                     {
                         case 1: return RedirectToPage("./CreateWaiverSoftwareDataEntry");
-                            break;
                     }
                     break;
 
