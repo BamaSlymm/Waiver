@@ -13,7 +13,7 @@ namespace DPAWaiver.Models
             var printerList = new List<SingleFunctionPrinterPreferences>();
             var other =
                 new SingleFunctionPrinterPreferences(1, "Other", 9999, false, false, 0m, 0m, 4500);
-            other.enableColorToners();
+            other.colorTonerDisabled = false ;
 
             var m402dn =
                  new SingleFunctionPrinterPreferences(2, "M402dn", 1, true, false, 229.0m, 206.99m, 4500);
@@ -34,7 +34,7 @@ namespace DPAWaiver.Models
             m553dn.pageYieldForMagentaToner = 4750;
             m553dn.yellowTonerCost = 306.99m;
             m553dn.pageYieldForYellowToner = 4750;
-            m553dn.enableColorToners();
+            m553dn.colorTonerDisabled = false ;
 
             printerList.Add(m402dn);
             printerList.Add(m608dn);

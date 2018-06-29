@@ -1,5 +1,5 @@
-﻿@page
-@model CreateWaiverEquipmentPrinterModel
+﻿@page 
+@model CreateWaiverEquipmentPrinterModel 
 @{ ViewData["Title"] = "Create Waiver - Equipment - Print / Copy - A4 Single Function Printer";}
 
 <div class="panel panel-primary marginTop20px">
@@ -176,9 +176,24 @@
                         <label for="statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
                         <select class="form-control" id="statepriceSubType">
                             <option>Cancelable Rental</option>
-                            <option>Lease</option>
+                            <option value='1'>Lease</option>
                             <option>Purchase</option>
                         </select>
+                    </div>
+                </div>
+                
+            </div>
+               <div class='row' id='leaseTermsDiv'>
+                <div class='col-sm-6 col-xs-12'>
+                    <div class='form-group required'>
+                        <label for='numberOfMonths' class='control-label fontWeightNormal'>Number of Months of Lease</label>
+                        <input type='number' class='form-control' id='numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months of Lease'>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-xs-12'>
+                    <div class='form-group required'>
+                        <label for='monthlyLeaseAmount' class='control-label fontWeightNormal'>Monthly Lease Amount</label>
+                        <input type='number' class='form-control' id='monthlyLeaseAmount' aria-describedby='monthlyLeaseAmount' placeholder='Monthly Lease Amount'>
                     </div>
                 </div>
             </div>
@@ -197,10 +212,10 @@
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <div class="form-group required">
-                        <label for="equipmentPurchaseCost" class="control-label fontWeightNormal">Equipment Purchase Cost
+                        <label for="purchaseAmount" class="control-label fontWeightNormal">Equipment Purchase Cost
                             <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Equipment Purchase Cost"></span>
                         </label>
-                        <input type="number" class="form-control usd_input" id="equipmentPurchaseCost" aria-describedby="equipmentPurchaseCost" placeholder="Equipment Purchase Cost"
+                        <input type="number" class="form-control usd_input" id="purchaseAmount" aria-describedby="purchaseAmount" placeholder="Equipment Purchase Cost"
                             step='0.01'>
                     </div>
                 </div>
@@ -223,12 +238,9 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <!-- end of row -->
 
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required' id='otherReplacementCycleDiv'>
+                <div class='col-sm-6 col-xs-12' id='otherReplacementCycleDiv'>
+                    <div class='form-group required'>
                         <label for='otherReplacementCycle' class='control-label fontWeightNormal'>Please enter replacement cycle in months</label>
                         <input type='number' class='form-control' id='otherReplacementCycle' aria-describedby='otherReplacementCycle' placeholder='Please enter replacement cycle in months'>
                     </div>
@@ -240,10 +252,7 @@
                             disabled='disabled'>
                     </div>
                 </div>
-            </div>
-            <!-- end of row -->
 
-            <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label for='monthlyMonochromeVolume' class='control-label fontWeightNormal'>Anticipated Monochrome(black) monthly volume</label>
@@ -258,6 +267,9 @@
                 </div>
             </div>
             <!-- end of row -->
+
+            <hr class='sectionHeaderHR' />
+
 
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
@@ -275,7 +287,6 @@
                 </div>
             </div>
             <!-- end of row -->
-
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                 </div>
@@ -289,115 +300,102 @@
             </div>
             <!-- end of row -->
 
-            <hr class='sectionHeaderHR' />
+            <div class='collapse in' id='colorTonerBody'>
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='cyanTonerCost' class='control-label fontWeightNormal'>Cyan Toner Cartridge Cost (if applicable)</label>
+                            <input type='number' class='form-control' id='cyanTonerCost' aria-describedby='cyanTonerCost' placeholder='Cyan Toner Cartridge Cost (if applicable)'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='pageYieldForCyanToner' class='control-label fontWeightNormal'>Page Yield @@ 10%</label>
+                            <input type='number' class='form-control' id='pageYieldForCyanToner' aria-describedby='pageYieldForCyanToner' placeholder='Page Yield @@ 10%'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
 
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='cyanTonerCost' class='control-label fontWeightNormal'>Cyan Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='cyanTonerCost' aria-describedby='cyanTonerCost' placeholder='Cyan Toner Cartridge Cost (if applicable)'>
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='cyanInkCostPerPage' class='control-label fontWeightNormal'>Cyan Ink Cost Per Page</label>
+                            <input type='number' class='form-control' id='cyanInkCostPerPage' aria-describedby='cyanInkCostPerPage' placeholder='Cyan Ink Cost Per Page'
+                                disabled='disabled'>
+                        </div>
                     </div>
                 </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='pageYieldForCyanToner' class='control-label fontWeightNormal'>Page Yield @@ 10%</label>
-                        <input type='number' class='form-control' id='pageYieldForCyanToner' aria-describedby='pageYieldForCyanToner' placeholder='Page Yield @@ 10%'>
+                <!-- end of row -->
+
+                <hr class='sectionHeaderHR' />
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='magentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
+                            <input type='number' class='form-control' id='magentaTonerCost' aria-describedby='magentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='pageYieldForMagentaToner' class='control-label fontWeightNormal'>Page Yield @@ 10%</label>
+                            <input type='number' class='form-control' id='pageYieldForMagentaToner' aria-describedby='pageYieldForMagentaToner' placeholder='Page Yield @@ 10%'>
+                        </div>
                     </div>
                 </div>
+                <!-- end of row -->
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='magentaInkCostPerPage' class='control-label fontWeightNormal'>Magenta Ink Cost Per Page</label>
+                            <input type='number' class='form-control' id='magentaInkCostPerPage' aria-describedby='magentaInkCostPerPage' placeholder='Magenta Ink Cost Per Page'
+                                disabled='disabled'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
+
+                <hr class='sectionHeaderHR' />
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='yellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
+                            <input type='number' class='form-control' id='yellowTonerCost' aria-describedby='yellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='pageYieldForYellowToner' class='control-label fontWeightNormal'>Page Yield @@ 10%</label>
+                            <input type='number' class='form-control' id='pageYieldForYellowToner' aria-describedby='pageYieldForYellowToner' placeholder='Page Yield @@ 10%'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
+
+
+
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='yellowInkCostPerPage' class='control-label fontWeightNormal'>Yellow Ink Cost Per Page</label>
+                            <input type='number' class='form-control' id='yellowInkCostPerPage' aria-describedby='yellowInkCostPerPage' placeholder='Yellow Ink Cost Per Page'
+                                disabled='disabled'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
             </div>
-            <!-- end of row -->
-
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='cyanInkCostPerPage' class='control-label fontWeightNormal'>Cyan Ink Cost Per Page</label>
-                        <input type='number' class='form-control' id='cyanInkCostPerPage' aria-describedby='cyanInkCostPerPage' placeholder='Cyan Ink Cost Per Page'
-                            disabled='disabled'>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-
-            <hr class='sectionHeaderHR' />
-
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='magentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='magentaTonerCost' aria-describedby='magentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
-                    </div>
-                </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='pageYieldForMagentaToner' class='control-label fontWeightNormal'>Page Yield @@ 10%</label>
-                        <input type='number' class='form-control' id='pageYieldForMagentaToner' aria-describedby='pageYieldForMagentaToner' placeholder='Page Yield @@ 10%'>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='magentaInkCostPerPage' class='control-label fontWeightNormal'>Magenta Ink Cost Per Page</label>
-                        <input type='number' class='form-control' id='magentaInkCostPerPage' aria-describedby='magentaInkCostPerPage' placeholder='Magenta Ink Cost Per Page'
-                            disabled='disabled'>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-
-            <hr class='sectionHeaderHR' />
-
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='yellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='yellowTonerCost' aria-describedby='yellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
-                    </div>
-                </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='pageYieldForYellowToner' class='control-label fontWeightNormal'>Page Yield @@ 10%</label>
-                        <input type='number' class='form-control' id='pageYieldForYellowToner' aria-describedby='pageYieldForYellowToner' placeholder='Page Yield @@ 10%'>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='yellowInkCostPerPage' class='control-label fontWeightNormal'>Yellow Ink Cost Per Page</label>
-                        <input type='number' class='form-control' id='yellowInkCostPerPage' aria-describedby='yellowInkCostPerPage' placeholder='Yellow Ink Cost Per Page'
-                            disabled='disabled'>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-
-            <hr class='sectionHeaderHR' />
-
-            <div class='row'>
-                <div class='col-sm-6 col-xs-12'>
-                </div>
-                <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required'>
-                        <label for='blackInkCostPerPage' class='control-label fontWeightNormal'>Black Ink Cost Per Page</label>
-                        <input type='number' class='form-control' id='blackInkCostPerPage' aria-describedby='blackInkCostPerPage' placeholder='Black Ink Cost Per Page'
-                            disabled='disabled'>
-                    </div disabled='disabled'>
-                </div>
-            </div>
-            <!-- end of row -->
-
-            <hr class='sectionHeaderHR' />
+            <!-- End of Panel Head Color Toners -->
 
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
@@ -419,7 +417,7 @@
                     rows='2'></textarea>
             </div>
 
-            
+
             <div class="form-group required">
                 <label for="alternativesDescription" class="control-label fontWeightNormal">Please describe the alternatives you have examined before making the request</label>
                 <textarea class="form-control" id="alternativesDescription" rows="2"></textarea>
@@ -463,13 +461,15 @@
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1'] });
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2'] });
-        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1'] });
-        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1'] });
+        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], { valueList: ['1']});
+        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
+        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
+        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1']});
+        showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], { valueList: ['0']});
+        showIfSelected('#statepriceSubType',['#leaseTermsDiv'],{ valueList: ['1']});
 
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
-        getPrinterData(1);
+        getPrinterData($('#printerType option:checked').val())
     });
 
     $("#acquisitionType").on("change", function () {
@@ -478,11 +478,20 @@
     });
 
     $("#printerType").on("change", function () {
-        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1'] });
+        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
     });
 
+     $("#statepriceSubType").on("change", function () {
+        showIfSelected('#statepriceSubType',['#leaseTermsDiv'],{ valueList: ['1']});
+    });
+
+
     $("#forGroupOfIndividuals").on("change", function () {
-        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1'] });
+        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1']});
+    });
+
+    $("#printerReplacementCycle").on("change", function () {
+        showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0']});
     });
 
 
@@ -505,27 +514,34 @@
                     return;
                 }
                 console.log(data[0]);
-                $('#equipmentPurchaseCost').val(roundFloat(data[0].equipmentPurchaseCost));
+                $('#purchaseAmount').val(roundFloat(data[0].equipmentPurchaseCost));
+                $('#monthlyColorVolume').val(roundFloat(data[0].monthlyColorVolume));
+                $('#monthlyColorVolume').prop('readonly', data[0].colorTonerDisabled);
+                if (data[0].colorTonerDisabled) {
+                    console.log('trying to collapse');
+                    $('#colorTonerBody').collapse('hide');
+                }
                 $('#blackTonerCost').val(data[0].blackTonerCost);
                 $('#pageYieldForBlackToner').val(data[0].pageYieldForBlackToner);
                 calculateInkCostPerPage('#blackTonerCost', '#pageYieldForBlackToner', '#blackInkCostPerPage');
 
                 $('#cyanTonerCost').val(roundFloat(data[0].cyanTonerCost));
                 $('#pageYieldForCyanToner').val(data[0].pageYieldForCyanToner);
-                $('#cyanTonerCost').prop('readonly', data[0].cyanReadOnly);
-                $('#pageYieldForCyanToner').prop('readonly', data[0].cyanReadOnly);
+                $('#cyanTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#pageYieldForCyanToner').prop('readonly', data[0].colorTonerDisabled);
                 calculateInkCostPerPage('#cyanTonerCost', '#pageYieldForCyanToner', '#cyanInkCostPerPage');
 
                 $('#magentaTonerCost').val(roundFloat(data[0].magentaTonerCost));
                 $('#pageYieldForMagentaToner').val(data[0].pageYieldForMagentaToner);
-                $('#magentaTonerCost').prop('readonly', data[0].magentaReadOnly);
-                $('#pageYieldForMagentaToner').prop('readonly', data[0].magentaReadOnly);
+                $('#magentaTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#pageYieldForMagentaToner').prop('readonly', data[0].colorTonerDisabled);
                 calculateInkCostPerPage('#magentaTonerCost', '#pageYieldForMagentaToner', '#magentaInkCostPerPage');
 
                 $('#yellowTonerCost').val(roundFloat(data[0].yellowTonerCost));
                 $('#pageYieldForYellowToner').val(data[0].pageYieldForYellowToner);
-                $('#yellowTonerCost').prop('readonly', data[0].yellowReadOnly);
-                $('#pageYieldForYellowToner').prop('readonly', data[0].yellowReadOnly);
+                $('#yellowTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#pageYieldForYellowToner').prop('readonly', data[0].colorTonerDisabled);
+
                 calculateInkCostPerPage('#yellowTonerCost', '#pageYieldForYellowToner', '#yellowInkCostPerPage');
             },
             function () {
@@ -550,16 +566,19 @@
     });
 
     $("#printerType").on("change", function () {
-        getPrinterData($('#printerType option:checked').val())
+        getPrinterData($('#printerType option:checked').val());
     });
 
-    $("#purchaseAmount, #agreementOrWarrantyCost, #printerReplacementCycle, #otherReplacementCycle").on("change paste keyup", function () {
-        calculateMonthlyCostlyWithoutToner();
-    });
+    $("#purchaseAmount, #agreementOrWarrantyCost, #printerReplacementCycle, #otherReplacementCycle").on(
+        "change paste keyup",
+        function () {
+            calculateMonthlyCostWithoutToner();
+        });
 
-    function calculateMonthlyCostlyWithoutToner() {
+    function calculateMonthlyCostWithoutToner() {
         let purchaseAmount = $('#purchaseAmount').val();
         let agreementOrWarrantyCost = $('#agreementOrWarrantyCost').val()
+        writeToConsole('purchaseAmount=[' + purchaseAmount + '] agreementOrWarrantyCost=[' + agreementOrWarrantyCost + ']') ;
         if ($.isNumeric(purchaseAmount) && $.isNumeric(agreementOrWarrantyCost)) {
             let replacementMonths = $('#printerReplacementCycle option:selected').val();
             if (replacementMonths === '0') {
@@ -569,11 +588,10 @@
                 let monthlyCostWithoutToner = parseFloat(purchaseAmount) + (agreementOrWarrantyCost / replacementMonths);
                 $('#monthlyCostWithoutToner').val(Number(monthlyCostWithoutToner).toFixed(2));
             }
-            return ;
+            return;
         }
         $('#monthlyCostWithoutToner').val('');
-        return ;
+        return;
     }
-
 </script>
 }
