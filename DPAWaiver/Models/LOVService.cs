@@ -1,12 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DPAWaiver.Data;
+using DPAWaiver.Models.WaiverSelection;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DPAWaiver.Models
 {
     public class LOVService : ILOVService
     {
+
+        private readonly WaiverDBContext _context ;
+
+        public LOVService(WaiverDBContext context) {
+            _context = context ;
+        }
 
         public List<SingleFunctionPrinterPreferences> getSingleFunctionPrinterPreferences()
         {
@@ -67,30 +75,89 @@ namespace DPAWaiver.Models
         }
 
 
-        IEnumerable<SelectListItem> ILOVService.GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder()
+        public IEnumerable<SelectListItem> GetPurposesAsSelectListBySortOrder()
         {
-            return convertToSelectListBySortOrder(getMultiFunctionPrinterPreferences());
+            return convertToSelectListBySortOrder(getPurposes());
         }
 
-        public List<Equipment> getEquipment()
+        public List<Purpose> getPurposes()
         {
-            var aList = new List<Equipment>();
-            aList.Add(new Equipment(1, "Other", 9999, false, false));
-            aList.Add(new Equipment(2, "Canon", 1, true, false));
-            aList.Add(new Equipment(4, "Konica", 3, true, false));
-            aList.Add(new Equipment(5, "Minolta", 4, true, false));
-            aList.Add(new Equipment(6, "Ricoh", 5, true, false));
-            aList.Add(new Equipment(7, "Xerox", 6, true, false));
 
-            return aList;
+            return _context.Purposes.ToList();
         }
+
+        public IEnumerable<SelectListItem> GetServiceTypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getServiceTypes());
+        }
+
+        public List<PurposeType> getServiceTypes()
+        {
+            return _context.PurposeTypes.Where( x => x.purpose.ID == 1).ToList();
+        }
+
+
+        public IEnumerable<SelectListItem> GetPersonnelServiceTypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getPersonnelServiceTypes());
+        }
+        public List<PurposeType> getPersonnelServiceTypes()
+        {
+            return _context.PurposeTypes.Where( x => x.purpose.ID == 2).ToList();
+        }
+
+
+        public IEnumerable<SelectListItem> GetEquipmentTypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getEquipmentTypes());
+        }
+        public List<PurposeType> getEquipmentTypes()
+        {
+            return _context.PurposeTypes.Where( x => x.purpose.ID == 3).ToList();
+        }
+
+        public IEnumerable<SelectListItem> GetSoftwareTypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getSoftwareTypes());
+        }
+        public List<PurposeType> getSoftwareTypes()
+        {
+            return _context.PurposeTypes.Where( x => x.purpose.ID == 4).ToList();
+        }
+
 
         public IEnumerable<SelectListItem> GetEquipmentAsSelectListBySortOrder()
         {
             return convertToSelectListBySortOrder(getEquipment());
         }
+        public List<Equipment> getEquipment()
+        {
+            return _context.Equipments.ToList();
+        }
 
-        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<BaseLOV> enumerableList)
+        public IEnumerable<SelectListItem> GetPrinterSubtypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getPrinterSubtypes());
+        }
+        public List<PurposeSubtype> getPrinterSubtypes()
+        {
+            return _context.PurposeSubtypes.Where(x=>x.purposeType.ID == 11).ToList() ;
+        }
+        public IEnumerable<SelectListItem> GetMicrofilmSubtypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getMicrofilmSubtypes());
+        }
+        public List<PurposeSubtype> getMicrofilmSubtypes()
+        {
+            return _context.PurposeSubtypes.Where(x=>x.purposeType.ID == 5).ToList() ;
+        }
+
+        public IEnumerable<SelectListItem> GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(getMultiFunctionPrinterPreferences());
+        }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<SingleFunctionPrinterPreferences> enumerableList)
         {
 
             var selectList = new List<SelectListItem>();
@@ -102,5 +169,71 @@ namespace DPAWaiver.Models
 
             return selectList;
         }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<MultiFunctionPrinter> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<Equipment> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<Purpose> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<PurposeType> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
+       private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<PurposeSubtype> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
     }
 }

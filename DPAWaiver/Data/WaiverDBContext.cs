@@ -1,4 +1,5 @@
 using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 using Microsoft.EntityFrameworkCore;
 
 namespace DPAWaiver.Data
@@ -11,12 +12,29 @@ namespace DPAWaiver.Data
 
         public DbSet<BaseLOV> BaseLOVs { get; set; }
 
+        public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<Purpose> Purposes { get; set; }
+        public DbSet<PurposeType> PurposeTypes { get; set; }
+        public DbSet<PurposeSubtype> PurposeSubtypes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BaseLOV>().ToTable("BaseLOV");
-            modelBuilder.Entity<Equipment>().ToTable("Equipment");
-            modelBuilder.Entity<SingleFunctionPrinterPreferences>().ToTable("SingleFunctionPrinterPreferences");
+            /** BaseLOV is not currently used due to EF Core only supports tph (table per hierarchy) */
+            /** It leads to a very convoluted table structure */
+            modelBuilder.Entity<BaseLOV>().HasDiscriminator<string>("LOVType");
+            modelBuilder.Entity<BaseLOV>().HasKey(c=>new {c.ID, c.LOVType});
+            modelBuilder.Entity<PurposeType>()
+                .HasOne(t=>t.purpose)
+                .WithMany(c=>c.purposeTypes);
+            modelBuilder.Entity<PurposeSubtype>()
+                .HasOne(t=>t.purposeType)
+                .WithMany(c=>c.purposeSubtypes);
+
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }     
 
     }
 }

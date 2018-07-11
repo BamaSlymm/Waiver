@@ -1,20 +1,21 @@
-   $(document).ready(function () {
-        showIfSelected('#newOrReplace', ['#currentMakeDiv','#modelAndAcquisitionDiv'], { valueList: ['0','1'] });
-        showIfSelected('#multiFunctionConsidered', ['#multiFunctionReasonDiv'], {valueList: ['0'] });
-        showIfSelected('#scannerType', ['#otherScannerTypeDiv'], {valueList: ['0'] });
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
-        showIfSelected('#leaseOrPurchase', ['#leaseDataDiv'], {valueList: ['0']});
-        showIfSelected('#leaseOrPurchase', ['#purchaseDataDiv'], {valueList: ['1']});
-        showIfSelected('#additionalWorkspaceRequired', ['#additionalWorkspaceDiv'], {valueList: ['1']});
-        calculateTotalEquipmentCost();
-        calculateTotalAnnualPersonnelCost();
-        calculateTotalSoftwareCost();
-        calculateTotalAnnualLicenseCost();
-        calculateTotalSpaceCost();
-        calculateTotalOneTimeCost();
-        calculateTotalCostOfOwnership();
-    });
+/*jshint esversion: 6 */
+$(document).ready(function () {
+    showIfSelected('#newOrReplace', ['#currentMakeDiv','#modelAndAcquisitionDiv'], { valueList: ['0','1'] });
+    showIfSelected('#multiFunctionConsidered', ['#multiFunctionReasonDiv'], {valueList: ['0'] });
+    showIfSelected('#scannerType', ['#otherScannerTypeDiv'], {valueList: ['0'] });
+    showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
+    showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
+    showIfSelected('#leaseOrPurchase', ['#leaseDataDiv'], {valueList: ['0']});
+    showIfSelected('#leaseOrPurchase', ['#purchaseDataDiv'], {valueList: ['1']});
+    showIfSelected('#additionalWorkspaceRequired', ['#additionalWorkspaceDiv'], {valueList: ['1']});
+    calculateTotalEquipmentCost();
+    calculateTotalAnnualPersonnelCost();
+    calculateTotalSoftwareCost();
+    calculateTotalAnnualLicenseCost();
+    calculateTotalSpaceCost();
+    calculateTotalOneTimeCost();
+    calculateTotalCostOfOwnership();
+});
 
 
     $('#newOrReplace').on('change',function() {

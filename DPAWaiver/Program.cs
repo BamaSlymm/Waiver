@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DPAWaiver.Data;
+using DPAWaiver.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +24,8 @@ namespace DPAWaiver
                 try
                 {
                     var context = services.GetRequiredService<WaiverDBContext>();
-                    DbInitializer.Initialize(context);
+                    var dbInit = new DbInitializer(context, new LOVPopulator());
+                    dbInit.Initialize();
                 }
                 catch (Exception ex)
                 {

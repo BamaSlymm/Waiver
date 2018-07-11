@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using DPAWaiver.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,16 +13,25 @@ namespace DPAWaiver.Pages
 {
     public class CreateWaiverStep1Model : PageModel
     {
-        public List<SelectListItem> purposes { set; get; }
-        public List<SelectListItem> serviceTypes { set; get; }
-        public List<SelectListItem> personalServiceTypes { set; get; }
-        public List<SelectListItem> microfilmSubtypes { set; get; }
 
-        public List<SelectListItem> printerSubtypes;
+        private readonly ILOVService _ILOVService;
 
-        public List<SelectListItem> equipmentTypes { set; get; }
+        public CreateWaiverStep1Model (ILOVService iLOVService, ILogger<CreateWaiverStep1Model> logger) {
+            _logger = logger;
+            _ILOVService = iLOVService;
+        }
 
-        public List<SelectListItem> softwareTypes { set; get; }
+        public IEnumerable<SelectListItem> purposes => _ILOVService.GetPurposesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> serviceTypes => _ILOVService.GetServiceTypesAsSelectListBySortOrder();
+            
+        public IEnumerable<SelectListItem> personalServiceTypes => _ILOVService.GetPersonnelServiceTypesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> microfilmSubtypes => _ILOVService.GetMicrofilmSubtypesAsSelectListBySortOrder();
+
+        public IEnumerable<SelectListItem> printerSubtypes => _ILOVService.GetPrinterSubtypesAsSelectListBySortOrder();
+
+        public IEnumerable<SelectListItem> equipmentTypes => _ILOVService.GetEquipmentTypesAsSelectListBySortOrder(); 
+
+        public IEnumerable<SelectListItem> softwareTypes => _ILOVService.GetSoftwareTypesAsSelectListBySortOrder(); 
 
         [BindProperty]
         public int selectedPurpose { set; get; }
@@ -32,70 +42,12 @@ namespace DPAWaiver.Pages
         public int selectedSubtype { set; get; }
         private readonly ILogger _logger;
 
-        public CreateWaiverStep1Model(ILogger<CreateWaiverStep1Model> logger)
-        {
-            _logger = logger;
-
-        }
-
-        private void setSelects()
-        {
-            purposes = new List<SelectListItem> {
-                new SelectListItem {Text = "Service", Value = "1"},
-                new SelectListItem {Text = "Personnel Request", Value = "2"},
-                new SelectListItem {Text = "Equipment", Value = "3"},
-                new SelectListItem {Text = "Software Related To Services", Value = "4"},
-            };
-
-            equipmentTypes = new List<SelectListItem> {
-                new SelectListItem {Text = "Mail Processing", Value = "1"},
-                new SelectListItem {Text = "Scanning/Imaging/Microfilm", Value = "2"},
-                new SelectListItem {Text = "Print/Copy", Value = "3"}
-            };
-
-            personalServiceTypes = new List<SelectListItem> {
-                new SelectListItem {Text = "State Employee", Value = "1"},
-                new SelectListItem {Text = "Third Party Contractor", Value = "2"},
-            };
-
-
-            serviceTypes = new List<SelectListItem> {
-                new SelectListItem {Text = "Data Entry", Value = "1"},
-                new SelectListItem {Text = "Design Services", Value = "2"},
-                new SelectListItem {Text = "Mail Service", Value = "3"},
-                new SelectListItem {Text = "Print / Copy", Value = "4"},
-                new SelectListItem {Text = "Microfilm / Microfilm Conversion", Value = "5"},
-                new SelectListItem {Text = "Scanning / Imaging / Microfilm", Value = "6"},
-            };
-
-            microfilmSubtypes = new List<SelectListItem> {
-                new SelectListItem {Text = "Microfilm", Value = "1"},
-                new SelectListItem {Text = "Microfilm Conversion", Value = "2"},
-            };
-
-            printerSubtypes = new List<SelectListItem> {
-                new SelectListItem {Text = "A4 Single Function Printer", Value = "1"},
-                new SelectListItem {Text = "A4 Multi  Function Printer", Value = "2"},
-                new SelectListItem {Text = "A3 Multi  Function Printer", Value = "3"},
-                new SelectListItem {Text = "Production Copier Press", Value = "4"},
-                new SelectListItem {Text = "Large Format Printer", Value = "5"},
-                new SelectListItem {Text = "Label Printers", Value = "6"},
-            };
-
-            
-            softwareTypes = new List<SelectListItem> {
-                new SelectListItem {Text = "Data Entry", Value = "1"},
-            };
-
-        }
         public void OnGet()
         {
-            setSelects();
         }
 
         public JsonResult OnPostPurpose(int purposeId)
         {
-            setSelects();
             switch (purposeId)
             {
                 case 1: return new JsonResult(serviceTypes);
@@ -108,11 +60,10 @@ namespace DPAWaiver.Pages
 
         public JsonResult OnPostType(int typeId)
         {
-            setSelects();
             switch (typeId)
             {
                 case 5: return new JsonResult(microfilmSubtypes);
-                case 3: return new JsonResult(printerSubtypes);
+                case 11: return new JsonResult(printerSubtypes);
             }
             return new JsonResult(new object[] { });
         }
@@ -122,7 +73,6 @@ namespace DPAWaiver.Pages
             _logger.LogInformation("Selected purpose {1} Selected type {2}, subtype {3}", selectedPurpose, selectedType, selectedSubtype);
             if (!ModelState.IsValid)
             {
-                setSelects();
                 return Page();
             }
             switch (selectedPurpose)
@@ -137,26 +87,26 @@ namespace DPAWaiver.Pages
                         case 5:
                             switch (selectedSubtype)
                             {
-                                case 1: return RedirectToPage("./CreateWaiverServiceMicrofilm");
-                                case 2: return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
+                                case 7: return RedirectToPage("./CreateWaiverServiceMicrofilm");
+                                case 8: return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
                             }
                             break;
                         case 6: return RedirectToPage("./CreateWaiverServiceScanning");
                     }
                     break;
                 case 2:
-                    switch (selectedType)
+                    switch (selectedType) /* see LOVPopulator.getPersonnelServiceTypes */
                     {
-                        case 1: return RedirectToPage("./CreateWaiverPersonnelState");
-                        case 2: return RedirectToPage("./CreateWaiverPersonnelContractor");
+                        case 7: return RedirectToPage("./CreateWaiverPersonnelState");
+                        case 8: return RedirectToPage("./CreateWaiverPersonnelContractor");
                     }
                     break;
                 case 3:
                     switch (selectedType)
                     {
-                        case 1: return RedirectToPage("./CreateWaiverEquipmentMail");
-                        case 2: return RedirectToPage("./CreateWaiverEquipmentScanning");
-                        case 3:
+                        case 9: return RedirectToPage("./CreateWaiverEquipmentMail");
+                        case 10: return RedirectToPage("./CreateWaiverEquipmentScanning");
+                        case 11:
                             switch (selectedSubtype)
                             {
                                 case 1: return RedirectToPage("./CreateWaiverEquipmentPrinter");
