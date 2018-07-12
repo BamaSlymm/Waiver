@@ -177,9 +177,9 @@ This is a numeric field."></span>
                     <select class="form-control control-label" id="imageDelivery">
                         <option>DVD</option>
                         <option>USB</option>
-                        <option>Email</option>
+                        <option value=2>Email</option>
                         <option>Google Drive</option>
-                        <option>Other</option>
+                        <option value=1>Other</option>
                     </select>
                 </div>
             </div>
@@ -203,14 +203,33 @@ This is a numeric field."></span>
         </div>
 
         <div class="form-group required">
-            <label for="internalDatabaseConversion" class="control-label fontWeightNormal">Can the data be converted and imported into your department's internal database.</label>
-            <textarea class="form-control" id="internalDatabaseConversion" rows="2"></textarea>
+            <label for="keyedIntoSystem" class="control-label fontWeightNormal">Can the data be converted and imported into your department's internal database.</label>
+            <select class="form-control control-label" id="keyedIntoSystem">
+                <option>Please select one</option>
+                <option value='0'>No</option>
+                <option value='1'>Yes</option>
+            </select>
         </div>
 
-        <div class="form-group required">
-            <label for="notInHouseReason" class="control-label fontWeightNormal">Customer believes that this microfilm conversion cannot be performed by the State's scanning unit. Please provide details as to why:</label>
-            <textarea class="form-control" id="notInHouseReason" rows="2"></textarea>
+        <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>
+            <label for='reasonForNotKeyedIntoSystem' class='control-label fontWeightNormal'>Please explain why</label>
+            <input type='text' class='form-control' id='reasonForNotKeyedIntoSystem' aria-describedby='reasonForNotKeyedIntoSystem' placeholder='Please explain why'>
         </div>
+
+      <div class="form-group required">
+            <label for="doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
+            <select class="form-control control-label" id="doneInHouse">
+                <option>Please select one</option>
+                <option value='0'>No</option>
+                <option value='1'>Yes</option>
+            </select>
+        </div>
+
+        <div class='form-group required' id='notInHouseReasonDiv'>
+            <label for='notInHouseReason' class='control-label fontWeightNormal'>Please explain why</label>
+            <input type='text' class='form-control' id='notInHouseReason' aria-describedby='notInHouseReason' placeholder='Please explain why'>
+        </div>
+
 
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
@@ -245,7 +264,10 @@ This is a numeric field."></span>
         showIfSelected('#typeOfFilm', ['#numberOfRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
         showIfSelected('#typeOfFilm', ['#numberOfCardsDiv'], {textList:['aperture card','microfiche']});
         showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
-        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
+        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {valueList:['1']});
+        showIfSelected('#imageDelivery', ['#emailImageDeliveryDiv'], {valueList:['2']});
+        showIfSelected('#keyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], { valueList: ['0']});
+        showIfSelected('#doneInHouse', ['#notInHouseReasonDiv'], { valueList: ['0']});
     });
 
     $("#typeOfFilm").on("change", function () {
@@ -261,8 +283,20 @@ This is a numeric field."></span>
     });
 
     $("#imageDelivery").on("change", function () {
-        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
+        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {valueList:['1']});
+        showIfSelected('#imageDelivery', ['#emailImageDeliveryDiv'], {valueList:['2']});
     });
+
+    $("#keyedIntoSystem").on("change", function () {
+        showIfSelected('#keyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], { valueList: ['0']});
+    });
+
+    $("#doneInHouse").on("change", function () {
+        showIfSelected('#doneInHouse', ['#notInHouseReasonDiv'], { valueList: ['0']});
+    });
+
+
+
 
 </script>
 }

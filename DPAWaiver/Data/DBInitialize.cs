@@ -1,4 +1,5 @@
 using DPAWaiver.Models;
+using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,15 @@ namespace DPAWaiver.Data
             SavePurposes();
             SavePurposeTypes();
             SavePurposeSubtypes();
+            SaveMicrofilmOutputTypes();
             Console.WriteLine("DB Created: ");
 
+        }
+
+        private void SaveMicrofilmOutputTypes()
+        {
+            var newList = _populator.getMicrofilmOutputTypes();
+            MergeMicrofilmOutputTypes(newList);
         }
 
         public void SavePurposeTypes()
@@ -51,7 +59,6 @@ namespace DPAWaiver.Data
         }
         public void SaveMicrofilmSubtypes()
         {
-
             var newPurposeSubtypes = _populator.getMicrofilmSubtypes();
             MergePurposeSubtypes(newPurposeSubtypes, 5);
         }
@@ -115,6 +122,18 @@ namespace DPAWaiver.Data
             }
             _context.SaveChanges();
         }
+
+        private void MergeMicrofilmOutputTypes(List<MicrofilmOutputType> newTypes)
+        {
+            var savedTypes = _context.MicrofilmOutputTypes;
+            var newList = DBInitializeHelper.MergeMicrofilmOutputType(savedTypes, newTypes);
+            foreach (var item in newList)
+            {
+                _context.MicrofilmOutputTypes.Add(item);
+            }
+            _context.SaveChanges();
+        }
+
 
     }
 }

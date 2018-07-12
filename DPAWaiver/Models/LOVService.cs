@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DPAWaiver.Data;
+using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,10 +11,11 @@ namespace DPAWaiver.Models
     public class LOVService : ILOVService
     {
 
-        private readonly WaiverDBContext _context ;
+        private readonly WaiverDBContext _context;
 
-        public LOVService(WaiverDBContext context) {
-            _context = context ;
+        public LOVService(WaiverDBContext context)
+        {
+            _context = context;
         }
 
         public List<SingleFunctionPrinterPreferences> getSingleFunctionPrinterPreferences()
@@ -21,7 +23,7 @@ namespace DPAWaiver.Models
             var printerList = new List<SingleFunctionPrinterPreferences>();
             var other =
                 new SingleFunctionPrinterPreferences(1, "Other", 9999, false, false, 0m, 0m, 4500);
-            other.colorTonerDisabled = false ;
+            other.colorTonerDisabled = false;
 
             var m402dn =
                  new SingleFunctionPrinterPreferences(2, "M402dn", 1, true, false, 229.0m, 206.99m, 4500);
@@ -42,7 +44,7 @@ namespace DPAWaiver.Models
             m553dn.pageYieldForMagentaToner = 4750;
             m553dn.yellowTonerCost = 306.99m;
             m553dn.pageYieldForYellowToner = 4750;
-            m553dn.colorTonerDisabled = false ;
+            m553dn.colorTonerDisabled = false;
 
             printerList.Add(m402dn);
             printerList.Add(m608dn);
@@ -93,7 +95,7 @@ namespace DPAWaiver.Models
 
         public List<PurposeType> getServiceTypes()
         {
-            return _context.PurposeTypes.Where( x => x.purpose.ID == 1).ToList();
+            return _context.PurposeTypes.Where(x => x.purpose.ID == 1).ToList();
         }
 
 
@@ -103,7 +105,7 @@ namespace DPAWaiver.Models
         }
         public List<PurposeType> getPersonnelServiceTypes()
         {
-            return _context.PurposeTypes.Where( x => x.purpose.ID == 2).ToList();
+            return _context.PurposeTypes.Where(x => x.purpose.ID == 2).ToList();
         }
 
 
@@ -113,7 +115,7 @@ namespace DPAWaiver.Models
         }
         public List<PurposeType> getEquipmentTypes()
         {
-            return _context.PurposeTypes.Where( x => x.purpose.ID == 3).ToList();
+            return _context.PurposeTypes.Where(x => x.purpose.ID == 3).ToList();
         }
 
         public IEnumerable<SelectListItem> GetSoftwareTypesAsSelectListBySortOrder()
@@ -122,7 +124,7 @@ namespace DPAWaiver.Models
         }
         public List<PurposeType> getSoftwareTypes()
         {
-            return _context.PurposeTypes.Where( x => x.purpose.ID == 4).ToList();
+            return _context.PurposeTypes.Where(x => x.purpose.ID == 4).ToList();
         }
 
 
@@ -141,7 +143,7 @@ namespace DPAWaiver.Models
         }
         public List<PurposeSubtype> getPrinterSubtypes()
         {
-            return _context.PurposeSubtypes.Where(x=>x.purposeType.ID == 11).ToList() ;
+            return _context.PurposeSubtypes.Where(x => x.purposeType.ID == 11).ToList();
         }
         public IEnumerable<SelectListItem> GetMicrofilmSubtypesAsSelectListBySortOrder()
         {
@@ -149,7 +151,7 @@ namespace DPAWaiver.Models
         }
         public List<PurposeSubtype> getMicrofilmSubtypes()
         {
-            return _context.PurposeSubtypes.Where(x=>x.purposeType.ID == 5).ToList() ;
+            return _context.PurposeSubtypes.Where(x => x.purposeType.ID == 5).ToList();
         }
 
         public IEnumerable<SelectListItem> GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder()
@@ -222,7 +224,7 @@ namespace DPAWaiver.Models
             return selectList;
         }
 
-       private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<PurposeSubtype> enumerableList)
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<PurposeSubtype> enumerableList)
         {
 
             var selectList = new List<SelectListItem>();
@@ -233,6 +235,29 @@ namespace DPAWaiver.Models
             }
 
             return selectList;
+        }
+
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<MicrofilmOutputType> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
+        public IEnumerable<SelectListItem> GetMicrofilmOutputTypeAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(GetMicrofilmOutputTypes());
+        }
+
+        public List<MicrofilmOutputType> GetMicrofilmOutputTypes()
+        {
+            return _context.MicrofilmOutputTypes.ToList();
         }
 
     }

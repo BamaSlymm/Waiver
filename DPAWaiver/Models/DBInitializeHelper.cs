@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
 using Microsoft.EntityFrameworkCore;
 
@@ -108,7 +109,25 @@ namespace DPAWaiver.Models
             return newList;
         }
 
-
+        public static IEnumerable<MicrofilmOutputType> MergeMicrofilmOutputType(IQueryable<MicrofilmOutputType> initialList, IEnumerable<MicrofilmOutputType> otherList)
+        {
+            List<MicrofilmOutputType> newList = new List<MicrofilmOutputType>();
+            if (!otherList.Any())
+            {
+                return initialList;
+            }
+            foreach (var currentElem in initialList)
+            {
+                currentElem.Update(otherList.FirstOrDefault(x => x.ID == currentElem.ID));
+            }
+            foreach (var anElem in otherList)
+            {
+                if (!initialList.Any(x => x.ID == anElem.ID))  {
+                    newList.Add(anElem);
+                }
+            }
+            return newList;
+        }
 
     }
 }

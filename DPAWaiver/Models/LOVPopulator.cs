@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -61,6 +62,20 @@ namespace DPAWaiver.Models
 
             return aList;
         }
+
+        public List<MicrofilmOutputType> getMicrofilmOutputTypes()
+        {
+
+            return new List<MicrofilmOutputType>() {
+                new MicrofilmOutputType(ID: 1, name:"16 mm diazo film",  sortOrder: 1, isDeletable:true, isDisabled:false),
+                new MicrofilmOutputType(ID: 2, name:"16 mm silver film", sortOrder: 2, isDeletable:true, isDisabled:false),
+                new MicrofilmOutputType(ID: 3, name:"35 mm diazo film",  sortOrder: 3, isDeletable:true, isDisabled:false),
+                new MicrofilmOutputType(ID: 4, name:"35 mm silver film", sortOrder: 4, isDeletable:true, isDisabled:false)
+            };
+
+        }
+
+
 
         public List<Equipment> getEquipment()
         {

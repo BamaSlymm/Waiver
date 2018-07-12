@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DPAWaiver.Models.WaiverSelection;
+using DPAWaiver.Models.LOV;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DPAWaiver.Models
@@ -34,6 +35,9 @@ namespace DPAWaiver.Models
 
         IEnumerable<SelectListItem> GetEquipmentAsSelectListBySortOrder();
         List<Equipment> getEquipment();
-        
+
+        IEnumerable<SelectListItem> GetMicrofilmOutputTypeAsSelectListBySortOrder();
+        List<MicrofilmOutputType> GetMicrofilmOutputTypes();
+
     }
 }

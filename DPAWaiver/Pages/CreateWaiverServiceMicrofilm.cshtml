@@ -142,11 +142,8 @@ This is a numeric field."></span></label>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
                     <label for="outputType" class="control-label fontWeightNormal">What output type is needed:</label>
-                    <select class="form-control control-label" id="outputType">
-                        <output>16 mm diazo film</output>
-                        <output>16 mm silver film</output>
-                        <output>35 mm diazo film</output>
-                        <output>35 mm silver film</output>
+                    <select class="form-control control-label" id="outputType" asp-items="Model.OutputTypes">
+                        <option>Please select one</option>
                     </select>
                 </div>
             </div>
@@ -173,11 +170,9 @@ This is a numeric field."></span></label>
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-6">
-            <div class='form-group required'>
-                <label for='numberOfRolls' class='control-label fontWeightNormal'>Specify number of rolls</label>
-                <input type='number' class='form-control' id='numberOfRolls' aria-describedby='numberOfRolls' placeholder='Specify number of rolls'>
-            </div>
+        <div class='form-group required'>
+            <label for='numberOfRolls' class='control-label fontWeightNormal'>Specify number of rolls</label>
+            <input type='number' class='form-control' id='numberOfRolls' aria-describedby='numberOfRolls' placeholder='Specify number of rolls'>
         </div>
 
 
@@ -192,9 +187,19 @@ This is a numeric field."></span></label>
         </div>
 
         <div class="form-group required">
-            <label for="notInHouseReason" class="control-label fontWeightNormal">Customer believes that this microfilm function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
-            <textarea class="form-control" id="notInHouseReason" rows="2"></textarea>
+            <label for="doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
+            <select class="form-control control-label" id="doneInHouse">
+                <option>Please select one</option>
+                <option value='0'>No</option>
+                <option value='1'>Yes</option>
+            </select>
         </div>
+
+        <div class='form-group required' id='notInHouseReasonDiv'>
+            <label for='notInHouseReason' class='control-label fontWeightNormal'>Please explain why</label>
+            <input type='text' class='form-control' id='notInHouseReason' aria-describedby='notInHouseReason' placeholder='Please explain why'>
+        </div>
+
 
         <div class="form-group">
             <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
@@ -227,10 +232,15 @@ This is a numeric field."></span></label>
 <script type="text/javascript">
     $(document).ready(function () {
         showIfSelected('#microfilmDuplication', ['#numberOfRollsDiv'], {textList: ['Yes']});
+        showIfSelected('#doneInHouse', ['#notInHouseReasonDiv'], { valueList: ['0']});
     });
 
     $("#microfilmDuplication").on("change", function () {
         showIfSelected('#microfilmDuplication', ['#numberOfRollsDiv'], {textList: ['Yes']});
     });
+    $("#doneInHouse").on("change", function () {
+        showIfSelected('#doneInHouse', ['#notInHouseReasonDiv'], { valueList: ['0']});
+    });
+
 </script>
 }

@@ -95,6 +95,7 @@
                 <div class="form-group required">
                     <label for="newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
                     <select class="form-control" id="newOrReplace">
+                        <option>Please select one</option>
                         <option value='0'>Additional</option>
                         <option>New</option>
                         <option value='1'>Replacement</option>
@@ -122,10 +123,6 @@
                     <input type="date" class="form-control" id="acquisitionDate" aria-describedby="acquisitionDate" placeholder="Acquisition Date">
                 </div>
             </div>
-        </div>
-
-
-        <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
                     <label for="monthlyCost" class="control-label fontWeightNormal">Monthly Cost of Current Service</label>
@@ -139,6 +136,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <div class='row'>
             <div class='col-sm-6 col-xs-12'>
@@ -257,9 +256,6 @@ This is a numeric field."></span>
                             <select class="form-control" id="acquisitionType">
                                 <option value="1">Solicitation</option>
                                 <option value="2">State Price Agreement</option>
-                                <option>Lease</option>
-                                <option>Discretionary Purchase</option>
-                                <option>Cancelable Rental</option>
                             </select>
                         </div>
                     </div>
@@ -278,12 +274,30 @@ This is a numeric field."></span>
                         <div class="form-group required">
                             <label for="statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
                             <select class="form-control" id="statepriceSubType">
-                                <option>Cancelable Rental</option>
-                                <option>Lease</option>
+                                <option value='1'>Lease</option>
+                                <option value='2'>Purchase</option>
+                                <option value='3'>Cancelable Rental</option>
                             </select>
                         </div>
                     </div>
                 </div>
+
+                <div class='row' id='leaseTermsDiv'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='numberOfMonths' class='control-label fontWeightNormal'>Number of Months of Lease</label>
+                            <input type='number' class='form-control' id='numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months of Lease'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='monthlyLeaseAmount' class='control-label fontWeightNormal'>Monthly Lease Amount</label>
+                            <input type='number' class='form-control' id='monthlyLeaseAmount' aria-describedby='monthlyLeaseAmount' placeholder='Monthly Lease Amount'>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class='form-group required'>
                     <label for='makeAndModel' class='control-label fontWeightNormal'>Make and Model</label>
@@ -304,33 +318,12 @@ This is a numeric field."></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
-                        <div class='form-group required'>
-                            <label for='estimatedCost' class='control-label fontWeightNormal'>Estimated Cost of Equipment</label>
-                            <input type='number' class='form-control' id='estimatedCost' aria-describedby='estimatedCost' placeholder='Estimated Cost of Equipment'>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='form-group required'>
-                    <label for='leaseOrPurchase' class='control-label fontWeightNormal'>Lease or purchase</label>
-                    <select class='form-control' id='leaseOrPurchase' aria-describedby='leaseOrPurchase'>
-                        <option value='0'>Lease</option>
-                        <option value='1'>Purchase</option>
-                    </select>
-                </div>
-
-                <div class='row' id='leaseDataDiv'>
-                    <div class='col-sm-6 col-xs-12'>
-                        <div class='form-group required'>
-                            <label for='numberOfYears' class='control-label fontWeightNormal'>Number of Years</label>
-                            <input type='number' class='form-control' id='numberOfYears' aria-describedby='numberOfYears' placeholder='Number of Years'>
-                        </div>
-                    </div>
-                    <div class='col-sm-6 col-xs-12'>
-                        <div class='form-group required'>
-                            <label for='costOfLeasePerYear' class='control-label fontWeightNormal'>Cost of lease per year</label>
-                            <input type='number' class='form-control' id='costOfLeasePerYear' aria-describedby='costOfLeasePerYear' placeholder='Cost of lease per year'>
-                            <!-- TODO Hover help: Total lease ??? -->
+                        <div class="form-group required" id='purchaseAmountDiv'>
+                            <label for="purchaseAmount" class="control-label fontWeightNormal">Equipment Purchase Cost
+                                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Equipment Purchase Cost"></span>
+                            </label>
+                            <input type="number" class="form-control usd_input" id="purchaseAmount" aria-describedby="purchaseAmount" placeholder="Equipment Purchase Cost"
+                                step='0.01'>
                         </div>
                     </div>
                 </div>
@@ -360,7 +353,7 @@ This is a numeric field."></span>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='suppliesCost' class='control-label fontWeightNormal'>Cost of Supplies <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Consumables not included in Maintenance'></span></label>
+                            <label for='suppliesCost' class='control-label fontWeightNormal'>Cost of Supplies Per Year <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Consumables not included in Maintenance'></span></label>
                             <input type='string' class='form-control' id='suppliesCost' aria-describedby='suppliesCost' placeholder='Cost of Supplies - Consumables not included in the Maintenance'>
                             <!-- TODO: Is this per year or over all. Also what does consumables not included, does that refer to cost of annual maintenance needs hover or a help -->
                         </div>

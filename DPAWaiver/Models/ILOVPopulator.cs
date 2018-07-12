@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Models
@@ -16,6 +17,9 @@ namespace DPAWaiver.Models
         List<PurposeType> getSoftwareTypes();
         List<PurposeSubtype> getPrinterSubtypes();
         List<PurposeSubtype> getMicrofilmSubtypes();
+
+        List<MicrofilmOutputType> getMicrofilmOutputTypes();
+
 
     }
 }
