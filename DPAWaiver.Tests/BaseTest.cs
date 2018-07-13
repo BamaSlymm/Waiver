@@ -1,12 +1,12 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System;
-using DPAWaiver.Models;
-using DPAWaiver.Data;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Moq;
+using DPAWaiver.Data;
+using Microsoft.Data.Sqlite;
+
 
 namespace DPAWaiver.Tests
 {
