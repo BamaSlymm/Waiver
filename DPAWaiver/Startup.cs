@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
+using DPAWaiver.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -75,13 +77,15 @@ namespace DPAWaiver
             {
                 app.UseExceptionHandler("/Error");
                 // app.UseHsts();
+                var options = new RewriteOptions().
+                Add(new RewriteHttpsOnAppEngine(HttpsPolicy.Required));
+                app.UseRewriter(options);
             }
-
-            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseMvc();
         }
     }
+
 }

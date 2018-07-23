@@ -20,7 +20,7 @@
         {
             "label": "deployToGAE",
             "dependsOn": "publish",
-            "command": "cd DPAWaiver/bin/Release/netcoreapp2.1/publish && gcloud app deploy --project=dpa-waiver --version dev",
+            "command": "cd DPAWaiver/bin/Release/netcoreapp2.1/publish && gcloud app deploy --promote --project=dpa-waiver --version dev",
             "type": "shell",
         }
 
