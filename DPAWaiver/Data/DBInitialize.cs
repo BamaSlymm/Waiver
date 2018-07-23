@@ -1,3 +1,4 @@
+using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
 using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
@@ -9,10 +10,10 @@ namespace DPAWaiver.Data
 {
     public class DbInitializer
     {
-        WaiverDBContext _context;
+        DPAWaiverIdentityDbContext _context;
         ILOVPopulator _populator;
 
-        public DbInitializer(WaiverDBContext context, ILOVPopulator populator)
+        public DbInitializer(DPAWaiverIdentityDbContext context, ILOVPopulator populator)
         {
             _context = context;
             _populator = populator;

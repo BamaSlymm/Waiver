@@ -6,6 +6,7 @@ using System.Linq;
 using Moq;
 using DPAWaiver.Data;
 using Microsoft.Data.Sqlite;
+using DPAWaiver.Areas.Identity.Data;
 
 
 namespace DPAWaiver.Tests
@@ -13,7 +14,7 @@ namespace DPAWaiver.Tests
     public class BaseTest
     {
         private const string DatabaseName = "testing";
-        public WaiverDBContext context;
+        public DPAWaiverIdentityDbContext context;
         public SqliteConnection connection;
 
         public Random rnd { get; set; }
@@ -23,20 +24,20 @@ namespace DPAWaiver.Tests
             Console.WriteLine("Starting");
 
             // In-memory database only exists while the connection is open
-            var options = new DbContextOptionsBuilder<WaiverDBContext>()
+            var options = new DbContextOptionsBuilder<DPAWaiverIdentityDbContext>()
                 .UseInMemoryDatabase(databaseName: DatabaseName)
                 .Options;
-            context = new WaiverDBContext(options);
+            context = new DPAWaiverIdentityDbContext(options);
             context.Database.EnsureCreated();
             Console.WriteLine("BaseText context created Auto Transactions Enabled {0}", context.Database.AutoTransactionsEnabled);
             rnd = new Random();
         }
-        public WaiverDBContext GetAnotherWaiverDBContext()
+        public DPAWaiverIdentityDbContext GetAnotherDPAWaiverIdentityDbContext()
         {
-            var options = new DbContextOptionsBuilder<WaiverDBContext>()
+            var options = new DbContextOptionsBuilder<DPAWaiverIdentityDbContext>()
                 .UseInMemoryDatabase(databaseName: DatabaseName)
                 .Options;
-            var anotherContext = new WaiverDBContext(options);
+            var anotherContext = new DPAWaiverIdentityDbContext(options);
             anotherContext.Database.EnsureCreated();
             return anotherContext;
         }

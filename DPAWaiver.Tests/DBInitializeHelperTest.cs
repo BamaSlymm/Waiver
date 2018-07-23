@@ -40,7 +40,7 @@ namespace DPAWaiver.Tests
             context.Purposes.Add(new Purpose(5, name: "Junk", sortOrder: 4, isDeletable: false, isDisabled: false));
             context.SaveChanges();
 
-            using (var anotherContext = GetAnotherWaiverDBContext())
+            using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var savedPurposes = anotherContext.Purposes;
                 Assert.AreEqual(5, savedPurposes.Count(),
@@ -68,7 +68,7 @@ namespace DPAWaiver.Tests
             context.SaveChanges();
 
             var randomString = "Service" + rnd.Next(1, 1200);
-            using (var anotherContext = GetAnotherWaiverDBContext())
+            using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var savedPurposes = anotherContext.Purposes;
                 Assert.AreEqual(4, savedPurposes.Count(),
@@ -80,7 +80,7 @@ namespace DPAWaiver.Tests
                 anotherContext.SaveChanges();
             }
 
-            using (var anotherContext = GetAnotherWaiverDBContext())
+            using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var savedPurposes = anotherContext.Purposes.ToList();
                 Assert.AreEqual(randomString, savedPurposes.Single(x => x.ID == 1).name,
@@ -104,7 +104,7 @@ namespace DPAWaiver.Tests
             DbInitializer dbinit = new DbInitializer(context, mock.Object);
             var allPurposeTypes = context.PurposeTypes.ToList();
             dbinit.SaveServiceTypes();
-            using (var anotherContext = GetAnotherWaiverDBContext())
+            using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var afterServiceTypes = anotherContext.PurposeTypes.Where(x => x.purpose.ID == 1);
                 Assert.AreEqual(serviceTypes.Count, afterServiceTypes.Count(),
@@ -116,7 +116,7 @@ namespace DPAWaiver.Tests
             };
             mock.Setup(x => x.getServiceTypes()).Returns(updatedTypes);
             dbinit.SaveServiceTypes();
-            using (var anotherContext = GetAnotherWaiverDBContext())
+            using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var afterServiceTypes = anotherContext.PurposeTypes.Where(x => x.purpose.ID == 1);
                 Assert.AreEqual(serviceTypes.Count, afterServiceTypes.Count(),

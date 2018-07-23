@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/DPAWaiver/bin/Debug/netcoreapp2.0/DPAWaiver.dll",
+            "program": "${workspaceFolder}/DPAWaiver/bin/Debug/netcoreapp2.1/DPAWaiver.dll",
             "args": [],
             "cwd": "${workspaceFolder}/DPAWaiver",
             "stopAtEntry": false,

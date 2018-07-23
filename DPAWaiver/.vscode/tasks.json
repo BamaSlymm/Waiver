@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/DPAWaiver.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "dependsOn": "build",
+            "type": "shell",
+            "command": "dotnet publish -c Release",
+        },
+        {
+            "label": "deployToGAE",
+            "dependsOn": "publish",
+            "command": "cd bin/Release/netcoreapp2.1/publish && gcloud app deploy --project=dpa-waiver --version dev",
+            "type": "shell",
+        }
+    ]
+}

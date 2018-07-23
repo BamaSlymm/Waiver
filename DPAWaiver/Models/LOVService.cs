@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Data;
 using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
@@ -11,9 +12,9 @@ namespace DPAWaiver.Models
     public class LOVService : ILOVService
     {
 
-        private readonly WaiverDBContext _context;
+        private readonly DPAWaiverIdentityDbContext _context;
 
-        public LOVService(WaiverDBContext context)
+        public LOVService(DPAWaiverIdentityDbContext context)
         {
             _context = context;
         }

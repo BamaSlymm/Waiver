@@ -1,10 +1,10 @@
-{
+﻿{
   "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
+    "windowsAuthentication": false, 
+    "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:4369/",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:40923",
+      "sslPort": 44397
     }
   },
   "profiles": {
@@ -18,10 +18,10 @@
     "DPAWaiver": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:5011;http://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:4370/"
+      }
     }
   }
 }

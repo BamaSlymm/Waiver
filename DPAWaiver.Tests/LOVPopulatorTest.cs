@@ -34,7 +34,7 @@ namespace DPAWaiver.Tests
             context.SaveChanges();
             var originalCount = context.Purposes.ToList().Count();
             Console.WriteLine("Original Count {0}", originalCount);
-            using (var anotherContext = GetAnotherWaiverDBContext())
+            using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var aCount = anotherContext.Purposes.ToList().Count();
                 Assert.AreEqual(4, aCount, "Expected count of {0} does not match actual count {1}", 4, aCount);
