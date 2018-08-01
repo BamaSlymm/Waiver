@@ -17,9 +17,8 @@ namespace DPAWaiver.Models
         List<PurposeType> getSoftwareTypes();
         List<PurposeSubtype> getPrinterSubtypes();
         List<PurposeSubtype> getMicrofilmSubtypes();
-
         List<MicrofilmOutputType> getMicrofilmOutputTypes();
-
+        List<Department> getDepartments();
 
     }
 }

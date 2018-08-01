@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
+using DPAWaiver.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
 {
@@ -18,11 +21,16 @@ namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
         private readonly SignInManager<DPAUser> _signInManager;
         private readonly IEmailSender _emailSender;
 
+        private readonly ILOVService _ILOVService;
+
+
         public IndexModel(
+            ILOVService iLOVService,
             UserManager<DPAUser> userManager,
             SignInManager<DPAUser> signInManager,
             IEmailSender emailSender)
         {
+            _ILOVService = iLOVService;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -38,6 +46,8 @@ namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
         [BindProperty]
         public InputModel Input { get; set; }
 
+        public IEnumerable<SelectListItem> departments => _ILOVService.GetDepartmentsAsSelectListBySortOrder();
+
         public class InputModel
         {
             [Required]
@@ -47,6 +57,27 @@ namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            [Display(Name="First Name")]
+            [DataType(DataType.Text)]
+            public string FirstName {get;set;}
+
+            [Required]
+            [Display(Name="Last Name")]
+            [DataType(DataType.Text)]
+            public string LastName {get;set;}
+
+            [Display(Name = "Extension")]
+            public string PhoneNumberExtension { get; set; }
+
+            [Required]
+            [Display(Name = "Department")]
+            public int DepartmentId { get; set; }
+
+            [Display(Name = "Division")]
+            public string Division { get; set; }
+
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -57,16 +88,22 @@ namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            var userWithDepartment = _userManager.Users.Include(x=>x.Department).Single(x=>x.Id == user.Id);
             var userName = await _userManager.GetUserNameAsync(user);
             var email = await _userManager.GetEmailAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
             Username = userName;
-
+            
             Input = new InputModel
             {
                 Email = email,
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                DepartmentId = userWithDepartment.Department.ID,
+                Division = user.Division,
+                PhoneNumberExtension = user.PhoneNumberExtension
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -76,12 +113,14 @@ namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnPostAsync()
         {
+            var user = await _userManager.GetUserAsync(User);
+            Username = await _userManager.GetUserNameAsync(user);
+            var userWithDepartment = _userManager.Users.Include(x=>x.Department).Single(x=>x.Id == user.Id);
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -108,7 +147,12 @@ namespace DPAWaiver.Areas.Identity.Pages.Account.Manage
                     throw new InvalidOperationException($"Unexpected error occurred setting phone number for user with ID '{userId}'.");
                 }
             }
-
+            userWithDepartment.FirstName = Input.FirstName ;
+            userWithDepartment.LastName = Input.LastName ;
+            userWithDepartment.Division = Input.Division ;
+            userWithDepartment.PhoneNumberExtension = Input.PhoneNumberExtension ;
+            userWithDepartment.Department = _ILOVService.GetDepartment(Input.DepartmentId);
+            await _userManager.UpdateAsync(userWithDepartment);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

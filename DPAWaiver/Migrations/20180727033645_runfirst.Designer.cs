@@ -3,23 +3,21 @@ using System;
 using DPAWaiver.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DPAWaiver.Migrations
 {
     [DbContext(typeof(DPAWaiverIdentityDbContext))]
-    [Migration("20180716161854_CreateIdentitySchema")]
-    partial class CreateIdentitySchema
+    [Migration("20180727033645_runfirst")]
+    partial class runfirst
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("DPAWaiver.Areas.Identity.Data.DPAUser", b =>
                 {
@@ -31,10 +29,18 @@ namespace DPAWaiver.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<int>("DepartmentID");
+
+                    b.Property<string>("Division");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -52,6 +58,8 @@ namespace DPAWaiver.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<string>("PhoneNumberExtension");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -61,15 +69,135 @@ namespace DPAWaiver.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentID");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.BaseLOV", b =>
+                {
+                    b.Property<int>("ID");
+
+                    b.Property<string>("LOVType");
+
+                    b.Property<bool>("isDeletable");
+
+                    b.Property<bool>("isDisabled");
+
+                    b.Property<string>("name");
+
+                    b.Property<int>("sortOrder");
+
+                    b.HasKey("ID", "LOVType");
+
+                    b.ToTable("BaseLOVs");
+
+                    b.HasDiscriminator<string>("LOVType").HasValue("BaseLOV");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.LOV.Department", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("isDeletable");
+
+                    b.Property<bool>("isDisabled");
+
+                    b.Property<string>("name");
+
+                    b.Property<int>("sortOrder");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Departments");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.LOV.MicrofilmOutputType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("isDeletable");
+
+                    b.Property<bool>("isDisabled");
+
+                    b.Property<string>("name");
+
+                    b.Property<int>("sortOrder");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("MicrofilmOutputTypes");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.WaiverSelection.Purpose", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("isDeletable");
+
+                    b.Property<bool>("isDisabled");
+
+                    b.Property<string>("name");
+
+                    b.Property<int>("sortOrder");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Purposes");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.WaiverSelection.PurposeSubtype", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("isDeletable");
+
+                    b.Property<bool>("isDisabled");
+
+                    b.Property<string>("name");
+
+                    b.Property<int?>("purposeTypeID");
+
+                    b.Property<int>("sortOrder");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("purposeTypeID");
+
+                    b.ToTable("PurposeSubtypes");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.WaiverSelection.PurposeType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("isDeletable");
+
+                    b.Property<bool>("isDisabled");
+
+                    b.Property<string>("name");
+
+                    b.Property<int?>("purposeID");
+
+                    b.Property<int>("sortOrder");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("purposeID");
+
+                    b.ToTable("PurposeTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -90,8 +218,7 @@ namespace DPAWaiver.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -99,8 +226,7 @@ namespace DPAWaiver.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("ClaimType");
 
@@ -119,8 +245,7 @@ namespace DPAWaiver.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("ClaimType");
 
@@ -184,6 +309,38 @@ namespace DPAWaiver.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.Equipment", b =>
+                {
+                    b.HasBaseType("DPAWaiver.Models.BaseLOV");
+
+
+                    b.ToTable("Equipment");
+
+                    b.HasDiscriminator().HasValue("Equipment");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Areas.Identity.Data.DPAUser", b =>
+                {
+                    b.HasOne("DPAWaiver.Models.LOV.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.WaiverSelection.PurposeSubtype", b =>
+                {
+                    b.HasOne("DPAWaiver.Models.WaiverSelection.PurposeType", "purposeType")
+                        .WithMany("purposeSubtypes")
+                        .HasForeignKey("purposeTypeID");
+                });
+
+            modelBuilder.Entity("DPAWaiver.Models.WaiverSelection.PurposeType", b =>
+                {
+                    b.HasOne("DPAWaiver.Models.WaiverSelection.Purpose", "purpose")
+                        .WithMany("purposeTypes")
+                        .HasForeignKey("purposeID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

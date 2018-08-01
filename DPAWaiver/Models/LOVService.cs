@@ -261,5 +261,35 @@ namespace DPAWaiver.Models
             return _context.MicrofilmOutputTypes.ToList();
         }
 
+      
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<Department> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
+
+
+        public IEnumerable<SelectListItem> GetDepartmentsAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(GetDepartments());
+        }
+
+        public List<Department> GetDepartments()
+        {
+            return _context.Departments.ToList();
+        }
+
+
+        public Department GetDepartment(int departmentId)
+        {
+           return  _context.Departments.Single(x=>x.ID == departmentId);
+        }
     }
 }

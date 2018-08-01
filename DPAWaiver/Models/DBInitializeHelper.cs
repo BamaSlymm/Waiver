@@ -14,7 +14,7 @@ namespace DPAWaiver.Models
         {
             if (!otherList.Any())
             {
-                return ;
+                return;
             }
             foreach (var currentElem in initialList)
             {
@@ -34,7 +34,7 @@ namespace DPAWaiver.Models
         {
             if (!otherList.Any())
             {
-                return ;
+                return;
             }
             foreach (var currentElem in initialList)
             {
@@ -82,7 +82,8 @@ namespace DPAWaiver.Models
             }
             foreach (var anElem in otherList)
             {
-                if (!initialList.Any(x => x.ID == anElem.ID))  {
+                if (!initialList.Any(x => x.ID == anElem.ID))
+                {
                     newList.Add(anElem);
                 }
             }
@@ -102,7 +103,8 @@ namespace DPAWaiver.Models
             }
             foreach (var anElem in otherList)
             {
-                if (!initialList.Any(x => x.ID == anElem.ID))  {
+                if (!initialList.Any(x => x.ID == anElem.ID))
+                {
                     newList.Add(anElem);
                 }
             }
@@ -122,12 +124,36 @@ namespace DPAWaiver.Models
             }
             foreach (var anElem in otherList)
             {
-                if (!initialList.Any(x => x.ID == anElem.ID))  {
+                if (!initialList.Any(x => x.ID == anElem.ID))
+                {
                     newList.Add(anElem);
                 }
             }
             return newList;
         }
+
+        public static IEnumerable<Department> MergeDepartment(IQueryable<Department> initialList, IEnumerable<Department> otherList)
+        {
+            List<Department> newList = new List<Department>();
+            if (!otherList.Any())
+            {
+                return initialList;
+            }
+            foreach (var currentElem in initialList)
+            {
+                currentElem.Update(otherList.FirstOrDefault(x => x.ID == currentElem.ID));
+            }
+            foreach (var anElem in otherList)
+            {
+                if (!initialList.Any(x => x.ID == anElem.ID))
+                {
+                    newList.Add(anElem);
+                }
+            }
+            return newList;
+        }
+
+
 
     }
 }

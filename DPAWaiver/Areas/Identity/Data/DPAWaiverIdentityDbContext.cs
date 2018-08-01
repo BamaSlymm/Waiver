@@ -26,6 +26,15 @@ namespace DPAWaiver.Areas.Identity.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+            builder.Entity<BaseLOV>().HasDiscriminator<string>("LOVType");
+            builder.Entity<BaseLOV>().HasKey(c => new { c.ID, c.LOVType });
+            builder.Entity<PurposeType>()
+                .HasOne(t => t.purpose)
+                .WithMany(c => c.purposeTypes);
+            builder.Entity<PurposeSubtype>()
+                .HasOne(t => t.purposeType)
+                .WithMany(c => c.purposeSubtypes);
+
         }
         public DbSet<BaseLOV> BaseLOVs { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
@@ -33,6 +42,8 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<PurposeType> PurposeTypes { get; set; }
         public DbSet<PurposeSubtype> PurposeSubtypes { get; set; }
         public DbSet<MicrofilmOutputType> MicrofilmOutputTypes { get; set; }
+        public DbSet<Department> Departments { get; set; }
+
 
     }
 }

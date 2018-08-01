@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using DPAWaiver.Models.LOV;
+using DPAWaiver.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DPAWaiver.Areas.Identity.Pages.Account
 {
@@ -21,12 +24,16 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
+        private readonly ILOVService _ILOVService;
+
         public RegisterModel(
+            ILOVService iLOVService,
             UserManager<DPAUser> userManager,
             SignInManager<DPAUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
+            _ILOVService = iLOVService ;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -36,6 +43,7 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
+        public IEnumerable<SelectListItem> departments => _ILOVService.GetDepartmentsAsSelectListBySortOrder();
         public string ReturnUrl { get; set; }
 
         public class InputModel
@@ -55,6 +63,31 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name="First Name")]
+            [DataType(DataType.Text)]
+            public string FirstName {get;set;}
+
+            [Required]
+            [Display(Name="Last Name")]
+            [DataType(DataType.Text)]
+            public string LastName {get;set;}
+
+            [Phone]
+            [Required]
+            [Display(Name = "Phone number")]
+            public string PhoneNumber { get; set; }
+
+            [Display(Name = "Extension")]
+            public string PhoneNumberExtension { get; set; }
+
+            [Required]
+            [Display(Name = "Department")]
+            public int DepartmentId { get; set; }
+
+            [Display(Name = "Division")]
+            public string Division { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -67,7 +100,9 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new DPAUser { UserName = Input.Email, Email = Input.Email };
+                var aDepartment = _ILOVService.GetDepartment(Input.DepartmentId);
+                var user = new DPAUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, PhoneNumber = Input.PhoneNumber,
+                PhoneNumberExtension = Input.PhoneNumberExtension, Department = aDepartment, Division = Input.Division };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

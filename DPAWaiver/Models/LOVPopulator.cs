@@ -90,6 +90,43 @@ namespace DPAWaiver.Models
             return aList;
         }
 
+        public List<Department> getDepartments()
+        {
+
+            return new List<Department>() {
+                new Department(ID: 1,  name:"Office of Innovation and Technology",  sortOrder: 1, isDeletable:false, isDisabled:false),
+                new Department(ID: 2,  name:"Agriculture", sortOrder: 2, isDeletable:false, isDisabled:false),
+                new Department(ID: 3,  name:"Corrections",  sortOrder: 3, isDeletable:false, isDisabled:false),
+                new Department(ID: 4,  name:"Education", sortOrder: 4, isDeletable:false, isDisabled:false),
+                new Department(ID: 5,  name:"General Assembly",  sortOrder: 5, isDeletable:false, isDisabled:false),
+                new Department(ID: 6,  name:"Governors Office", sortOrder: 6, isDeletable:false, isDisabled:false),
+                new Department(ID: 7,  name:"Health Care Policy and Financing",  sortOrder: 7, isDeletable:false, isDisabled:false),
+                new Department(ID: 8,  name:"Higher Education", sortOrder: 8, isDeletable:false, isDisabled:false),
+                new Department(ID: 9,  name:"Human Services",  sortOrder: 9, isDeletable:false, isDisabled:false),
+                new Department(ID: 10, name:"Judicial", sortOrder: 10, isDeletable:false, isDisabled:false),
+                new Department(ID: 11, name:"Labor and Employment",  sortOrder: 11, isDeletable:false, isDisabled:false),
+                new Department(ID: 12, name:"Law", sortOrder: 12, isDeletable:false, isDisabled:false),
+                new Department(ID: 13, name:"Local Affairs",  sortOrder: 13, isDeletable:false, isDisabled:false),
+                new Department(ID: 14, name:"Local Government", sortOrder: 14, isDeletable:false, isDisabled:false),
+                new Department(ID: 15, name:"Military and Veterans Affairs",  sortOrder: 15, isDeletable:false, isDisabled:false),
+                new Department(ID: 16, name:"Natural Resources", sortOrder: 16, isDeletable:false, isDisabled:false),
+                new Department(ID: 17, name:"Non-State Agency Contacts", sortOrder: 17, isDeletable:false, isDisabled:false),
+                new Department(ID: 18, name:"Office of Innovation and Technology",  sortOrder: 18, isDeletable:false, isDisabled:false),
+                new Department(ID: 19, name:"Personnel and Administration", sortOrder: 19, isDeletable:false, isDisabled:false),
+                new Department(ID: 20, name:"Private non-profit entity",  sortOrder: 20, isDeletable:false, isDisabled:false),
+                new Department(ID: 21, name:"Public Health and Environment", sortOrder: 21, isDeletable:false, isDisabled:false),
+                new Department(ID: 22, name:"Public Safety",  sortOrder: 22, isDeletable:false, isDisabled:false),
+                new Department(ID: 23, name:"Regulatory Agencies", sortOrder: 23, isDeletable:false, isDisabled:false),
+                new Department(ID: 24, name:"Revenue", sortOrder: 24, isDeletable:false, isDisabled:false),
+                new Department(ID: 25, name:"State",  sortOrder: 25, isDeletable:false, isDisabled:false),
+                new Department(ID: 26, name:"Transportation", sortOrder: 26, isDeletable:false, isDisabled:false),
+                new Department(ID: 27, name:"Treasury", sortOrder: 27, isDeletable:false, isDisabled:false),
+                new Department(ID: 28, name:"Other",  sortOrder: 28, isDeletable:false, isDisabled:false),
+            };
+
+        }
+
+
         public List<Purpose> getPurposes()
         {
             var purposes = new List<Purpose> {

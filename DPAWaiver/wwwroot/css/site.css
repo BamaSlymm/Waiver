@@ -43,7 +43,11 @@ body {
     color:red;
  }
  
- 
+ .div-ul ul {
+    padding: 0;
+    list-style-type: none ;
+}
+
  ul.nomargin {
     padding: 0;
     list-style-type: none ;
@@ -69,6 +73,10 @@ body {
     margin-top: 40px ;
 }
 
+.marginBottom20px {
+    margin-bottom: 20px;
+}
+
 .padding20px {
     padding: 20px;
 }
@@ -84,4 +92,17 @@ body {
     background-color:#333;
     margin-top: 16px !important; 
     margin-bottom: 32px !important;
+}
+
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+} /* remove space left right for a column */
+
+.padding-left-0 {
+    padding-left: 0;
+}
+
+.padding-right-0 {
+    padding-right: 0;
 }

@@ -9,8 +9,6 @@ namespace DPAWaiver.Models
     {
         List<SingleFunctionPrinterPreferences> getSingleFunctionPrinterPreferences();
         IEnumerable<SelectListItem> GetAllSingleFunctionPrinterPreferencesAsSelectListBySortOrder();
-
-
         List<MultiFunctionPrinter> getMultiFunctionPrinterPreferences();
         IEnumerable<SelectListItem> GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder();
         IEnumerable<SelectListItem> GetPurposesAsSelectListBySortOrder();
@@ -39,5 +37,8 @@ namespace DPAWaiver.Models
         IEnumerable<SelectListItem> GetMicrofilmOutputTypeAsSelectListBySortOrder();
         List<MicrofilmOutputType> GetMicrofilmOutputTypes();
 
+        List<Department> GetDepartments();
+        IEnumerable<SelectListItem> GetDepartmentsAsSelectListBySortOrder(); 
+        Department GetDepartment(int id);
     }
 }
