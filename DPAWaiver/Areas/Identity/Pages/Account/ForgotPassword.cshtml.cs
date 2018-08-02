@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using DPAWaiver.Services;
+using Microsoft.Extensions.Options;
 
 namespace DPAWaiver.Areas.Identity.Pages.Account
 {
@@ -18,10 +23,16 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
         private readonly UserManager<DPAUser> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel(UserManager<DPAUser> userManager, IEmailSender emailSender)
+        public GoogleReCaptchaOptions Options { get; } //set only via Secret Manager
+
+
+        public ForgotPasswordModel(UserManager<DPAUser> userManager, IEmailSender emailSender,
+                                   IOptions<GoogleReCaptchaOptions> optionsAccessor
+        )
         {
             _userManager = userManager;
             _emailSender = emailSender;
+            Options = optionsAccessor.Value;
         }
 
         [BindProperty]
@@ -34,10 +45,41 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
             public string Email { get; set; }
         }
 
+        public IActionResult OnGet()
+        {
+            ViewData["ReCaptchaKey"]= Options.SiteKey;
+            return Page();
+        }
+        public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret)
+        {
+            HttpClient httpClient = new HttpClient();
+            var res = httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={gRecaptchaResponse}").Result;
+            if (res.StatusCode != HttpStatusCode.OK)
+            {
+                return false;
+            }
+
+            string JSONres = res.Content.ReadAsStringAsync().Result;
+            dynamic JSONdata = JObject.Parse(JSONres);
+            if (JSONdata.success != "true")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
+                if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], // that's how you get it from the Request object
+                   Options.SecretKey))
+                {
+                    ModelState.AddModelError(string.Empty, "Please fill in the reCaptcha.");
+                    ViewData["ReCaptchaKey"]= Options.SiteKey;
+                    return Page();
+                }
                 var user = await _userManager.FindByEmailAsync(Input.Email);
                 if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
                 {
@@ -58,7 +100,7 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
                     Input.Email,
                     "Reset Password",
                     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
 

@@ -43,6 +43,7 @@ namespace DPAWaiver
             ConfigureEntityFramework(services);
             services.AddSingleton<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("Email"));
+            services.Configure<GoogleReCaptchaOptions>(Configuration.GetSection("GoogleReCaptcha"));
         }
 
         private void ConfigureEntityFramework(IServiceCollection services)
