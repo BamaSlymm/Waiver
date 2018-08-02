@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
 using DPAWaiver.Security;
+using DPAWaiver.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +41,8 @@ namespace DPAWaiver
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             ConfigureEntityFramework(services);
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("Email"));
         }
 
         private void ConfigureEntityFramework(IServiceCollection services)
