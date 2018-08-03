@@ -2,6 +2,8 @@ using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
 using DPAWaiver.Models.LOV;
 using DPAWaiver.Models.WaiverSelection;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,7 @@ namespace DPAWaiver.Data
 
         public DbInitializer(DPAWaiverIdentityDbContext context, ILOVPopulator populator)
         {
+
             _context = context;
             _populator = populator;
         }
@@ -153,6 +156,6 @@ namespace DPAWaiver.Data
             }
             _context.SaveChanges();
         }
-
+        
     }
 }

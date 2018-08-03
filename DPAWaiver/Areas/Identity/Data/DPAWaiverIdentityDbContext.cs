@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DPAWaiver.Areas.Identity.Data
 {
-    public class DPAWaiverIdentityDbContext : IdentityDbContext<DPAUser>
+    public class DPAWaiverIdentityDbContext : IdentityDbContext<DPAUser, DPARole, Guid>
     {
 
         public DPAWaiverIdentityDbContext(DbContextOptions<DPAWaiverIdentityDbContext> options)

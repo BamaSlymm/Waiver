@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 namespace DPAWaiver.Areas.Identity.Data
 {
     // Add profile data for application users by adding properties to the DPAUser class
-    public class DPAUser : IdentityUser
+    public class DPAUser : IdentityUser<Guid>
     {
         [PersonalData]
         public string FirstName { get; set; }

@@ -27,6 +27,8 @@ namespace DPAWaiver
                     var context = services.GetRequiredService<DPAWaiverIdentityDbContext>();
                     var dbInit = new DbInitializer(context, new LOVPopulator());
                     dbInit.Initialize();
+                    var userInit = new UserInitializer(services);
+                    userInit.InitializeAsync().Wait();
                 }
                 catch (Exception ex)
                 {
