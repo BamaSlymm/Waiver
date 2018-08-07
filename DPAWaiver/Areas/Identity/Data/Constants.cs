@@ -1,6 +1,6 @@
 namespace DPAWaiver.Areas.Identity.Data
 {
-    public class Constants
+    public class GroupNames
     {
 
         public static readonly string Administrator = "Administrator";

@@ -36,9 +36,9 @@ namespace DPAWaiver.Data
 
         public async Task CreateApplicationRolesAsync()
         {
-            await CreateRoleIfNeeded(Constants.Administrator);
-            await CreateRoleIfNeeded(Constants.Reviewer);
-            await CreateRoleIfNeeded(Constants.User);
+            await CreateRoleIfNeeded(GroupNames.Administrator);
+            await CreateRoleIfNeeded(GroupNames.Reviewer);
+            await CreateRoleIfNeeded(GroupNames.User);
         }
 
 
@@ -55,8 +55,8 @@ namespace DPAWaiver.Data
             var userManager = _IServiceProvider.GetService<UserManager<DPAUser>>();
             var regularUser = await userManager.FindByEmailAsync(regularUserEmail);
             var reviewerUser = await userManager.FindByEmailAsync(reviewerUserEmail);
-            await userManager.AddToRoleAsync(regularUser,Constants.User);
-            await userManager.AddToRoleAsync(reviewerUser, Constants.Reviewer);
+            await userManager.AddToRoleAsync(regularUser,GroupNames.User);
+            await userManager.AddToRoleAsync(reviewerUser, GroupNames.Reviewer);
         }
 
 
