@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DPAWaiver.Migrations
 {
     [DbContext(typeof(DPAWaiverIdentityDbContext))]
-    [Migration("20180803174746_FirstTime")]
-    partial class FirstTime
+    [Migration("20180807201855_firstTime")]
+    partial class firstTime
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,8 @@ namespace DPAWaiver.Migrations
 
                     b.Property<int>("DepartmentID");
 
-                    b.Property<string>("Division");
+                    b.Property<string>("Division")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -261,11 +262,9 @@ namespace DPAWaiver.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -295,11 +294,9 @@ namespace DPAWaiver.Migrations
                 {
                     b.Property<Guid>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 

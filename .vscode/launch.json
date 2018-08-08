@@ -9,6 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
+            "enableStepFiltering": false,
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/DPAWaiver/bin/Debug/netcoreapp2.1/DPAWaiver.dll",
             "args": [],

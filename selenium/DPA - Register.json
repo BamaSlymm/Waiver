@@ -1,0 +1,60 @@
+﻿{
+  "CreationDate": "2018-8-2",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "https://dpa-waiver-appspot.com",
+      "Value": ""
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "link=Register",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_FirstName",
+      "Value": "Dogan"
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_LastName",
+      "Value": "Cibiceli"
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_Email",
+      "Value": "dogan.cibiceli@state.co.us"
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_Password",
+      "Value": "Passw0rd."
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_ConfirmPassword",
+      "Value": "Passw0rd."
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_PhoneNumber",
+      "Value": "303-0303-303"
+    },
+    {
+      "Command": "select",
+      "Target": "id=Input_DepartmentId",
+      "Value": "label=General Assembly"
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_Division",
+      "Value": "some division"
+    },
+    {
+      "Command": "",
+      "Target": "",
+      "Value": ""
+    }
+  ]
+}

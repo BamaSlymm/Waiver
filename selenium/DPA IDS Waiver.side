@@ -1,0 +1,80 @@
+{
+  "id": "3ca1c79f-bc41-4e07-ba25-f8765f0c3821",
+  "name": "DPA IDS Waiver",
+  "url": "http://localhost:5000",
+  "tests": [{
+    "id": "174299c9-b7f1-48a0-bb17-7a26b9c7bcfa",
+    "name": "DPA IDS Waiver",
+    "commands": [{
+      "id": "a399562f-fd76-431e-9992-f2e7136a7617",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "value": ""
+    }, {
+      "id": "80adb5fe-1127-4a8e-85de-640d08416792",
+      "comment": "",
+      "command": "clickAt",
+      "target": "//a[contains(text(),'Register')]",
+      "value": "5,5"
+    }, {
+      "id": "c5b624c6-7149-4b0d-8fc9-04694af60f3b",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_FirstName",
+      "value": "Dogan"
+    }, {
+      "id": "f575b647-3a7c-46a5-ad97-0dcb2c8e8029",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_LastName",
+      "value": "Cibiceli"
+    }, {
+      "id": "53e32d49-165f-4567-99fa-c1b0a290a810",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Email",
+      "value": "dogan.cibiceli@state.co.us"
+    }, {
+      "id": "5733d7e1-ed95-4250-b7e0-658e2e15df86",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Password",
+      "value": "Passw0rd."
+    }, {
+      "id": "b0aed88a-3515-4a31-9058-c5a384534a54",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_ConfirmPassword",
+      "value": "Passw0rd."
+    }, {
+      "id": "df1b1c0a-df37-4f77-b28a-dd2dc61dd583",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_PhoneNumber",
+      "value": "303-003-3030"
+    }, {
+      "id": "6536a839-2790-4d20-a73e-0eab52c7dd62",
+      "comment": "",
+      "command": "select",
+      "target": "id=Input_DepartmentId",
+      "value": "label=Local Affairs"
+    }, {
+      "id": "e30610dc-1d04-4628-887e-c9c090b73192",
+      "comment": "",
+      "command": "type",
+      "target": "id=Input_Division",
+      "value": "locally yours"
+    }]
+  }],
+  "suites": [{
+    "id": "048ba2e2-ff81-4a89-8436-a98892e0a29c",
+    "name": "Default Suite",
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["174299c9-b7f1-48a0-bb17-7a26b9c7bcfa"]
+  }],
+  "urls": ["http://localhost:5000/"],
+  "plugins": [],
+  "version": "1.0"
+}

@@ -25,6 +25,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public Department Department { get; set; }
 
         [PersonalData]
+        [Required]
         public string Division { get; set; }
 
     }

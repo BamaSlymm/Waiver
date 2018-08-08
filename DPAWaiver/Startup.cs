@@ -56,7 +56,7 @@ namespace DPAWaiver
                 // Lockout settings
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
                 options.Lockout.MaxFailedAccessAttempts = 10;
-                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.AllowedForNewUsers = false;
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
@@ -104,7 +104,9 @@ namespace DPAWaiver
                  }));
 
             services.AddIdentity<DPAUser, DPARole>()
-                    .AddEntityFrameworkStores<DPAWaiverIdentityDbContext>();
+                    .AddEntityFrameworkStores<DPAWaiverIdentityDbContext>()
+                    .AddDefaultTokenProviders()
+                    .AddDefaultUI();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

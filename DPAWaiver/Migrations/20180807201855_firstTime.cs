@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DPAWaiver.Migrations
 {
-    public partial class FirstTime : Migration
+    public partial class firstTime : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -130,7 +130,7 @@ namespace DPAWaiver.Migrations
                     LastName = table.Column<string>(nullable: true),
                     PhoneNumberExtension = table.Column<string>(nullable: true),
                     DepartmentID = table.Column<int>(nullable: false),
-                    Division = table.Column<string>(nullable: true)
+                    Division = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -191,8 +191,8 @@ namespace DPAWaiver.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<Guid>(nullable: false)
                 },
@@ -236,8 +236,8 @@ namespace DPAWaiver.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

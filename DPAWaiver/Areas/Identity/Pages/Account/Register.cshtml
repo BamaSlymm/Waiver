@@ -52,7 +52,7 @@
 
 
                     <div class="form-group col-md-4 col-lg-4 padding-right-0">
-                        <label asp-for="Input.PhoneNumberExtension"></label>
+                        <label asp-for="Input.PhoneNumberExtension" style="margin-top:6px"></label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <span class="input-group-text" id="basic-addon1">x</span>
@@ -63,7 +63,7 @@
                         </div>    
                     </div>
                 
-
+                    <div style='clear:both'></div>
                     <div class="form-group required">
                         <label asp-for="Input.DepartmentId" class="control-label"></label>
                         <select class="form-control" asp-for="Input.DepartmentId" asp-items="Model.departments">
@@ -73,14 +73,16 @@
                         <span asp-validation-for="Input.DepartmentId" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group required">
                         <label asp-for="Input.Division"></label>
                         <input asp-for="Input.Division" class="form-control" />
                         <span asp-validation-for="Input.Division" class="text-danger"></span>
                     </div>
 
+                    <a type="submit" class="btn btn-primary pull-right">Create User&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </a>
 
-                    <button type="submit" class="btn btn-default">Register</button>
                 </form>
             </div>
         </div>

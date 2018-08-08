@@ -87,6 +87,7 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
             public int DepartmentId { get; set; }
 
             [Display(Name = "Division")]
+            [Required]
             public string Division { get; set; }
         }
 
