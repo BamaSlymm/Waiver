@@ -171,6 +171,7 @@ namespace DPAWaiver.Models
             var aList = new List<PurposeType> {
                 new PurposeType(12,name: "Data Entry",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeType(13,name: "Design",sortOrder:2,isDeletable:false,isDisabled:false),
+                new PurposeType(14,name: "Mail Processing",sortOrder:3,isDeletable:false,isDisabled:false),
             };
             return aList ;
         }
