@@ -122,7 +122,9 @@ namespace DPAWaiver.Pages
                 case 4:
                     switch (selectedType)
                     {
-                        case 1: return RedirectToPage("./CreateWaiverSoftwareDataEntry");
+                        case 12: return RedirectToPage("./CreateWaiverSoftwareDataEntry");
+                        case 13: return RedirectToPage("./CreateWaiverSoftwareDesign");
+
                     }
                     break;
 
