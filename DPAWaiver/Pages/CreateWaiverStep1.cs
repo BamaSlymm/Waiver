@@ -126,6 +126,7 @@ namespace DPAWaiver.Pages
                         case 13: return RedirectToPage("./CreateWaiverSoftwareDesign");
                         case 14: return RedirectToPage("./CreateWaiverSoftwareMailProcessing");
                         case 15: return RedirectToPage("./CreateWaiverSoftwarePrintCopy");
+                        case 16: return RedirectToPage("./CreateWaiverSoftwareScanningImaging");
                     }
                     break;
 

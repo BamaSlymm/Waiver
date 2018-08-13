@@ -172,7 +172,8 @@ namespace DPAWaiver.Models
                 new PurposeType(12,name: "Data Entry",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeType(13,name: "Design",sortOrder:2,isDeletable:false,isDisabled:false),
                 new PurposeType(14,name: "Mail Processing",sortOrder:3,isDeletable:false,isDisabled:false),
-                new PurposeType(15,name: "Print - Copy",sortOrder:3,isDeletable:false,isDisabled:false),
+                new PurposeType(15,name: "Print - Copy",sortOrder:4,isDeletable:false,isDisabled:false),
+                new PurposeType(16,name: "Scanning/Imaging/Microfilm",sortOrder:5,isDeletable:false,isDisabled:false),
             };
             return aList ;
         }
