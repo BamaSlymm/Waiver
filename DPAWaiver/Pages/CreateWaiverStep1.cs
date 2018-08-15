@@ -42,8 +42,13 @@ namespace DPAWaiver.Pages
         public int selectedSubtype { set; get; }
         private readonly ILogger _logger;
 
-        public void OnGet()
+        public string _otherFirstName {set;get;}
+        public string _otherLastName {set;get;}
+
+        public void OnGet([FromQuery(Name = "otherFirstName")] string otherFirstName,[FromQuery(Name = "otherLastName")] string otherLastName)
         {
+            _otherFirstName = otherFirstName ;
+            _otherLastName = otherLastName;
         }
 
         public JsonResult OnPostPurpose(int purposeId)
@@ -68,8 +73,10 @@ namespace DPAWaiver.Pages
             return new JsonResult(new object[] { });
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost([FromQuery(Name = "otherFirstName")] string otherFirstName,[FromQuery(Name = "otherLastName")] string otherLastName)
         {
+            // _otherFirstName = otherFirstName ;
+            // _otherLastName = otherLastName ;
             _logger.LogInformation("Selected purpose {1} Selected type {2}, subtype {3}", selectedPurpose, selectedType, selectedSubtype);
             if (!ModelState.IsValid)
             {
@@ -80,7 +87,7 @@ namespace DPAWaiver.Pages
                 case 1:
                     switch (selectedType)
                     {
-                        case 1: return RedirectToPage("./CreateWaiverServiceDataEntry");
+                        case 1: return RedirectToPage("./CreateWaiverServiceDataEntry", new{otherFirstName= otherFirstName, otherLastName= otherLastName});
                         case 2: return RedirectToPage("./CreateWaiverServiceDesign");
                         case 3: return RedirectToPage("./CreateWaiverServiceMail");
                         case 4: return RedirectToPage("./CreateWaiverServicePrinter");
