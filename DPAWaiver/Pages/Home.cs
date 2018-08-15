@@ -171,15 +171,19 @@ namespace DPAWaiver.Pages
             var userId = await _userManager.GetUserIdAsync(user);
             var email = await _userManager.GetEmailAsync(user);
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var callbackUrl = Url.Page(
-                "/Account/ConfirmEmail",
-                pageHandler: null,
-                values: new { userId = userId, code = code },
-                protocol: Request.Scheme);
+            var parametersToAdd = new System.Collections.Generic.Dictionary<string, string>() { { "userId", userId }, { "code", code} };
+            var initialUrl = string.Concat(
+                            Request.Scheme,
+                            "://",
+                            Request.Host.ToUriComponent(),
+                            Request.PathBase.ToUriComponent(),
+                            "/Identity/Account/ConfirmEmail");
+            var newUri = Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(initialUrl, parametersToAdd);
+            
             await _emailSender.SendEmailAsync(
                 email,
                 "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(newUri)}'>clicking here</a>.");
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToPage();
