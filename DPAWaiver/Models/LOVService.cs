@@ -54,7 +54,6 @@ namespace DPAWaiver.Models
             printerList.Add(officeJet200);
             printerList.Add(m553dn);
             printerList.Add(other);
-            printerList.Sort();
             return printerList;
         }
         IEnumerable<SelectListItem> ILOVService.GetAllSingleFunctionPrinterPreferencesAsSelectListBySortOrder()
