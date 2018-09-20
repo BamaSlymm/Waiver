@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
 using DPAWaiver.Models.LOV;
+using DPAWaiver.Models.Waivers;
 using DPAWaiver.Models.WaiverSelection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -34,8 +35,23 @@ namespace DPAWaiver.Areas.Identity.Data
             builder.Entity<PurposeSubtype>()
                 .HasOne(t => t.purposeType)
                 .WithMany(c => c.purposeSubtypes);
-
+            builder.Entity<BaseWaiver>()
+            .Property(e => e.Status)
+            .HasConversion<string>();
+            builder.Entity<BaseWaiver>()
+            .HasKey(b => b.ID);
+            builder.Entity<BaseWaiver>()
+                .HasAlternateKey(b => b.WaiverNumber);
+        
+        
+            builder.Entity<BaseWaiverAction>()
+                .Property(e => e.ActionTaken)
+                .HasConversion<string>();    
+            builder.Entity<BaseWaiverAction>()
+                .HasOne(t => t.BaseWaiver)
+                .WithMany(c => c.Actions);                            
         }
+
         public DbSet<BaseLOV> BaseLOVs { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<Purpose> Purposes { get; set; }
@@ -43,7 +59,9 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<PurposeSubtype> PurposeSubtypes { get; set; }
         public DbSet<MicrofilmOutputType> MicrofilmOutputTypes { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<BaseWaiver> BaseWaivers { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.DataEntryWaiver> DataEntryWaiver { get; set; }
 
-
+        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAction> BaseWaiverActions { get; set; }
     }
 }

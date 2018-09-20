@@ -1,0 +1,201 @@
+@page
+@model DPAWaiver.Pages.Private.DataEntry.DetailsModel
+
+@{
+ViewData["Title"] = "Details";
+}
+
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<partial name="_UserInformation" model="@Model.DataEntryWaiver.CreatedBy" />
+@if (Model.DataEntryWaiver.OtherFirstName != null && Model.DataEntryWaiver.OtherLastName != null)
+{
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Owner Information</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label asp-for="DataEntryWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
+                <input asp-for="DataEntryWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.DataEntryWaiver.OtherFirstName)" />
+                <span asp-validation-for="DataEntryWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <label asp-for="DataEntryWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                <input asp-for="DataEntryWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.DataEntryWaiver.OtherLastName)" />
+                <span asp-validation-for="DataEntryWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+}
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-4 col-xs-4">
+                Purpose: Service
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Type: Data Entry
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Status: @Model.DataEntryWaiver.Status
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.ProjectName" class="control-label fontWeightNormal"></label>
+                    <input disabled ="DataEntryWaiver.ProjectName" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.ProjectName)" />
+                    <span asp-validation-for="DataEntryWaiver.ProjectName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.SubmittedOn" class="control-label fontWeightNormal"></label>
+                    <input disabled asp-for="DataEntryWaiver.SubmittedOn" class="form-control" required="true" />
+                    <span asp-validation-for="DataEntryWaiver.SubmittedOn" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.CostEstimate" class="control-label fontWeightNormal"></label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <input disabled asp-for="DataEntryWaiver.CostEstimate" class="form-control fontWeightNormal" required="true"
+                        placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.CostEstimate)" />
+                    <span asp-validation-for="DataEntryWaiver.CostEstimate" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group required">
+            <label asp-for="DataEntryWaiver.WorkflowDescription" class="control-label fontWeightNormal"></label>
+            <textarea disabled asp-for="DataEntryWaiver.WorkflowDescription" class="form-control" rows="2" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.WorkflowDescription)"></textarea>
+            <span asp-validation-for="DataEntryWaiver.WorkflowDescription" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.EstimatedNumberofFTE" class="control-label fontWeightNormal"></label>
+                    <input disabled asp-for="DataEntryWaiver.EstimatedNumberofFTE" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofFTE)" />
+                    <span asp-validation-for="DataEntryWaiver.EstimatedNumberofFTE" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.EstimatedNumberofHours" class="control-label fontWeightNormal"></label>
+                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
+This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
+                    <input disabled asp-for="DataEntryWaiver.EstimatedNumberofHours" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofHours)" />
+                    <span asp-validation-for="DataEntryWaiver.EstimatedNumberofHours" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.EstimatedNumberofDocuments" class="control-label fontWeightNormal"></label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
+This is a numeric field."></span>
+                    <input disabled asp-for="DataEntryWaiver.EstimatedNumberofDocuments" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofDocuments)" />
+                    <span asp-validation-for="DataEntryWaiver.EstimatedNumberofDocuments" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="DataEntryWaiver.EstimatedNumberofFields" class="control-label fontWeightNormal"></label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+This is a numeric field."></span>
+                    <input disabled asp-for="DataEntryWaiver.EstimatedNumberofFields" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofFields)" />
+                    <span asp-validation-for="DataEntryWaiver.EstimatedNumberofFields" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label asp-for="DataEntryWaiver.SystemRequirementsDescription" class="control-label fontWeightNormal"></label>
+            <textarea disabled asp-for="DataEntryWaiver.SystemRequirementsDescription" class="form-control" rows='2' placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.SystemRequirementsDescription)"></textarea>
+            <span asp-validation-for="DataEntryWaiver.SystemRequirementsDescription" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group required">
+            <label asp-for="DataEntryWaiver.KeyedIntoSystem" class="control-label fontWeightNormal"></label>
+            <select disabled class="form-control control-label" asp-for="DataEntryWaiver.KeyedIntoSystem">
+                <option value=''>Please select one</option>
+                <option value='False'>No</option>
+                <option value='True'>Yes</option>
+            </select>
+            <span asp-validation-for="DataEntryWaiver.KeyedIntoSystem" class="text-danger"></span>
+        </div>
+
+        <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>
+            <label asp-for="DataEntryWaiver.ReasonForNotKeyedIntoSystem" class="control-label fontWeightNormal"></label>
+            <input disabled asp-for="DataEntryWaiver.ReasonForNotKeyedIntoSystem" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.ReasonForNotKeyedIntoSystem)" />
+            <span asp-validation-for="DataEntryWaiver.ReasonForNotKeyedIntoSystem" class="text-danger"></span>
+        </div>
+
+        <div class="form-group required">
+            <label asp-for="DataEntryWaiver.ReasonDataEntryCenter" class="control-label fontWeightNormal"></label>
+            <textarea disabled asp-for="DataEntryWaiver.ReasonDataEntryCenter" class="form-control" rows='2' placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.ReasonDataEntryCenter)"></textarea>
+            <span asp-validation-for="DataEntryWaiver.ReasonDataEntryCenter" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DataEntryWaiver.AdditionalComments" class="control-label fontWeightNormal"></label>
+            <textarea disabled asp-for="DataEntryWaiver.AdditionalComments" class="form-control" rows='2' placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.AdditionalComments)"></textarea>
+            <span asp-validation-for="DataEntryWaiver.AdditionalComments" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div class="row add-gutter marginTop20px pull-right">
+    
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default" asp-page="/Private/WaiverList">Waiver List&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+
+</div>
+
+
+<partial name='_Logout' />
+<div style="clear: both"></div>
+
+
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        showIfSelected('#DataEntryWaiver_KeyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], {
+            valueList: ['False']
+        });
+    });
+</script>
+}

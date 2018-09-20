@@ -36,7 +36,7 @@ namespace DPAWaiver.Tests
             context.SaveChanges();
 
             var aList = context.Purposes.Where(x => x.ID == 1).ToList();
-            aList.ForEach(x => x.name = "xyz");
+            aList.ForEach(x => x.Name = "xyz");
             context.Purposes.Add(new Purpose(5, name: "Junk", sortOrder: 4, isDeletable: false, isDisabled: false));
             context.SaveChanges();
 
@@ -45,9 +45,9 @@ namespace DPAWaiver.Tests
                 var savedPurposes = anotherContext.Purposes;
                 Assert.AreEqual(5, savedPurposes.Count(),
                     "Expected {0} does not match actual count {1}", 5, savedPurposes.Count());
-                Assert.AreEqual("xyz", savedPurposes.Single(x => x.ID == 1).name,
+                Assert.AreEqual("xyz", savedPurposes.Single(x => x.ID == 1).Name,
                     "Expected {0} does not match actual count {1}", "xyz",
-                    savedPurposes.Single(x => x.ID == 1).name);
+                    savedPurposes.Single(x => x.ID == 1).Name);
                 anotherContext.SaveChanges();
             }
 
@@ -73,18 +73,18 @@ namespace DPAWaiver.Tests
                 var savedPurposes = anotherContext.Purposes;
                 Assert.AreEqual(4, savedPurposes.Count(),
                     "Expected {0} does not match actual count {1}", 4, savedPurposes.Count());
-                purposes.Find(x => x.ID == 1).name = randomString;
+                purposes.Find(x => x.ID == 1).Name = randomString;
                 DBInitializeHelper.MergePurposes(savedPurposes, purposes);
-                Assert.AreEqual(randomString, savedPurposes.Single(x => x.ID == 1).name,
-                    "Expected {0} does not match actual count {1}", randomString, savedPurposes.Single(x => x.ID == 1).name);
+                Assert.AreEqual(randomString, savedPurposes.Single(x => x.ID == 1).Name,
+                    "Expected {0} does not match actual count {1}", randomString, savedPurposes.Single(x => x.ID == 1).Name);
                 anotherContext.SaveChanges();
             }
 
             using (var anotherContext = GetAnotherDPAWaiverIdentityDbContext())
             {
                 var savedPurposes = anotherContext.Purposes.ToList();
-                Assert.AreEqual(randomString, savedPurposes.Single(x => x.ID == 1).name,
-                    "Expected {0} does not match actual count {1}", randomString, savedPurposes.Single(x => x.ID == 1).name);
+                Assert.AreEqual(randomString, savedPurposes.Single(x => x.ID == 1).Name,
+                    "Expected {0} does not match actual count {1}", randomString, savedPurposes.Single(x => x.ID == 1).Name);
             }
         }
 
@@ -122,9 +122,9 @@ namespace DPAWaiver.Tests
                 Assert.AreEqual(serviceTypes.Count, afterServiceTypes.Count(),
                                 "Expected {0} count of service types does not match the database count {1}",
                                 serviceTypes.Count, afterServiceTypes.Count());
-                Assert.AreEqual("Data W Entry", afterServiceTypes.ToList()[0].name,
+                Assert.AreEqual("Data W Entry", afterServiceTypes.ToList()[0].Name,
                                 "Expected name {0} does not match the database name {1}",
-                                "Data W Entry", afterServiceTypes.ToList()[0].name);
+                                "Data W Entry", afterServiceTypes.ToList()[0].Name);
 
             }
 

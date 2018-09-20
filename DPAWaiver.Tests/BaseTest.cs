@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Moq;
 using DPAWaiver.Data;
-using Microsoft.Data.Sqlite;
 using DPAWaiver.Areas.Identity.Data;
-
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using DPAWaiver.Models;
 
 namespace DPAWaiver.Tests
 {
@@ -15,7 +15,14 @@ namespace DPAWaiver.Tests
     {
         private const string DatabaseName = "testing";
         public DPAWaiverIdentityDbContext context;
-        public SqliteConnection connection;
+        private DbContextOptions<DPAWaiverIdentityDbContext> options = new DbContextOptionsBuilder<DPAWaiverIdentityDbContext>()
+                .UseMySql("server=localhost;database=ef;user=test;password=test123456",
+                    mysqlOptions =>
+                    {
+                        mysqlOptions.MaxBatchSize(AppConfig.EfBatchSize);
+                        mysqlOptions.CommandTimeout(180);
+                    }
+                ).Options;
 
         public Random rnd { get; set; }
         [SetUp]
@@ -24,19 +31,16 @@ namespace DPAWaiver.Tests
             Console.WriteLine("Starting");
 
             // In-memory database only exists while the connection is open
-            var options = new DbContextOptionsBuilder<DPAWaiverIdentityDbContext>()
-                .UseInMemoryDatabase(databaseName: DatabaseName)
-                .Options;
             context = new DPAWaiverIdentityDbContext(options);
             context.Database.EnsureCreated();
             Console.WriteLine("BaseText context created Auto Transactions Enabled {0}", context.Database.AutoTransactionsEnabled);
             rnd = new Random();
+            var dbInit = new DbInitializer(context, new LOVPopulator());
+            dbInit.Initialize();
         }
         public DPAWaiverIdentityDbContext GetAnotherDPAWaiverIdentityDbContext()
         {
-            var options = new DbContextOptionsBuilder<DPAWaiverIdentityDbContext>()
-                .UseInMemoryDatabase(databaseName: DatabaseName)
-                .Options;
+            
             var anotherContext = new DPAWaiverIdentityDbContext(options);
             anotherContext.Database.EnsureCreated();
             return anotherContext;

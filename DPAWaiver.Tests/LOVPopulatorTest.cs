@@ -39,6 +39,10 @@ namespace DPAWaiver.Tests
                 var aCount = anotherContext.Purposes.ToList().Count();
                 Assert.AreEqual(4, aCount, "Expected count of {0} does not match actual count {1}", 4, aCount);
             }
+            ILOVService _ilovService = new LOVService(context);
+            Purpose personnel = _ilovService.Purposes(Purposes.Personnel);
+            Assert.AreEqual(personnel.Name, "Personnel Request","{0} is not equal to {1}",
+            personnel.Name,"Personnel Request");
 
         }
 

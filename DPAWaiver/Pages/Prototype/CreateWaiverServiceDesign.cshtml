@@ -1,0 +1,156 @@
+﻿@page 
+@model CreateWaiverServiceDesignModel 
+@{ ViewData["Title"] = "Create Waiver - Service - Design Service"; }
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">User Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                First Name: Dogan
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Last Name: Cibiceli
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Email Address: dogan.cibiceli@state.co.us
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                Department: Education
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Division: Teacher
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Phone: 555-330-3303
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-4 col-xs-4">
+                Purpose: Service
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Type: Data Entry
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Status: Started
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group required">
+                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="submittedDate" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" id="submittedDate" required="true" value="05/04/2018">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="costEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group required">
+            <label for="itemDescription" class="control-label fontWeightNormal">Describe the item to be designed:</label>
+            <textarea class="form-control" id="workflowDescription" rows='2'></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="startDate" class="control-label fontWeightNormal">Project Start Date:</label>
+                    <input type="date" class="form-control" id="startDate" aria-describedby="startDate" placeholder="Start Date (mm/dd/yyyy)">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="dueDate" class="control-label fontWeightNormal">Project Due Date:</label>
+                    <input type="date" class="form-control" id="dueDate" aria-describedby="dueDate" placeholder="Due Date (mm/dd/yyyy)">
+                </div>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+This is a numeric field.Decimal can be used.(i.e. 1.5 which would = 1 1/2 hours"></span></label>
+            <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
+        </div>
+        <div class="form-group required">
+            <label for="typeOfDesign" class="control-label fontWeightNormal">Type of Design:</label>
+            <select class="form-control" id="typeOfDesign">
+                <option>Graphic Art</option>
+                <option>Web</option>
+                <option>Forms</option>
+                <option>Publication</option>
+                <option value="0">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group required" id="otherDescriptionId">
+            <label for="otherDescription" class="control-label fontWeightNormal">If other, please explain:</label>
+            <textarea class="form-control" id="systemRequirementsDescription" rows='2'></textarea>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row add-gutter marginTop20px pull-right">
+    <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+    <a type="submit" class="btn btn-primary">Create Waiver&nbsp;
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</div>
+
+<div style="clear: both"></div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
+}        

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
@@ -25,6 +26,7 @@ namespace DPAWaiver
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
         }
 
         public IConfiguration Configuration { get; }
@@ -39,7 +41,12 @@ namespace DPAWaiver
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddTransient<ILOVService, LOVService>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().
+                AddRazorPagesOptions(options =>
+                    {
+                        options.Conventions.AuthorizeFolder("/Private");
+                    })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             ConfigureEntityFramework(services);
 

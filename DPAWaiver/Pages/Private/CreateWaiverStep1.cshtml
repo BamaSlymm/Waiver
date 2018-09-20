@@ -1,0 +1,201 @@
+﻿@page
+@model DPAWaiver.Pages.Private.CreateWaiverStep1Model
+
+@{
+ViewData["Title"] = "Create Waiver";
+}
+
+<form method="POST">
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Request System</h3>
+        </div>
+        <div class="panel-body" style="padding: 20px">
+            In order to provide you with the appropriate form, please select from the options below.
+            <br /> Select the Purpose of this waiver.
+            <div class="row marginTop20px">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label for="purpose" class="control-label">Purpose:</label>
+                        <select class="form-control" id="purpose" asp-for="selectedPurpose" asp-items="Model.purposes">
+                            <option>Please select one</option>
+                        </select>
+                        <span asp-validation-for="selectedPurpose" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label for="selectedType" class="control-label">Type:</label>
+                        <select class="form-control" id="selectedType" asp-for="selectedType">
+                            <option>Please select one</option>
+                        </select>
+                        <span asp-validation-for="selectedType" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required" id="subtypeDiv">
+                        <label for="subtype" class="control-label">Subtype</label>
+                        <select class="form-control" id="subtype" asp-for="selectedSubtype" asp-items="Model.microfilmSubtypes">
+                            <option value="0">Please select one</option>
+                        </select>
+                        <span asp-validation-for="selectedSubtype" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row marginTop20px">
+                <div class="col-md-12 col-xs-12 text-muted">
+                    If you have any questions, please contact Diana (Rae) Wiant at <a href='tel:1-719-948-5751'>719-948-5751</a>
+                    for data entry, microfilm and scanning / imaging /
+                    conversion services or equipment typically provided by Integrated Document Solutions (IDS).
+                    <br /><br />Contact Mike Lincoln at <a href='tel:1-303-866-3874'>303-866-3874</a> for mail service,
+                    print/copy and graphic design services or
+                    equipment typically provided by Integrated Document Solutions (IDS). For technical support,
+                    <a href="https://oitservicedesk.state.co.us/" target="_blank">
+                        click here to submit a Customer IT Request
+                    </a>.
+                </div>
+            </div>
+
+            <div class="row add-gutter marginTop20px pull-right">
+                <a type="submit" class="btn btn-default btn-space-2x">
+                    Logout&nbsp;
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                </a>
+                <button type="button" class="btn btn-primary btn-space" data-toggle="collapse" 
+                        data-target="#collapseExample" onclick="$('#createWaiverButtonDiv').collapse('show');">
+                    Continue
+                </button>
+            </div>
+
+            <div class="collapse " id="collapseExample">
+                <div style="clear:both"></div>
+                <div class="panel panel-primary marginTop40px">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User Details</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="checkbox">
+                            <label><input id="otherCheckbox" type="checkbox" value="">Is this waiver for someone other than yourself ?</label>
+                        </div>
+
+                        <div class="alert alert-danger alert-dismissible" role="alert" id="otherThanAlert" style="padding-left:20px">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <strong>Error!</strong> Please fill in both first and last name
+                        </div>
+                        <div style="clear:both"></div>
+                        <div class="collapse" id="otherThanDiv">
+                            <div class='form-group required col-md-4 col-xs-12 padding-left-0'>
+                                <label asp-for="OtherFirstName" class="control-label fontWeightNormal"></label>
+                                <input asp-for="OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => model.OtherFirstName)" />
+                                <span asp-validation-for="OtherFirstName" class="text-danger"></span>
+                            </div>
+                            <div class='form-group required  col-md-4 col-xs-12  padding-left-0'>
+                                <label asp-for="OtherLastName" class="control-label fontWeightNormal"></label>
+                                <input asp-for="OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => model.OtherLastName)" />
+                                <span asp-validation-for="OtherLastName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="collapse" id="createWaiverButtonDiv">
+                            <div class='form-group required col-md-4 col-xs-6 padding-left-0'>
+                                <label>&nbsp;</label>
+                                <button id="createWaiverButton" type="submit" href="#" title="Click to Create Waiver"
+                                    class="btn btn-primary btn-space" style="display: block;margin-top: 6px">
+                                    Create Waiver&nbsp;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</form>
+
+
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#otherThanAlert').hide();
+        showWhenTrue(['#subtypeDiv'], {
+            cb: whenToShowSubType
+        });
+        loadTypes();
+    });
+
+    $("#purpose").on("change", function () {
+        showWhenTrue(['#subtypeDiv'], {
+            cb: whenToShowSubType
+        });
+        loadTypes();
+    });
+
+    $("#selectedType").on("change", function () {
+        var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
+        var myData = {
+            typeId: $("#selectedType").val(),
+            '__RequestVerificationToken': token
+        };
+        getSelectList("/Private/CreateWaiverStep1?handler=type", myData, '#subtype');
+        showWhenTrue(['#subtypeDiv'], {
+            cb: whenToShowSubType
+        });
+    });
+
+    function whenToShowSubType() {
+        writeToConsole('purpose [' + $('#purpose option:selected').val() +
+            '] selectedType [' + $('#selectedType option:selected').val() + ']');
+        let returnValue =
+            ($('#purpose option:selected').val() === '1' &&
+                $('#selectedType  option:selected').val() === '5') ||
+            ($('#purpose option:selected').val() === '3' &&
+                $('#selectedType option:selected').val() === '11');
+        writeToConsole('return Value ' + returnValue);
+        return returnValue;
+    }
+
+    function loadTypes() {
+        var token = $('input[name="__RequestVerificationToken"]', $('form')).val();
+        var myData = {
+            purposeId: $("#purpose").val(),
+            '__RequestVerificationToken': token
+        };
+        var option = $('<option></option>').text('Please select one');
+        getSelectList("/Private/CreateWaiverStep1?handler=purpose", myData, '#selectedType', {
+            optsToAdd: [option]
+        });
+    }
+
+    $("#otherCheckbox").on("click", function () {
+        if ($("#otherCheckbox").is(":checked")) {
+            $("#otherThanDiv").collapse("show");
+            $("#createWaiverButtonDiv").collapse("show");
+        } else {
+            $('#OtherFirstName').val("");
+            $('#OtherLastName').val("");
+            $("#otherThanDiv").collapse("hide");
+            $("#createWaiverButtonDiv").collapse("show");
+        }
+    });
+
+    
+    $("#createWaiverButton").on("click", function () {
+        if ($('#otherThanDiv').is(':visible') == true) {
+            if (!$('#OtherFirstName').val() || !$('#OtherLastName').val()) {
+                $('#otherThanAlert').show();
+                return false;
+            }
+        }
+        window.location.href = "CreateWaiverStep1" ;
+    });
+</script>
+}

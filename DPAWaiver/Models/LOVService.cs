@@ -87,11 +87,12 @@ namespace DPAWaiver.Models
 
             return _context.Purposes.ToList();
         }
-
         public IEnumerable<SelectListItem> GetServiceTypesAsSelectListBySortOrder()
         {
             return convertToSelectListBySortOrder(getServiceTypes());
         }
+
+        public Purpose Purposes(int purposeId) => _context.Purposes.Single(x => x.ID == purposeId);
 
         public List<PurposeType> getServiceTypes()
         {
@@ -132,9 +133,9 @@ namespace DPAWaiver.Models
         {
             return convertToSelectListBySortOrder(getEquipment());
         }
-        public List<Equipment> getEquipment()
+        public IEnumerable<Equipment> getEquipment()
         {
-            return _context.Equipments.ToList();
+            return _context.Equipments.AsEnumerable();
         }
 
         public IEnumerable<SelectListItem> GetPrinterSubtypesAsSelectListBySortOrder()
@@ -205,7 +206,7 @@ namespace DPAWaiver.Models
             var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
             foreach (var record in bySortOrderList)
             {
-                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+                selectList.Add(new SelectListItem { Text = record.Name, Value = record.ID.ToString(), Disabled = record.isDisabled });
             }
 
             return selectList;
@@ -218,7 +219,7 @@ namespace DPAWaiver.Models
             var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
             foreach (var record in bySortOrderList)
             {
-                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+                selectList.Add(new SelectListItem { Text = record.Name, Value = record.ID.ToString(), Disabled = record.isDisabled });
             }
 
             return selectList;
@@ -268,7 +269,7 @@ namespace DPAWaiver.Models
             var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
             foreach (var record in bySortOrderList)
             {
-                selectList.Add(new SelectListItem { Text = record.name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+                selectList.Add(new SelectListItem { Text = record.Name, Value = record.ID.ToString(), Disabled = record.isDisabled });
             }
 
             return selectList;

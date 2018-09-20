@@ -1,0 +1,32 @@
+﻿@model DPAWaiver.Areas.Identity.Data.DPAUser
+
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">User Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            First Name: @Model.FirstName
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            Last Name: @Model.LastName
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            Email Address: @Model.Email
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            Department: @Model.Department.Name
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            Division: @Model.Division
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            Phone: @Model.PhoneNumber
+            @if (Model.PhoneNumberExtension != null )
+            {
+            <span>x @Model.PhoneNumberExtension</span>;
+            }
+        </div>
+    </div>
+</div>

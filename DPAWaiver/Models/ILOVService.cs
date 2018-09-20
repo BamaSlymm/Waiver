@@ -13,7 +13,7 @@ namespace DPAWaiver.Models
         IEnumerable<SelectListItem> GetAllMultiFunctionPrinterPreferencesAsSelectListBySortOrder();
         IEnumerable<SelectListItem> GetPurposesAsSelectListBySortOrder();
         List<Purpose> getPurposes();
-
+        Purpose Purposes(int purposeId);
         List<PurposeType> getServiceTypes();
         IEnumerable<SelectListItem> GetServiceTypesAsSelectListBySortOrder();
 
@@ -32,7 +32,7 @@ namespace DPAWaiver.Models
         List<PurposeSubtype> getMicrofilmSubtypes();
 
         IEnumerable<SelectListItem> GetEquipmentAsSelectListBySortOrder();
-        List<Equipment> getEquipment();
+        IEnumerable<Equipment> getEquipment();
 
         IEnumerable<SelectListItem> GetMicrofilmOutputTypeAsSelectListBySortOrder();
         List<MicrofilmOutputType> GetMicrofilmOutputTypes();

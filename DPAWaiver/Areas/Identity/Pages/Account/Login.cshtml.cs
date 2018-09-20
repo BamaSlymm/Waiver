@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using DPAWaiver.Pages;
 
 namespace DPAWaiver.Areas.Identity.Pages.Account
 {
@@ -79,7 +80,7 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect("/Home");
+                    return LocalRedirect(PageList.HomeSignedIn);
                 }
                 if (result.RequiresTwoFactor)
                 {
