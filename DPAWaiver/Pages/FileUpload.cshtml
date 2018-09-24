@@ -1,0 +1,32 @@
+﻿@page
+@model FileUploadModel
+@{ ViewData["Title"] = "Overview on How To Use DPA Waivers"; }
+
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Request System</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload one or more files using this form:</p>
+                    <input type="file" name="files" multiple />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Upload"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<a asp-page="./Index" class="btn btn-primary pull-right">Home&nbsp;
+    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+</a>
+</div>
+</div>
+</div>

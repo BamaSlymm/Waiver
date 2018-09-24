@@ -85,8 +85,10 @@ namespace DPAWaiver
 
 
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddSingleton<IStorageUtil, StorageUtil>();
             services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("Email"));
             services.Configure<GoogleReCaptchaOptions>(Configuration.GetSection("GoogleReCaptcha"));
+            services.Configure<GoogleCloudStorageOptions>(Configuration.GetSection("GoogleCloudStorage"));
         }
 
         private void ConfigureEntityFramework(IServiceCollection services)

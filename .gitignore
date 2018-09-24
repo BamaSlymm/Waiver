@@ -236,5 +236,8 @@ _Pvt_Extensions
 .fake/
 .idea/
 
-# local history plugin vscode
+# history plugin
 .history/
+
+# ignore configuration files
+test-cloud-storage.json
