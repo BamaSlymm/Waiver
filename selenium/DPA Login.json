@@ -1,0 +1,30 @@
+﻿{
+  "CreationDate": "2018-9-26",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "${globalURL}/Identity/Account/Login",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_Email",
+      "Value": "regularUser@state.co.us"
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_Password",
+      "Value": "Passw0rd...."
+    },
+    {
+      "Command": "type",
+      "Target": "id=Input_RememberMe",
+      "Value": "true"
+    },
+    {
+      "Command": "click",
+      "Target": "/html/body/div[1]/div/div[1]/section/form/div[5]/button",
+      "Value": ""
+    }
+  ]
+}

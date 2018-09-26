@@ -1,0 +1,10 @@
+﻿{
+  "CreationDate": "2018-9-26",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "http://localhost:5001",
+      "Value": "globalURL"
+    }
+  ]
+}

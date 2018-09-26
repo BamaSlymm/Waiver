@@ -1,0 +1,18 @@
+﻿{
+  "creationDate": "2018-09-26",
+  "name": "DPA Login - Create Data Entry",
+  "macros": [
+    {
+      "macro": "DPA Local - Globals",
+      "loops": 1
+    },
+    {
+      "macro": "DPA Login",
+      "loops": 1
+    },
+    {
+      "macro": "DPA DataEntry",
+      "loops": 1
+    }
+  ]
+}

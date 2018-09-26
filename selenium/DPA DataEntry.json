@@ -1,0 +1,95 @@
+﻿{
+  "CreationDate": "2018-9-26",
+  "Commands": [
+    {
+      "Command": "open",
+      "Target": "${globalURL}/Private/DataEntry/Create?otherFirstName=Dogan&otherLastName=Cibiceli",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_ProjectName",
+      "Value": "another project for dpa waivers"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_SubmittedOn",
+      "Value": "0002-01-01"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_SubmittedOn",
+      "Value": "0020-01-01"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_SubmittedOn",
+      "Value": "0201-01-01"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_SubmittedOn",
+      "Value": "2010-01-01"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_CostEstimate",
+      "Value": "100"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_WorkflowDescription",
+      "Value": "a workflow"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_EstimatedNumberofFTE",
+      "Value": "3"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_EstimatedNumberofHours",
+      "Value": "3"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_EstimatedNumberofDocuments",
+      "Value": "2"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_EstimatedNumberofFields",
+      "Value": "2"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_SystemRequirementsDescription",
+      "Value": "system requirements"
+    },
+    {
+      "Command": "select",
+      "Target": "id=DataEntryWaiver_KeyedIntoSystem",
+      "Value": "label=No"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_ReasonForNotKeyedIntoSystem",
+      "Value": "I don't know they just told me"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_ReasonDataEntryCenter",
+      "Value": "because state does not have tools and technologies"
+    },
+    {
+      "Command": "type",
+      "Target": "id=DataEntryWaiver_AdditionalComments",
+      "Value": "no comment"
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "id=createWaiver",
+      "Value": ""
+    }
+  ]
+}

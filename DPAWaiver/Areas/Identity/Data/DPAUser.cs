@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using DPAWaiver.Models.LOV;
@@ -33,6 +34,7 @@ namespace DPAWaiver.Areas.Identity.Data
         [Display(Name="Division")]
         public string Division { get; set; }
 
+        [NotMapped]
         [Display(Name="User Name")]
         public string FullName { get {return FirstName + " " + LastName ; } } 
     }
