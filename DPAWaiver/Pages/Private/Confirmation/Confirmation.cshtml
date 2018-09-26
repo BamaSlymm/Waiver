@@ -1,0 +1,42 @@
+﻿@page
+@model DPAWaiver.Pages.Private.Confirmation.ConfirmationModel
+
+@{
+    ViewData["Title"] = "Confirmation Page";
+}
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Confirmation</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+    Thank you for using the Division of Central Services - Waiver Request System. 
+    Your waiver has been submitted and is now in pending status. 
+    You will receive an email with your waiver information.  
+    You will also receive an email once a reviewer has approved or denied your waiver.
+    <br/><br/>
+
+    If you have supporting documents you wish to upload, such as PDF images of the invoice or Word doc files containing the scope of work or other relevant information, press the Upload Supporting Documents button. <br/><br/>
+    If you have Invoice information about this waiver such as the Vendor name, Invoice Number, Invoice Date and/or Invoice Amount, press the Add Invoice Information if Available button. <br/><br/>
+    If you wish to review an existing waiver, press the continue button or press the logout button if you are finished.        </div>
+    </div>
+
+<div class="row add-gutter marginTop20px">
+     <partial name='_Logout' />
+     <div class="pull-right">
+    <a class="btn btn-default" asp-page="Private/Invoice/Invoice" asp-route-id="@Model.id" title="Add Invoice">Add Invoice&nbsp;<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></a> 
+    <a class="btn btn-default" asp-page="/Private/Attachment/Attachment" asp-route-id="@Model.id" title="Upload Supporting Documents">Upload Supporting Documents&nbsp;<span class="glyphicon glyphicon-file" aria-hidden="true" ></span></a> 
+    <a class="btn btn-primary" asp-page="/Private/WaiverList" title="Continue to Waiver List">Continue</a>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+</script>
+}

@@ -75,8 +75,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
                                                 WaiverActions.Created, emptyWaiver);
                 _context.BaseWaiverActions.Add(baseWaiverAction);
                 await _context.SaveChangesAsync();
-                TempData["StatusMessage"] = "Your waiver has been created";
-                return RedirectToPage("../WaiverList");
+                return RedirectToPage(PageList.Confirmation, new {id = emptyWaiver.ID});
             }
             return null;
         }
