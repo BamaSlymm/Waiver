@@ -10,9 +10,10 @@ using DPAWaiver.Models.Waivers;
 using Microsoft.AspNetCore.Identity;
 using DPAWaiver.Models;
 
+
 namespace DPAWaiver.Pages.Private.DataEntry
 {
-    public class DetailsModel : BaseWaiverModel
+    public class DetailsModel : BaseWaiverPageModel
     {
 
 

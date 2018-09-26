@@ -15,7 +15,7 @@ using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.DataEntry
 {
-    public class CreateModel : BaseWaiverModel
+    public class CreateModel : BaseWaiverPageModel
     {
 
         [BindProperty]
@@ -29,7 +29,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
         public async Task<IActionResult> OnGetAsync([FromQuery(Name = "otherFirstName")] string otherFirstName, [FromQuery(Name = "otherLastName")] string otherLastName)
         {
-            UserWithDepartment = await GetUserWithDepartment(_userManager);
+            UserWithDepartment = await GetUserWithDepartment();
 
             DataEntryWaiver = new DataEntryWaiverView();
             DataEntryWaiver.OtherFirstName = otherFirstName;
@@ -39,7 +39,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
         public async Task<IActionResult> OnPostAsync()
         {
-            UserWithDepartment = await GetUserWithDepartment(_userManager);
+            UserWithDepartment = await GetUserWithDepartment();
 
             if (!ModelState.IsValid)
             {

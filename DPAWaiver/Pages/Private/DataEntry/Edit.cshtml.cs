@@ -14,7 +14,7 @@ using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.DataEntry
 {
-    public class EditModel : BaseWaiverModel
+    public class EditModel : BaseWaiverPageModel
     {
         [BindProperty]
         public DataEntryWaiverView DataEntryWaiver { get; set; }
@@ -47,36 +47,14 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 return NotFound();
             }
 
-            var result = await GetUserWithDepartment();
-            if (result != null)
-            {
-                return result;
-            }
+            UserWithDepartment = await GetUserWithDepartment();
             return Page();
 
         }
 
-        private async Task<IActionResult> GetUserWithDepartment()
-        {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return RedirectToPage("../../Index");
-            }
-
-            UserWithDepartment = _userManager.Users.Include(x => x.Department).Single(x => x.Id == user.Id);
-            return null;
-        }
-
-
-
         public async Task<IActionResult> OnPostAsync(Guid? id)
         {
-            var result = await GetUserWithDepartment();
-            if (result != null)
-            {
-                return result;
-            }
+            UserWithDepartment = await GetUserWithDepartment();
 
             if (id == null)
             {

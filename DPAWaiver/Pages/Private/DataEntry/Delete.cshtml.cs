@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
-using DPAWaiver.Models.Waivers;
 using DPAWaiver.Models;
+using DPAWaiver.Models.Waivers;
 using Microsoft.AspNetCore.Identity;
 
 namespace DPAWaiver.Pages.Private.DataEntry
 {
-    public class DeleteModel : BaseWaiverModel
+    public class DeleteModel : BaseWaiverPageModel
     {
 
         public DeleteModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context

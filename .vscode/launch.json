@@ -15,7 +15,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/DPAWaiver",
             "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart",
+            "internalConsoleOptions": "neverOpen",
             "launchBrowser": {
                 "enabled": false,
                 "args": "${auto-detect-url}",

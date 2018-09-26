@@ -102,7 +102,8 @@ namespace DPAWaiver.Models.Waivers
         }
 
         [JsonIgnore] 
-        public ICollection<BaseWaiverAction> Actions {get;set;}
+        public List<BaseWaiverAction> Actions {get;set;}
+        public List<BaseWaiverAttachment> Attachments {get;set;}
 
     }
 

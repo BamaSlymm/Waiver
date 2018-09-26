@@ -6,13 +6,17 @@ using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
 using Google.Cloud.Storage.V1;
 using Google.Apis.Auth.OAuth2;
+using Google.Apis.Storage.v1.Data;
+using System.IO;
+using Google;
+using System;
 
 namespace DPAWaiver.Services
 {
     public class StorageUtil : IStorageUtil
     {
-        
-        private StorageClient _storageClient ;
+
+        private StorageClient _storageClient;
         public StorageUtil(IOptions<GoogleCloudStorageOptions> optionsAccessor)
         {
             Options = optionsAccessor.Value;
@@ -22,26 +26,47 @@ namespace DPAWaiver.Services
 
         public GoogleCloudStorageOptions Options { get; } //set only via Secret Manager
 
-        public async Task<string> StoreFileAsync(IFormFile incoming, string bucketId)
+        public async Task<Google.Apis.Storage.v1.Data.Object> StoreFileAsync(IFormFile incoming, string bucketId)
         {
-            var parentBucket = await _storageClient.GetBucketAsync(Options.BucketName);
-            var storedObject = await _storageClient.UploadObjectAsync(
-                bucket:Options.BucketName,
-                objectName: bucketId + "/" + incoming.FileName,
-                contentType: incoming.ContentType,
-                source: incoming.OpenReadStream()
-            );
-            return storedObject.Name;
+            Google.Apis.Storage.v1.Data.Object storedObject = null ;
+            try
+            {
+                storedObject = await _storageClient.UploadObjectAsync(
+                   bucket: Options.BucketName,
+                   objectName: bucketId + "/" + incoming.FileName,
+                   contentType: incoming.ContentType,
+                   source: incoming.OpenReadStream()
+               );
+            }
+            catch (GoogleApiException gae)
+            {
+                Console.WriteLine(gae.Error.Code);
+            }
+            return storedObject;
         }
 
-        public async Task GetFileAsync(string URI)
+        public async Task GetFileAsync(string objectName, Stream copyToStream)
         {
-            throw new System.NotImplementedException();
+            await _storageClient.DownloadObjectAsync(Options.BucketName,
+                                                     objectName,
+                                                     copyToStream);
         }
 
-        public async Task DeleteFileAsync(string URI)
+
+        public async Task DeleteFileAsync(string objectName)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                await _storageClient.DeleteObjectAsync(Options.BucketName,
+                                                        objectName);
+            }
+            catch (GoogleApiException gae)
+            {
+                if (gae.Error.Code != 404)
+                {
+                    throw gae;
+                }
+            }
         }
     }
 }

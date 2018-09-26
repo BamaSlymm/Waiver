@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DPAWaiver.Areas.Identity.Data;
+using DPAWaiver.Models;
+using DPAWaiver.Pages.Private;
 using DPAWaiver.Services;
 using Google;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DPAWaiver.Pages
 {
-    public class FileUploadModel : PageModel
+    public class FileUploadModel : BaseWaiverPageModel
     {
         private IStorageUtil _storageUtil;
 
-        public FileUploadModel(IStorageUtil storageUtil)
+        public FileUploadModel(IStorageUtil storageUtil
+                            , DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                            , ILOVService iLOVService
+                            , UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
             _storageUtil = storageUtil;
         }
@@ -25,27 +32,25 @@ namespace DPAWaiver.Pages
 
         }
 
-        public async Task<IActionResult> OnPost(List<IFormFile> files)
+        public async Task<IActionResult> OnPost(IFormFile formFile)
         {
-            long size = files.Sum(f => f.Length);
 
-            // full path to file in temp location
-            var filePath = Path.GetTempFileName();
-
-            foreach (var formFile in files)
+            if (formFile.Length > 0)
             {
-                if (formFile.Length > 0)
+                try
                 {
-                    try {
-                    await _storageUtil.StoreFileAsync(formFile, "siktigiminDunyasi");
-                    } catch(GoogleApiException gae) {
-                        TempData["StatusMessage"] = gae.Message;
-                        return null ;
-                    }
+                    var createdObject = await _storageUtil.StoreFileAsync(formFile, "siktigiminDunyasi");
+                    UserWithDepartment = await GetUserWithDepartment();
+
+                }
+                catch (GoogleApiException gae)
+                {
+                    TempData["StatusMessage"] = gae.Message;
+                    return null;
                 }
             }
-
-            return null ;
+            return null;
         }
+
     }
 }

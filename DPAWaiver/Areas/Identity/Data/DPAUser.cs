@@ -12,21 +12,28 @@ namespace DPAWaiver.Areas.Identity.Data
     public class DPAUser : IdentityUser<Guid>
     {
         [PersonalData]
+        [Display(Name="First Name")]
         public string FirstName { get; set; }
 
         [PersonalData]
+        [Display(Name="Last Name")]
         public string LastName { get; set; }
 
         [PersonalData]
+        [Display(Name="Ext")]
         public string PhoneNumberExtension { get; set; }
 
         [PersonalData]
         [Required]
+        [Display(Name="Department")]
         public Department Department { get; set; }
 
         [PersonalData]
         [Required]
+        [Display(Name="Division")]
         public string Division { get; set; }
 
+        [Display(Name="User Name")]
+        public string FullName { get {return FirstName + " " + LastName ; } } 
     }
 }

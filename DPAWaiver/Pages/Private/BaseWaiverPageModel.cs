@@ -14,7 +14,7 @@ using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private
 {
-    public class BaseWaiverModel : PageModel
+    public class BaseWaiverPageModel : PageModel
     {
         public readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
 
@@ -25,7 +25,7 @@ namespace DPAWaiver.Pages.Private
         //        [BindProperty]
         public DPAUser UserWithDepartment { get; set; }
 
-        public BaseWaiverModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+        public BaseWaiverPageModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
                             , ILOVService iLOVService
                             , UserManager<DPAUser> userManager)
         {
@@ -34,12 +34,12 @@ namespace DPAWaiver.Pages.Private
             _ILOVService = iLOVService;
         }
 
-        public async Task<DPAUser> GetUserWithDepartment(UserManager<DPAUser> userManager)
+        public async Task<DPAUser> GetUserWithDepartment()
         {
-            var userId = userManager.GetUserId(User);
+            var userId = _userManager.GetUserId(User);
             if (userId != null)
             {
-                return await userManager.Users.Include(x => x.Department).SingleAsync(x => x.Id.ToString() == userId);
+                return await _userManager.Users.Include(x => x.Department).SingleAsync(x => x.Id.ToString() == userId);
             }
             return null;
         }

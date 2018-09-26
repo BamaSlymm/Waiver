@@ -14,7 +14,7 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart",
+            "internalConsoleOptions": "neverOpen",
             "launchBrowser": {
                 "enabled": true,
                 "args": "${auto-detect-url}",

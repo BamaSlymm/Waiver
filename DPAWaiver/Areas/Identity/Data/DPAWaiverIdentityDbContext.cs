@@ -49,7 +49,11 @@ namespace DPAWaiver.Areas.Identity.Data
                 .HasConversion<string>();    
             builder.Entity<BaseWaiverAction>()
                 .HasOne(t => t.BaseWaiver)
-                .WithMany(c => c.Actions);                            
+                .WithMany(c => c.Actions); 
+
+            builder.Entity<BaseWaiverAttachment>()
+                .HasOne(t => t.BaseWaiver)
+                .WithMany(c => c.Attachments);                            
         }
 
         public DbSet<BaseLOV> BaseLOVs { get; set; }
@@ -63,5 +67,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.DataEntryWaiver> DataEntryWaiver { get; set; }
 
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAction> BaseWaiverActions { get; set; }
+
+        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAttachment> BaseWaiverAttachments { get; set; }
     }
 }
