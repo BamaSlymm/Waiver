@@ -29,7 +29,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
         public async Task<IActionResult> OnGetAsync([FromQuery(Name = "otherFirstName")] string otherFirstName, [FromQuery(Name = "otherLastName")] string otherLastName)
         {
-            UserWithDepartment = await GetUserWithDepartment();
+            UserWithDepartment = await GetUserWithDepartmentAsync();
 
             DataEntryWaiver = new DataEntryWaiverView();
             DataEntryWaiver.OtherFirstName = otherFirstName;
@@ -39,7 +39,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
         public async Task<IActionResult> OnPostAsync()
         {
-            UserWithDepartment = await GetUserWithDepartment();
+            UserWithDepartment = await GetUserWithDepartmentAsync();
 
             if (!ModelState.IsValid)
             {

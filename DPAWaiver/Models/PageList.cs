@@ -6,5 +6,7 @@ namespace DPAWaiver.Pages
         public const string HomeSignedOut = "/";
 
         public const string Confirmation = "/Private/Confirmation/Confirmation";
+        public const string Attachment = "/Private/Attachment/Attachment";
+        public const string Invoice = "/Private/Invoice/Invoice";
     }
 }

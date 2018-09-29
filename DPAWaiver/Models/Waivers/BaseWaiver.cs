@@ -104,6 +104,7 @@ namespace DPAWaiver.Models.Waivers
         [JsonIgnore] 
         public List<BaseWaiverAction> Actions {get;set;}
         public List<BaseWaiverAttachment> Attachments {get;set;}
+        public List<BaseWaiverInvoice> Invoices {get;set;}
 
     }
 

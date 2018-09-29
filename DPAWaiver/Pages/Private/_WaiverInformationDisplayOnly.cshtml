@@ -1,0 +1,84 @@
+﻿@model DPAWaiver.Models.Waivers.BaseWaiver
+
+@if (Model.OtherFirstName != null && Model.OtherLastName != null)
+{
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <dl>
+                <dt>@Html.DisplayNameFor(model => Model.OtherFirstName)</dt>
+                <dd>@Model.OtherFirstName</dd>
+            </dl>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <dl>
+                <dt>@Html.DisplayNameFor(model => Model.OtherLastName)</dt>
+                <dd>@Model.OtherLastName</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+}
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-3 col-xs-4">
+                <b>Purpose:</b> @Model.Purpose.Name
+            </div>
+            <div class="col-md-3 col-xs-4">
+                <b>Type:</b> @Model.PurposeType.Name
+            </div>
+            <div class="col-md-3 col-xs-4">
+                <b>Status:</b> @Model.Status
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group required">
+                    <dl>
+                        <dt>@Html.DisplayNameFor(model => Model.ProjectName)</dt>
+                        <dd>@Model.ProjectName</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group required">
+                    <dl>
+                        <dt>@Html.DisplayNameFor(model => Model.SubmittedOn)</dt>
+                        <dd>@String.Format("{0:MM/dd/yyyy}",@Model.SubmittedOn)</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group required">
+                    <dl>
+                        <dt>@Html.DisplayNameFor(model => Model.CostEstimate)</dt>
+                        <dd>@String.Format("{0:C}",@Model.CostEstimate)</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group required">
+                    <dl>
+                        <dt>@Html.DisplayNameFor(model => Model.WaiverNumber)</dt>
+                        <dd>@String.Format("{0:000000}",@Model.WaiverNumber)</dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+@page
+@model DPAWaiver.Pages.Private.Invoice.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>BaseWaiverInvoice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BaseWaiverInvoice.ID" />
+            <div class="form-group">
+                <label asp-for="BaseWaiverInvoice.CreatedOn" class="control-label"></label>
+                <input asp-for="BaseWaiverInvoice.CreatedOn" class="form-control" />
+                <span asp-validation-for="BaseWaiverInvoice.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaseWaiverInvoice.VendorName" class="control-label"></label>
+                <input asp-for="BaseWaiverInvoice.VendorName" class="form-control" />
+                <span asp-validation-for="BaseWaiverInvoice.VendorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaseWaiverInvoice.InvoiceNumber" class="control-label"></label>
+                <input asp-for="BaseWaiverInvoice.InvoiceNumber" class="form-control" />
+                <span asp-validation-for="BaseWaiverInvoice.InvoiceNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaseWaiverInvoice.InvoiceDate" class="control-label"></label>
+                <input asp-for="BaseWaiverInvoice.InvoiceDate" class="form-control" />
+                <span asp-validation-for="BaseWaiverInvoice.InvoiceDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaseWaiverInvoice.InvoiceAmount" class="control-label"></label>
+                <input asp-for="BaseWaiverInvoice.InvoiceAmount" class="form-control" />
+                <span asp-validation-for="BaseWaiverInvoice.InvoiceAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaseWaiverInvoice.ReasonForDifference" class="control-label"></label>
+                <input asp-for="BaseWaiverInvoice.ReasonForDifference" class="form-control" />
+                <span asp-validation-for="BaseWaiverInvoice.ReasonForDifference" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

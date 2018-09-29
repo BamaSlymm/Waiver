@@ -40,6 +40,7 @@ namespace DPAWaiver.Models.Waivers
         public string GoogleId {get; set;}
 
         [Required]
+        [JsonIgnore]
         public BaseWaiver BaseWaiver {get;set;}
 
         public BaseWaiverAttachment() {

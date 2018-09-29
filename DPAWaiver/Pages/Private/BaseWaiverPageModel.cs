@@ -34,7 +34,7 @@ namespace DPAWaiver.Pages.Private
             _ILOVService = iLOVService;
         }
 
-        public async Task<DPAUser> GetUserWithDepartment()
+        public async Task<DPAUser> GetUserWithDepartmentAsync()
         {
             var userId = _userManager.GetUserId(User);
             if (userId != null)

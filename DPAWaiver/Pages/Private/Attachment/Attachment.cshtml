@@ -3,88 +3,16 @@
 
 
 @{
-    ViewData["Title"] = "Create";
+ViewData["Title"] = "Add Attachments";
 }
 
+
+
+<partial name="_WaiverInformationDisplayOnly" model='@Model.BaseWaiver' />
+
+<partial name="_StatusMessage" model='@TempData["StatusMessage"]' />
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-<partial name="_UserInformationBolded" model="@Model.BaseWaiver.CreatedBy" />
-@if (Model.BaseWaiver.OtherFirstName != null && Model.BaseWaiver.OtherLastName != null)
-{
-    <div class="panel panel-primary marginTop20px">
-        <div class="panel-heading">
-            <h3 class="panel-title text-center">Waiver Owner Information</h3>
-        </div>
-        <div class="panel-body">
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <dl>
-                    <dt >@Html.DisplayNameFor(model => Model.BaseWaiver.OtherFirstName)</dt>
-                    <dd>@Model.BaseWaiver.OtherFirstName</dd>
-                </dl>
-            </div>
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <dl>
-                    <dt >@Html.DisplayNameFor(model => Model.BaseWaiver.OtherLastName)</dt>
-                    <dd>@Model.BaseWaiver.OtherLastName</dd>
-                </dl>
-            </div>
-
-        </div>
-    </div>
-}
-    <div class="panel panel-primary marginTop20px">
-        <div class="panel-heading">
-            <h3 class="panel-title text-center">Waiver Information</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row" style="margin-bottom: 14px">
-                <div class="col-md-4 col-xs-4">
-                    <b>Purpose:</b> @Model.BaseWaiver.Purpose.Name
-                </div>
-                <div class="col-md-4 col-xs-4">
-                    <b>Type:</b> @Model.BaseWaiver.PurposeType.Name
-                </div>
-                <div class="col-md-4 col-xs-4">
-                    <b>Status:</b> @Model.BaseWaiver.Status
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <div class="form-group required">
-                        <dl>
-                            <dt >@Html.DisplayNameFor(model => Model.BaseWaiver.ProjectName)</dt>
-                            <dd>@Model.BaseWaiver.ProjectName</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group required">
-                        <dl>
-                            <dt >@Html.DisplayNameFor(model => Model.BaseWaiver.SubmittedOn)</dt>
-                            <dd>@String.Format("{0:MM/dd/yyyy}",@Model.BaseWaiver.SubmittedOn)</dd>
-                        </dl>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group required">
-                        <dl>
-                            <dt >@Html.DisplayNameFor(model => Model.BaseWaiver.CostEstimate)</dt>
-                            <dd>@Model.BaseWaiver.CostEstimate</dd>
-                        </dl>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-<partial name="_StatusMessage" model='@TempData["StatusMessage"]'/>
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -108,25 +36,27 @@
             </thead>
             <tbody>
                 @foreach (var item in Model.BaseWaiver.Attachments) {
-                        <tr>
-                            <td   style="vertical-align: middle">
-                                @String.Format("{0:MM/dd/yyyy}", item.CreatedOn)
-                            </td>
-                            <td  style="vertical-align: middle">
-                                @Html.DisplayFor(modelItem => item.CreatedBy.FullName)
-                            </td>
-                            <td  style="vertical-align: middle">
-                                @Html.DisplayFor(modelItem => item.FileName)
-                            </td>
-                            <td>
-                                <span style="float: right">
-                                    <a asp-page="./Create" asp-page-handler="AsyncFileView" asp-route-id="@item.ID" class="btn btn-default">View 
-                                    <span class='glyphicon glyphicon-download' title='View Attachment'></span></a> |
-                                    <a asp-page="./Create" asp-page-handler="AsyncFileDelete" asp-route-id="@item.ID" asp-route-waiverId="@Model.BaseWaiver.ID" class="btn btn-default">Delete
-                                    <span class='glyphicon glyphicon-trash' title='Delete Attachment'></span></a>
-                                </span>
-                            </td>
-                        </tr>
+                <tr>
+                    <td style="vertical-align: middle">
+                        @String.Format("{0:MM/dd/yyyy}", item.CreatedOn)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.CreatedBy.FullName)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.FileName)
+                    </td>
+                    <td>
+                        <span style="float: right">
+                            <a asp-page="./Attachment" asp-page-handler="AsyncFileView" asp-route-id="@item.ID"
+                                asp-route-waiverId="@Model.BaseWaiver.ID" class="btn btn-default">View&nbsp;
+                                <span class='glyphicon glyphicon-download' title='View Attachment'></span></a> |
+                            <a asp-page="./Attachment" asp-page-handler="AsyncFileDelete" asp-route-id="@item.ID"
+                                asp-route-waiverId="@Model.BaseWaiver.ID" class="btn btn-default">Delete&nbsp;<span
+                                    class='glyphicon glyphicon-trash' title='Delete Attachment'></span></a>
+                        </span>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
@@ -134,38 +64,44 @@
 </div>
 
 <form method="post" enctype="multipart/form-data">
-    <div class="col-md-9 col-sm-9 col-xs-12 padding-left-0">
+    <div class="col-md-9 col-sm-9 col-xs-9 padding-left-0">
         <span style="vertical-align: bottom">Select an attachment&nbsp;</span>
         <input type="file" id="fileAttachment" name="formFile" style="display: inline-block" single />
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-12">
-        <button type="submit" 
-            class="btn btn-primary" id="uploadAttachment">Upload Attachment&nbsp;<span class="glyphicon glyphicon-upload" aria-hidden="true" ></span>
+    <div class="col-md-3 col-sm-3 col-xs-3">
+        <button type="submit" class="btn btn-primary" id="uploadAttachment">Upload Attachment&nbsp;
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
         </button>
     </div>
 </form>
 <div style="clear: both"></div>
 <div class="row add-gutter marginTop40px">
     <partial name='_Logout' />
-    <a class="btn btn-default btn-space-2x pull-right" asp-page="/Private/WaiverList">Done&nbsp;</a>
+    <a class="btn btn-default pull-right" asp-page="/Private/WaiverList">Done With Waiver&nbsp;<span class="glyphicon glyphicon-check"
+            aria-hidden="true"></span></a>
+    <a class="btn btn-default btn-space-2x pull-right" asp-page="/Private/Invoice/Invoice" asp-route-id="@Model.BaseWaiver.ID"
+        title="Add Invoice" id='addInvoiceButton'>Add Invoice&nbsp;
+        <span class="glyphicon glyphicon-credit-card" aria-hidden="true">
+
+        </span></a>
 </div>
 
 <div style="clear: both"></div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial"/>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#uploadAttachment').prop('disabled',true);
-            $('#fileAttachment').on("change", function(){
-                var file = this.files[0];
-                if ( file == null || file.size == 0) {
-                    $('#uploadAttachment').prop('disabled',true);
-                } else {
-                    $('#uploadAttachment').prop('disabled',false);
-                }
-            });            
+<partial name="_ValidationScriptsPartial" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#uploadAttachment').prop('disabled', true);
+        $('#fileAttachment').on("change", function () {
+            var file = this.files[0];
+            if (file == null || file.size == 0) {
+                $('#uploadAttachment').prop('disabled', true);
+            } else {
+                $('#uploadAttachment').prop('disabled', false);
+            }
         });
-    </script>
+    });
+</script>
 
 }

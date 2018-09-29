@@ -47,14 +47,14 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 return NotFound();
             }
 
-            UserWithDepartment = await GetUserWithDepartment();
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
 
         }
 
         public async Task<IActionResult> OnPostAsync(Guid? id)
         {
-            UserWithDepartment = await GetUserWithDepartment();
+            UserWithDepartment = await GetUserWithDepartmentAsync();
 
             if (id == null)
             {

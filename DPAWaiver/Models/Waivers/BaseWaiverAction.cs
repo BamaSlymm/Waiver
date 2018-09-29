@@ -49,7 +49,11 @@ namespace DPAWaiver.Models.Waivers
         Updated,
         Accepted,
         Rejected,
-        Attached,
+        AttachmentAdded,
+        AttachmentDeleted,
+        AttachmentViewed,
+        InvoiceAdded,
+        InvoiceDeleted,
         Other,
     }
 }

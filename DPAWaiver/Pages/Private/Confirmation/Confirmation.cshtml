@@ -24,8 +24,8 @@
 <div class="row add-gutter marginTop20px">
      <partial name='_Logout' />
      <div class="pull-right">
-    <a class="btn btn-default" asp-page="Private/Invoice/Invoice" asp-route-id="@Model.id" title="Add Invoice">Add Invoice&nbsp;<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></a> 
-    <a class="btn btn-default" asp-page="/Private/Attachment/Attachment" asp-route-id="@Model.id" title="Upload Supporting Documents">Upload Supporting Documents&nbsp;<span class="glyphicon glyphicon-file" aria-hidden="true" ></span></a> 
+    <a class="btn btn-default" asp-page="/Private/Invoice/Invoice" asp-route-id="@Model.id" title="Add Invoice" id='addInvoiceButton'>Add Invoice&nbsp;<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></a> 
+    <a class="btn btn-default" asp-page="/Private/Attachment/Attachment" asp-route-id="@Model.id" title="Upload Supporting Documents" id='uploadAttachmentButton'>Upload Supporting Documents&nbsp;<span class="glyphicon glyphicon-file" aria-hidden="true" ></span></a> 
     <a class="btn btn-primary" asp-page="/Private/WaiverList" title="Continue to Waiver List">Continue</a>
     </div>
 </div>

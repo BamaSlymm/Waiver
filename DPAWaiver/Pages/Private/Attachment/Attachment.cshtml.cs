@@ -53,12 +53,14 @@ namespace DPAWaiver.Pages.Private.Attachment
                 .FirstOrDefaultAsync(m => m.ID == id);
         }
 
-        public async Task<IActionResult> OnGetAsyncFileView(Guid? id)
+        public async Task<IActionResult> OnGetAsyncFileView(Guid? id,Guid? waiverId)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            var UserWithDepartment = await GetUserWithDepartmentAsync();
+            await SetBaseWaiverAsync(waiverId);
             var attachment = await _context.BaseWaiverAttachments.FirstOrDefaultAsync(x => x.ID == id);
             var stream = new MemoryStream();
             await _storageUtil.GetFileAsync(attachment.ObjectName, stream);
@@ -74,11 +76,20 @@ namespace DPAWaiver.Pages.Private.Attachment
             {
                 return NotFound();
             }
+            var UserWithDepartment = await GetUserWithDepartmentAsync();
+            await SetBaseWaiverAsync(waiverId);
+            
             var attachment = await _context.BaseWaiverAttachments.FirstOrDefaultAsync(x => x.ID == id);
             await _storageUtil.DeleteFileAsync(attachment.ObjectName);
+
+            var baseWaiverAction = new BaseWaiverAction(BaseWaiver, UserWithDepartment, WaiverActions.AttachmentViewed, attachment);
+            
             _context.BaseWaiverAttachments.Remove(attachment);
+            _context.BaseWaiverActions.Add(baseWaiverAction);
+
             await _context.SaveChangesAsync();
-            return RedirectToPage("./Attachment", new { id = waiverId });
+
+            return RedirectToPage(PageList.Attachment, new { id = waiverId });
         }
         public async Task<IActionResult> OnPostAsync(Guid? id, IFormFile formFile)
         {
@@ -88,7 +99,7 @@ namespace DPAWaiver.Pages.Private.Attachment
             }
 
             await SetBaseWaiverAsync(id);
-            UserWithDepartment = await GetUserWithDepartment();
+            UserWithDepartment = await GetUserWithDepartmentAsync();
 
             if (formFile == null) {
                 TempData["StatusMessage"] = "No file is selected for upload";
@@ -108,6 +119,10 @@ namespace DPAWaiver.Pages.Private.Attachment
                         formFile.FileName
                     );
                     _context.BaseWaiverAttachments.Add(attachment);
+
+                    var baseWaiverAction = new BaseWaiverAction(BaseWaiver, UserWithDepartment, WaiverActions.AttachmentAdded,
+                    attachment);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
                     await _context.SaveChangesAsync();
                 }
                 catch (GoogleApiException gae)

@@ -40,7 +40,7 @@ namespace DPAWaiver.Pages
                 try
                 {
                     var createdObject = await _storageUtil.StoreFileAsync(formFile, "siktigiminDunyasi");
-                    UserWithDepartment = await GetUserWithDepartment();
+                    UserWithDepartment = await GetUserWithDepartmentAsync();
 
                 }
                 catch (GoogleApiException gae)

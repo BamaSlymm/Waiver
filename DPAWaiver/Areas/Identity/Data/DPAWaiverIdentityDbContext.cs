@@ -54,6 +54,10 @@ namespace DPAWaiver.Areas.Identity.Data
             builder.Entity<BaseWaiverAttachment>()
                 .HasOne(t => t.BaseWaiver)
                 .WithMany(c => c.Attachments);                            
+
+            builder.Entity<BaseWaiverInvoice>()
+                .HasOne(t => t.BaseWaiver)
+                .WithMany(c => c.Invoices);                            
         }
 
         public DbSet<BaseLOV> BaseLOVs { get; set; }
@@ -69,5 +73,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAction> BaseWaiverActions { get; set; }
 
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAttachment> BaseWaiverAttachments { get; set; }
+
+        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverInvoice> BaseWaiverInvoice { get; set; }
     }
 }

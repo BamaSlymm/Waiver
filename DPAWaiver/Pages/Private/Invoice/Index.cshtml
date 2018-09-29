@@ -1,0 +1,66 @@
+@page
+@model DPAWaiver.Pages.Private.Invoice.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseWaiverInvoice[0].CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseWaiverInvoice[0].VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseWaiverInvoice[0].InvoiceNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseWaiverInvoice[0].InvoiceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseWaiverInvoice[0].InvoiceAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseWaiverInvoice[0].ReasonForDifference)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BaseWaiverInvoice) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonForDifference)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
