@@ -5,132 +5,138 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>DataEntryWaiver</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.WorkflowDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.WorkflowDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofHours)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofHours)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofDocuments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofDocuments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofFields)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofFields)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.SystemRequirementsDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.SystemRequirementsDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.KeyedIntoSystem)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.KeyedIntoSystem)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.ReasonForNotKeyedIntoSystem)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.ReasonForNotKeyedIntoSystem)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.ReasonDataEntryCenter)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.ReasonDataEntryCenter)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.CreatedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.CreatedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.approvedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.approvedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.ProjectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.ProjectName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DataEntryWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataEntryWaiver.CostEstimate)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="DataEntryWaiver.ID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+@if (Model.DataEntryWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.DataEntryWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.DataEntryWaiver" />
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group required">
+            <dl class='custom-dl'>
+                <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.WorkflowDescription)</dt>
+                <dd class='custom-dd'>@Html.DisplayNameFor(model => model.DataEntryWaiver.WorkflowDescription)</dd>
+            </dl><!-- dl end of DataEntryWaiver.WorkflowDescription -->
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofFTE)</dt>
+                        <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofFTE)</dd>
+                    </dl><!-- dl end of DataEntryWaiver.EstimatedNumberofFTE -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>@Html.DisplayNameFor(model=>model.DataEntryWaiver.EstimatedNumberofHours)
+                            <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
+This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
+                        </dt>
+                        <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofHours)</dd>
+                    </dl><!-- dl end of DataEntryWaiver.EstimatedNumberofHours -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>@Html.DisplayNameFor(model =>
+                            model.DataEntryWaiver.EstimatedNumberofDocuments)</dt>
+                        <dd class='custom-dd'>@Html.DisplayFor(model =>
+                            model.DataEntryWaiver.EstimatedNumberofDocuments)</dd>
+                    </dl><!-- dl end of DataEntryWaiver.EstimatedNumberofDocuments -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>@Html.DisplayNameFor(model =>
+                            model.DataEntryWaiver.EstimatedNumberofFields)</dt>
+                        <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.EstimatedNumberofFields)</dd>
+                    </dl><!-- dl end of DataEntryWaiver.EstimatedNumberofFields -->
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <dl class='custom-dl'>
+                <dt class='custom-dt'>@Html.DisplayNameFor(model =>
+                    model.DataEntryWaiver.SystemRequirementsDescription)</dt>
+                <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.SystemRequirementsDescription)</dd>
+            </dl><!-- dl end of DataEntryWaiver.SystemRequirementsDescription -->
+        </div>
+
+
+        <div class="form-group required">
+            <dl class='custom-dl'>
+                <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.KeyedIntoSystem)</dt>
+                <dd class='custom-dd'>@Model.DataEntryWaiver.KeyedIntoSystem.ToYesNoString()</dd>
+            </dl><!-- dl end of DataEntryWaiver.KeyedIntoSystem -->
+        </div>
+
+        <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>
+            <dl class='custom-dl'>
+                <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.ReasonForNotKeyedIntoSystem)</dt>
+                <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.ReasonForNotKeyedIntoSystem)</dd>
+            </dl><!-- dl end of DataEntryWaiver.ReasonForNotKeyedIntoSystem -->
+            <select disabled class="form-control control-label" asp-for="DataEntryWaiver.KeyedIntoSystem" style="display:none">
+                <option value=''>Please select one</option>
+                <option value='False'>No</option>
+                <option value='True'>Yes</option>
+            </select>
+        </div>
+
+        <div class="form-group required">
+            <dl class='custom-dl'>
+                <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.ReasonDataEntryCenter)</dt>
+                <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.ReasonDataEntryCenter)</dd>
+            </dl><!-- dl end of DataEntryWaiver.ReasonDataEntryCenter -->
+        </div>
+
+        <div class="form-group">
+            <dl class='custom-dl'>
+                <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.AdditionalComments)</dt>
+                <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.AdditionalComments)</dd>
+            </dl><!-- dl end of DataEntryWaiver.AdditionalComments -->
+        </div>
+    </div>
 </div>
+    
+<div class="row add-gutter marginTop20px pull-right">
+
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <form method="post" style="display: inline;">
+        <input type="hidden" asp-for="DataEntryWaiver.ID" />
+        <button type="submit" value="Delete" class="btn btn-primary" >
+            Delete Waiver&nbsp;<span class="glyphicon glyphicon-trash"></span>
+        </button>
+    </form>
+
+</div>    
+
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        showIfSelected('#DataEntryWaiver_KeyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], {
+            valueList: ['False']
+        });
+    });
+</script>
+}

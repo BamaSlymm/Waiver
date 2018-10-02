@@ -19,7 +19,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
         [BindProperty]
         public DataEntryWaiverView DataEntryWaiver { get; set; }
 
-        public Purpose Purpose { get; set; }
+        public Guid? ID {get;set;}
 
 
         public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
@@ -36,7 +36,8 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 return NotFound();
             }
 
-
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             var dataEntryWaiver = await _context.DataEntryWaiver.FirstOrDefaultAsync(m => m.ID == id);
             DataEntryWaiver = new DataEntryWaiverView(dataEntryWaiver);
 
@@ -61,13 +62,17 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 return NotFound();
             }
 
+            ID = id ;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            var waiverToUpdate = await _context.DataEntryWaiver.Include(w => w.Purpose).Include(w => w.PurposeType)
-            .Include(w => w.PurposeSubtype).Include(w => w.CreatedBy).FirstOrDefaultAsync(x => x.ID == id);
+            var waiverToUpdate = await _context.DataEntryWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
             if (await TryUpdateModelAsync<DataEntryWaiver>(
                waiverToUpdate,
@@ -108,7 +113,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
                     }
                 }
                 TempData["StatusMessage"] = "Your waiver has been updated";
-                return RedirectToPage("../WaiverList");
+                return RedirectToPage(PageList.WaiverList);
             }
             return Page();
         }

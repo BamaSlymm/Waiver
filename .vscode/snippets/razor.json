@@ -1,6 +1,6 @@
 {
   "Input number as bootstrap": {
-    "prefix": "inbs",
+    "prefix": "zinbs",
     "body": [
       "<div class='form-group required'>",
       "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
@@ -10,7 +10,7 @@
     "description": "form-group as number input in bootstrap"
   },
   "Input text as bootstrap": {
-    "prefix": "itbs",
+    "prefix": "zitbs",
     "body": [
       "<div class='form-group required'>",
       "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
@@ -20,20 +20,20 @@
     "description": "form-group as text input in bootstrap"
   },
   "Select as bootstrap": {
-    "prefix": "sbs",
+    "prefix": "zsbs",
     "body": [
       "<div class='form-group required'>",
       "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
       "\t<select class='form-control' id='$1' aria-describedby='$1'>",
-      "\t\t<option value='0'></option>",
-      "\t\t<option value='1'></option>",
+      "\t\t<option value='False'>No</option>",
+      "\t\t<option value='True'>Yes</option>",
       "\t</select>",
       "</div>"
     ],
     "description": "form-group as select in bootstrap"
   },
   "textarea as bootstrap": {
-    "prefix": "tabs",
+    "prefix": "ztabs",
     "body": [
       "<div class='form-group required'>",
       "\t<label for='$1' class='control-label fontWeightNormal'>$2</label>",
@@ -43,14 +43,14 @@
     "description": "form-group as text area in bootstrap rows 3"
   },
   "hover icon as bootstrap": {
-    "prefix": "hibs",
+    "prefix": "zgbs",
     "body": [
       "<span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='$1'></span>"
     ],
     "description": "hover icon using glyphicon in bootstrap"
   },
   "create two columns in one row": {
-    "prefix": "ctbs",
+    "prefix": "zc2cbs",
     "body": [
       "<div class='row'>",
       "\t<div class='col-sm-6 col-xs-12'>",
@@ -63,7 +63,7 @@
     "description": "create two columns under one row"
   },
   "bootstrap panel default with header": {
-    "prefix": "pbs",
+    "prefix": "zpbs",
     "body": [
       "<div class='panel panel-primary marginTop20px'>",
       "\t<div class='panel-heading'>",
@@ -74,5 +74,16 @@
       "</div> <!-- End of Panel $1 -->"
     ],
     "description": "bootstrap default panel with header input"
+  },
+  "bootstrap dl": {
+    "prefix": "zdlbs",
+    "body": [
+      "<dl class='custom-dl'>",
+      "\t<dt class='custom-dt'>@Html.DisplayNameFor(model => model.$1)</dt>",
+      "\t<dd class='custom-dd'>@Html.DisplayFor(model => model.$1)</dd>",
+      "</dl><!-- dl end of $1 -->"
+    ],
+    "description": "bootstrap dl-dt-dd"
   }
+
 }

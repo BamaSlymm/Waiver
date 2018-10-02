@@ -31,7 +31,14 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 return NotFound();
             }
 
-            DataEntryWaiver = await _context.DataEntryWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            DataEntryWaiver = await _context.DataEntryWaiver.Include(x => x.CreatedBy)
+            .ThenInclude(x => x.Department)
+            .Include(x => x.Purpose)
+            .Include(x => x.PurposeType)
+            .Include(x => x.PurposeSubtype)
+            .FirstAsync(m => m.ID == id);
 
             if (DataEntryWaiver == null)
             {
@@ -55,7 +62,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage(PageList.WaiverList);
         }
     }
 }

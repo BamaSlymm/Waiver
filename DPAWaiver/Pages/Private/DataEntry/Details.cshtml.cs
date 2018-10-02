@@ -28,6 +28,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             if (id == null)
             {
                 return NotFound();
@@ -35,6 +36,9 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
             DataEntryWaiver = await _context.DataEntryWaiver.Include(x => x.CreatedBy)
             .ThenInclude(x => x.Department)
+            .Include(x=>x.Purpose)
+            .Include(x=>x.PurposeType)
+            .Include(x=>x.PurposeSubtype)
             .FirstOrDefaultAsync(m => m.ID == id);
 
             if (DataEntryWaiver == null)
