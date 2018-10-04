@@ -48,9 +48,9 @@ ViewData["Title"] = "Add Attachments";
                     </td>
                     <td>
                         <span style="float: right">
-                            <a asp-page="./Attachment" asp-page-handler="AsyncFileView" asp-route-id="@item.ID"
-                                asp-route-waiverId="@Model.BaseWaiver.ID" class="btn btn-default">View&nbsp;
-                                <span class='glyphicon glyphicon-download' title='View Attachment'></span></a> |
+                            <a asp-page="./Attachment" asp-page-handler="AsyncFileView" asp-route-id="@item.ID" class="btn btn-default">
+                                View&nbsp;<span class='glyphicon glyphicon-download' title='View Attachment'></span>
+                            </a> |
                             <a asp-page="./Attachment" asp-page-handler="AsyncFileDelete" asp-route-id="@item.ID"
                                 asp-route-waiverId="@Model.BaseWaiver.ID" class="btn btn-default">Delete&nbsp;<span
                                     class='glyphicon glyphicon-trash' title='Delete Attachment'></span></a>

@@ -9,20 +9,23 @@
                 "build",
                 "${workspaceFolder}/DPAWaiver/DPAWaiver.csproj"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "publish",
             "dependsOn": "build",
             "type": "shell",
-            "command": "dotnet publish -c Release",
+            "command": "dotnet publish -c Release"
         },
         {
             "label": "deployToGAE",
             "dependsOn": "publish",
             "command": "cd DPAWaiver/bin/Release/netcoreapp2.1/publish && gcloud app deploy --promote --project=dpa-waiver --version dev",
-            "type": "shell",
+            "type": "shell"
         }
-
     ]
 }

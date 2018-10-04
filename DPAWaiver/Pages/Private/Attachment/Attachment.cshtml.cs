@@ -53,15 +53,17 @@ namespace DPAWaiver.Pages.Private.Attachment
                 .FirstOrDefaultAsync(m => m.ID == id);
         }
 
-        public async Task<IActionResult> OnGetAsyncFileView(Guid? id,Guid? waiverId)
+        public async Task<IActionResult> OnGetAsyncFileView(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
             var UserWithDepartment = await GetUserWithDepartmentAsync();
-            await SetBaseWaiverAsync(waiverId);
-            var attachment = await _context.BaseWaiverAttachments.FirstOrDefaultAsync(x => x.ID == id);
+            var attachment = await _context.BaseWaiverAttachments.Include(x=>x.BaseWaiver).FirstOrDefaultAsync(x => x.ID == id);
+            var baseWaiverAction = new BaseWaiverAction(attachment.BaseWaiver, UserWithDepartment, WaiverActions.AttachmentViewed, attachment);
+            _context.BaseWaiverActions.Add(baseWaiverAction);
+            await _context.SaveChangesAsync();
             var stream = new MemoryStream();
             await _storageUtil.GetFileAsync(attachment.ObjectName, stream);
             stream.Seek(0, SeekOrigin.Begin);
@@ -82,7 +84,7 @@ namespace DPAWaiver.Pages.Private.Attachment
             var attachment = await _context.BaseWaiverAttachments.FirstOrDefaultAsync(x => x.ID == id);
             await _storageUtil.DeleteFileAsync(attachment.ObjectName);
 
-            var baseWaiverAction = new BaseWaiverAction(BaseWaiver, UserWithDepartment, WaiverActions.AttachmentViewed, attachment);
+            var baseWaiverAction = new BaseWaiverAction(BaseWaiver, UserWithDepartment, WaiverActions.AttachmentDeleted, attachment);
             
             _context.BaseWaiverAttachments.Remove(attachment);
             _context.BaseWaiverActions.Add(baseWaiverAction);

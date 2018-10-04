@@ -39,12 +39,14 @@ namespace DPAWaiver.Pages.Private.DataEntry
             .Include(x=>x.Purpose)
             .Include(x=>x.PurposeType)
             .Include(x=>x.PurposeSubtype)
-            .FirstOrDefaultAsync(m => m.ID == id);
+            .FirstAsync(m => m.ID == id);
 
             if (DataEntryWaiver == null)
             {
                 return NotFound();
             }
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
             return Page();
         }
     }

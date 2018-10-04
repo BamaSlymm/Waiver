@@ -28,7 +28,6 @@ namespace DPAWaiver.Pages.Private.DataEntry
         {
         }
 
-
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
             if (id == null)
@@ -38,10 +37,11 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
             ID = id ;
             UserWithDepartment = await GetUserWithDepartmentAsync();
-            var dataEntryWaiver = await _context.DataEntryWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            var dataEntryWaiver = await _context.DataEntryWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
             DataEntryWaiver = new DataEntryWaiverView(dataEntryWaiver);
-
-
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
             if (DataEntryWaiver == null)
             {
@@ -63,6 +63,8 @@ namespace DPAWaiver.Pages.Private.DataEntry
             }
 
             ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
 
             if (!ModelState.IsValid)
             {

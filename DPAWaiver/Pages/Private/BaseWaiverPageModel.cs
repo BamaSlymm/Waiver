@@ -25,6 +25,11 @@ namespace DPAWaiver.Pages.Private
         //        [BindProperty]
         public DPAUser UserWithDepartment { get; set; }
 
+        public List<BaseWaiverInvoice> Invoices { get; set; }
+
+        public List<BaseWaiverAttachment> Attachments { get; set; }
+
+
         public BaseWaiverPageModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
                             , ILOVService iLOVService
                             , UserManager<DPAUser> userManager)
@@ -43,6 +48,17 @@ namespace DPAWaiver.Pages.Private
             }
             return null;
         }
+
+        public async Task<List<BaseWaiverAttachment>> GetAttachmentsAsync(Guid? id)
+        {
+            return await _context.BaseWaiverAttachments.Where(x => x.BaseWaiver.ID == id).ToListAsync();
+        }
+
+        public async Task<List<BaseWaiverInvoice>> GetInvoicesAsync(Guid? id)
+        {
+            return await _context.BaseWaiverInvoice.Where(x => x.BaseWaiver.ID == id).ToListAsync();
+        }
+
 
     }
 }

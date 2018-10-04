@@ -173,6 +173,10 @@ This is a numeric field."></span>
             </div>
         </div>
     </div>
+
+    <partial name="_ViewInvoices" model="@Model.Invoices"/>
+    <partial name="_ViewAttachments" model="@Model.Attachments"/>
+    
     <div class="row add-gutter marginTop20px">
         <div class="pull-right">
             <a class="btn btn-default" asp-page="/Private/Invoice/Invoice" asp-route-id="@Model.ID" title="Add Invoice"
@@ -191,13 +195,18 @@ This is a numeric field."></span>
                 Update Waiver&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
         </div>
-
     </div>
+
+
 </form>
+
 
 <div style="clear: both"></div>
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> issue#56
 @section Scripts {
 <partial name="_ValidationScriptsPartial" />
 <script type="text/javascript">

@@ -16,6 +16,7 @@ namespace DPAWaiver.Models.Waivers
         public Guid ID {get;set;}
 
         [Required]
+        [JsonIgnore]
         public DPAUser CreatedBy { get; set; }
         [Required]
         [DataType(DataType.DateTime)]

@@ -1,0 +1,52 @@
+@model List<DPAWaiver.Models.Waivers.BaseWaiverAttachment> 
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Attachment List</h3>
+    </div>
+    <div class="panel-body" style="padding: 20px">
+    @if (Model.Count() != 0) {
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].CreatedOn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].CreatedBy.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model[0].FileName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                <tr>
+                    <td style="vertical-align: middle">
+                        @String.Format("{0:MM/dd/yyyy}", item.CreatedOn)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.CreatedBy.FullName)
+                    </td>
+                    <td style="vertical-align: middle">
+                        @Html.DisplayFor(modelItem => item.FileName)
+                    </td>
+                    <td>
+                        <span style="float: right">
+                            <a asp-page="/Private/Attachment/Attachment" asp-page-handler="AsyncFileView" 
+                               asp-route-id="@item.ID" class="btn btn-default">
+                               View&nbsp;<span class='glyphicon glyphicon-download' title='View Attachment'></span>
+                            </a> 
+                        </span>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    } else {
+        <span>There are no attachments.</span>
+    }
+    </div>
+</div>
