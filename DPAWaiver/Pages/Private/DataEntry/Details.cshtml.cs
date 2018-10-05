@@ -47,6 +47,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
             }
             Invoices = await GetInvoicesAsync(id);
             Attachments = await GetAttachmentsAsync(id);
+            Actions = await GetActionsAsync(id);
             return Page();
         }
     }

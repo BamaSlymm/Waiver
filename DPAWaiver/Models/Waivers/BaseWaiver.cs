@@ -15,11 +15,13 @@ namespace DPAWaiver.Models.Waivers
         public Guid ID {get;set;}
 
         [Required]
+        [JsonIgnore]
         public DPAUser CreatedBy { get; set; }
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Created On")]
         public DateTime CreatedOn { get; set; }
+        [JsonIgnore]
         public DPAUser approvedBy { get; set; }
 
         [DataType(DataType.DateTime)]
@@ -37,12 +39,15 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Purpose Code")]
+        [JsonIgnore]
         public Purpose Purpose {get; set ; }
 
         [Required]
         [Display(Name = "Type Code")]
+        [JsonIgnore]
         public PurposeType PurposeType {get; set ; }
 
+        [JsonIgnore]
         public PurposeSubtype PurposeSubtype {get; set ; }
 
         [Required]
@@ -103,7 +108,9 @@ namespace DPAWaiver.Models.Waivers
 
         [JsonIgnore] 
         public List<BaseWaiverAction> Actions {get;set;}
+        [JsonIgnore] 
         public List<BaseWaiverAttachment> Attachments {get;set;}
+        [JsonIgnore] 
         public List<BaseWaiverInvoice> Invoices {get;set;}
 
     }

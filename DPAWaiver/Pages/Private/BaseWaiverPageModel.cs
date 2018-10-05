@@ -29,6 +29,7 @@ namespace DPAWaiver.Pages.Private
 
         public List<BaseWaiverAttachment> Attachments { get; set; }
 
+        public List<BaseWaiverAction> Actions { get; set; }
 
         public BaseWaiverPageModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
                             , ILOVService iLOVService
@@ -51,14 +52,18 @@ namespace DPAWaiver.Pages.Private
 
         public async Task<List<BaseWaiverAttachment>> GetAttachmentsAsync(Guid? id)
         {
-            return await _context.BaseWaiverAttachments.Where(x => x.BaseWaiver.ID == id).ToListAsync();
+            return await _context.BaseWaiverAttachments.Include(x=>x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
         }
 
         public async Task<List<BaseWaiverInvoice>> GetInvoicesAsync(Guid? id)
         {
-            return await _context.BaseWaiverInvoice.Where(x => x.BaseWaiver.ID == id).ToListAsync();
+            return await _context.BaseWaiverInvoice.Include(x=>x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
         }
 
+        public async Task<List<BaseWaiverAction>> GetActionsAsync(Guid? id)
+        {
+            return await _context.BaseWaiverActions.Include(x=>x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
+        }
 
     }
 }

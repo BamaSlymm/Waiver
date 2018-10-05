@@ -12,6 +12,7 @@ namespace DPAWaiver.Models.Waivers
     public class BaseWaiverAction
     {
         
+        [JsonIgnore]
         public Guid ID {get;set;}
 
         [Required]
@@ -24,7 +25,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Action Taken")]
         public WaiverActions ActionTaken { get; set; }
 
-        [Display(Name = "Action Data")]
+        [Display(Name = "Audit Data")]
         public string ActionData { get; set; }
 
         [Required]

@@ -12,6 +12,7 @@ namespace DPAWaiver.Models.Waivers
     public class BaseWaiverAttachment
     {
         
+        [JsonIgnore]
         public Guid ID {get;set;}
 
         [Required]

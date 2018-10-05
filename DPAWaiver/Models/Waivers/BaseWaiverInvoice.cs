@@ -13,6 +13,7 @@ namespace DPAWaiver.Models.Waivers
     public class BaseWaiverInvoice
     {
         
+        [JsonIgnore]
         public Guid ID {get;set;}
 
         [Required]
