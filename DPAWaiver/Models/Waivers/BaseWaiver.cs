@@ -118,7 +118,8 @@ namespace DPAWaiver.Models.Waivers
     public enum WaiverStatus
     {
         Pending,
-        Rejected,
+        Denied,
+        UnderReview,
         Accepted
     }
 }
