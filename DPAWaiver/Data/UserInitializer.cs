@@ -57,6 +57,9 @@ namespace DPAWaiver.Data
             var reviewerUser = await userManager.FindByEmailAsync(reviewerUserEmail);
             await userManager.AddToRoleAsync(regularUser,GroupNames.User);
             await userManager.AddToRoleAsync(reviewerUser, GroupNames.Reviewer);
+            var userRoles = await userManager.GetRolesAsync(regularUser);
+            userRoles = await userManager.GetRolesAsync(regularUser);
+
         }
 
 

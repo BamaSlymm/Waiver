@@ -57,7 +57,7 @@ namespace DPAWaiver.Areas.Identity.Data
 
             builder.Entity<BaseWaiverInvoice>()
                 .HasOne(t => t.BaseWaiver)
-                .WithMany(c => c.Invoices);                            
+                .WithMany(c => c.Invoices);
         }
 
         public DbSet<BaseLOV> BaseLOVs { get; set; }

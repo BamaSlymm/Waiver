@@ -45,24 +45,27 @@ namespace DPAWaiver.Pages.Private
             var userId = _userManager.GetUserId(User);
             if (userId != null)
             {
-                return await _userManager.Users.Include(x => x.Department).SingleAsync(x => x.Id.ToString() == userId);
+                var user = await _userManager.Users.Include(x => x.Department).
+                            SingleAsync(x => x.Id.ToString() == userId);
+                user.UserRoles.AddRange(await _userManager.GetRolesAsync(user));
+                return user ;
             }
             return null;
         }
 
         public async Task<List<BaseWaiverAttachment>> GetAttachmentsAsync(Guid? id)
         {
-            return await _context.BaseWaiverAttachments.Include(x=>x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
+            return await _context.BaseWaiverAttachments.Include(x => x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
         }
 
         public async Task<List<BaseWaiverInvoice>> GetInvoicesAsync(Guid? id)
         {
-            return await _context.BaseWaiverInvoice.Include(x=>x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
+            return await _context.BaseWaiverInvoice.Include(x => x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
         }
 
         public async Task<List<BaseWaiverAction>> GetActionsAsync(Guid? id)
         {
-            return await _context.BaseWaiverActions.Include(x=>x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
+            return await _context.BaseWaiverActions.Include(x => x.CreatedBy).Where(x => x.BaseWaiver.ID == id).ToListAsync();
         }
 
     }

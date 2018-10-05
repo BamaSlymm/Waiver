@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using DPAWaiver.Areas.Identity.Data
+@inject SignInManager<DPAUser> SignInManager
+@inject UserManager<DPAUser> UserManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -32,6 +37,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-page="/RealHome">Home</a></li>
+                    @if (SignInManager.IsSignedIn(User)) {
+                        var user = await UserManager.GetUserAsync(User);
+                        if ( user != null ) {
+                            var aList = await UserManager.GetRolesAsync(user);
+                            if (aList.Contains(GroupNames.Reviewer)) {
+                                <li><a asp-page="/Private/Review/Review">Review</a></li>
+                            }
+                        }
+                    }
                     <li><a asp-page="/About">About</a></li>
                     <li><a asp-page="/Contact">Contact</a></li>
                 </ul>

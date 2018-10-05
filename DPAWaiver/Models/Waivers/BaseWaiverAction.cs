@@ -19,6 +19,7 @@ namespace DPAWaiver.Models.Waivers
         public DPAUser CreatedBy { get; set; }
         [Required]
         [DataType(DataType.DateTime)]
+        [Display(Name = "When")]
         public DateTime CreatedOn { get; set; }
         
         [Required]

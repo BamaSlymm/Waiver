@@ -13,6 +13,11 @@ namespace DPAWaiver.Areas.Identity.Data
     // Add profile data for application users by adding properties to the DPAUser class
     public class DPAUser : IdentityUser<Guid>
     {
+        public DPAUser()
+        {
+            UserRoles = new List<string>();
+        }
+
         [PersonalData]
         [Display(Name="First Name")]
         [JsonIgnore]
@@ -43,5 +48,21 @@ namespace DPAWaiver.Areas.Identity.Data
         [NotMapped]
         [Display(Name="User Name")]
         public string FullName { get {return FirstName + " " + LastName ; } } 
+
+        [NotMapped]
+        public List<string> UserRoles { get; set; }
+
+        public bool IsReviewer() {
+            return UserRoles.Contains(GroupNames.Reviewer);
+        }
+
+        public bool IsUser() {
+            return UserRoles.Contains(GroupNames.User);
+        }
+
+        public bool IsAdmin() {
+            return UserRoles.Contains(GroupNames.Administrator);
+        }
+
     }
 }
