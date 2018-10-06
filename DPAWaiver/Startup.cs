@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
+using DPAWaiver.Razor;
 using DPAWaiver.Security;
 using DPAWaiver.Services;
 using Microsoft.AspNetCore.Builder;
@@ -41,10 +42,14 @@ namespace DPAWaiver
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddTransient<ILOVService, LOVService>();
+            services.AddAuthorization(options=> {
+                options.AddPolicy("RequireReviewerRole",policy => policy.RequireRole(GroupNames.Reviewer));
+            });
             services.AddMvc().
                 AddRazorPagesOptions(options =>
                     {
                         options.Conventions.AuthorizeFolder("/Private");
+                        options.Conventions.AuthorizeFolder("/Private/Review","RequireReviewerRole");
                     })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

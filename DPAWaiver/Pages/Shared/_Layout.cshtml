@@ -42,7 +42,7 @@
                         if ( user != null ) {
                             var aList = await UserManager.GetRolesAsync(user);
                             if (aList.Contains(GroupNames.Reviewer)) {
-                                <li><a asp-page="/Private/Review/Review">Review</a></li>
+                                <li><a asp-page="/Private/Review/ReviewList">Review</a></li>
                             }
                         }
                     }

@@ -14,21 +14,13 @@ namespace DPAWaiver.Pages
     public class CreateWaiverServiceDataEntryModel : PageModel
     {
 
-        private Task<DPAUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
-        public DPAUser signedInUser {get;set;}
-
-       private readonly UserManager<DPAUser> _userManager;
-
-        public CreateWaiverServiceDataEntryModel(UserManager<DPAUser> userManager)
-        {
-            _userManager = userManager;
-            
+      
+        public CreateWaiverServiceDataEntryModel()
+        {           
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public IActionResult OnGetAsync()
         {
-            var user = await _userManager.GetUserAsync(HttpContext.User);
-            signedInUser = _userManager.Users.Include(x=>x.Department).Single(x=>x.Id == user.Id);
             return Page();
         }
     }
