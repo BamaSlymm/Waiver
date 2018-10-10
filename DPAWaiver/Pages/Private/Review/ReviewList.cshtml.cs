@@ -17,8 +17,8 @@ namespace DPAWaiver.Pages.Private.Review
     {
         public IList<BaseWaiver> BaseWaiver { get; set; }
 
-        public ReviewListModel(DPAWaiverIdentityDbContext context, 
-                              ILOVService iLOVService, 
+        public ReviewListModel(DPAWaiverIdentityDbContext context,
+                              ILOVService iLOVService,
                               UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
         }
@@ -28,7 +28,7 @@ namespace DPAWaiver.Pages.Private.Review
             UserWithDepartment = await GetUserWithDepartmentAsync();
             BaseWaiver = await _context.BaseWaivers.
                 Include(x => x.Purpose).Include(x => x.PurposeType).
-                Include(x=>x.CreatedBy).
+                Include(x => x.CreatedBy).
                 Where(x => x.Status == WaiverStatus.Pending || x.Status == WaiverStatus.UnderReview).
                 ToListAsync();
             return Page();
@@ -38,11 +38,30 @@ namespace DPAWaiver.Pages.Private.Review
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();
             var baseWaiver = await _context.BaseWaivers.
-                FirstAsync(x=>x.ID == id);
-            if (baseWaiver is DataEntryWaiver ) {
-                return RedirectToPage(PageList.ServiceDataEntryDetails,new { id = id});
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver is DataEntryWaiver)
+            {
+                return RedirectToPage(PageList.ServiceDataEntryDetails, new { id = id });
             }
             return Page();
         }
+
+        public async Task<IActionResult> OnPostUnderReview(Guid? id, string UnderReviewReason)
+        {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var baseWaiver = await _context.BaseWaivers.
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver.Status == WaiverStatus.Accepted)
+            {
+                return NotFound();
+            }
+            var baseWaiverAction = new BaseWaiverAction(baseWaiver, UserWithDepartment, 
+            WaiverActions.UnderReview, baseWaiver, UnderReviewReason);
+            _context.BaseWaiverActions.Add(baseWaiverAction);
+            baseWaiver.Status = WaiverStatus.UnderReview ;
+            await _context.SaveChangesAsync();
+            return RedirectToPage(PageList.ReviewList);
+        }
+
     }
 }

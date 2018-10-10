@@ -48,6 +48,14 @@
                             <pre style="white-space: pre-wrap;">@Html.DisplayFor(modelItem => item.ActionData)</pre>
                         </td>
                     </tr>
+                    if (item.Notes != null && item.Notes.Length > 0) {
+                        <tr style="background-color: white">
+                            <td></td>
+                            <td colspan="3">
+                                <b>Notes:&nbsp;</b>@Html.DisplayFor(modelItem => item.Notes)
+                            </td>
+                        </tr>
+                    }
                     }
                 </tbody>
             </table>
@@ -58,15 +66,7 @@
     </div>
 
     <script type="text/javascript">
-        function defer(method) {
-            if (window.jQuery) {
-                method();
-            } else {
-                setTimeout(function () {
-                    defer(method)
-                }, 150);
-            }
-        }
+       
         defer(function () {
             $(".audit-button").on('click', function () {
                 $(this).closest('tr').next('tr').toggle();

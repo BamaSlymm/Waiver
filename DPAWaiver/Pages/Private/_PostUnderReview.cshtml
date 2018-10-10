@@ -1,0 +1,34 @@
+@model DPAWaiver.Models.Waivers.BaseWaiver
+
+<div class='panel panel-primary marginTop20px collapse' id='underReviewDiv'>
+    <div class='panel-heading'>
+        <h3 class='panel-title text-center'>Reason For Placing Under Review</h3>
+    </div>
+    <div class='panel-body'>
+        <form asp-page-handler="UnderReview" asp-page="/Private/Review/ReviewList" asp-route-id="@Model.ID">
+            <div class='form-group required'>
+                <label for='UnderReviewReason' class='control-label fontWeightNormal'>Reason:</label>
+                <textarea name='UnderReviewReason' class='form-control' id='UnderReviewReason' aria-describedby='UnderReviewReason' placeholder='Enter the reason for under review'
+                    rows='2'></textarea>
+                   <span class="text-danger field-validation-valid" data-valmsg-for="UnderReviewReason" data-valmsg-replace="true"></span> 
+            </div>
+
+            <button class="btn btn-primary pull-right" id="placeUnderReviewButton">Place Under Review&nbsp;
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            </button>
+        </form>
+    </div> <!-- End of Panel Head Reason For Placing Under Review -->
+</div> <!-- End of Panel Reason For Placing Under Review -->
+<script type="text/javascript">
+
+defer(function () {
+        $('#placeUnderReviewButton').prop('disabled', true);
+        $('#UnderReviewReason').on("input propertychange", function () {
+            if (this.textLength == 0) {
+                $('#placeUnderReviewButton').prop('disabled', true);
+            } else {
+                $('#placeUnderReviewButton').prop('disabled', false);
+            }
+        });
+ });
+ </script>       

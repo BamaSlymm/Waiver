@@ -16,8 +16,8 @@ namespace DPAWaiver.Pages.Private
     {
         public IList<BaseWaiver> BaseWaiver { get; set; }
 
-        public WaiverListModel(DPAWaiverIdentityDbContext context, 
-                              ILOVService iLOVService, 
+        public WaiverListModel(DPAWaiverIdentityDbContext context,
+                              ILOVService iLOVService,
                               UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
         }
@@ -27,7 +27,6 @@ namespace DPAWaiver.Pages.Private
             UserWithDepartment = await GetUserWithDepartmentAsync();
             BaseWaiver = await _context.BaseWaivers.
                 Include(x => x.Purpose).Include(x => x.PurposeType).
-                Where(x => x.Status == WaiverStatus.Pending).
                 Where(x => x.CreatedBy == UserWithDepartment).ToListAsync();
             return Page();
         }

@@ -108,13 +108,14 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
                 <dt class='custom-dt'>@Html.DisplayNameFor(model => model.DataEntryWaiver.AdditionalComments)</dt>
                 <dd class='custom-dd'>@Html.DisplayFor(model => model.DataEntryWaiver.AdditionalComments)</dd>
             </dl><!-- dl end of DataEntryWaiver.AdditionalComments -->
-        </div>  
+        </div>
     </div>
 </div>
 
-<partial name="_ViewInvoices" model="@Model.Invoices"/>
-<partial name="_ViewAttachments" model="@Model.Attachments"/>
-<partial name="_ViewActions" model="@Model.Actions"/>
+<partial name="_ViewInvoices" model="@Model.Invoices" />
+<partial name="_ViewAttachments" model="@Model.Attachments" />
+<partial name="_ViewActions" model="@Model.Actions" />
+<partial name="_PostUnderReview" model="@Model.DataEntryWaiver" />
 
 <div class="row add-gutter marginTop40px">
     <partial name='_Logout' />
@@ -122,9 +123,18 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
     <a class="btn btn-default pull-right" onclick="print();">Print&nbsp;
         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
     </a>
+    @if (Model.UserWithDepartment.IsUser())
+    {
     <a class="btn btn-default btn-space-2x pull-right" asp-page="/Private/WaiverList">Waiver List&nbsp;
         <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
     </a>
+    }
+    @if (Model.UserWithDepartment.IsReviewer())
+    {
+    <a class="btn btn-default btn-space-2x pull-right" data-toggle="collapse" data-target="#underReviewDiv">Under Review&nbsp;
+        <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+    </a>
+    }
 </div>
 
 
@@ -141,4 +151,8 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         });
     });
 </script>
+}
+
+@section HeadScripts {
+    <script src='~/js/defer.js'></script>
 }

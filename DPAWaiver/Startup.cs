@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
-using DPAWaiver.Razor;
 using DPAWaiver.Security;
 using DPAWaiver.Services;
 using Microsoft.AspNetCore.Builder;

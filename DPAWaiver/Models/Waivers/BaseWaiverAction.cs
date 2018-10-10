@@ -11,9 +11,9 @@ namespace DPAWaiver.Models.Waivers
 {
     public class BaseWaiverAction
     {
-        
+
         [JsonIgnore]
-        public Guid ID {get;set;}
+        public Guid ID { get; set; }
 
         [Required]
         public DPAUser CreatedBy { get; set; }
@@ -21,7 +21,7 @@ namespace DPAWaiver.Models.Waivers
         [DataType(DataType.DateTime)]
         [Display(Name = "When")]
         public DateTime CreatedOn { get; set; }
-        
+
         [Required]
         [Display(Name = "Action Taken")]
         public WaiverActions ActionTaken { get; set; }
@@ -29,19 +29,35 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Audit Data")]
         public string ActionData { get; set; }
 
-        [Required]
-        public BaseWaiver BaseWaiver {get;set;}
+        [Display(Name = "Notes")]
+        public string Notes { get; set; }
 
-        public BaseWaiverAction() {
+        [Required]
+        public BaseWaiver BaseWaiver { get; set; }
+
+        public BaseWaiverAction()
+        {
         }
 
-        public BaseWaiverAction(BaseWaiver baseWaiver, DPAUser createdBy, WaiverActions actionTaken, Object actionData) {
+        public BaseWaiverAction(BaseWaiver baseWaiver, DPAUser createdBy, WaiverActions actionTaken, Object actionData)
+        {
             this.BaseWaiver = baseWaiver;
-            this.CreatedBy = createdBy ;
+            this.CreatedBy = createdBy;
             this.CreatedOn = DateTime.Now;
             this.ActionTaken = actionTaken;
             this.ActionData = JsonConvert.SerializeObject(actionData);
         }
+
+        public BaseWaiverAction(BaseWaiver baseWaiver, DPAUser createdBy, WaiverActions actionTaken, Object actionData, string notes)
+        {
+            this.BaseWaiver = baseWaiver;
+            this.CreatedBy = createdBy;
+            this.CreatedOn = DateTime.Now;
+            this.ActionTaken = actionTaken;
+            this.ActionData = JsonConvert.SerializeObject(actionData);
+            this.Notes = notes;
+        }
+
 
     }
 
@@ -49,8 +65,8 @@ namespace DPAWaiver.Models.Waivers
     {
         Created,
         Updated,
+        UnderReview,
         Accepted,
-        Rejected,
         AttachmentAdded,
         AttachmentDeleted,
         AttachmentViewed,
