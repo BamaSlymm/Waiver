@@ -1,5 +1,11 @@
 @model DPAWaiver.Models.Waivers.BaseWaiver
 
+@{
+    var IsUser = bool.Parse(ViewData["IsUser"].ToString());
+    var IsReviewer = bool.Parse(ViewData["IsReviewer"].ToString());
+}
+
+
 <div class='panel panel-primary marginTop20px collapse' id='underReviewDiv'>
     <div class='panel-heading'>
         <h3 class='panel-title text-center'>Reason For Placing Under Review</h3>
@@ -8,9 +14,10 @@
         <form asp-page-handler="UnderReview" asp-page="/Private/Review/ReviewList" asp-route-id="@Model.ID">
             <div class='form-group required'>
                 <label for='UnderReviewReason' class='control-label fontWeightNormal'>Reason:</label>
-                <textarea name='UnderReviewReason' class='form-control' id='UnderReviewReason' aria-describedby='UnderReviewReason' placeholder='Enter the reason for under review'
-                    rows='2'></textarea>
-                   <span class="text-danger field-validation-valid" data-valmsg-for="UnderReviewReason" data-valmsg-replace="true"></span> 
+                <textarea name='UnderReviewReason' class='form-control' id='UnderReviewReason' aria-describedby='UnderReviewReason'
+                    placeholder='Enter the reason for under review' rows='2'></textarea>
+                <span class="text-danger field-validation-valid" data-valmsg-for="UnderReviewReason"
+                    data-valmsg-replace="true"></span>
             </div>
 
             <button class="btn btn-primary pull-right" id="placeUnderReviewButton">Place Under Review&nbsp;
@@ -19,9 +26,76 @@
         </form>
     </div> <!-- End of Panel Head Reason For Placing Under Review -->
 </div> <!-- End of Panel Reason For Placing Under Review -->
-<script type="text/javascript">
 
-defer(function () {
+<div class='panel panel-primary marginTop20px collapse' id='deniedDiv'>
+    <div class='panel-heading'>
+        <h3 class='panel-title text-center'>Reason For Denying Waiver</h3>
+    </div>
+    <div class='panel-body'>
+        <form asp-page-handler="Denied" asp-page="/Private/Review/ReviewList" asp-route-id="@Model.ID">
+            <div class='form-group required'>
+                <label for='DeniedReason' class='control-label fontWeightNormal'>Reason:</label>
+                <textarea name='DeniedReason' class='form-control' id='DeniedReason' aria-describedby='DeniedReason'
+                    placeholder='Enter the reason for denying waiver' rows='2'></textarea>
+                <span class="text-danger field-validation-valid" data-valmsg-for="DeniedReason" data-valmsg-replace="true"></span>
+            </div>
+
+            <button class="btn btn-primary pull-right" id="denyButton">Deny Waiver&nbsp;
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        </form>
+    </div> <!-- End of Panel Head Reason For Denying Waiver -->
+</div> <!-- End of Panel Reason For Denying Waiver -->
+
+<div class='panel panel-primary marginTop20px collapse' id='acceptedDiv'>
+    <div class='panel-heading'>
+        <h3 class='panel-title text-center'>Accept Waiver</h3>
+    </div>
+    <div class='panel-body'>
+        <form asp-page-handler="Accepted" asp-page="/Private/Review/ReviewList" asp-route-id="@Model.ID">
+        
+            <div style="font-weight: bold; ">
+                Once a waiver is accepted, it cannot be changed.
+                <button class="btn btn-primary pull-right" class="vertical-align-middle" id="denyButton">Accept Waiver&nbsp;
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                </button>
+            </div>
+
+        </form>
+    </div> <!-- End of Panel Head Reason For Denying Waiver -->
+</div> <!-- End of Panel Reason For Denying Waiver -->
+
+
+<div class="row add-gutter marginTop40px">
+
+    <a class="btn btn-default pull-right" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    @if (IsUser)
+    {
+    <a class="btn btn-default btn-space-2x pull-right" asp-page="/Private/WaiverList">Waiver List&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    }
+    @if (IsReviewer)
+    {
+        @if (Model.Editable) {
+            <a class="btn btn-default btn-space-2x pull-right" data-toggle="collapse" data-target="#underReviewDiv">Under
+                Review&nbsp;
+                <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+            </a>
+            <a class="btn btn-default btn-space-2x pull-right" data-toggle="collapse" data-target="#deniedDiv">Deny&nbsp;
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+            <a class="btn btn-default btn-space-2x pull-right" data-toggle="collapse" data-target="#acceptedDiv">Accept&nbsp;
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            </a>
+        }
+    }
+</div>
+
+<script type="text/javascript">
+    defer(function () {
         $('#placeUnderReviewButton').prop('disabled', true);
         $('#UnderReviewReason').on("input propertychange", function () {
             if (this.textLength == 0) {
@@ -30,5 +104,15 @@ defer(function () {
                 $('#placeUnderReviewButton').prop('disabled', false);
             }
         });
- });
- </script>       
+
+        $('#denyButton').prop('disabled', true);
+        $('#DeniedReason').on("input propertychange", function () {
+            if (this.textLength == 0) {
+                $('#denyButton').prop('disabled', true);
+            } else {
+                $('#denyButton').prop('disabled', false);
+            }
+        });
+
+    });
+</script>

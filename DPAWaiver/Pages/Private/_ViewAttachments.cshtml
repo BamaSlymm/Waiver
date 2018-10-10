@@ -24,13 +24,13 @@
             <tbody>
                 @foreach (var item in Model) {
                 <tr>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         @String.Format("{0:MM/dd/yyyy}", item.CreatedOn)
                     </td>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         @Html.DisplayFor(modelItem => item.CreatedBy.FullName)
                     </td>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         @Html.DisplayFor(modelItem => item.FileName)
                     </td>
                     <td>

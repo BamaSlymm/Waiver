@@ -51,17 +51,59 @@ namespace DPAWaiver.Pages.Private.Review
             UserWithDepartment = await GetUserWithDepartmentAsync();
             var baseWaiver = await _context.BaseWaivers.
                 FirstAsync(x => x.ID == id);
-            if (baseWaiver.Status == WaiverStatus.Accepted)
+            if (baseWaiver.Status == WaiverStatus.Accepted ||
+                baseWaiver.Status == WaiverStatus.Denied)
             {
                 return NotFound();
             }
-            var baseWaiverAction = new BaseWaiverAction(baseWaiver, UserWithDepartment, 
+            var baseWaiverAction = new BaseWaiverAction(baseWaiver, UserWithDepartment,
             WaiverActions.UnderReview, baseWaiver, UnderReviewReason);
             _context.BaseWaiverActions.Add(baseWaiverAction);
-            baseWaiver.Status = WaiverStatus.UnderReview ;
+            baseWaiver.Status = WaiverStatus.UnderReview;
             await _context.SaveChangesAsync();
+            TempData["StatusMessage"] = String.Format("Waiver {0:000000} has been placed under review.", baseWaiver.WaiverNumber);
             return RedirectToPage(PageList.ReviewList);
         }
+
+        public async Task<IActionResult> OnPostDenied(Guid? id, string DeniedReason)
+        {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var baseWaiver = await _context.BaseWaivers.
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver.Status == WaiverStatus.Accepted ||
+                baseWaiver.Status == WaiverStatus.Denied)
+            {
+                return NotFound();
+            }
+            var baseWaiverAction = new BaseWaiverAction(baseWaiver, UserWithDepartment,
+            WaiverActions.Denied, baseWaiver, DeniedReason);
+            _context.BaseWaiverActions.Add(baseWaiverAction);
+            baseWaiver.Status = WaiverStatus.Denied;
+            await _context.SaveChangesAsync();
+            TempData["StatusMessage"] = String.Format("Waiver {0:000000} has been denied", baseWaiver.WaiverNumber);
+            return RedirectToPage(PageList.ReviewList);
+        }
+
+
+        public async Task<IActionResult> OnPostAccepted(Guid? id)
+        {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var baseWaiver = await _context.BaseWaivers.
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver.Status == WaiverStatus.Accepted ||
+                baseWaiver.Status == WaiverStatus.Denied)
+            {
+                return NotFound();
+            }
+            var baseWaiverAction = new BaseWaiverAction(baseWaiver, UserWithDepartment,
+            WaiverActions.Accepted, baseWaiver);
+            _context.BaseWaiverActions.Add(baseWaiverAction);
+            baseWaiver.Status = WaiverStatus.Accepted;
+            await _context.SaveChangesAsync();
+            TempData["StatusMessage"] = String.Format("Waiver {0:000000} has been accepted", baseWaiver.WaiverNumber);
+            return RedirectToPage(PageList.ReviewList);
+        }
+
 
     }
 }

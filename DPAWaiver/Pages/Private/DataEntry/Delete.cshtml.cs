@@ -40,7 +40,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
             .Include(x => x.PurposeSubtype)
             .FirstAsync(m => m.ID == id);
 
-            if (DataEntryWaiver == null)
+            if (DataEntryWaiver == null || !DataEntryWaiver.Editable)
             {
                 return NotFound();
             }
@@ -56,7 +56,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
 
             DataEntryWaiver = await _context.DataEntryWaiver.FindAsync(id);
 
-            if (DataEntryWaiver != null)
+            if (DataEntryWaiver != null && DataEntryWaiver.Editable)
             {
                 _context.DataEntryWaiver.Remove(DataEntryWaiver);
                 await _context.SaveChangesAsync();

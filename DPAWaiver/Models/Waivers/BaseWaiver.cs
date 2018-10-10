@@ -71,6 +71,11 @@ namespace DPAWaiver.Models.Waivers
         [Range(0, 999999999999.99)]
         public decimal CostEstimate { get ; set;}
 
+        [NotMapped]
+        public Boolean Editable { get {
+            return Status == WaiverStatus.Pending || Status == WaiverStatus.UnderReview;
+        }}
+
         public BaseWaiver() {
         }
 

@@ -115,27 +115,12 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 <partial name="_ViewInvoices" model="@Model.Invoices" />
 <partial name="_ViewAttachments" model="@Model.Attachments" />
 <partial name="_ViewActions" model="@Model.Actions" />
-<partial name="_PostUnderReview" model="@Model.DataEntryWaiver" />
+@await Html.PartialAsync("_PostUnderReview",@Model.DataEntryWaiver, new ViewDataDictionary(ViewData) {
+    {"garbage", "garbage"},
+    { "IsUser", @Model.UserWithDepartment.IsUser()},
+    { "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
+})
 
-<div class="row add-gutter marginTop40px">
-    <partial name='_Logout' />
-
-    <a class="btn btn-default pull-right" onclick="print();">Print&nbsp;
-        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-    </a>
-    @if (Model.UserWithDepartment.IsUser())
-    {
-    <a class="btn btn-default btn-space-2x pull-right" asp-page="/Private/WaiverList">Waiver List&nbsp;
-        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-    </a>
-    }
-    @if (Model.UserWithDepartment.IsReviewer())
-    {
-    <a class="btn btn-default btn-space-2x pull-right" data-toggle="collapse" data-target="#underReviewDiv">Under Review&nbsp;
-        <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
-    </a>
-    }
-</div>
 
 
 <div style="clear: both"></div>
@@ -154,5 +139,5 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 }
 
 @section HeadScripts {
-    <script src='~/js/defer.js'></script>
+<script src='~/js/defer.js'></script>
 }

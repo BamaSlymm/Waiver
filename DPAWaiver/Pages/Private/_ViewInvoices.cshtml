@@ -25,19 +25,19 @@
             <tbody>
                 @foreach (var item in Model) {
                 <tr>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@String.Format("{0:MM/dd/yyyy}",
                             item.VendorName)</span>
                     </td>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@Html.DisplayFor(modelItem
                             => item.InvoiceNumber)</span>
                     </td>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@String.Format("{0:MM/dd/yyyy}",
                             item.InvoiceDate)</span>
                     </td>
-                    <td style="vertical-align: middle">
+                    <td class="vertical-align-middle">
                         <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@String.Format("{0:C}",
                             item.InvoiceAmount)</span>
                     </td>

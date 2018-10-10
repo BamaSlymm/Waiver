@@ -5,7 +5,6 @@
     ViewData["Title"] = "Waiver List";
 }
 
-<partial name="_StatusMessage" model='@TempData["StatusMessage"]'/>
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -40,6 +39,8 @@
             </div>
         </div>
 </div>
+
+<partial name="_StatusMessage" model='@TempData["StatusMessage"]'/>
 
 <table class="table table-striped table-condensed">
     <thead>
@@ -81,9 +82,13 @@
                 @String.Format("{0:000000}",item.WaiverNumber)
             </td>
             <td>
-                <a class="btn btn-default" asp-page="./DataEntry/Edit" asp-route-id="@item.ID">Edit</a> |
-                <a class="btn btn-default" asp-page="./DataEntry/Details" asp-route-id="@item.ID">Details</a> |
-                <a class="btn btn-default" asp-page="./DataEntry/Delete" asp-route-id="@item.ID">Delete</a>
+                @if (item.Editable) {
+                    <a class="btn btn-default" asp-page="./DataEntry/Edit" asp-route-id="@item.ID">Edit</a> 
+                }
+                <a class="btn btn-default" asp-page="./DataEntry/Details" asp-route-id="@item.ID">Details</a>
+                @if (item.Editable) {
+                    <a class="btn btn-default" asp-page="./DataEntry/Delete" asp-route-id="@item.ID">Delete</a>
+                }
             </td>
         </tr>
 }

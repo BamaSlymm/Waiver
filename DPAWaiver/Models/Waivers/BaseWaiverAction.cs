@@ -65,8 +65,9 @@ namespace DPAWaiver.Models.Waivers
     {
         Created,
         Updated,
-        UnderReview,
         Accepted,
+        UnderReview,
+        Denied,
         AttachmentAdded,
         AttachmentDeleted,
         AttachmentViewed,

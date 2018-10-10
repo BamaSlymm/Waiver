@@ -27,16 +27,16 @@
                 <tbody>
                     @foreach (var item in Model) {
                     <tr>
-                        <td style="vertical-align: middle">
+                        <td class="vertical-align-middle">
                             @String.Format("{0:MM/dd/yyyy hh:mm:ss tt}", item.CreatedOn)
                         </td>
-                        <td style="vertical-align: middle">
+                        <td class="vertical-align-middle">
                             @Html.DisplayFor(modelItem => item.CreatedBy.FullName)
                         </td>
-                        <td style="vertical-align: middle">
+                        <td class="vertical-align-middle">
                             @Html.DisplayFor(modelItem => item.ActionTaken)
                         </td>
-                        <td style="vertical-align: middle">
+                        <td class="vertical-align-middle">
                             <button class="btn btn-default audit-button" type="button" aria-expanded="false"
                                 aria-controls="collapseExample">
                                 View Audit Data

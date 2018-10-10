@@ -137,6 +137,8 @@ namespace DPAWaiver
                 Add(new RewriteHttpsOnAppEngine(HttpsPolicy.Required));
                 app.UseRewriter(options);
             }
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();

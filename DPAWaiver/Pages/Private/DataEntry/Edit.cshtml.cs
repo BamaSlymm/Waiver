@@ -43,7 +43,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
             Invoices = await GetInvoicesAsync(id) ;
             Attachments = await GetAttachmentsAsync(id) ;
 
-            if (DataEntryWaiver == null)
+            if (DataEntryWaiver == null || !dataEntryWaiver.Editable)
             {
                 return NotFound();
             }
@@ -75,6 +75,10 @@ namespace DPAWaiver.Pages.Private.DataEntry
             Include(w => w.PurposeType).
             Include(w => w.PurposeSubtype).
             Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
+
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
+            }
 
             if (await TryUpdateModelAsync<DataEntryWaiver>(
                waiverToUpdate,
