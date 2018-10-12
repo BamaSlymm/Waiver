@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using DPAWaiver.Models.LOV;
 using DPAWaiver.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using DPAWaiver.Pages;
 
 namespace DPAWaiver.Areas.Identity.Pages.Account
 {
@@ -107,7 +108,8 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("User {0} created a new account with password.", user.Email);
+                    await _userManager.AddToRoleAsync(user,GroupNames.User);
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Page(
@@ -120,7 +122,7 @@ namespace DPAWaiver.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect(PageList.HomeSignedIn);
                 }
                 foreach (var error in result.Errors)
                 {
