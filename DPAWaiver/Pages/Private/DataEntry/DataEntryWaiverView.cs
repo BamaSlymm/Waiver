@@ -33,7 +33,7 @@ namespace DPAWaiver.Models.Waivers
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
         [Range(0, 9999999999999999.99)]
 
-        public decimal CostEstimate { get ; set;}
+        public decimal? CostEstimate { get ; set;}
 
         [Required]
         [Display(Name = "Describe the current workflow process:")]
@@ -41,19 +41,19 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Total estimated number of FTE:")]
-        public decimal EstimatedNumberofFTE {get;set;}
+        public decimal? EstimatedNumberofFTE {get;set;}
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get;set;}
+        public decimal? EstimatedNumberofHours {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of documents:")]
-        public int EstimatedNumberofDocuments {get;set;}
+        public int? EstimatedNumberofDocuments {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
-        public int EstimatedNumberofFields {get;set;}
+        public int? EstimatedNumberofFields {get;set;}
 
         [Required]
         [Display(Name = "Specify system requirements:")]
