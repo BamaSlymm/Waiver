@@ -1,0 +1,165 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceDesign.CreateModel
+
+@{
+ViewData["Title"] = "Create Waiver - Service - Design";
+}
+
+<h2>Create</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.ServiceDesignWaiver.OtherFirstName != null && Model.ServiceDesignWaiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="ServiceDesignWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="ServiceDesignWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.ServiceDesignWaiver.OtherFirstName)" />
+                    <span asp-validation-for="ServiceDesignWaiver.OtherFirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="ServiceDesignWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="ServiceDesignWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.ServiceDesignWaiver.OtherLastName)" />
+                    <span asp-validation-for="ServiceDesignWaiver.OtherLastName" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    }
+
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-bottom: 14px">
+                <div class="col-md-4 col-xs-4">
+                    Purpose: Service
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Type: Service 
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Status: Started
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceDesignWaiver.ProjectName" class="control-label fontWeightNormal"></label>
+                        <input asp-for="ServiceDesignWaiver.ProjectName" class="form-control" placeholder="@Html.DisplayNameFor(model => model.ServiceDesignWaiver.ProjectName)" />
+                        <span asp-validation-for="ServiceDesignWaiver.ProjectName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceDesignWaiver.SubmittedOn" class="control-label fontWeightNormal"></label>
+                        <input asp-for="ServiceDesignWaiver.SubmittedOn" class="form-control" required="true" />
+                        <span asp-validation-for="ServiceDesignWaiver.SubmittedOn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceDesignWaiver.CostEstimate" class="control-label fontWeightNormal"></label>
+                        <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                        <input asp-for="ServiceDesignWaiver.CostEstimate" class="form-control fontWeightNormal"
+                            required="true" placeholder="@Html.DisplayNameFor(model => model.ServiceDesignWaiver.CostEstimate)" />
+                        <span asp-validation-for="ServiceDesignWaiver.CostEstimate" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Details</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group required">
+                <label asp-for="ServiceDesignWaiver.ItemToBeDesigned" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.ItemToBeDesigned" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.ItemToBeDesigned" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceDesignWaiver.StartedOn" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.StartedOn" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.StartedOn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceDesignWaiver.DueDate" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.DueDate" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.DueDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label asp-for="ServiceDesignWaiver.EstimatedNumberofHours" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.EstimatedNumberofHours" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.EstimatedNumberofHours" class="text-danger"></span>
+            </div>
+            <div class="form-group required">
+                <label asp-for="ServiceDesignWaiver.DesignTypeID" class="control-label"></label>
+                        <select class="form-control" asp-for="ServiceDesignWaiver.DesignTypeID" asp-items="Model.designtype" required="true">
+                            <option>Please select one</option>
+                        </select>
+
+                        <span asp-validation-for="ServiceDesignWaiver.DesignTypeID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group required" id="otherDescriptionId">
+                <label asp-for="ServiceDesignWaiver.OtherDescription" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.OtherDescription" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.OtherDescription" class="text-danger"></span>
+            </div>
+
+        </div>
+    </div>
+     <div class="row add-gutter marginTop20px pull-right">
+        <a class="btn btn-default" onclick="print();">Print&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </a>
+        <button type="submit" class="btn btn-primary" id='createWaiver'>
+            Create Waiver&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+    </div>
+</form>
+
+<partial name='_Logout' />
+<div style="clear: both"></div>
+
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
+}

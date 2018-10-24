@@ -65,7 +65,9 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<Purpose> Purposes { get; set; }
         public DbSet<PurposeType> PurposeTypes { get; set; }
         public DbSet<PurposeSubtype> PurposeSubtypes { get; set; }
+        
         public DbSet<MicrofilmOutputType> MicrofilmOutputTypes { get; set; }
+        public DbSet<DesignType> DesignType { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<BaseWaiver> BaseWaivers { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.DataEntryWaiver> DataEntryWaiver { get; set; }
@@ -75,5 +77,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAttachment> BaseWaiverAttachments { get; set; }
 
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverInvoice> BaseWaiverInvoice { get; set; }
+
+        public DbSet<DPAWaiver.Models.Waivers.ServiceDesignWaiver> ServiceDesignWaiver { get; set; }
     }
 }

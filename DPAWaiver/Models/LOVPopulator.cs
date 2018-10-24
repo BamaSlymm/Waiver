@@ -125,7 +125,18 @@ namespace DPAWaiver.Models
 
         }
 
+        public List<DesignType> getDesignType()
+        {
 
+            return new List<DesignType>() {
+                new DesignType(ID: 1,  name:"Forms",  sortOrder: 1, isDeletable:false, isDisabled:false),
+                new DesignType(ID: 2,  name:"Graphic Art", sortOrder: 2, isDeletable:false, isDisabled:false),
+                new DesignType(ID: 3,  name:"Other",  sortOrder: 9999, isDeletable:false, isDisabled:false),
+                new DesignType(ID: 4,  name:"Publications", sortOrder: 4, isDeletable:false, isDisabled:false),
+                new DesignType(ID: 5,  name:"Web",  sortOrder: 5, isDeletable:false, isDisabled:false)
+            };
+
+        }
         public List<Purpose> getPurposes()
         {
             var purposes = new List<Purpose> {
@@ -146,27 +157,30 @@ namespace DPAWaiver.Models
                 new PurposeType(5,name: "Microfilm / Microfilm Conversion",sortOrder:5,isDeletable:false,isDisabled:false),
                 new PurposeType(6,name: "Scanning / Imaging",sortOrder:6,isDeletable:false,isDisabled:false),
             };
-            return aList ;
+            return aList;
         }
 
-        public List<PurposeType> getPersonnelServiceTypes() {
+        public List<PurposeType> getPersonnelServiceTypes()
+        {
             var aList = new List<PurposeType> {
                 new PurposeType(7,name: "State Employee",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeType(8,name: "Third Party Contractor",sortOrder:2,isDeletable:false,isDisabled:false),
             };
-            return aList ;
+            return aList;
         }
 
-        public List<PurposeType> getEquipmentTypes() {
+        public List<PurposeType> getEquipmentTypes()
+        {
             var aList = new List<PurposeType> {
                 new PurposeType(9,name: "Mail Processing",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeType(10,name: "Scanning/Imaging/Microfilm",sortOrder:2,isDeletable:false,isDisabled:false),
                 new PurposeType(11,name: "Print/Copy",sortOrder:3,isDeletable:false,isDisabled:false),
             };
-            return aList ;
+            return aList;
         }
 
-        public List<PurposeType> getSoftwareTypes() {
+        public List<PurposeType> getSoftwareTypes()
+        {
             var aList = new List<PurposeType> {
                 new PurposeType(12,name: "Data Entry",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeType(13,name: "Design",sortOrder:2,isDeletable:false,isDisabled:false),
@@ -174,11 +188,12 @@ namespace DPAWaiver.Models
                 new PurposeType(15,name: "Print - Copy",sortOrder:4,isDeletable:false,isDisabled:false),
                 new PurposeType(16,name: "Scanning/Imaging/Microfilm",sortOrder:5,isDeletable:false,isDisabled:false),
             };
-            return aList ;
+            return aList;
         }
 
 
-        public List<PurposeSubtype> getPrinterSubtypes() {
+        public List<PurposeSubtype> getPrinterSubtypes()
+        {
             var aList = new List<PurposeSubtype> {
                 new PurposeSubtype(1,name: "A4 Single Function Printer",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeSubtype(2,name: "A4 Multi Function Printer",sortOrder:2,isDeletable:false,isDisabled:false),
@@ -187,15 +202,16 @@ namespace DPAWaiver.Models
                 new PurposeSubtype(5,name: "Large Format Printer",sortOrder:5,isDeletable:false,isDisabled:false),
                 new PurposeSubtype(6,name: "Label Printers",sortOrder:6,isDeletable:false,isDisabled:false),
             };
-            return aList ;
+            return aList;
         }
 
-        public List<PurposeSubtype> getMicrofilmSubtypes() {
+        public List<PurposeSubtype> getMicrofilmSubtypes()
+        {
             var aList = new List<PurposeSubtype> {
                 new PurposeSubtype(7,name: "Microfilm",sortOrder:1,isDeletable:false,isDisabled:false),
                 new PurposeSubtype(8,name: "Microfilm Conversion",sortOrder:2,isDeletable:false,isDisabled:false),
             };
-            return aList ;
+            return aList;
         }
 
     }

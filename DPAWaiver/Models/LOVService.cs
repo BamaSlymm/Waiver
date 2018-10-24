@@ -280,16 +280,41 @@ namespace DPAWaiver.Models
         {
             return convertToSelectListBySortOrder(GetDepartments());
         }
+          public IEnumerable<SelectListItem> GetDesignTypesAsSelectListBySortOrder()
+        {
+            return convertToSelectListBySortOrder(GetDesignTypes());
+        }
 
         public List<Department> GetDepartments()
         {
             return _context.Departments.ToList();
         }
 
+        public List<DesignType> GetDesignTypes()
+        {
+            return _context.DesignType.ToList();
+        }
 
+        private IEnumerable<SelectListItem> convertToSelectListBySortOrder(IEnumerable<DesignType> enumerableList)
+        {
+
+            var selectList = new List<SelectListItem>();
+            var bySortOrderList = enumerableList.OrderBy(item => item.sortOrder);
+            foreach (var record in bySortOrderList)
+            {
+                selectList.Add(new SelectListItem { Text = record.Name, Value = record.ID.ToString(), Disabled = record.isDisabled });
+            }
+
+            return selectList;
+        }
         public Department GetDepartment(int departmentId)
         {
            return  _context.Departments.Single(x=>x.ID == departmentId);
+        }
+
+        public DesignType GetDesignType(int? designtypeId)
+        {
+           return  _context.DesignType.Single(x=>x.ID == designtypeId);
         }
     }
 }

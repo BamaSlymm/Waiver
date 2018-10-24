@@ -131,7 +131,26 @@ namespace DPAWaiver.Models
             }
             return newList;
         }
-
+        public static IEnumerable<DesignType> MergeDesignType(IQueryable<DesignType> initialList, IEnumerable<DesignType> otherList)
+        {
+            List<DesignType> newList = new List<DesignType>();
+            if (!otherList.Any())
+            {
+                return initialList;
+            }
+            foreach (var currentElem in initialList)
+            {
+                currentElem.Update(otherList.FirstOrDefault(x => x.ID == currentElem.ID));
+            }
+            foreach (var anElem in otherList)
+            {
+                if (!initialList.Any(x => x.ID == anElem.ID))
+                {
+                    newList.Add(anElem);
+                }
+            }
+            return newList;
+        }
         public static IEnumerable<Department> MergeDepartment(IQueryable<Department> initialList, IEnumerable<Department> otherList)
         {
             List<Department> newList = new List<Department>();

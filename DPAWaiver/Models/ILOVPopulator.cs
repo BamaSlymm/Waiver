@@ -9,7 +9,7 @@ namespace DPAWaiver.Models
         List<SingleFunctionPrinterPreferences> getSingleFunctionPrinterPreferences();
         List<MultiFunctionPrinter> getMultiFunctionPrinterPreferences();
         List<Equipment> getEquipment();
-
+        List<DesignType> getDesignType();
         List<Purpose> getPurposes();
         List<PurposeType> getServiceTypes();
         List<PurposeType> getPersonnelServiceTypes();

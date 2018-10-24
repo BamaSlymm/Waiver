@@ -40,5 +40,9 @@ namespace DPAWaiver.Models
         List<Department> GetDepartments();
         IEnumerable<SelectListItem> GetDepartmentsAsSelectListBySortOrder(); 
         Department GetDepartment(int id);
+
+        IEnumerable<SelectListItem> GetDesignTypesAsSelectListBySortOrder(); 
+        DesignType GetDesignType(int? designtypeId);
+
     }
 }

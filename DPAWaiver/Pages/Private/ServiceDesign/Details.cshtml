@@ -1,0 +1,97 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceDesign.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceDesignWaiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.ItemToBeDesigned)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.ItemToBeDesigned)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.StartedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.StartedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.DueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.DueDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.CreatedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.CreatedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.approvedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.approvedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.ProjectName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.CostEstimate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ServiceDesignWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

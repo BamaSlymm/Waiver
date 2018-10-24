@@ -30,6 +30,7 @@ namespace DPAWaiver.Data
             SavePurposeSubtypes();
             SaveMicrofilmOutputTypes();
             SaveDepartments();
+            SaveDesignTypes();
             Console.WriteLine("DB Created: ");
 
         }
@@ -39,7 +40,11 @@ namespace DPAWaiver.Data
             var newList = _populator.getMicrofilmOutputTypes();
             MergeMicrofilmOutputTypes(newList);
         }
-
+        private void SaveDesignTypes()
+        {
+            var newList = _populator.getDesignType();
+            MergeDesignTypes(newList);
+        }
         private void SaveDepartments()
         {
             var newList = _populator.getDepartments();
@@ -145,7 +150,16 @@ namespace DPAWaiver.Data
             }
             _context.SaveChanges();
         }
-
+        private void MergeDesignTypes(List<DesignType> newTypes)
+        {
+            var savedTypes = _context.DesignType;
+            var newList = DBInitializeHelper.MergeDesignType(savedTypes, newTypes);
+            foreach (var item in newList)
+            {
+                _context.DesignType.Add(item);
+            }
+            _context.SaveChanges();
+        }
         private void MergeDepartments(List<Department> newTypes)
         {
             var savedTypes = _context.Departments;
@@ -156,6 +170,6 @@ namespace DPAWaiver.Data
             }
             _context.SaveChanges();
         }
-        
+
     }
 }
