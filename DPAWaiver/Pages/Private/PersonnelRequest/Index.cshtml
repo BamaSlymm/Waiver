@@ -1,0 +1,108 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceDesign.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].ItemToBeDesigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].StartedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].EstimatedNumberofHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].approvedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceDesignWaiver[0].CostEstimate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ServiceDesignWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemToBeDesigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

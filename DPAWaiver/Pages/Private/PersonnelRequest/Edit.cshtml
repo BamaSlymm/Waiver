@@ -1,0 +1,95 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceDesign.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>ServiceDesignWaiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.ItemToBeDesigned" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.ItemToBeDesigned" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.ItemToBeDesigned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.StartedOn" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.StartedOn" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.StartedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.DueDate" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.DueDate" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.EstimatedNumberofHours" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.EstimatedNumberofHours" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.EstimatedNumberofHours" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ServiceDesignWaiver.ID" />
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.CreatedOn" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.CreatedOn" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.approvedOn" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.approvedOn" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.approvedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.Status" class="control-label"></label>
+                <select asp-for="ServiceDesignWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="ServiceDesignWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceDesignWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="ServiceDesignWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="ServiceDesignWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
