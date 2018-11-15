@@ -1,0 +1,97 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceMail.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceMailWaiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.ItemDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.ItemDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.CostEstimate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.JobDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.JobDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.TypeofStock)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.TypeofStock)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.NumberofPackets)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.NumberofPackets)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.ProjectName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMailWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMailWaiver.CostEstimate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ServiceMailWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

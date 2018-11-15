@@ -1,5 +1,5 @@
 @page
-@model DPAWaiver.Pages.Private.ServiceDesign.DeleteModel
+@model DPAWaiver.Pages.Private.PersonnelRequest.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -9,91 +9,91 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ServiceDesignWaiver</h4>
+    <h4>Personnel Request Waiver</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.ItemToBeDesigned)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.ItemToBeDesigned)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.ItemToBeDesigned)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.ItemToBeDesigned)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.StartedOn)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.StartedOn)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.StartedOn)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.StartedOn)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.DueDate)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.DueDate)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.DueDate)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.DueDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.EstimatedNumberofHours)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.EstimatedNumberofHours)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.CreatedOn)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.CreatedOn)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.CreatedOn)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.CreatedOn)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.approvedOn)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.approvedOn)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.approvedOn)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.approvedOn)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.OtherFirstName)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.OtherFirstName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.OtherFirstName)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.OtherFirstName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.OtherLastName)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.OtherLastName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.OtherLastName)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.OtherLastName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.Status)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.Status)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.Status)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.Status)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.WaiverNumber)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.WaiverNumber)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.WaiverNumber)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.WaiverNumber)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.ProjectName)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.ProjectName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.ProjectName)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.ProjectName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.SubmittedOn)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.SubmittedOn)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.SubmittedOn)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.SubmittedOn)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.CostEstimate)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.CostEstimate)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.CostEstimate)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.CostEstimate)
         </dd>
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="ServiceDesignWaiver.ID" />
+        <input type="hidden" asp-for="PersonnelRequestWaiver.ID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

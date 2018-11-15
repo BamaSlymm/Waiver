@@ -43,6 +43,14 @@ namespace DPAWaiver.Models.Waivers
         public DateTime? SubmittedOn { get; set; }
 
         [Required]
+        [Display(Name = "Descibe the scope of work to be performed:")]
+        public string ScopeofWork {get; set;}
+
+        [Required]
+        [Display(Name = "Contractor Type:")]
+        public string ContractorType {get; set;}
+
+        [Required]
         [Column(TypeName="DECIMAL(13,2)")]
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
@@ -54,13 +62,30 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Describe the job duties:")]
         public string JobDuties {get;set;}
 
+        
+        
+        [Required]
+        [Display(Name = "Total estimated number of hours:")]
+        public decimal? EstimatedNumberofHours {get;set;}
+
+        [Required
+        [Display(Name = "Enter State Price Agreement Number:")]]
+        public decimal? SPAnumber {get; set;}
+
+        [Display(Name = "Please Describe Other for SPA:")]
+        public string SPAotherDescription {get; set;}
+
         [Required]
         [Display(Name = "Total estimated number of FTE:")]
         public decimal? EstimatedNumberofFTE {get;set;}
 
         [Required]
-        [Display(Name = "Requested Loaded Salary:")]        
-        public decimal? RequestedSalary {get; set;}
+        [Display(Name = "Expected duration of contract (numeric in months):")]
+        public decimal? ContractDuration {get; set;}
+
+        [Required]
+        [Display(Name = "Anticipated Expenditure (must include mark up rate)")]
+        public decimal? AnticipatedExpediture {get; set;}
 
         [Display(Name = "Please detail justification for request.")]
         public string DetailJustification {get;set;}
@@ -88,10 +113,16 @@ namespace DPAWaiver.Models.Waivers
             this.OtherLastName = other.OtherLastName ;
             this.ProjectName = other.ProjectName ;
             this.SubmittedOn = other.SubmittedOn ;
+            this.ScopeofWork = other.ScopeofWork;
+            this.ContractorType = other.ContractorType;
             this.CostEstimate = other.CostEstimate ;
             this.JobDuties = other.JobDuties;
+            this.EstimatedNumberofHours = other.EstimatedNumberofHours ;
+            this.SPAnumber = other.SPAnumber;
+            this.SPAotherDescription = other.SPAotherDescription;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE ;
-            this.RequestedSalary = other.RequestedSalary;
+            this.ContractDuration = other.ContractDuration;
+            this.AnticipatedExpediture = other.AnticipatedExpediture;
             this.DetailJustification = other.DetailJustification;
             this.AdditionalComments = other.AdditionalComments;
             this.Status = other.Status;

@@ -14,12 +14,12 @@ using DPAWaiver.Pages.Private;
 using DPAWaiver.Models.WaiverSelection;
 
 
-namespace DPAWaiver.Pages.Private.PersonnelRequest
+namespace DPAWaiver.Pages.Private.PersonnelContractor
 {
     public class CreateModel : BaseWaiverPageModel
     {
         [BindProperty]
-        public PersonnelRequestWaiverView PersonnelRequestWaiver { get; set; }
+        public PersonnelContractorWaiverView PersonnelContractorWaiver { get; set; }
 
         public CreateModel(DPAWaiverIdentityDbContext context, ILOVService iLOVService, UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
@@ -29,9 +29,9 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            PersonnelRequestWaiver = new PersonnelRequestWaiverView();
-            PersonnelRequestWaiver.OtherFirstName = otherFirstName;
-            PersonnelRequestWaiver.OtherLastName = otherLastName;
+            PersonnelContractorWaiver = new PersonnelContractorWaiverView();
+            PersonnelContractorWaiver.OtherFirstName = otherFirstName;
+            PersonnelContractorWaiver.OtherLastName = otherLastName;
             return Page();
         }
 
@@ -48,12 +48,12 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(PersonnelRequestWaiver.DesignTypeID);
-            PersonnelRequestWaiver emptyWaiver = new PersonnelRequestWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
+            var designType = _ILOVService.GetDesignType(PersonnelContractorWaiver.DesignTypeID);
+            PersonnelContractorWaiver emptyWaiver = new PersonnelContractorWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
-            if (await TryUpdateModelAsync<PersonnelRequestWaiver>(
+            if (await TryUpdateModelAsync<PersonnelContractorWaiver>(
                emptyWaiver,
-               "PersonnelRequestwaiver",
+               "PersonnelContractorwaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
                w => w.ProjectName,
@@ -68,7 +68,7 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
                w => w.OtherDescription
                ))
             {
-                _context.PersonnelRequestWaiver.Add(emptyWaiver);
+                _context.PersonnelContractorWaiver.Add(emptyWaiver);
                 BaseWaiverAction baseWaiverAction = new BaseWaiverAction(emptyWaiver, UserWithDepartment,
                                                 WaiverActions.Created, emptyWaiver);
                 _context.BaseWaiverActions.Add(baseWaiverAction);

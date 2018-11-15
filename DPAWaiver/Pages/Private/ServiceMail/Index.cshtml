@@ -1,5 +1,5 @@
 @page
-@model DPAWaiver.Pages.Private.PersonnelRequest.IndexModel
+@model DPAWaiver.Pages.Private.ServiceMail.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,67 +14,67 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].ItemToBeDesigned)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].ItemDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].StartedOn)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].SubmittedOn)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].DueDate)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].CostEstimate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].EstimatedNumberofHours)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].JobDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].CreatedOn)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].TypeofStock)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].approvedOn)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].NumberofPackets)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].OtherFirstName)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].OtherFirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].OtherLastName)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].OtherLastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].Status)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].WaiverNumber)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].WaiverNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].ProjectName)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].ProjectName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].SubmittedOn)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].SubmittedOn)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].CostEstimate)
+                @Html.DisplayNameFor(model => model.ServiceMailWaiver[0].CostEstimate)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.PersonnelRequestWaiver) {
+@foreach (var item in Model.ServiceMailWaiver) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemToBeDesigned)
+                @Html.DisplayFor(modelItem => item.ItemDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartedOn)
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
+                @Html.DisplayFor(modelItem => item.CostEstimate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
+                @Html.DisplayFor(modelItem => item.JobDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedOn)
+                @Html.DisplayFor(modelItem => item.TypeofStock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.approvedOn)
+                @Html.DisplayFor(modelItem => item.NumberofPackets)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OtherFirstName)

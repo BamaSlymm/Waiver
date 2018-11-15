@@ -1,0 +1,95 @@
+@page
+@model DPAWaiver.Pages.Private.PersonnelContractor.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>PersonnelContractorWaiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.ScopeofWork" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.ScopeofWork" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.ScopeofWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.ContractorType" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.ContractorType" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.ContractorType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.JobDuties" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.JobDuties" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.JobDuties" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.EstimatedNumberofHours" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.EstimatedNumberofHours" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.EstimatedNumberofHours" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="PersonnelContractorWaiver.ID" />
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.CreatedOn" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.CreatedOn" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.approvedOn" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.approvedOn" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.approvedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.Status" class="control-label"></label>
+                <select asp-for="PersonnelContractorWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="PersonnelContractorWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonnelContractorWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="PersonnelContractorWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="PersonnelContractorWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

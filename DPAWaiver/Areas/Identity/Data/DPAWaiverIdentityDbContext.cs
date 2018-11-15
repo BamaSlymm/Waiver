@@ -81,5 +81,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.ServiceDesignWaiver> ServiceDesignWaiver { get; set; }
 
         public DbSet<DPAWaiver.Models.Waivers.PersonnelRequestWaiver> PersonnelRequestWaiver { get; set; }
+
+        public DbSet<DPAWaiver.Models.Waivers.ServiceMailWaiver> ServiceMailWaiver { get; set; }
     }
 }

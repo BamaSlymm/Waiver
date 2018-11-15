@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,19 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Models;
-using DPAWaiver.Pages.Private;
+using Microsoft.AspNetCore.Identity;
 using DPAWaiver.Models.WaiverSelection;
 
-
-namespace DPAWaiver.Pages.Private.PersonnelRequest
+namespace DPAWaiver.Pages.Private.ServiceMail
 {
     public class CreateModel : BaseWaiverPageModel
     {
         [BindProperty]
-        public PersonnelRequestWaiverView PersonnelRequestWaiver { get; set; }
+        public ServiceMailWaiverView ServiceMailWaiver { get; set; }
 
         public CreateModel(DPAWaiverIdentityDbContext context, ILOVService iLOVService, UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
@@ -29,9 +26,9 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            PersonnelRequestWaiver = new PersonnelRequestWaiverView();
-            PersonnelRequestWaiver.OtherFirstName = otherFirstName;
-            PersonnelRequestWaiver.OtherLastName = otherLastName;
+            ServiceMailWaiver = new ServiceMailWaiverView();
+            ServiceMailWaiver.OtherFirstName = otherFirstName;
+            ServiceMailWaiver.OtherLastName = otherLastName;
             return Page();
         }
 
@@ -48,27 +45,26 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(PersonnelRequestWaiver.DesignTypeID);
-            PersonnelRequestWaiver emptyWaiver = new PersonnelRequestWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
+            var designType = _ILOVService.GetDesignType(ServiceMailWaiver.DesignTypeID);
+            ServiceMailWaiver emptyWaiver = new ServiceMailWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
-            if (await TryUpdateModelAsync<PersonnelRequestWaiver>(
+            if (await TryUpdateModelAsync<ServiceMailWaiver>(
                emptyWaiver,
-               "PersonnelRequestwaiver",
+               "ServiceMailwaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
                w => w.ProjectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
-               w => w.JobDuties,
-               w => w.EstimatedNumberofFTE,
-               w => w.EstimatedNumberofHours,
-               w => w.DetailJustification,
-               w => w.AdditionalComments,
-               w => w.Status,
+               w => w.JobDescription,
+               w => w.CostEstimate,
+               w => w.CostEstimate,
+               w => w.SubmittedOn,
+               w => w.ItemDescription,
                w => w.OtherDescription
                ))
             {
-                _context.PersonnelRequestWaiver.Add(emptyWaiver);
+                _context.ServiceMailWaiver.Add(emptyWaiver);
                 BaseWaiverAction baseWaiverAction = new BaseWaiverAction(emptyWaiver, UserWithDepartment,
                                                 WaiverActions.Created, emptyWaiver);
                 _context.BaseWaiverActions.Add(baseWaiverAction);

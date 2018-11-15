@@ -1,6 +1,6 @@
 ﻿@page 
-@model CreateWaiverPersonnelContractorModel 
-@{ ViewData["Title"] = "Create Waiver - Personnel - Third Party Contractor";}
+@model DPAWaiver.Pages.Private.PersonnelContractor.CreateModel 
+@{ ViewData["Title"] = "Create Waiver - Personnel - State Employee"; }
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -42,7 +42,7 @@
                 Purpose: Personnel Request
             </div>
             <div class="col-md-4 col-xs-4">
-                Type: State Employee
+                Type: Third Party Contractor
             </div>
             <div class="col-md-4 col-xs-4">
                 Status: Started
@@ -51,7 +51,7 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <label asp-for="projectName" class="control-label fontWeightNormal">Project Name:</label>
                     <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
                 </div>
             </div>
@@ -59,13 +59,13 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="submittedDate" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="submittedDate" required="true" value="05/04/2018">
+                    <label asp-for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
                     <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
                 </div>
@@ -76,7 +76,7 @@
     </div>
 </div>
 
-<div class="panel panel-primary marginTop20px">
+<<div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
         <h3 class="panel-title text-center">Waiver Details</h3>
     </div>
@@ -98,8 +98,7 @@
                 </select>
             </div>
         </div>
-
-        <div class="row" id="designDiv">
+    <div class="row" id="designDiv">
             <div class="col-sm-6 col-xs-12">
                 <div class="form-group required">
                     <label for="hourlyRate" class="control-label fontWeightNormal">Hourly Rate</label>
@@ -202,7 +201,6 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         showIfSelected('#spaType', ['#otherSPADiv'], {textList: ['Other']});
         showIfSelected('#spaType', ['#spaNumberDiv'], {textList: ['Other'], hide:true});
     });
-
-
 </script>
+}
 }

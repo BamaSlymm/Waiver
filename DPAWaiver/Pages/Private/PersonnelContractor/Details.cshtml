@@ -1,0 +1,121 @@
+@page
+@model DPAWaiver.Pages.Private.PersonnelContractor.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Personnel Request Waiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ScopeofWork)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ScopeofWork)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ContractorType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ContractorType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.JobDuties)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.JobDuties)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.EstimatedNumberofHours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.EstimatedNumberofHours)
+        </dd>
+          <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SPANumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SPANumber)
+        </dd>
+          <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ContractDuration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ContractDuration)
+        </dd>
+          <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.AnticipatedExpediture)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.AnticipatedExpediture)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.DetailJustification)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.DetailJustification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.CreatedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.CreatedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.approvedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.approvedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ProjectName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelContractorWaiver.CostEstimate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PersonnelContractorWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
