@@ -14,16 +14,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].ItemToBeDesigned)
+                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].JobDuties)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].StartedOn)
+                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].RequestedSalary)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].DueDate)
+                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].DetailJustification)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].EstimatedNumberofHours)
+                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].EstimatedNumberofFTE)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].CreatedOn)
@@ -59,16 +59,16 @@
 @foreach (var item in Model.PersonnelRequestWaiver) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemToBeDesigned)
+                @Html.DisplayFor(modelItem => item.JobDuties)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartedOn)
+                @Html.DisplayFor(modelItem => item.RequestedSalary)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
+                @Html.DisplayFor(modelItem => item.DetailJustification)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofFTE)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedOn)

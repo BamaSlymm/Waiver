@@ -1,0 +1,95 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceMicrofilm.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Service Print Waiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.ItemDescription" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.ItemDescription" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.ItemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.JobDescription" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.JobDescription" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.JobDescription" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ServiceMicrofilmWaiver.ID" />
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.TypeofStock" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.TypeofStock" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.TypeofStock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.NumberofPackets" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.NumberofPackets" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.NumberofPackets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.Status" class="control-label"></label>
+                <select asp-for="ServiceMicrofilmWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="ServiceMicrofilmWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -23,7 +23,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DPAWaiver.Models.Waivers 
 {
-    public class PersonnelRequestWaiverView
+    public class PersonnelContractorWaiverView
     {
 
         
@@ -68,8 +68,8 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Total estimated number of hours:")]
         public decimal? EstimatedNumberofHours {get;set;}
 
-        [Required
-        [Display(Name = "Enter State Price Agreement Number:")]]
+        [Required]
+        [Display(Name = "Enter State Price Agreement Number:")]
         public decimal? SPAnumber {get; set;}
 
         [Display(Name = "Please Describe Other for SPA:")]
@@ -95,7 +95,7 @@ namespace DPAWaiver.Models.Waivers
 
         public WaiverStatus Status {get;set;}
 
-        public PersonnelRequestWaiverView()
+        public PersonnelContractorWaiverView()
         {
         }
 
@@ -103,12 +103,12 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Type of Design:")]
         public int? DesignTypeID{get; set;}
 
-        public PersonnelRequestWaiverView(PersonnelRequestWaiver other)
+        public PersonnelContractorWaiverView(PersonnelContractorWaiver other)
         {
-            this.CopyFromPersonnelRequestWaiver(other);
+            this.CopyFromPersonnelContractorWaiver(other);
         }
         
-        public void CopyFromPersonnelRequestWaiver(PersonnelRequestWaiver other) {
+        public void CopyFromPersonnelContractorWaiver(PersonnelContractorWaiver other) {
             this.OtherFirstName = other.OtherFirstName ;
             this.OtherLastName = other.OtherLastName ;
             this.ProjectName = other.ProjectName ;

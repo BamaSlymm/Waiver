@@ -28,6 +28,9 @@ namespace DPAWaiver.Models.Waivers
         
         [Display(Name = "If other please explain:")]
         public string OtherDescription { get; set; }
+        
+        [Display(Name = "Additional Comments")]
+        public string AdditionalComments {get;set;}
 
         public DesignType DesignType {get; set;}
 

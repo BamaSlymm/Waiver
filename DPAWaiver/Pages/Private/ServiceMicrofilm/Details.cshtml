@@ -1,0 +1,150 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceMicrofilm.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service Printer Waiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.ItemDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.ItemDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.CostEstimate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.EstimateObtained)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.EstimateObtained)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.ItemDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.ItemDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.PaperStockType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.PaperStockType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.otherPaperStockReason)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.otherPaperStockReason)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.FinishingType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.FinishingType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.Reprint)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.Reprint)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.PreviousPrinter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.PreviousPrinter)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.NumberofOriginals)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.NumberofOriginals)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.Quantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.FourColorJob)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.FourColorJob)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.NumberofInks)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.NumberofInks)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.ProjectDueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.ProjectDueDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.FinishedSize)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.FinishedSize)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.AdditionalComments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.AdditionalComments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMicrofilmWaiver.ProjectName)
+        </dd>
+    </dl>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ServiceMicrofilmWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,138 @@
+@page
+@model DPAWaiver.Pages.Private.ServicePrint.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].CostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].EstimateObtained)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].PaperStockType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].otherPaperStockReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].FinishingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].Reprint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].PreviousPrinter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].NumberofOriginals)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].FourColorJob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].NumberofInks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].ProjectDueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].FinshedSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].AdditionalComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePrintWaiver[0].SubmittedOn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ServicePrintWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeofStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberofPackets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

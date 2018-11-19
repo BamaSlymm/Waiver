@@ -23,19 +23,7 @@ namespace DPAWaiver.Models.Waivers
         [DataType(DataType.Date)]
         [Display(Name = "Submitted Date")]
         public DateTime? SubmittedOn { get; set; }
-
-        [Required]
-        [Display(Name = "Describe the item to be designed:")]
-        public string ItemToBeDesigned { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Project Start Date")]
-        public DateTime StartedOn { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Project Due Date")]
-        public DateTime DueDate { get; set; }
-
+        
         [Required]
         [Column(TypeName="DECIMAL(13,2)")]
         [Display(Name = "Cost Estimate")]
@@ -45,11 +33,29 @@ namespace DPAWaiver.Models.Waivers
         public decimal CostEstimate { get ; set;}
 
         [Required]
+        [Display(Name = "Describe the item to be designed:")]
+        public string ItemToBeDesigned { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Project Start Date")]
+        public DateTime StartedOn { get; set; }
+        
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Project Due Date")]
+        public DateTime DueDate { get; set; }
+
+       
+        [Required]
         [Display(Name = "Total estimated number of hours:")]
         public decimal EstimatedNumberofHours { get; set; }
 
         [Display(Name = "If other please explain:")]
         public string OtherDescription { get; set; }
+
+        [Display(Name = "Additional Comments")]
+        public string AdditionalComments {get;set;}
 
         public WaiverStatus Status {get;set;}
 
@@ -71,6 +77,7 @@ public void CopyFromServiceDesignWaiver(ServiceDesignWaiver other) {
             this.StartedOn = other.StartedOn;
             this.ItemToBeDesigned = other.ItemToBeDesigned;
             this.OtherDescription = other.OtherDescription;
+            this.AdditionalComments = other.AdditionalComments;
         }
 
         
