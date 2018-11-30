@@ -1,0 +1,169 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentPrintLargeFormat.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>EquipmentPrintLargeFormatWaiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.equipmentType" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.equipmentType" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.equipmentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.numberofEquipment" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.numberofEquipment" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.numberofEquipment" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.Make" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.Make" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.Make" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.Model" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.Model" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.newOrReplace" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.newOrReplace" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.newOrReplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.servicesReceived" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.servicesReceived" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.servicesReceived" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.solicitationSubType" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.solicitationSubType" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.solicitationSubType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.purchaseAmount" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.purchaseAmount" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.purchaseAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.selectionReason" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.selectionReason" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.selectionReason" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.leaseDuration" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.leaseDuration" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.leaseDuration" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.numberOfMonths" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.numberOfMonths" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.numberOfMonths" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.makeAndModel" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.makeAndModel" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.makeAndModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.estimatedCost" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.estimatedCost" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.estimatedCost" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.productionCapacity" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.productionCapacity" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.productionCapacity" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.acquisitionType" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.acquisitionType" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.acquisitionType" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.leaseOrPurchase" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.leaseOrPurchase" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.leaseOrPurchase" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.numberOfYears" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.numberOfYears" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.numberOfYears" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.alternativesDescription" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.alternativesDescription" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.alternativesDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.justificationDescription" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.justificationDescription" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.justificationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.additionalComments" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.additionalComments" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.additionalComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.Status" class="control-label"></label>
+                <select asp-for="EquipmentPrintLargeFormatWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintLargeFormatWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="EquipmentPrintLargeFormatWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="EquipmentPrintLargeFormatWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

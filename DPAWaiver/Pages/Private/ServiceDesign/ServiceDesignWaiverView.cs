@@ -65,15 +65,14 @@ namespace DPAWaiver.Models.Waivers
         }
 
 public void CopyFromServiceDesignWaiver(ServiceDesignWaiver other) {
-            this.CostEstimate = other.CostEstimate ;
-            this.EstimatedNumberofHours = other.EstimatedNumberofHours ;
             this.OtherFirstName = other.OtherFirstName ;
             this.OtherLastName = other.OtherLastName ;
             this.ProjectName = other.ProjectName ;
             this.SubmittedOn = other.SubmittedOn ;
-            this.Status = other.Status;
-            this.ProjectName = other.ProjectName;
+            this.CostEstimate = other.CostEstimate ;
+            this.EstimatedNumberofHours = other.EstimatedNumberofHours ;
             this.DueDate = other.DueDate;
+            this.Status = other.Status;
             this.StartedOn = other.StartedOn;
             this.ItemToBeDesigned = other.ItemToBeDesigned;
             this.OtherDescription = other.OtherDescription;

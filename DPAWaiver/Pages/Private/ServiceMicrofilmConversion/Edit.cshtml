@@ -1,0 +1,155 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceMicrofilmConversion.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Service Print Waiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.workflowDescription" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.workflowDescription" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.workflowDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ServiceMicrofilmConversionWaiver.ID" />
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.numberofCards" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.numberofCards" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.numberofCards" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofHours" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofHours" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfFields" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfFields" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfFields" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver." class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver." class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver." class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.reasonForNotKeyedIntoSystem" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.reasonForNotKeyedIntoSystem" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.reasonForNotKeyedIntoSystem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.notInHouseReason" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.notInHouseReason" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.notInHouseReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.Status" class="control-label"></label>
+                <select asp-for="ServiceMicrofilmConversionWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="ServiceMicrofilmConversionWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

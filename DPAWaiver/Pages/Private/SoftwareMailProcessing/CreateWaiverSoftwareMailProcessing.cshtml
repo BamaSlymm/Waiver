@@ -1,0 +1,334 @@
+﻿@page 
+@model CreateWaiverSoftwareMailProcessingModel 
+@{ ViewData["Title"] = "Create Waiver - Software - Mail Processing";}
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">User Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                First Name: Dogan
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Last Name: Cibiceli
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Email Address: dogan.cibiceli@state.co.us
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                Department: Education
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Division: Teacher
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Phone: 555-330-3303
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-4 col-xs-4">
+                Purpose: Software Related to Services
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Type: Mail Processing
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Status: Started
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group required">
+                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="submittedDate" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" id="submittedDate" required="true" value="05/04/2018">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="costEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+    <div class="panel-body">
+        <div class='row'>
+            <div class='col-sm-6 col-xs-12'>
+                <div class='form-group required'>
+                    <label for='typeOfSoftware' class='control-label fontWeightNormal'>Type of software being requested</label>
+                    <input type='text' class='form-control' id='typeOfSoftware' aria-describedby='typeOfSoftware' placeholder='Type of software being requested'>
+                </div>
+            </div>
+            <div class='col-sm-6 col-xs-12'>
+                <div class='form-group required'>
+                    <label for='numberOfLicenses' class='control-label fontWeightNormal'>Number of software licenses being requested</label>
+                    <input type='number' class='form-control' id='numberOfLicenses' aria-describedby='numberOfLicenses' placeholder='Number of software licenses being requested'>
+                </div>
+            </div>
+        </div>
+        <!-- end of row -->
+
+        <div class='row'>
+            <div class='col-sm-6 col-xs-12'>
+                <div class="form-group required">
+                    <label for="newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
+                    <select class="form-control" id="newOrReplace">
+                        <option>Additional</option>
+                        <option>New</option>
+                        <option>Replacement</option>
+                    </select>
+                </div>
+            </div>
+            <div class='col-sm-6 col-xs-12'>
+                <div class="form-group required">
+                    <label for='costOfPresentService' class='control-label fontWeightNormal'>Cost of Present Service
+                        <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Cost of Present Service'></span>
+                    </label>
+                    <input type='number' class='form-control' id='costOfPresentService' aria-describedby='costOfPresentService' placeholder='Cost of Present Service'>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label for="servicesReceived" class="control-label fontWeightNormal">How do you currently receive this services?</label>
+            <textarea class="form-control" id="servicesReceived" rows="2" placeholder="if replacement please describe software version and Acquisition Date."></textarea>
+        </div>
+        
+        <div class="panel panel-primary marginTop40px">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">If you are requesting specific software, please complete the following</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class='form-group required'>
+                            <label for='softwareProvider' class='control-label fontWeightNormal'>Software Provider</label>
+                            <input type='text' class='form-control' id='softwareProvider' aria-describedby='softwareProvider' placeholder='Software Provider'>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class='form-group required'>
+                            <label for='softwareVersion' class='control-label fontWeightNormal'>Software Version</label>
+                            <input type='text' class='form-control' id='softwareVersion' aria-describedby='softwareVersion' placeholder='Software Version'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label for="selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular software:</label>
+                    <textarea class="form-control" id="selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
+                        rows='2'></textarea>
+                </div>
+
+                <div class='form-group required'>
+                    <label for='expectedDuration' class='control-label fontWeightNormal'>Expected duration of use of software</label>
+                    <input type='text' class='form-control' id='expectedDuration' aria-describedby='expectedDuration' placeholder='Expected duration of use of software'>
+                </div>
+
+                <div class='form-group required'>
+                    <label for='acquisitionType' class='control-label fontWeightNormal'>How do you plan to acquire this software.</label>
+                    <textarea class='form-control' id='acquisitionType' aria-describedby='acquisitionType' 
+                    placeholder='How do you plan to acquire this software.If there is a state price agreement, please provide details' 
+                    rows='2'></textarea>
+                </div>
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class="form-group required">
+                            <label for="subscriptionOrPurchase" class="control-label fontWeightNormal">Is this a subscription or purchase?</label>
+                            <select class="form-control" id="subscriptionOrPurchase">
+                                <option>Please select one</option>
+                                <option value='1'>Subscription</option>
+                                <option value='2'>Purchase</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class="form-group required" id='purchaseAmountDiv'>
+                            <label for="purchaseAmount" class="control-label fontWeightNormal">Purchase Amount
+                                <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Purchase Amount"></span>
+                            </label>
+                            <input type="number" class="form-control" id="purchaseAmount" aria-describedby="purchaseAmount" placeholder="Purchase Amount">
+                        </div>
+                    </div>
+                </div> <!-- end of row -->
+
+
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class='form-group required' id='monthlySubscriptionAmountDiv'>
+                            <label for='monthlySubscriptionAmount' class='control-label fontWeightNormal'>Monthly Subscription Amount</label>
+                            <input type='number' class='form-control' id='monthlySubscriptionAmount' aria-describedby='monthlySubscriptionAmount' placeholder='Monthly Subscription Amount'>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class='form-group required' id='numberOfMonthsDiv'>
+                            <label for='numberOfMonths' class='control-label fontWeightNormal'>Number of Months</label>
+                            <input type='number' class='form-control' id='numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required' id='annualMaintenanceCostDiv'>
+                            <label for='annualMaintenanceCost' class='control-label fontWeightNormal'>Annual Maintenance Renewal Cost</label>
+                            <input type='number' class='form-control' id='annualMaintenanceCost' aria-describedby='annualMaintenanceCost' placeholder='Annual Maintenance Renewal Cost'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                    </div>
+                </div> <!-- end of row -->
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='operatorClassification' class='control-label fontWeightNormal'>Operator Classification</label>
+                            <input type='text' class='form-control' id='operatorClassification' aria-describedby='operatorClassification' placeholder='Operator Classification'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='grade' class='control-label fontWeightNormal'>Grade</label>
+                            <input type='text' class='form-control' id='grade' aria-describedby='grade' placeholder='Grade'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='numberOfFTE' class='control-label fontWeightNormal'>Estimated Number of FTE</label>
+                            <input type='number' class='form-control' id='numberOfFTE' aria-describedby='numberOfFTE' placeholder='Estimated Number of FTE'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='hoursPerFTEPerWeek' class='control-label fontWeightNormal'>Hours Per FTE Per Week</label>
+                            <input type='number' class='form-control' id='hoursPerFTEPerWeek' aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per Week'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
+
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='totalWeeklySalary' class='control-label fontWeightNormal'>Total Weekly Salary</label>
+                            <input type='number' class='form-control' id='totalWeeklySalary' aria-describedby='totalWeeklySalary' placeholder='Total Weekly Salary'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                    </div>
+                </div>
+                <!-- end of row -->
+
+            </div>
+        </div>
+
+
+        <div class="panel panel-primary marginTop20px">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Overhead Costs</h3>
+            </div>
+            <div class="panel-body">
+                <div class='row'>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='monthlySupervisionAmount' class='control-label fontWeightNormal'>Monthly Supervision Amount</label>
+                            <input type='number' class='form-control' id='monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-xs-12'>
+                        <div class='form-group required'>
+                            <label for='monthlyManagementAmount' class='control-label fontWeightNormal'>Monthly Management Amount</label>
+                            <input type='text' class='form-control' id='monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
+
+            </div>
+        </div>
+        <!-- end of panel -->
+
+        <div class="form-group required">
+            <label for="justificationDescription" class="control-label fontWeightNormal">Justification for the request:</label>
+            <textarea class="form-control" id="justificationDescription" rows='2'></textarea>
+        </div>
+
+
+        <div class='form-group required'>
+            <label for='alternativesConsidered' class='control-label fontWeightNormal'>Please describe the alternatives you examined before making this request</label>
+            <textarea class='form-control' id='alternativesConsidered' aria-describedby='alternativesConsidered' placeholder='Please describe the alternatives you examined before making this request'
+                rows='2'></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <textarea class="form-control" id="additionalComments" rows='2'></textarea>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row add-gutter marginTop20px pull-right">
+    <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+    <a type="submit" class="btn btn-primary">Create Waiver&nbsp;
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</div>
+
+<div style="clear: both"></div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+                showIfSelected('#subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
+                showIfSelected('#subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
+        });
+
+        $("#subscriptionOrPurchase").on("change", function () {
+            showIfSelected('#subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
+            showIfSelected('#subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
+        });
+    </script>
+}

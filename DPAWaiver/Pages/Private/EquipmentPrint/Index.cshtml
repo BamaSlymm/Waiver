@@ -1,0 +1,289 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentPrint.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].printerType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].catalogLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].forGroupOfIndividuals)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].selectionReason)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].acquisitionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].solicitationSubType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].statepriceSubType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].numberofMonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].monthlyLeaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].servicesReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].numberOfEquipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].purchaseAmount)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].agreementOrWarrantyCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].printerReplacementCycle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].otherReplacementCycle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].monthlyCostWithoutToner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].monthlyMonochromeVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].blackTonerCost)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].pageYieldForBlackToner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].blackInkCostPerPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].cyanTonerCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].pageYieldForCyanToner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].cyanInkCostPerPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].MagentaTonerCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].pageYieldForMagentaToner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].MagentaInkCostPerPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].YellowTonerCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].pageYieldForYellowToner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].YellowInkCostPerPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].totalInkCostPerPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].complianceDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].alternativesDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].justificationDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].CostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintWaiver[0].additionalComments)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.EquipmentPrintWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.printerType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.catalogLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.forGroupOfIndividuals)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.selectionReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.acquisitionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.solicitationSubType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.statepriceSubType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberofMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyLeaseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servicesReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberOfEquipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.purchaseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.agreementOrWarrantyCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.printerReplacementCycle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.otherReplacementCycle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyCostWithoutToner) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyMonochromeVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blackTonerCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pageYieldForBlackToner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blackInkCostPerPage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cyanTonerCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pageYieldForCyanToner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cyanInkCostPerPage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MagentaTonerCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pageYieldForMagentaToner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MagentaInkCostPerPage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YellowTonerCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pageYieldForYellowToner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YellowInkCostPerPage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalInkCostPerPage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.complianceDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alternativesDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.justificationDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.additionalComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

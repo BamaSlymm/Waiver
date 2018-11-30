@@ -12,10 +12,10 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.JobDuties)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.EstimatedNumberofFTE)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.JobDuties)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.EstimatedNumberofFTE)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.RequestedSalary)
@@ -30,10 +30,10 @@
             @Html.DisplayFor(model => model.PersonnelRequestWaiver.DetailJustification)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.EstimatedNumberofFTE)
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.JobDuties)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.EstimatedNumberofFTE)
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.JobDuties)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.CreatedOn)
@@ -82,6 +82,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PersonnelRequestWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.AdditionalComments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonnelRequestWaiver.AdditionalComments)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.CostEstimate)

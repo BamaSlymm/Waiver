@@ -9,7 +9,7 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ServiceDesignWaiver</h4>
+    <h4>Service Design Waiver</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -17,6 +17,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ServiceDesignWaiver.ItemToBeDesigned)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ServiceDesignWaiver.StartedOn)
@@ -29,12 +35,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ServiceDesignWaiver.DueDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceDesignWaiver.EstimatedNumberofHours)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ServiceDesignWaiver.CreatedOn)
@@ -83,6 +83,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ServiceDesignWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDesignWaiver.AdditionalComments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDesignWaiver.AdditionalComments)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ServiceDesignWaiver.CostEstimate)

@@ -52,6 +52,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].CostEstimate)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonnelRequestWaiver[0].AdditionalComments)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -96,6 +99,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalComments)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

@@ -1,0 +1,95 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentMail.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>EquipmentMailWaiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.justificationDescription" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.justificationDescription" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.justificationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.numberOfEquipment" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.numberOfEquipment" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.numberOfEquipment" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="EquipmentMailWaiver.ID" />
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.numberOfEquipment" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.numberOfEquipment" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.numberOfEquipment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.newOrReplace" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.newOrReplace" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.newOrReplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.Status" class="control-label"></label>
+                <select asp-for="EquipmentMailWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="EquipmentMailWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentMailWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="EquipmentMailWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="EquipmentMailWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

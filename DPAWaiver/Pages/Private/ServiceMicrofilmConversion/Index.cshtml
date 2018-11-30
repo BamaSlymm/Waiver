@@ -1,0 +1,180 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceMicrofilmConversion.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].workflowDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].CostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].typeofFilm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].NumberofRolls)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].numberofCards)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].EstimatedNumberofHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].EstimatedNumberofFTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].indexingNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].textSearchablePDF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].estimatedNumberOfFields)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].imageDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].otherImageDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].emailOtherImageDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].systemRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].keyedIntoSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].reasonForNotKeyedIntoSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].doneInHouse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].notInHouseReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].AdditionalComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmConversionWaiver[0].ProjectName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ServiceMicrofilmConversionWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.workflowDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeofFilm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberofRolls)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberofCards)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofFTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.indexingNeeded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.textSearchablePDF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimatedNumberOfFields)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imageDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.otherImageDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailOtherImageDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.systemRequirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.keyedIntoSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reasonForNotKeyedIntoSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doneInHouse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notInHouseReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

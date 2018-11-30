@@ -57,8 +57,11 @@ namespace DPAWaiver.Pages.Private.ServiceMail
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.JobDescription,
-               w => w.CostEstimate,
-               w => w.CostEstimate,
+               w => w.NumberofPackets,
+               w => w.MailingDate,
+               w => w.MailPermit,
+               w => w.MailRate,
+               w => w.TypeofStock,
                w => w.SubmittedOn,
                w => w.ItemDescription,
                w => w.OtherDescription

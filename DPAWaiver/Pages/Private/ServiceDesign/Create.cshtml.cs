@@ -57,11 +57,12 @@ namespace DPAWaiver.Pages.Private.ServiceDesign
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.EstimatedNumberofHours,
-               w => w.CostEstimate,
                w => w.DueDate,
                w => w.StartedOn,
                w => w.ItemToBeDesigned,
-               w => w.OtherDescription
+               w => w.OtherDescription,
+               w => w.Status,
+               w => w.AdditionalComments
                ))
             {
                 _context.ServiceDesignWaiver.Add(emptyWaiver);

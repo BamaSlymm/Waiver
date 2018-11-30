@@ -1,0 +1,177 @@
+@page
+@model DPAWaiver.Pages.Private.ServiceScanning.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].workflowDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].CostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].estimatedNumberofDocuments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].EstimatedNumberofHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].indexingNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].estimatedNumberOfFields)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].textSearchablePDF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].imageDPI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].colorFormat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].imageDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].otherImageDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].emailOtherImageDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].systemRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].alternativeMethods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].scanningInternally)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].importConversion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].notInHouseReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].AdditionalComments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceScanningWaiver[0].SubmittedOn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ServiceScanningWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.workflowDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimatedNumberofDocuments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.indexingNeeded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimatedNumberOfFields)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.textSearchablePDF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imageDPI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.colorFormat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imageDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.otherImageDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailOtherImageDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.systemRequirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alternativeMethods)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.scanningInternally)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.importConversion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notInHouseReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalComments)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

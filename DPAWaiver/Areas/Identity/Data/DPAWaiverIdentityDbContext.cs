@@ -65,27 +65,45 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<Purpose> Purposes { get; set; }
         public DbSet<PurposeType> PurposeTypes { get; set; }
         public DbSet<PurposeSubtype> PurposeSubtypes { get; set; }
-        
+    
         public DbSet<MicrofilmOutputType> MicrofilmOutputTypes { get; set; }
         public DbSet<DesignType> DesignType { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<BaseWaiver> BaseWaivers { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.DataEntryWaiver> DataEntryWaiver { get; set; }
-
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAction> BaseWaiverActions { get; set; }
-
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAttachment> BaseWaiverAttachments { get; set; }
-
-        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverInvoice> BaseWaiverInvoice { get; set; }
-
-        public DbSet<DPAWaiver.Models.Waivers.ServiceDesignWaiver> ServiceDesignWaiver { get; set; }
-
+        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverInvoice> BaseWaiverInvoice { get; set; }  
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentMailWaiver> EquipmentMailWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintWaiver> EquipmentPrintWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintA3Waiver> EquipmentPrintA3Waiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintA4Waiver> EquipmentPrintA4Waiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintLabelWaiver> EquipmentPrintLabelWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintLargeFormatWaiver> EquipmentPrintLargeFormatWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintPressWaiver> EquipmentPrintPressWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.EquipmentScanningWaiver> EquipmentScanningWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.PersonnelRequestWaiver> PersonnelRequestWaiver { get; set; }
-
         public DbSet<DPAWaiver.Models.Waivers.PersonnelContractorWaiver> PersonnelContractorWaiver { get; set; }
-        
+        public DbSet<DPAWaiver.Models.Waivers.ServiceDesignWaiver> ServiceDesignWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.ServiceMailWaiver> ServiceMailWaiver { get; set; }
-
+        public DbSet<DPAWaiver.Models.Waivers.ServiceMicrofilmWaiver> ServiceMicrofilmWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.ServiceMicrofilmConversionWaiver> ServiceMicrofilmConversionWaiver { get; set; } 
         public DbSet<DPAWaiver.Models.Waivers.ServicePrintWaiver> ServicePrintWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.ServiceScanningWaiver> ServiceScanningWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.SoftwareDataEntryWaiver> SoftwareDataEntryWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.SoftwareDesignWaiver> SoftwareDesignWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.SoftwareMailWaiver> SoftwareMailWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.SoftwarePrintWaiver> SoftwarePrintWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.SoftwareScanningWaiver> SoftwareScanningWaiver { get; set; }
+
+
+
+       
+
+        
+      
+
+        
+
     }
 }

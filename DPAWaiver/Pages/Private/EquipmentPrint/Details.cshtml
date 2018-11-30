@@ -1,0 +1,279 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentPrint.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Equipment Print Waiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.printerType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.printerType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.CostEstimate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.catalogLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.catalogLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.Make)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.Make)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.forGroupOfIndividuals)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.forGroupOfIndividuals)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.selectionReason)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.selectionReason)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.acquisitionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.acquisitionType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.solicitationSubType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.solicitationSubType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.statepriceSubType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.statepriceSubType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.numberofMonths)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.numberofMonths)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.monthlyLeaseAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.monthlyLeaseAmount)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.servicesReceived)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.servicesReceived)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.numberOfEquipment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.numberOfEquipment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.purchaseAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.purchaseAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.agreementOrWarrantyCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.agreementOrWarrantyCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.printerReplacementCycle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.printerReplacementCycle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.otherReplacementCycle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.otherReplacementCycle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.monthlyCostWithoutToner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.monthlyCostWithoutToner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.monthlyMonochromeVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.monthlyMonochromeVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.monthlyColorVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.monthlyColorVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.blackTonerCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.blackTonerCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.pageYieldForBlackToner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.pageYieldForBlackToner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.blackInkCostPerPage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.blackInkCostPerPage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.cyanTonerCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.cyanTonerCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.pageYieldForCyanToner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.pageYieldForCyanToner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.cyanInkCostPerPage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.cyanInkCostPerPage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.MagentaTonerCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.MagentaTonerCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.pageYieldForMagentaToner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.pageYieldForMagentaToner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.MagentaInkCostPerPage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.MagentaInkCostPerPage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.YellowTonerCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.YellowTonerCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.pageYieldForYellowToner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.pageYieldForYellowToner)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.YellowInkCostPerPage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.YellowInkCostPerPage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.complianceDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.complianceDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.alternativesDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.alternativesDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.justificationDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.justificationDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.additionalComments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.additionalComments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintWaiver.ProjectName)
+        </dd>
+       
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.EquipmentPrintWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

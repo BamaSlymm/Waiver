@@ -1,0 +1,281 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentMail.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].justificationDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].equipmentDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].numberOfEquipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].newOrReplace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].servicesReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlyLeaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlyVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].firstYearVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].secondYearVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].thirdYearVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].fourthYearVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].fifthYearVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].selectionReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].usefulLife)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].purchaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlyLease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthsRental)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].acquisitionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].solicitationSubType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].statepriceSubType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].totalLeaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].estimatedNumberofFTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].estimatedNumberofHoursPerFTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].weeklySalaryCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].totalSpaceRequired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlySupervisionAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlyManagementAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlyUtilitiesAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].monthlyIndirectCosts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].miscellaneousCosts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].overheadCostDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].overheadDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].CostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentMailWaiver[0].additionalComments)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.EquipmentMailWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.justificationDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.equipmentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberOfEquipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.newOrReplace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servicesReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyLeaseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstYearVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.secondYearVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.thirdYearVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fourthYearVolume) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fifthYearVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.selectionReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usefulLife)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.purchaseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyLease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthsRental)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.acquisitionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.solicitationSubType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.statepriceSubType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalLeaseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimatedNumberofFTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimatedNumberofHoursPerFTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeklySalaryCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalSpaceRequired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlySupervisionAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyManagementAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyUtilitiesAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyIndirectCosts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.miscellaneousCosts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.overheadCostDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.overheadDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.additionalComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

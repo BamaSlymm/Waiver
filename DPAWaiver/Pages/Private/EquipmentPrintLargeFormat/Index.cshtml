@@ -1,0 +1,194 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentPrintLargeFormat.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].equipmentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberofEquipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].newOrReplace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].servicesReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].solicitationSubType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].selectionReason)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].leaseDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberOfMonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].monthlyLeaseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].makeAndModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].estimatedCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].productionCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].acquisitionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].leaseOrPurchase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberOfYears)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].alternativesDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].justificationDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].OtherFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].OtherLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].WaiverNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].CostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].additionalComments)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.EquipmentPrintLargeFormatWaiver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.equipmentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberofEquipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.newOrReplace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.servicesReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.solicitationSubType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.purchaseAmount)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.selectionReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaseDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberOfMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monthlyLeaseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.makeAndModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estimatedCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productionCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.acquisitionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaseOrPurchase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberOfYears)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alternativesDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.justificationDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.additionalComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaiverNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

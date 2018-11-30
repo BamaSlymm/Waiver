@@ -26,16 +26,22 @@
                 @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].EstimatedNumberofHours)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].SPANumber
+                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].SPAnumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].ContractDuration
+                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].SPAotherDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].AnticipatedExpediture
+                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].EstimatedNumberofFTE)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].DetailJustification
+                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].ContractDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].AnticipatedExpediture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].DetailJustification)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PersonnelContractorWaiver[0].CreatedOn)
@@ -83,6 +89,24 @@
                 @Html.DisplayFor(modelItem => item.EstimatedNumberofHours)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.SPAnumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SPAotherDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberofFTE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContractDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnticipatedExpediture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailJustification)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.CreatedOn)
             </td>
             <td>
@@ -108,6 +132,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CostEstimate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalComments)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

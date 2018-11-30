@@ -37,6 +37,10 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Mail Rate:")]
         public decimal MailRate {get; set;}
 
+        [Required]
+        [Display(Name = "Enter the mail rate. This is a numeric field; decimal can be used (i.e. 0.44)")]
+        public string MailPermit {get; set;}
+
 
         [Display(Name = "If other please explain:")]
         public string OtherDescription { get; set; }

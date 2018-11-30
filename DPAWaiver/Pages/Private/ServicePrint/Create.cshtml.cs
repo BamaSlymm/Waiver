@@ -61,7 +61,7 @@ namespace DPAWaiver.Pages.Private.ServicePrint
                w => w.PaperStockType,
                w => w.otherPaperStockReason,
                w => w.FinishingType,
-               w => w.reprint,
+               w => w.Reprint,
                w => w.previousPrinter,
                w => w.numberofOriginals,
                w => w.Quantity,

@@ -1,0 +1,103 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentMail.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Equipment Mail Waiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.justificationDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.justificationDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.CostEstimate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.numberOfEquipment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.numberOfEquipment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.numberOfEquipment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.numberOfEquipment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.newOrReplace)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.newOrReplace)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.ProjectName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.servicesReceived)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.servicesReceived)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyLeaseAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyLeaseAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyVolume)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.EquipmentMailWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

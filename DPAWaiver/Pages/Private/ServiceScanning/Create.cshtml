@@ -1,0 +1,253 @@
+@page 
+@model DPAWaiver.Pages.Private.ServiceScanning.CreateModel 
+@{ ViewData["Title"] = "Create Waiver - Service - Scanning"; }
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">User Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                First Name: Dogan
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Last Name: Cibiceli
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Email Address: dogan.cibiceli@state.co.us
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                Department: Education
+            </div>
+            <div class="col-md-3 col-xs-3">
+                Division: Teacher
+            </div>
+            <div class="col-md-5 col-xs-5">
+                Phone: 555-330-3303
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="margin-bottom: 14px">
+            <div class="col-md-4 col-xs-4">
+                Purpose: Service
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Type: Scanning
+            </div>
+            <div class="col-md-4 col-xs-4">
+                Status: Started
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group required">
+                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group required">
+            <label for="workflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
+            <textarea class="form-control" id="workflowDescription" rows='2'></textarea>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="estimatedNumberOfDocuments" class="control-label fontWeightNormal">Estimated number of documents:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
+This is a numeric field."></span></label>
+                    <input type="number" class="form-control" id="estimatedNumberOfDocuments" aria-describedby="estimatedNumberOfDocuments" placeholder="Estimated number of documents">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
+                    </label>
+                    <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="indexingNeeded" class="control-label fontWeightNormal">Will the job require indexing</label>
+                        <select class="form-control control-label" id="indexingNeeded">
+                            <option>No</option>
+                            <option>Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required" id="estimatedNumberOfFieldsDiv">
+                    <label for="estimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+This is a numeric field."></span>
+                    </label>
+                    <input type="number" class="form-control" id="estimatedNumberOfFields" aria-describedby="estimatedNumberOfFields" placeholder="Estimated number of fields per document">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="textSearchablePDF" class="control-label fontWeightNormal">Do you need a text searchable .pdf?</label>
+                    <select class="form-control control-label" id="textSearchablePDF">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <label for="imageDPI" class="control-label fontWeightNormal">What DPI would you like the images scanned at?</label>
+                    <select class="form-control control-label" id="imageDPI">
+                        <option>100</option>
+                        <option>200</option>
+                        <option>400</option>
+                        <option>800</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label for="colorFormat" class="control-label fontWeightNormal">What color format do you need the images scanned in?</label>
+            <select class="form-control control-label" id="colorFormat">
+                <option>Black &amp; White</option>
+                <option>Grayscale</option>
+                <option>Full Color</option>
+            </select>
+        </div>
+
+        <div class="form-group required">
+            <label for="imageDelivery" class="control-label fontWeightNormal">How do you need to receive the images?</label>
+            <select class="form-control control-label" id="imageDelivery">
+                <option>DVD</option>
+                <option>USB</option>
+                <option>Email</option>
+                <option>Google Drive</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group required" id="otherImageDeliveryDiv">
+            <label for="otherImageDelivery" class="control-label fontWeightNormal">Please specify other delivery method:</label>
+            <textarea class="form-control" id="otherImageDelivery" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required" id="emailImageDeliveryDiv">
+            <label for="emailOtherImageDelivery" class="control-label fontWeightNormal">Please specify email address(es) seperated by semicolon:</label>
+            <textarea class="form-control" id="emailOtherImageDelivery" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required">
+            <label for="systemRequirements" class="control-label fontWeightNormal">Specify system requirements.</label>
+            <textarea class="form-control" id="systemRequirements" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required">
+            <label for="alternativeMethods" class="control-label fontWeightNormal">What other alternative methods have you looked at? Please provide details.</label>
+            <textarea class="form-control" id="alternativeMethods" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required">
+            <label for="scanningInternally" class="control-label fontWeightNormal">Have you looked at scanning on your MultiFunction printer?</label>
+            <select class='form-control' id='scanningInternally' aria-describedby='scanningInternally'>
+                <option value='0'>No</option>
+                <option value='1'>Yes</option>
+            </select>
+        </div>
+
+        <div class="form-group required">
+            <label for="importConversion" class="control-label fontWeightNormal">Can the data be scanned into an external system and imported into your department's application.</label>
+            <textarea class="form-control" id="importConversion" rows="2"></textarea>
+        </div>
+
+        <div class="form-group required">
+            <label for="notInHouseReason" class="control-label fontWeightNormal">Customer believes that this scanning function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
+            <textarea class="form-control" id="notInHouseReason" rows="2"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label for="additionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <textarea class="form-control" id="additionalComments" rows='2'></textarea>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row add-gutter marginTop20px pull-right">
+    <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
+    <a type="submit" class="btn btn-primary">Create Waiver&nbsp;
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+    </a>
+</div>
+<div style="clear:both"></div>
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
+        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
+    });
+
+    $("#indexingNeeded").on("change", function () {
+        showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
+    });
+
+    $("#imageDelivery").on("change", function () {
+        showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
+    });
+
+</script>
+}

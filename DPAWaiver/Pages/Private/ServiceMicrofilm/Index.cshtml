@@ -23,43 +23,40 @@
                 @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].CostEstimate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].EstimateObtained)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].MicrofilmDuplication)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].ItemDescription)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].RequestedRolls)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].PaperStockType)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].EstimatedNumberofFTE)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].otherPaperStockReason)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].EstimatedNumberofHours)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].FinishingType)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].EstimatedNumberofDocuments)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].Reprint)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].outputType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].PreviousPrinter)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].RollsLabeled)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].NumberofOriginals)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].duplicateRolls)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].Quantity)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].NumberofRolls)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].FourColorJob)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].JobRequirements)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].NumberofInks)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].AlternativeMethods)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].ProjectDueDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].FinshedSize)
+                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].NotInHouseReason)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].AdditionalComments)
@@ -78,9 +75,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].ProjectName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceMicrofilmWaiver[0].SubmittedOn)
             </th>
             <th></th>
         </tr>
@@ -101,10 +95,10 @@
                 @Html.DisplayFor(modelItem => item.JobDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeofStock)
+                @Html.DisplayFor(modelItem => item.RollsLabeled)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberofPackets)
+                @Html.DisplayFor(modelItem => item.NumberofRolls)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OtherFirstName)

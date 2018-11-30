@@ -58,14 +58,21 @@ namespace DPAWaiver.Pages.Private.PersonnelContractor
                w => w.OtherLastName,
                w => w.ProjectName,
                w => w.SubmittedOn,
+               w => w.ScopeofWork,
+               w => w.ContractorType,
+               w => w.HourlyRate,
                w => w.CostEstimate,
                w => w.JobDuties,
-               w => w.EstimatedNumberofFTE,
                w => w.EstimatedNumberofHours,
+               w => w.SPAnumber,
+               w => w.SPAType,
+               w => w.SPAotherDescription,
+               w => w.EstimatedNumberofFTE,
+               w => w.ContractDuration,
+               w => w.AnticipatedExpediture,
                w => w.DetailJustification,
                w => w.AdditionalComments,
-               w => w.Status,
-               w => w.OtherDescription
+               w => w.Status
                ))
             {
                 _context.PersonnelContractorWaiver.Add(emptyWaiver);

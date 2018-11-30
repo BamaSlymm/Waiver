@@ -61,11 +61,10 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
                w => w.CostEstimate,
                w => w.JobDuties,
                w => w.EstimatedNumberofFTE,
-               w => w.EstimatedNumberofHours,
+               w => w.RequestedSalary,
                w => w.DetailJustification,
                w => w.AdditionalComments,
-               w => w.Status,
-               w => w.OtherDescription
+               w => w.Status
                ))
             {
                 _context.PersonnelRequestWaiver.Add(emptyWaiver);
