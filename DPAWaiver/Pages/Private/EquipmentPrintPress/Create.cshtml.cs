@@ -11,12 +11,12 @@ using DPAWaiver.Models;
 using Microsoft.AspNetCore.Identity;
 using DPAWaiver.Models.WaiverSelection;
 
-namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
+namespace DPAWaiver.Pages.Private.EquipmentPrintPress
 {
     public class CreateModel : BaseWaiverPageModel
     {
         [BindProperty]
-        public EquipmentPrintLargeFormatWaiverView EquipmentPrintLargeFormatWaiver { get; set; }
+        public EquipmentPrintPressWaiverView EquipmentPrintPressWaiver { get; set; }
 
         public CreateModel(DPAWaiverIdentityDbContext context, ILOVService iLOVService, UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
@@ -26,9 +26,9 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            EquipmentPrintLargeFormatWaiver = new EquipmentPrintLargeFormatWaiverView();
-            EquipmentPrintLargeFormatWaiver.OtherFirstName = otherFirstName;
-            EquipmentPrintLargeFormatWaiver.OtherLastName = otherLastName;
+            EquipmentPrintPressWaiver = new EquipmentPrintPressWaiverView();
+            EquipmentPrintPressWaiver.OtherFirstName = otherFirstName;
+            EquipmentPrintPressWaiver.OtherLastName = otherLastName;
             return Page();
         }
 
@@ -45,12 +45,12 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(EquipmentPrintLargeFormatWaiver.DesignTypeID);
-            EquipmentPrintLargeFormatWaiver emptyWaiver = new EquipmentPrintLargeFormatWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
+            var designType = _ILOVService.GetDesignType(EquipmentPrintPressWaiver.DesignTypeID);
+            EquipmentPrintPressWaiver emptyWaiver = new EquipmentPrintPressWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
-            if (await TryUpdateModelAsync<EquipmentPrintLargeFormatWaiver>(
+            if (await TryUpdateModelAsync<EquipmentPrintPressWaiver>(
                emptyWaiver,
-               "EquipmentPrintLargeFormatwaiver",
+               "EquipmentPrintPresswaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
                w => w.ProjectName,
@@ -124,7 +124,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
                 w => w.additionalComments
                ))
             {
-                _context.EquipmentPrintLargeFormatWaiver.Add(emptyWaiver);
+                _context.EquipmentPrintPressWaiver.Add(emptyWaiver);
                 BaseWaiverAction baseWaiverAction = new BaseWaiverAction(emptyWaiver, UserWithDepartment,
                                                 WaiverActions.Created, emptyWaiver);
                 _context.BaseWaiverActions.Add(baseWaiverAction);

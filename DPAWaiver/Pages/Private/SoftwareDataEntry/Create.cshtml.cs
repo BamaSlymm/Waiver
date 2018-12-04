@@ -11,12 +11,12 @@ using DPAWaiver.Models;
 using Microsoft.AspNetCore.Identity;
 using DPAWaiver.Models.WaiverSelection;
 
-namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
+namespace DPAWaiver.Pages.Private.SoftwareDataEntry
 {
     public class CreateModel : BaseWaiverPageModel
     {
         [BindProperty]
-        public EquipmentPrintLargeFormatWaiverView EquipmentPrintLargeFormatWaiver { get; set; }
+        public SoftwareDataEntryWaiverView SoftwareDataEntryWaiver { get; set; }
 
         public CreateModel(DPAWaiverIdentityDbContext context, ILOVService iLOVService, UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
@@ -26,9 +26,9 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            EquipmentPrintLargeFormatWaiver = new EquipmentPrintLargeFormatWaiverView();
-            EquipmentPrintLargeFormatWaiver.OtherFirstName = otherFirstName;
-            EquipmentPrintLargeFormatWaiver.OtherLastName = otherLastName;
+            SoftwareDataEntryWaiver = new SoftwareDataEntryWaiverView();
+            SoftwareDataEntryWaiver.OtherFirstName = otherFirstName;
+            SoftwareDataEntryWaiver.OtherLastName = otherLastName;
             return Page();
         }
 
@@ -45,86 +45,61 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLargeFormat
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(EquipmentPrintLargeFormatWaiver.DesignTypeID);
-            EquipmentPrintLargeFormatWaiver emptyWaiver = new EquipmentPrintLargeFormatWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
+            var designType = _ILOVService.GetDesignType(SoftwareDataEntryWaiver.DesignTypeID);
+            SoftwareDataEntryWaiver emptyWaiver = new SoftwareDataEntryWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
-            if (await TryUpdateModelAsync<EquipmentPrintLargeFormatWaiver>(
+            if (await TryUpdateModelAsync<SoftwareDataEntryWaiver>(
                emptyWaiver,
-               "EquipmentPrintLargeFormatwaiver",
+               "SoftwareDataEntrywaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
                w => w.ProjectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
-               w => w.justificationDescription,
-                w => w.servicesReceived,
+               w => w.typeOfSoftware,
+                w => w.numberOfLicenses,
                 w => w.newOrReplace,
-                w => w.currentMake,
-                w => w.currentModel,
-                w => w.acquistionDate,
-                w => w.monthlyCost,
-                w => w.averageMonthlyVolume,
+                w => w.softwareVersion,
+                w => w.costOfPresentService,        
+                w => w.currentMonthlyVolume,
                 w => w.firstYearVolume,
                 w => w.secondYearVolume,
                 w => w.thirdYearVolume,
                 w => w.fourthYearVolume,
                 w => w.fifthYearVolume,
-                w => w.equipmentType,
-                w => w.numberofEquipment,
-                w => w.Make,
-                w => w.Model,
-                w => w.acquisitionType,
+                w => w.softwareProvider,
+                w => w.softwareVolume,
                 w => w.solicitationSubType,
                 w => w.purchaseAmount,
-                w => w.leaseDuration,
-                w => w.numberOfMonths,
-                w => w.monthlyLeaseAmount,
-                w => w.makeAndModel,
                 w => w.selectionReason,
-                w => w.productionCapacity,
-                w => w.estimatedCost,
-                w => w.productionCapacity,
-                w => w.leaseOrPurchase,
-                w => w.numberOfYears,
-                w => w.costOfLeasePerYear,
-                w => w.expectedUsefulLife,
-                w => w.depreciationCostPerYear,
-                w => w.annualMaintenanceCostPerYear,
-                w => w.suppliesCost,
-                w => w.softwareName,
-                w => w.softwareCost,
-                w => w.annualLicenseFee,
-                w => w.numberOfLicenses,
-                w => w.totalAnnualLicenseCost,
+                w => w.expectedDuration,
+                w => w.solicitationSubType,
+                w => w.statepriceSubType,
+                w => w.purchaseAmount,
                 w => w.annualMaintenanceCost,
-                w => w.totalSoftwareCosts,
+                w => w.suppliesCost,
                 w => w.operatorClassification,
-                w => w.productionFTE,
+                w => w.Grade,
+                w => w.numberOfFTE,
+                w => w.numberOfLicenses,
                 w => w.hoursPerFTEPerWeek,
-                w => w.baseHourlyRatePerFTE,
-                w => w.fullyLoadedHourlyRatePerFTE,
-                w => w.totalAnnualPersonnelCost,
+                w => w.annualMaintenanceCost,
+                w => w.operatorClassification,
+                w => w.hoursPerFTEPerWeek,
+                w => w.totalWeeklySalary,
+                w => w.totalSpaceInSQFT,
+                w => w.monthlySupervisionAmount,
                 w => w.monthlySupervisionAmount,
                 w => w.monthlyManagementAmount,
-                w => w.additionalWorkspaceRequired,
-                w => w.totalSpaceRequiredInSQFT,
-                w => w.costPerSQFT,
-                w => w.annualAmountForUtilities,
-                w => w.totalSpaceCost,
-                w => w.computerCosts,
-                w => w.furnitureCosts,
-                w => w.cubiclePartitionCosts,
-                w => w.constructionCosts,
-                w => w.miscellaneousCosts,
-                w => w.descriptionMiscellaneousCosts,
-                w => w.totalAdditionalOneTimeCosts,
-                w => w.totalCostOfOwnership,
-                w => w.alternativesDescription,
+                w => w.monthlyUtilitiesAmount,
+                w => w.monthlyIndirectCosts,
+                w => w.monthlyOverheadCosts,
+                w => w.alternativesConsidered,
                 w => w.Status,
                 w => w.additionalComments
                ))
             {
-                _context.EquipmentPrintLargeFormatWaiver.Add(emptyWaiver);
+                _context.SoftwareDataEntryWaiver.Add(emptyWaiver);
                 BaseWaiverAction baseWaiverAction = new BaseWaiverAction(emptyWaiver, UserWithDepartment,
                                                 WaiverActions.Created, emptyWaiver);
                 _context.BaseWaiverActions.Add(baseWaiverAction);

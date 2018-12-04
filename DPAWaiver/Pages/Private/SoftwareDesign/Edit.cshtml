@@ -1,0 +1,205 @@
+@page
+@model DPAWaiver.Pages.Private.SoftwareDesign.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Software Design Waiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="modelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.typeOfSoftware" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.typeOfSoftware" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.typeOfSoftware" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.numberOfLicenses" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.numberOfLicenses" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.numberOfLicenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.newOrReplace" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.newOrReplace" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.newOrReplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.softwareVersion" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.softwareVersion" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.softwareVersion" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.costOfPresentService" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.costOfPresentService" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.costOfPresentService" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.softwareProvider" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.softwareProvider" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.softwareProvider" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.softwareVersion" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.softwareVersion" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.softwareVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.selectionReason" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.selectionReason" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.selectionReason" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.expectedDuration" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.expectedDuration" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.expectedDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.acquisitionType" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.acquisitionType" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.acquisitionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.subscriptionOrPurchase" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.subscriptionOrPurchase" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.subscriptionOrPurchase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.monthlySubscriptionAmount" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.monthlySubscriptionAmount" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.monthlySubscriptionAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.numberOfMonths" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.numberOfMonths" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.numberOfMonths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.purchaseAmount" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.purchaseAmount" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.purchaseAmount" class="text-danger"></span>
+            </div>            
+             <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.annualMaintenanceCost`" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.annualMaintenanceCost`" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.annualMaintenanceCost`" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.operatorClassification" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.operatorClassification" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.operatorClassification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.Grade" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.Grade" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.numberOfFTE" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.numberOfFTE" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.numberOfFTE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.numberOfLicenses" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.numberOfLicenses" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.numberOfLicenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.hoursPerFTEPerWeek" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.hoursPerFTEPerWeek" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.annualMaintenanceCost" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.annualMaintenanceCost" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.annualMaintenanceCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.hoursPerFTEPerWeek" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.hoursPerFTEPerWeek" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.totalWeeklySalary" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.totalWeeklySalary" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.totalWeeklySalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.monthlySupervisionAmount" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.monthlySupervisionAmount" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.monthlySupervisionAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.monthlyManagementAmount" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.monthlyManagementAmount" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.monthlyManagementAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.justificationDescription" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.justificationDescription" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.justificationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.alternativesConsidered" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.alternativesConsidered" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.alternativesConsidered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.additionalComments" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.additionalComments" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.additionalComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.Status" class="control-label"></label>
+                <select asp-for="SoftwareDesignWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="SoftwareDesignWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareDesignWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="SoftwareDesignWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="SoftwareDesignWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

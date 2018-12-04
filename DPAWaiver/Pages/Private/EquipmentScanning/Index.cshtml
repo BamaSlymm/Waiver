@@ -1,5 +1,5 @@
 @page
-@model DPAWaiver.Pages.Private.EquipmentPrintLargeFormat.IndexModel
+@model DPAWaiver.Pages.Private.EquipmentScanning.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,213 +14,222 @@
     <thead>
         <tr>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].justificationDescription)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].justificationDescription)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].servicesReceived)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].currentSystemDescription)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].newOrReplace)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].newOrReplace)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].currentMake)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].currentMake)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].currentModel)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].currentModel)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].acquistionDate)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].acquistionDate)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].monthlyCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].monthlyCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].averageMonthlyVolume)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].averageMonthlyVolume)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].firstYearVolume)
+               @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].multiFunctionConsidered)
+            </th>
+            <th>
+               @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].multiFunctionReason)
+            </th>
+            <th>
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].firstYearVolume)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].secondYearVolume)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].secondYearVolume)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].thirdYearVolume)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].thirdYearVolume)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].fourthYearVolume)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].fourthYearVolume)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].fifthYearVolume)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].fifthYearVolume)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].equipmentType)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].scannerType)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberofEquipment)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].numberofEquipment)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].Make)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].Make)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].Model)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].Model)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].acquisitionType)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].acquisitionType)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].solicitationSubType)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].solicitationSubType)
                 </th>
+            <th>
+               @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].statepriceSubType)
+            </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].purchaseAmount)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].purchaseAmount)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].leaseDuration)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].leaseDuration)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberOfMonths)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].numberOfMonths)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].monthlyLeaseAmount)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].monthlyLeaseAmount)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].makeAndModel)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].makeAndModel)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].selectionReason)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].selectionReason)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].productionCapacity)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].productionCapacity)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].estimatedCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].estimatedCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].productionCapacity)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].productionCapacity)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].leaseOrPurchase)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].leaseOrPurchase)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberOfYears)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].numberOfYears)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].costOfLeasePerYear)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].costOfLeasePerYear)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].expectedUsefulLife)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].expectedUsefulLife)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].depreciationCostPerYear)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].depreciationCostPerYear)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].annualMaintenanceCostPerYear)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].annualMaintenanceCostPerYear)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].suppliesCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].suppliesCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].softwareName)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].softwareName)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].softwareCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].softwareCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].annualLicenseFee)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].annualLicenseFee)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].numberOfLicenses)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].numberOfLicenses)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalAnnualLicenseCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalAnnualLicenseCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].annualMaintenanceCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].annualMaintenanceCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalSoftwareCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalSoftwareCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].operatorClassification)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].operatorClassification)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].productionFTE)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].productionFTE)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].hoursPerFTEPerWeek)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].hoursPerFTEPerWeek)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].baseHourlyRatePerFTE)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].baseHourlyRatePerFTE)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].fullyLoadedHourlyRatePerFTE)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].fullyLoadedHourlyRatePerFTE)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalAnnualPersonnelCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalAnnualPersonnelCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].monthlySupervisionAmount)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].monthlySupervisionAmount)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].monthlyManagementAmount)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].monthlyManagementAmount)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].additionalWorkspaceRequired)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].additionalWorkspaceRequired)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalSpaceRequiredInSQFT)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalSpaceRequiredInSQFT)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].costPerSQFT)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].costPerSQFT)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].annualAmountForUtilities)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].annualAmountForUtilities)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalSpaceCost)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalSpaceCost)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].computerCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].computerCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].furnitureCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].furnitureCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].cubiclePartitionCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].cubiclePartitionCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].constructionCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].constructionCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].miscellaneousCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].miscellaneousCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].descriptionMiscellaneousCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].descriptionMiscellaneousCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalAdditionalOneTimeCosts)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalAdditionalOneTimeCosts)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].totalCostOfOwnership)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].totalCostOfOwnership)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].alternativesDescription)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].alternativesDescription)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].Status)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].Status)
                 </th>
             <th>
-                @Html..DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver[0].additionalComments)
+                @Html..DisplayNameFor(model => model.EquipmentScanningWaiver[0].additionalComments)
                 </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.EquipmentPrintLargeFormatWaiver) {
+@foreach (var item in Model.EquipmentScanningWaiver) {
         <tr>
             <td> 
                 @Html.DisplayFor(modelItem => item.justificationDescription)
             </td>
             <td> 
-                @Html.DisplayFor(modelItem => item.servicesReceived)
+                @Html.DisplayFor(modelItem => item.currentSystemDescription)
             </td>
             <td> 
                 @Html.DisplayFor(modelItem => item.newOrReplace)
@@ -241,6 +250,12 @@
                 @Html.DisplayFor(modelItem => item.averageMonthlyVolume)
             </td>
             <td> 
+                @Html.DisplayFor(modelItem => item.multiFunctionConsidered)
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.multiFunctionReason)
+            </td>
+            <td> 
                 @Html.DisplayFor(modelItem => item.firstYearVolume)
             </td>
             <td> 
@@ -256,9 +271,6 @@
                 @Html.DisplayFor(modelItem => item.fifthYearVolume)
             </td>
             <td> 
-                @Html.DisplayFor(modelItem => item.equipmentType)
-            </td>
-            <td> 
                 @Html.DisplayFor(modelItem => item.numberofEquipment)
             </td>
             <td> 
@@ -268,10 +280,19 @@
                 @Html.DisplayFor(modelItem => item.Model)
             </td>
             <td> 
+                @Html.DisplayFor(modelItem => item.scannerType)
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.otherScannerType)
+            </td>
+            <td> 
                 @Html.DisplayFor(modelItem => item.acquisitionType)
             </td>
             <td> 
                 @Html.DisplayFor(modelItem => item.solicitationSubType)
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.statepriceSubType)
             </td>
             <td> 
                 @Html.DisplayFor(modelItem => item.purchaseAmount)
@@ -420,7 +441,7 @@
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
            
-           <td            </td>
+           <td>            </td>
         </tr>
 }
     </tbody>

@@ -1,0 +1,238 @@
+@page
+@model DPAWaiver.Pages.Private.SoftwareScanning.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                 @Html.DisplayFor(modelItem => item.OtherFirstName)
+                </th>
+               <th>
+                   @Html.DisplayFor(modelItem => item.OtherLastName)
+                   </th>
+               <th>
+                   @Html.DisplayFor(modelItem => item.ProjectName)
+                   </th>
+               <th>
+                   @Html.DisplayFor(modelItem => item.SubmittedOn)
+                   </th>
+               <th>
+                   @Html.DisplayFor(modelItem => item.CostEstimate)
+                   </th>
+               <th>
+                   @Html.DisplayFor(modelItem => item.typeOfSoftware)
+                   </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.numberOfLicenses)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.newOrReplace)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.softwareVersion)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.costOfPresentService)
+                    </th>        
+                <th>
+                    @Html.DisplayFor(modelItem => item.softwareProvider)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.purchaseAmount)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.selectionReason)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.expectedDuration)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.acquisitionType)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.subscriptionOrPurchase)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.monthlySubscriptionAmount)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.numberOfMonths)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.purchaseAmount)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.annualMaintenanceCost)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.operatorClassification)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.numberOfFTE)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.numberOfLicenses)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.hoursPerFTEPerWeek)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.annualMaintenanceCost)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.hoursPerFTEPerWeek)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.totalWeeklySalary)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.monthlySupervisionAmount)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.monthlyManagementAmount)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.justificationDescription)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.alternativesConsidered)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Status)
+                    </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.additionalComments)
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SoftwareScanningWaiver) {
+        <tr>
+                           <td> 
+                               @Html.DisplayFor(modelItem => item.OtherFirstName) 
+                               </td>
+               <td> 
+                   @Html.DisplayFor(modelItem => item.OtherLastName) 
+                   </td>
+               <td> 
+                   @Html.DisplayFor(modelItem => item.ProjectName) 
+                   </td>
+               <td> 
+                   @Html.DisplayFor(modelItem => item.SubmittedOn) 
+                   </td>
+               <td> 
+                   @Html.DisplayFor(modelItem => item.CostEstimate) 
+                   </td>
+               <td> 
+                   @Html.DisplayFor(modelItem => item.typeOfSoftware) 
+                   </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.numberOfLicenses) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.newOrReplace) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.softwareVersion) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.costOfPresentService) 
+                    </td>        
+                <td> 
+                    @Html.DisplayFor(modelItem => item.softwareProvider) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.purchaseAmount) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.selectionReason) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.expectedDuration) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.acquisitionType) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.subscriptionOrPurchase) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.monthlySubscriptionAmount) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.numberOfMonths) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.purchaseAmount) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.annualMaintenanceCost) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.operatorClassification) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.Grade) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.numberOfFTE) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.numberOfLicenses) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.hoursPerFTEPerWeek) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.annualMaintenanceCost) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.hoursPerFTEPerWeek) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.totalWeeklySalary) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.monthlySupervisionAmount) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.monthlyManagementAmount) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.justificationDescription) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.alternativesConsidered) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.Status) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.additionalComments) 
+                    </td>
+            <td>
+
+
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+           
+           <td> 
+                          
+                          </td>
+        </tr>
+}
+    </tbody>
+</table>

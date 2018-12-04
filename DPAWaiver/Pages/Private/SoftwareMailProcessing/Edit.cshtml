@@ -1,0 +1,205 @@
+@page
+@model DPAWaiver.Pages.Private.SoftwareMailProcessing.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Software Mail Processing Waiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="modelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.typeOfSoftware" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.typeOfSoftware" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.typeOfSoftware" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.newOrReplace" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.newOrReplace" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.newOrReplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.softwareVersion" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.softwareVersion" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.softwareVersion" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.costOfPresentService" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.costOfPresentService" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.costOfPresentService" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.softwareProvider" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.softwareProvider" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.softwareProvider" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.softwareVersion" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.softwareVersion" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.softwareVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.selectionReason" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.selectionReason" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.selectionReason" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.expectedDuration" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.expectedDuration" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.expectedDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.acquisitionType" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.acquisitionType" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.acquisitionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.subscriptionOrPurchase" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.subscriptionOrPurchase" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.subscriptionOrPurchase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.monthlySubscriptionAmount" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.monthlySubscriptionAmount" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.monthlySubscriptionAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.numberOfMonths" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.numberOfMonths" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfMonths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.purchaseAmount" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.purchaseAmount" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.purchaseAmount" class="text-danger"></span>
+            </div>            
+             <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.annualMaintenanceCost`" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.annualMaintenanceCost`" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.annualMaintenanceCost`" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.operatorClassification" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.operatorClassification" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.operatorClassification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.Grade" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.Grade" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.numberOfFTE" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.numberOfFTE" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfFTE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.annualMaintenanceCost" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.annualMaintenanceCost" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.annualMaintenanceCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.totalWeeklySalary" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.totalWeeklySalary" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.totalWeeklySalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.monthlySupervisionAmount" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.monthlySupervisionAmount" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.monthlySupervisionAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.monthlyManagementAmount" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.monthlyManagementAmount" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.monthlyManagementAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.justificationDescription" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.justificationDescription" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.justificationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.alternativesConsidered" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.alternativesConsidered" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.alternativesConsidered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.additionalComments" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.additionalComments" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.additionalComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.Status" class="control-label"></label>
+                <select asp-for="SoftwareMailProcessingWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="SoftwareMailProcessingWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftwareMailProcessingWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="SoftwareMailProcessingWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="SoftwareMailProcessingWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

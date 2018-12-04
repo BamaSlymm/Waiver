@@ -1,0 +1,406 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentScanning.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Equipment Scanning Waiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.justificationDescription" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.justificationDescription" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.justificationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.currentSystemDescription" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.currentSystemDescription" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.currentSystemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.newOrReplace" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.newOrReplace" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.newOrReplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.currentMake" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.currentMake" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.currentMake" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.currentModel" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.currentModel" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.currentModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.acquistionDate" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.acquistionDate" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.acquistionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.monthlyCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.monthlyCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.monthlyCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.averageMonthlyVolume" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.averageMonthlyVolume" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.averageMonthlyVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.multiFunctionConsidered" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.multiFunctionConsidered" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.multiFunctionConsidered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.multiFunctionReason" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.multiFunctionReason" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.multiFunctionReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.firstYearVolume" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.firstYearVolume" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.firstYearVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.secondYearVoume" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.secondYearVoume" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.secondYearVoume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.thirdYearVolume" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.thirdYearVolume" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.thirdYearVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.fourthYearVolume" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.fourthYearVolume" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.fourthYearVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.fifthYearVolume" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.fifthYearVolume" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.fifthYearVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.scannerType" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.scannerType" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.scannerType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.otherScannerType" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.otherScannerType" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.otherScannerType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.numberofEquipment" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.numberofEquipment" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.numberofEquipment" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.Make" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.Make" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.Make" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.Model" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.Model" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.acquistionType" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.acquistionType" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.acquistionType" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.solicitationSubType" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.solicitationSubType" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.solicitationSubType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.statepriceSubType" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.statepriceSubType" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.statepriceSubType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.purchaseAmount" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.purchaseAmount" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.purchaseAmount" class="text-danger"></span>
+            </div>
+            
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.leaseDuration" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.leaseDuration" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.leaseDuration" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.numberOfMonths" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.numberOfMonths" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.numberOfMonths" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.monthlyLeaseAmount" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.monthlyLeaseAmount" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.monthlyLeaseAmount" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.makeAndModel" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.makeAndModel" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.makeAndModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.selectionReason" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.selectionReason" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.selectionReason" class="text-danger"></span>
+            </div>
+            
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.productionCapacity" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.productionCapacity" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.productionCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.estimatedCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.estimatedCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.estimatedCost" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.leaseOrPurchase" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.leaseOrPurchase" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.leaseOrPurchase" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.numberOfYears" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.numberOfYears" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.numberOfYears" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.costOfLeasePerYear" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.costOfLeasePerYear" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.costOfLeasePerYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.expectedUsefulLife" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.expectedUsefulLife" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.expectedUsefulLife" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.depreciationCostPerYear" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.depreciationCostPerYear" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.depreciationCostPerYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.annualMaintenanceCostPerYear" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.annualMaintenanceCostPerYear" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.annualMaintenanceCostPerYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.suppliesCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.suppliesCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.suppliesCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.softwareCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.softwareCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.softwareCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.softwareName" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.softwareName" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.softwareName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.annualLicenseFee" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.annualLicenseFee" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.annualLicenseFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.numberOfLicenses" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.numberOfLicenses" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.numberOfLicenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalAnnualLicenseCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalAnnualLicenseCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalAnnualLicenseCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.annualMaintenanceCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.annualMaintenanceCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.annualMaintenanceCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalSoftwareCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalSoftwareCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalSoftwareCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.operatorClassification" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.operatorClassification" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.operatorClassification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.productionFTE" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.productionFTE" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.productionFTE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.hoursPerFTEPerWeek" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.hoursPerFTEPerWeek" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.baseHourlyRatePerFTE" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.baseHourlyRatePerFTE" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.baseHourlyRatePerFTE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalAnnualPersonnelCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalAnnualPersonnelCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalAnnualPersonnelCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.monthlySupervisionAmount" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.monthlySupervisionAmount" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.monthlySupervisionAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.monthlyManagementAmount" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.monthlyManagementAmount" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.monthlyManagementAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.additionalWorkspaceRequired" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.additionalWorkspaceRequired" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.additionalWorkspaceRequired" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalSpaceRequiredInSQFT" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalSpaceRequiredInSQFT" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalSpaceRequiredInSQFT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.costPerSQFT" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.costPerSQFT" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.costPerSQFT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.annualAmountForUtilities" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.annualAmountForUtilities" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.annualAmountForUtilities" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalSpaceCost" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalSpaceCost" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalSpaceCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.computerCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.computerCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.computerCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.furnitureCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.furnitureCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.furnitureCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.cubiclePartitionCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.cubiclePartitionCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.cubiclePartitionCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.constructionCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.constructionCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.constructionCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.miscellaneousCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.miscellaneousCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.miscellaneousCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.descriptionMiscellaneousCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.descriptionMiscellaneousCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.descriptionMiscellaneousCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalAdditionalOneTimeCosts" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalAdditionalOneTimeCosts" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalAdditionalOneTimeCosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.totalCostOfOwnership" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.totalCostOfOwnership" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.totalCostOfOwnership" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.alternativesDescription" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.alternativesDescription" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.alternativesDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.additionalComments" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.additionalComments" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.additionalComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.OtherFirstName" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.OtherFirstName" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.OtherFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.OtherLastName" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.OtherLastName" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.OtherLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.Status" class="control-label"></label>
+                <select asp-for="EquipmentScanningWaiver.Status" class="form-control"></select>
+                <span asp-validation-for="EquipmentScanningWaiver.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.WaiverNumber" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.WaiverNumber" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.WaiverNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.ProjectName" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.ProjectName" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.SubmittedOn" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.SubmittedOn" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.SubmittedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentScanningWaiver.CostEstimate" class="control-label"></label>
+                <input asp-for="EquipmentScanningWaiver.CostEstimate" class="form-control" />
+                <span asp-validation-for="EquipmentScanningWaiver.CostEstimate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

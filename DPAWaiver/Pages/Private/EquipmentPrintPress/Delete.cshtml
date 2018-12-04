@@ -1,0 +1,455 @@
+@page
+@model DPAWaiver.Pages.Private.EquipmentPrintPress.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Equipment Print Large Format Waiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.justificationDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.justificationDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.servicesReceived)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.servicesReceived)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.currentMake)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.currentMake)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.currentModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.currentModel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.newOrReplace)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.newOrReplace)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.acquisitionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.acquisitionDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.monthlyCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.monthlyCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.averageMonthlyVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.averageMonthlyVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.firstYearVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.firstYearVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.secondYearVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.secondYearVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.thirdYearVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.thirdYearVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.fourthYearVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.fourthYearVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.fifthYearVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.fifthYearVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.equipmentType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.equipmentType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.numberofEquipment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.numberofEquipment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.equipmentType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.equipmentType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.numberofEquipment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.numberofEquipment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.Make)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.Make
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.acquisitionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.acquisitionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.solicitationSubType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.solicitationSubType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.purchaseAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.purchaseAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.leaseDuration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.leaseDuration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.numberOfMonths)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.numberOfMonths)
+        </dd> 
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.monthlyLeaseAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.monthlyLeaseAmount)
+        </dd> 
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.makeAndModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.makeAndModel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.selectionReason)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.selectionReason)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.productionCapacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.productionCapacity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.leaseOrPurchase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.leaseOrPurchase)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.numberOfYears)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.numberOfYears)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.costOfLeasePerYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.costOfLeasePerYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.expectedUsefulLife)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.expectedUsefulLife)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.depreciationCostPerYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.depreciationCostPerYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.annualMaintenanceCostPerYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.annualMaintenanceCostPerYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.suppliesCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.suppliesCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.softwareName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.softwareName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.softwareCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.softwareCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.annualLicenseFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.annualLicenseFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.numberOfLicenses)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.numberOfLicenses)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalAnnualLicenseCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalAnnualLicenseCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.annualMaintenanceCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.annualMaintenanceCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalSoftwareCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalSoftwareCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.operatorClassification)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.operatorClassification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.productionFTE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.productionFTE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.hoursPerFTEPerWeek)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.hoursPerFTEPerWeek)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.baseHourlyRatePerFTE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.baseHourlyRatePerFTE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.fullyLoadedHourlyRatePerFTE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.fullyLoadedHourlyRatePerFTE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalAnnualPersonnelCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalAnnualPersonnelCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.monthlySupervisionAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.monthlySupervisionAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.monthlyManagementAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.monthlyManagementAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.additionalWorkspaceRequired)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.additionalWorkspaceRequired)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalSpaceRequiredInSQFT)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalSpaceRequiredInSQFT)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.costPerSQFT)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.costPerSQFT)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.annualAmountForUtilities)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.annualAmountForUtilities)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalSpaceCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalSpaceCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.computerCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.computerCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.furnitureCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.furnitureCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.cubiclePartitionCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.cubiclePartitionCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.constructionCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.constructionCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.miscellaneousCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.miscellaneousCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.descriptionMiscellaneousCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.descriptionMiscellaneousCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalAdditionalOneTimeCosts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalAdditionalOneTimeCosts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.totalCostOfOwnership)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.totalCostOfOwnership)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.alternativesDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.alternativesDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.additionalComments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.additionalComments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.ProjectName)
+        </dd>
+       <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentPrintPressWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentPrintPressWaiver.CostEstimate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="EquipmentPrintPressWaiver.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

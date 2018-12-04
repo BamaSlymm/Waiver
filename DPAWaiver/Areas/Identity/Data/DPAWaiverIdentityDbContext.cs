@@ -92,7 +92,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.ServiceScanningWaiver> ServiceScanningWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.SoftwareDataEntryWaiver> SoftwareDataEntryWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.SoftwareDesignWaiver> SoftwareDesignWaiver { get; set; }
-        public DbSet<DPAWaiver.Models.Waivers.SoftwareMailWaiver> SoftwareMailWaiver { get; set; }
+        public DbSet<DPAWaiver.Models.Waivers.SoftwareMailProcessingWaiver> SoftwareMailProcessingWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.SoftwarePrintWaiver> SoftwarePrintWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.SoftwareScanningWaiver> SoftwareScanningWaiver { get; set; }
 

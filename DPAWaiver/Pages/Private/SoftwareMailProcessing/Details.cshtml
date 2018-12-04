@@ -1,0 +1,217 @@
+@page
+@model DPAWaiver.Pages.Private.SoftwareMailProcessing.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Software Mail Processing Waiver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.typeOfSoftware)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.typeOfSoftware)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.softwareVersion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.softwareVersion)
+        </dd>/
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.costOfPresentService)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.costOfPresentService)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.newOrReplace)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.newOrReplace)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.softwareProvider)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.softwareProvider)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.purchaseAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.purchaseAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.selectionReason)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.selectionReason)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.expectedDuration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.expectedDuration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.acquisitionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.acquisitionType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.subscriptionOrPurchase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.subscriptionOrPurchase)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlySubscriptionAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlySubscriptionAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfMonths)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfMonths)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.operatorClassification)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.operatorClassification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.Grade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.Grade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfFTE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfFTE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.hoursPerFTEPerWeek)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.hoursPerFTEPerWeek)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.totalWeeklySalary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.totalWeeklySalary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlySupervisionAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlySupervisionAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlyManagementAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlyManagementAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.justificationDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.justificationDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.alternativesConsidered)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.alternativesConsidered)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.additionalComments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.additionalComments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.OtherFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.OtherFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.OtherLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.OtherLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.WaiverNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.WaiverNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.ProjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.ProjectName)
+        </dd>
+       <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.SubmittedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.SubmittedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.CostEstimate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.CostEstimate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@model.SoftwareMailProcessingWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
