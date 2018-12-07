@@ -59,15 +59,15 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label asp-for="submittedDate" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="submittedDate" required="true" value="05/04/2018">
+                    <label asp-for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label asp-for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
                 </div>
             </div>
 
@@ -93,20 +93,20 @@
         </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label asp-for="jobDuties" class="control-label fontWeightNormal">Describe the job duties:</label>
-            <textarea class="form-control" id="jobDuties" rows='2'></textarea>
+            <label asp-for="JobDuties" class="control-label fontWeightNormal">Describe the job duties:</label>
+            <textarea class="form-control" id="JobDuties" rows='2'></textarea>
         </div>
 
 
     
         <div class="col-sm-6 col-xs-12">
             <div class="form-group required">
-                <label asp-for="estimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of staff requested:
+                <label asp-for="EstimatedNumberOfStaff" class="control-label fontWeightNormal">Estimated number of staff requested:
                     <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                 </label>
 
-                <input type="number" class="form-control" id="estimatedNumberOfFTE" aria-describedby="estimatedNumberOfFTE" placeholder="Full Time Employee Count">
+                <input type="number" class="form-control" id="EstimatedNumberOfStaff" aria-describedby="EstimatedNumberOfStaff" placeholder="Full Time Employee Count">
             </div>
         </div>
     </div>
@@ -123,18 +123,18 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
     <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label asp-for="estimatedNumberOfFTE" class="control-label fontWeightNormal">Total estimated number of FTE:
+                    <label asp-for="EstimatedNumberOfFTE" class="control-label fontWeightNormal">Total estimated number of FTE:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                     </label>
 
-                    <input type="number" class="form-control" id="estimatedNumberOfFTE" aria-describedby="estimatedNumberOfFTE" placeholder="Full Time Employee Count">
+                    <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
             <div class="form-group required">
-                <label asp-for="requestedClassification" class="control-label fontWeightNormal">Requested Classification<i>(One waiver request per classification)</i>:</label>
-                <select class="form-control control-label" id="requestedClassification">
+                <label asp-for="RequestedClassification" class="control-label fontWeightNormal">Requested Classification<i>(One waiver request per classification)</i>:</label>
+                <select class="form-control control-label" id="RequestedClassification">
                     <option>Accountant I</option>
                     <option>Accountant II</option>
                     <option>Accountant III</option>
@@ -143,15 +143,15 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         </div>
     </div>
         <div class="form-group required">
-            <label asp-for="requestedSalary" class="control-label fontWeightNormal">Requested Loaded Salary (complete state benefit package)</label>
-            <input type="number" class="form-control" id="requestedSalary" aria-describedby="requestedSalary" placeholder="Requested Loaded Salary">
+            <label asp-for="RequestedSalary" class="control-label fontWeightNormal">Requested Loaded Salary (complete state benefit package)</label>
+            <input type="number" class="form-control" id="RequestedSalary" aria-describedby="RequestedSalary" placeholder="Requested Loaded Salary">
         </div>
 
 
 
     <div class="form-group required">
-        <label asp-for="detailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
-        <textarea class="form-control" id="detailJustification" rows="2"></textarea>
+        <label asp-for="DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
+        <textarea class="form-control" id="DetailJustification" rows="2"></textarea>
     </div>
 
     <div class="form-group">

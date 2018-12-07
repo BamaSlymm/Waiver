@@ -20,7 +20,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Project Name")]
-        public string ProjectName {get;set;}
+        public string projectName {get;set;}
 
         [Required]
         [DataType(DataType.Date)]
@@ -94,7 +94,7 @@ namespace DPAWaiver.Models.Waivers
             this.KeyedIntoSystem = other.KeyedIntoSystem ;
             this.OtherFirstName = other.OtherFirstName ;
             this.OtherLastName = other.OtherLastName ;
-            this.ProjectName = other.ProjectName ;
+            this.projectName = other.projectName ;
             this.ReasonDataEntryCenter = other.ReasonDataEntryCenter;
             this.ReasonForNotKeyedIntoSystem = other.ReasonForNotKeyedIntoSystem ;
             this.SubmittedOn = other.SubmittedOn ;

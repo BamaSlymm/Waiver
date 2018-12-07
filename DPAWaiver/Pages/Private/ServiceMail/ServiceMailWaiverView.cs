@@ -17,7 +17,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Project Name")]
-        public string ProjectName {get;set;}
+        public string projectName {get;set;}
 
         [Required]
         [DataType(DataType.Date)]
@@ -76,7 +76,7 @@ namespace DPAWaiver.Models.Waivers
 public void CopyFromServiceMailWaiver(ServiceMailWaiver other) {
             this.OtherFirstName = other.OtherFirstName;
             this.OtherLastName = other.OtherLastName;
-            this.ProjectName = other.ProjectName;
+            this.projectName = other.projectName;
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
             this.ItemDescription = other.ItemDescription;
@@ -86,7 +86,7 @@ public void CopyFromServiceMailWaiver(ServiceMailWaiver other) {
             this.MailingDate = other.MailingDate;
             this.MailRate = other.MailRate;
             this.MailPermit = other.MailPermit;
-            this.ProjectName = other.ProjectName ;
+            this.projectName = other.projectName ;
             this.Status = other.Status;
             this.OtherDescription = other.OtherDescription;
         }

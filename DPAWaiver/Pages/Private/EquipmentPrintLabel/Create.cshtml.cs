@@ -53,7 +53,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLabel
                "EquipmentPrintLabelwaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
-               w => w.ProjectName,
+               w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.printerType,

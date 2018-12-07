@@ -65,9 +65,9 @@
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label asp-for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
                 </div>
             </div>
 
@@ -90,8 +90,8 @@
         <div class="row">
         <div class="col-sm-6 col-xs-12">
             <div class="form-group required">
-                <label asp-for="contractorType" class="control-label fontWeightNormal">Contractor Type:</label>
-                <select class="form-control control-label" id="contractorType">
+                <label asp-for="ContractorType" class="control-label fontWeightNormal">Contractor Type:</label>
+                <select class="form-control control-label" id="ContractorType">
                     <option>Full Time Employee</option>
                     <option>Permanent Part Time State Employee</option>
                     <option>State Temp</option>
@@ -136,11 +136,11 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         </div>
 
         <div class="form-group required">
-            <label for="estimatedNumberOfFTE" class="control-label fontWeightNormal">Number of staff requested::
+            <label for="EstimatedNumberOfFTE" class="control-label fontWeightNormal">Number of staff requested::
                 <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
         This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
             </label>
-            <input type="number" class="form-control" id="estimatedNumberOfFTE" aria-describedby="estimatedNumberOfFTE" placeholder="Full Time Employee Count">
+            <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
         </div>
 
 
@@ -156,8 +156,8 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 
 
         <div class="form-group required">
-            <label for="detailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
-            <textarea class="form-control" id="detailJustification" rows="2"></textarea>
+            <label for="DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
+            <textarea class="form-control" id="DetailJustification" rows="2"></textarea>
         </div>
 
         <div class="form-group">
@@ -189,13 +189,13 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#contractorType', ['#designDiv'], {valueList: ['1']});
+        showIfSelected('#ContractorType', ['#designDiv'], {valueList: ['1']});
         showIfSelected('#spaType', ['#otherSPADiv'], {textList: ['Other']});
         showIfSelected('#spaType', ['#spaNumberDiv'], {textList: ['Other'], hide:true});
     });
 
-    $("#contractorType").on("change", function () { 
-        showIfSelected('#contractorType', ['#designDiv'], {valueList: ['1']}); 
+    $("#ContractorType").on("change", function () { 
+        showIfSelected('#ContractorType', ['#designDiv'], {valueList: ['1']}); 
     });
     $("#spaType").on("change", function () { 
         showIfSelected('#spaType', ['#otherSPADiv'], {textList: ['Other']});

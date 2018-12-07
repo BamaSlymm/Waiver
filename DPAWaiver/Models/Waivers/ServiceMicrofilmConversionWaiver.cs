@@ -47,8 +47,6 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Estimated number of fields per document:")]
         public string estimatedNumberOfFields {get; set;}
 
-        
-
         [Required]
         [Display(Name = "How do you need the receive the images?")]
         public string imageDelivery {get; set;}

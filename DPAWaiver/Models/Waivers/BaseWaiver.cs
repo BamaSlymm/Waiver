@@ -57,7 +57,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Project Name")]
-        public string ProjectName {get;set;}
+        public string projectName {get;set;}
 
         [Required]
         [DataType(DataType.Date)]
@@ -106,7 +106,7 @@ namespace DPAWaiver.Models.Waivers
         }
 
         public void SetWaiverInformation(string projectName, DateTime submittedOn, decimal costEstimate) {
-            this.ProjectName = projectName ;
+            this.projectName = projectName ;
             this.SubmittedOn = submittedOn ;
             this.CostEstimate = costEstimate;
         }

@@ -34,7 +34,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Acquisition Date")]
-        public DateTime? acquistionDate {get; set;}
+        public DateTime? acquisitionDate {get; set;}
 
          [Required]
         [Display(Name = "Monthly Cost of Current Service")]

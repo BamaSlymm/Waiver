@@ -17,7 +17,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Project Name")]
-        public string ProjectName {get;set;}
+        public string projectName {get;set;}
 
         [Required]
         [DataType(DataType.Date)]
@@ -54,7 +54,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Acquisition Date")]
-        public DateTime? acquistionDate {get; set;}
+        public DateTime? acquisitionDate {get; set;}
 
          [Required]
         [Display(Name = "Monthly Cost of Current Service")]
@@ -310,7 +310,7 @@ namespace DPAWaiver.Models.Waivers
 public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.OtherFirstName = other.OtherFirstName;
             this.OtherLastName = other.OtherLastName;
-            this.ProjectName = other.ProjectName;
+            this.projectName = other.projectName;
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
             this.justificationDescription = other.justificationDescription;
@@ -318,7 +318,7 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.newOrReplace = other.newOrReplace;
             this.currentMake = other.currentMake;
             this.currentModel = other.currentModel;
-            this.acquistionDate = other.acquistionDate;
+            this.acquisitionDate = other.acquisitionDate;
             this.monthlyCost = other.monthlyCost;
             this.averageMonthlyVolume = other.averageMonthlyVolume;
             this.multiFunctionConsidered = other.multiFunctionConsidered;

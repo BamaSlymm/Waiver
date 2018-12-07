@@ -70,9 +70,9 @@
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="costEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="costEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
                 </div>
             </div>
 
@@ -112,12 +112,12 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="estimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
+                    <label for="EstimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                     </label>
                     
-                    <input type="number" class="form-control" id="estimatedNumberOfFTE" aria-describedby="estimatedNumberOfFTE" placeholder="Full Time Employee Count">
+                    <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
@@ -142,7 +142,7 @@ This is a numeric field."></span></label>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label for="outputType" class="control-label fontWeightNormal">What output type is needed:</label>
-                    <select class="form-control control-label" id="outputType" asp-items="Model.OutputTypes">
+                    <select class="form-control control-label" id="outputType" asp-items="Model.outputType">
                         <option>Please select one</option>
                     </select>
                 </div>

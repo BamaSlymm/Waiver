@@ -20,6 +20,15 @@ namespace DPAWaiver.Models.Waivers
         public decimal? EstimatedNumberofFTE {get;set;}
 
         [Required]
+        [Display(Name = "Upload State Position Description:")]
+        public string positionFile {get; set;}
+
+        [Required]
+        [Display(Name = "Total estimated number of Staff:")]
+        public decimal? EstimatedNumberofStaff {get;set;}
+
+
+        [Required]
         [Display(Name = "Requested Classification (One waiver request per classification)")]
         public string RequestedClassification {get;set;}
         

@@ -35,7 +35,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Project Name")]
-        public string ProjectName {get;set;}
+        public string projectName {get;set;}
 
         [Required]
         [DataType(DataType.Date)]
@@ -55,8 +55,20 @@ namespace DPAWaiver.Models.Waivers
         public string JobDuties {get;set;}
 
         [Required]
+        [Display(Name = "Total estimated number of Staff:")]
+        public decimal? EstimatedNumberofStaff {get;set;}
+
+        [Required]
+        [Display(Name = "Upload State Position Description:")]
+        public string positionFile {get; set;}
+
+        [Required]
         [Display(Name = "Total estimated number of FTE:")]
         public decimal? EstimatedNumberofFTE {get;set;}
+
+        [Required]
+        [Display(Name = "Requested Classification (One waiver request per classification):")]        
+        public string RequestedClassification {get; set;}
 
         [Required]
         [Display(Name = "Requested Loaded Salary:")]        
@@ -86,11 +98,14 @@ namespace DPAWaiver.Models.Waivers
         public void CopyFromPersonnelRequestWaiver(PersonnelRequestWaiver other) {
             this.OtherFirstName = other.OtherFirstName ;
             this.OtherLastName = other.OtherLastName ;
-            this.ProjectName = other.ProjectName ;
+            this.projectName = other.projectName ;
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
+            this.EstimatedNumberofStaff = other.EstimatedNumberofStaff;
             this.JobDuties = other.JobDuties;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE ;
+            this.positionFile = other.positionFile;
+            this.RequestedClassification = other.RequestedClassification;
             this.RequestedSalary = other.RequestedSalary;
             this.DetailJustification = other.DetailJustification;
             this.AdditionalComments = other.AdditionalComments;

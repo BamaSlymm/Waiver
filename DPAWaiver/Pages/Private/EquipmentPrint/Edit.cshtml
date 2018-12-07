@@ -19,19 +19,19 @@
                 <span asp-validation-for="EquipmentPrintWaiver.printerType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EquipmentPrintWaiver.SubmittedOn" class="control-label"></label>
-                <input asp-for="EquipmentPrintWaiver.SubmittedOn" class="form-control" />
-                <span asp-validation-for="EquipmentPrintWaiver.SubmittedOn" class="text-danger"></span>
+                <label asp-for="EquipmentPrintWaiver.catalogLink" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.catalogLink" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.catalogLink" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EquipmentPrintWaiver.CostEstimate" class="control-label"></label>
-                <input asp-for="EquipmentPrintWaiver.CostEstimate" class="form-control" />
-                <span asp-validation-for="EquipmentPrintWaiver.CostEstimate" class="text-danger"></span>
+                <label asp-for="EquipmentPrintWaiver.Make" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.Make" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.Make" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EquipmentPrintWaiver.forGroupOfIndividuals" class="control-label"></label>
-                <input asp-for="EquipmentPrintWaiver.forGroupOfIndividuals" class="form-control" />
-                <span asp-validation-for="EquipmentPrintWaiver.forGroupOfIndividuals" class="text-danger"></span>
+                <label asp-for="EquipmentPrintWaiver.Model" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.Model" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.Model" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="EquipmentPrintWaiver.ID" />
             <div class="form-group">
@@ -40,9 +40,159 @@
                 <span asp-validation-for="EquipmentPrintWaiver.forGroupOfIndividuals" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EquipmentPrintWaiver.newOrReplace" class="control-label"></label>
-                <input asp-for="EquipmentPrintWaiver.newOrReplace" class="form-control" />
-                <span asp-validation-for="EquipmentPrintWaiver.newOrReplace" class="text-danger"></span>
+                <label asp-for="EquipmentPrintWaiver.selectionReason" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.selectionReason" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.selectionReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.acquisitionType" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.acquisitionType" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.acquisitionType" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.solicitationSubType" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.solicitationSubType" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.solicitationSubType" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.statepriceSubType" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.statepriceSubType" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.statepriceSubType" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.numberofMonths" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.numberofMonths" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.numberofMonths" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.monthlyLeaseAmount" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.monthlyLeaseAmount" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.monthlyLeaseAmount" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.servicesReceived" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.servicesReceived" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.servicesReceived" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.numberOfEquipment" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.numberOfEquipment" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.numberOfEquipment" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.purchaseAmount" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.purchaseAmount" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.purchaseAmount" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.agreementOrWarrantyCost" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.agreementOrWarrantyCost" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.agreementOrWarrantyCost" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.printerReplacementCycle" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.printerReplacementCycle" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.printerReplacementCycle" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.otherReplacementCycle" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.otherReplacementCycle" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.otherReplacementCycle" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.monthlyCostWithoutToner" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.monthlyCostWithoutToner" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.monthlyCostWithoutToner" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.monthlyMonochromeVolume" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.monthlyMonochromeVolume" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.monthlyMonochromeVolume" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.alternativesDescription" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.alternativesDescription" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.alternativesDescription" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.monthlyColorVolume" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.monthlyColorVolume" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.monthlyColorVolume" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.blackTonerCost" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.blackTonerCost" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.blackTonerCost" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.pageYieldForBlackToner" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.pageYieldForBlackToner" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.pageYieldForBlackToner" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.blackInkCostPerPage" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.blackInkCostPerPage" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.blackInkCostPerPage" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.cyanTonerCost" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.cyanTonerCost" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.cyanTonerCost" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.pageYieldForCyanToner" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.pageYieldForCyanToner" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.pageYieldForCyanToner" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.cyanInkCostPerPage" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.cyanInkCostPerPage" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.cyanInkCostPerPage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.MagentaTonerCost" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.MagentaTonerCost" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.MagentaTonerCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.pageYieldForMagentaToner" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.pageYieldForMagentaToner" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.pageYieldForMagentaToner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.MagentaInkCostPerPage" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.MagentaInkCostPerPage" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.MagentaInkCostPerPage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.YellowTonerCost" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.YellowTonerCost" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.YellowTonerCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.pageYieldForYellowToner" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.pageYieldForYellowToner" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.pageYieldForYellowToner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.YellowInkCostPerPage" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.YellowInkCostPerPage" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.YellowInkCostPerPage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.totalInkCostPerPage" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.totalInkCostPerPage" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.totalInkCostPerPage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.complianceDescription" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.complianceDescription" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.complianceDescription" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EquipmentPrintWaiver.alternativesDescription" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.alternativesDescription" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.alternativesDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EquipmentPrintWaiver.OtherFirstName" class="control-label"></label>
@@ -65,9 +215,9 @@
                 <span asp-validation-for="EquipmentPrintWaiver.WaiverNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EquipmentPrintWaiver.ProjectName" class="control-label"></label>
-                <input asp-for="EquipmentPrintWaiver.ProjectName" class="form-control" />
-                <span asp-validation-for="EquipmentPrintWaiver.ProjectName" class="text-danger"></span>
+                <label asp-for="EquipmentPrintWaiver.projectName" class="control-label"></label>
+                <input asp-for="EquipmentPrintWaiver.projectName" class="form-control" />
+                <span asp-validation-for="EquipmentPrintWaiver.projectName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EquipmentPrintWaiver.SubmittedOn" class="control-label"></label>

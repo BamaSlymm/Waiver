@@ -53,7 +53,7 @@ namespace DPAWaiver.Pages.Private.ServiceDesign
                "servicedesignwaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
-               w => w.ProjectName,
+               w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.EstimatedNumberofHours,

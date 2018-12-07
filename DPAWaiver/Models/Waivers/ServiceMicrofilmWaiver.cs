@@ -17,7 +17,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Are you requesting only microfilm duplication:")]
-        public string MicroFilmDuplication {get; set;}
+        public string MicrofilmDuplication {get; set;}
 
         [Required]
         [Display(Name = "How many rolls are you requesting:")]

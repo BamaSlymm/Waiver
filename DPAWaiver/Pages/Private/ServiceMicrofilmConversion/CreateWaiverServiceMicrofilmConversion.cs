@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DPAWaiver.Pages
 {
-    public class CreateWaiverServiceMicrofilmConversionConversionModel : PageModel
+    public class CreateWaiverServiceMicrofilmConversionModel : PageModel
     {
         public void OnGet()
         {

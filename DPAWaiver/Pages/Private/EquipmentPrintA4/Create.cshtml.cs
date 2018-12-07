@@ -53,7 +53,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintA4
                "EquipmentPrintA4waiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
-               w => w.ProjectName,
+               w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.printerType,
