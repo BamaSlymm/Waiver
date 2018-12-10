@@ -96,7 +96,7 @@ namespace DPAWaiver.Pages.Private.SoftwareDataEntry
                 w => w.monthlyOverheadCosts,
                 w => w.alternativesConsidered,
                 w => w.Status,
-                w => w.additionalComments
+                w => w.AdditionalComments
                ))
             {
                 _context.SoftwareDataEntryWaiver.Add(emptyWaiver);

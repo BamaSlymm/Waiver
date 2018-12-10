@@ -92,7 +92,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrint
                w => w.complianceDescription,
                w => w.alternativesDescription,
                w => w.Status,
-               w => w.additionalComments
+               w => w.AdditionalComments
                ))
             {
                 _context.EquipmentPrintWaiver.Add(emptyWaiver);

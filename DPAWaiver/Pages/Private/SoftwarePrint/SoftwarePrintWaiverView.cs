@@ -129,7 +129,7 @@ namespace DPAWaiver.Models.Waivers
         public string alternativesConsidered { get; set; }
 
         [Display(Name = "Any Additional Comments:")]
-        public string additionalComments { get; set; }
+        public string AdditionalComments { get; set; }
 
         public WaiverStatus Status {get;set;}
 
@@ -172,7 +172,7 @@ public void CopyFromSoftwarePrintWaiver(SoftwarePrintWaiver other) {
             this.justificationDescription = other.justificationDescription ;
             this.alternativesConsidered = other.alternativesConsidered;
             this.Status = other.Status;
-            this.additionalComments = other.additionalComments;
+            this.AdditionalComments = other.AdditionalComments;
         }
 
         

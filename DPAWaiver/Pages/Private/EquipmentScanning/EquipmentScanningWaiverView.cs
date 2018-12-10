@@ -298,7 +298,7 @@ namespace DPAWaiver.Models.Waivers
         public string alternativesDescription { get; set; }
 
         [Display(Name = "Any Additional Comments:")]
-        public string additionalComments { get; set; }
+        public string AdditionalComments { get; set; }
 
         public WaiverStatus Status {get;set;}
 
@@ -383,7 +383,7 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.totalCostOfOwnership = other.totalCostOfOwnership;
             this.alternativesDescription = other.alternativesDescription;
             this.Status = other.Status;
-            this.additionalComments = other.additionalComments;
+            this.AdditionalComments = other.AdditionalComments;
         }
 
         

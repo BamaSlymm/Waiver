@@ -91,7 +91,7 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                w => w.overheadCostDescription,
                w => w.overheadDescription,
                w => w.Status,
-               w => w.additionalComments
+               w => w.AdditionalComments
                ))
             {
                 _context.EquipmentMailWaiver.Add(emptyWaiver);

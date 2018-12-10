@@ -118,7 +118,7 @@ namespace DPAWaiver.Models.Waivers
         public decimal justificationDescription { get; set; }       
 
         [Display(Name = "Any Additional Comments:")]
-        public string additionalComments { get; set; }
+        public string AdditionalComments { get; set; }
 
         public WaiverStatus Status {get;set;}
 
@@ -154,7 +154,7 @@ public void CopyFromEquipmentPrintLabelWaiver(EquipmentPrintLabelWaiver other) {
             this.alternativesDescription = other.alternativesDescription;
             this.justificationDescription = other.justificationDescription;            
             this.Status = other.Status;
-            this.additionalComments = other.additionalComments;
+            this.AdditionalComments = other.AdditionalComments;
         }
 
         

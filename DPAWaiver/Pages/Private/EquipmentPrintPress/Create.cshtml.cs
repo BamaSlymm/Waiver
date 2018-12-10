@@ -121,7 +121,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintPress
                 w => w.totalCostOfOwnership,
                 w => w.alternativesDescription,
                 w => w.Status,
-                w => w.additionalComments
+                w => w.AdditionalComments
                ))
             {
                 _context.EquipmentPrintPressWaiver.Add(emptyWaiver);

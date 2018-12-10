@@ -81,7 +81,7 @@ namespace DPAWaiver.Pages.Private.SoftwarePrint
                 w => w.justificationDescription,
                 w => w.alternativesConsidered,
                 w => w.Status,
-                w => w.additionalComments
+                w => w.AdditionalComments
                ))
             {
                 _context.SoftwarePrintWaiver.Add(emptyWaiver);

@@ -77,7 +77,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintLabel
                w => w.alternativesDescription,
                w => w.justificationDescription,
                w => w.Status,
-               w => w.additionalComments
+               w => w.AdditionalComments
                ))
             {
                 _context.EquipmentPrintLabelWaiver.Add(emptyWaiver);

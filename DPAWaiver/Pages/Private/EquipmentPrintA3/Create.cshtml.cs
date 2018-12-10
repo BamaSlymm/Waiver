@@ -78,7 +78,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintA3
                w => w.alternativesDescription,
                w => w.justificationDescription,
                w => w.Status,
-               w => w.additionalComments
+               w => w.AdditionalComments
                ))
             {
                 _context.EquipmentPrintA3Waiver.Add(emptyWaiver);

@@ -166,7 +166,7 @@ namespace DPAWaiver.Models.Waivers
         public string overheadDescription { get; set; }
 
         [Display(Name = "Any Additional Comments:")]
-        public string additionalComments { get; set; }
+        public string AdditionalComments { get; set; }
 
         public WaiverStatus Status {get;set;}
 
@@ -216,7 +216,7 @@ public void CopyFromEquipmentMailWaiver(EquipmentMailWaiver other) {
             this.overheadCostDescription = other.overheadCostDescription;
             this.overheadDescription = other.overheadDescription;
             this.Status = other.Status;
-            this.additionalComments = other.additionalComments;
+            this.AdditionalComments = other.AdditionalComments;
         }
 
         

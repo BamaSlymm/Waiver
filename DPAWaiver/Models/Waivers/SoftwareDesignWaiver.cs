@@ -108,7 +108,7 @@ namespace DPAWaiver.Models.Waivers
         public string alternativesConsidered { get; set; }
 
         [Display(Name = "Any Additional Comments:")]
-        public string additionalComments { get; set; }
+        public string AdditionalComments { get; set; }
 
 
 
