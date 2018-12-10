@@ -47,8 +47,11 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
         [Range(0, 9999999999999999.99)]
-
         public decimal? CostEstimate { get ; set;}
+
+        [Required]
+        [Display(Name= "Employee Type")]
+        public string employeeType {get; set;}
 
         [Required]
         [Display(Name = "Describe the job duties:")]

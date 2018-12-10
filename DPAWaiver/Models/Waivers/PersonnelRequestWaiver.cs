@@ -10,7 +10,9 @@ namespace DPAWaiver.Models.Waivers
 {
     public class PersonnelRequestWaiver : BaseWaiver
     {
-        
+        [Required]
+        [Display(Name= "Employee Type")]
+        public string employeeType {get; set;}
         
         [Display(Name = "Describe the job duties:")]
         public string JobDuties {get;set;}
