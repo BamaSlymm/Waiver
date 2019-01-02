@@ -92,40 +92,40 @@ namespace DPAWaiver.Pages.Private
                     switch (selectedType)
                     {
                         case 1: return RedirectToPage("./DataEntry/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
-                        case 2: return RedirectToPage("./CreateWaiverServiceDesign");
-                        case 3: return RedirectToPage("./CreateWaiverServiceMail");
-                        case 4: return RedirectToPage("./CreateWaiverServicePrinter");
+                        case 2: return RedirectToPage("./ServiceDesign/Create");
+                        case 3: return RedirectToPage("./ServiceMail/Create");
+                        case 4: return RedirectToPage("./ServicePrint/Create");
                         case 5:
                             switch (selectedSubtype)
                             {
-                                case 7: return RedirectToPage("./CreateWaiverServiceMicrofilm");
-                                case 8: return RedirectToPage("./CreateWaiverServiceMicrofilmConversion");
+                                case 7: return RedirectToPage("./ServiceMicrofilm/Create");
+                                case 8: return RedirectToPage("./ServiceMicrofilmConversion/Create");
                             }
                             break;
-                        case 6: return RedirectToPage("./CreateWaiverServiceScanning");
+                        case 6: return RedirectToPage("./ServiceScanning/Create");
                     }
                     break;
                 case 2:
                     switch (selectedType) /* see LOVPopulator.getPersonnelServiceTypes */
                     {
-                        case 7: return RedirectToPage("./CreateWaiverPersonnelState");
-                        case 8: return RedirectToPage("./CreateWaiverPersonnelContractor");
+                        case 7: return RedirectToPage("./PersonnelRequest/Create");
+                        case 8: return RedirectToPage("./PersonnelContractor/Create");
                     }
                     break;
                 case 3:
                     switch (selectedType)
                     {
-                        case 9: return RedirectToPage("./CreateWaiverEquipmentMail");
-                        case 10: return RedirectToPage("./CreateWaiverEquipmentScanning");
+                        case 9: return RedirectToPage("./EquipmentMail/Create");
+                        case 10: return RedirectToPage("./EquipmentScanning/Create");
                         case 11:
                             switch (selectedSubtype)
                             {
-                                case 1: return RedirectToPage("./CreateWaiverEquipmentPrinter");
-                                case 2: return RedirectToPage("./CreateWaiverEquipmentPrinterA4MultiFunction");
-                                case 3: return RedirectToPage("./CreateWaiverEquipmentPrinterA3MultiFunction");
-                                case 4: return RedirectToPage("./CreateWaiverEquipmentPrinterProductionCopierPress");
-                                case 5: return RedirectToPage("./CreateWaiverEquipmentPrinterLargeFormat");
-                                case 6: return RedirectToPage("./CreateWaiverEquipmentPrinterLabel");
+                                case 1: return RedirectToPage("./EquipmentPrint/Create");
+                                case 2: return RedirectToPage("./EquipmentPrintA4/Create");
+                                case 3: return RedirectToPage("./EquipmentPrintA3/Create");
+                                case 4: return RedirectToPage("./EquipmentPrintPress/Create");
+                                case 5: return RedirectToPage("./EquipmentPrintLargeFormat/Create");
+                                case 6: return RedirectToPage("./EquipmentPrintLabel/Create");
                             }
                             break;
                     }
@@ -133,11 +133,11 @@ namespace DPAWaiver.Pages.Private
                 case 4:
                     switch (selectedType)
                     {
-                        case 12: return RedirectToPage("./CreateWaiverSoftwareDataEntry");
-                        case 13: return RedirectToPage("./CreateWaiverSoftwareDesign");
-                        case 14: return RedirectToPage("./CreateWaiverSoftwareMailProcessing");
-                        case 15: return RedirectToPage("./CreateWaiverSoftwarePrintCopy");
-                        case 16: return RedirectToPage("./CreateWaiverSoftwareScanningImaging");
+                        case 12: return RedirectToPage("./SoftwareDataEntry/Create");
+                        case 13: return RedirectToPage("./SoftwareDesign/Create");
+                        case 14: return RedirectToPage("./SoftwareMailProcessing/Create");
+                        case 15: return RedirectToPage("./SoftwarePrint/Create");
+                        case 16: return RedirectToPage("./SoftwareScanning/Create");
                     }
                     break;
 
