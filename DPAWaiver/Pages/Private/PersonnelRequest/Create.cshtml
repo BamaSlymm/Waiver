@@ -80,8 +80,7 @@
     <div class="panel-heading">
         <h3 class="panel-title text-center">Waiver Details</h3>
     </div>
-    <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-md-12 col-xs-8">
             <div class="form-group required">
                 <label for="employeeType" class="control-label fontWeightNormal">Employee Type:</label>
                 <select class="form-control control-label" id="employeeType">
@@ -96,32 +95,21 @@
             <label for="JobDuties" class="control-label fontWeightNormal">Describe the job duties:</label>
             <textarea class="form-control" id="JobDuties" rows='2'></textarea>
         </div>
-
-
-    
         <div class="col-sm-6 col-xs-12">
             <div class="form-group required">
                 <label for="EstimatedNumberOfStaff" class="control-label fontWeightNormal">Estimated number of staff requested:
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
-This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
+                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                 </label>
-
-                <input type="number" class="form-control" id="EstimatedNumberOfStaff" aria-describedby="EstimatedNumberOfStaff" placeholder="Full Time Employee Count">
+            <input type="number" class="form-control" id="EstimatedNumberOfStaff" aria-describedby="EstimatedNumberOfStaff" placeholder="Estimated Number of Staff">
             </div>
         </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
+        <div class="col-sm-6 col-xs-12">
             <div class="form-group required">
                 <label for="positionFile" class="control-label fontWeightNormal">Upload State Position Description</label>
                 <input type="file" class="form-control-file" id="positionFile">
             </div>
         </div>
-        
-    <div class="row">
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-4 col-xs-12">
                 <div class="form-group required">
                     <label for="EstimatedNumberOfFTE" class="control-label fontWeightNormal">Total estimated number of FTE:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
@@ -130,7 +118,7 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
                     <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
                 </div>
             </div>
-            <div class="col-md-6 col-xs-12">
+        <div class="col-md-12 col-xs-8">
             <div class="form-group required">
                 <label for="RequestedClassification" class="control-label fontWeightNormal">Requested Classification<i>(One waiver request per classification)</i>:</label>
                 <select class="form-control control-label" id="RequestedClassification">
@@ -139,25 +127,22 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
                     <option>Accountant III</option>
                 </select>
             </div>
+            <div class="form-group required">
+                <label for="RequestedSalary" class="control-label fontWeightNormal">Requested Loaded Salary (complete state benefit package)</label>
+                <input type="number" class="form-control" id="RequestedSalary" aria-describedby="RequestedSalary" placeholder="Requested Loaded Salary">
+            </div>
         </div>
-    </div>
         <div class="form-group required">
-            <label for="RequestedSalary" class="control-label fontWeightNormal">Requested Loaded Salary (complete state benefit package)</label>
-            <input type="number" class="form-control" id="RequestedSalary" aria-describedby="RequestedSalary" placeholder="Requested Loaded Salary">
+            <label for="DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
+            <textarea class="form-control" id="DetailJustification" rows="2"></textarea>
         </div>
-
-
-
-    <div class="form-group required">
-        <label for="DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
-        <textarea class="form-control" id="DetailJustification" rows="2"></textarea>
+        <div class="form-group">
+            <label for="AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-        <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
-    </div>
-
+</div>
+</div>
 </div>
 
 </div>
