@@ -92,7 +92,7 @@ namespace DPAWaiver.Pages.Private
                     switch (selectedType)
                     {
                         case 1: return RedirectToPage("./DataEntry/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
-                        case 2: return RedirectToPage("./ServiceDesign/Create");
+                        case 2: return RedirectToPage("./ServiceDesign/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                         case 3: return RedirectToPage("./ServiceMail/Create");
                         case 4: return RedirectToPage("./ServicePrint/Create");
                         case 5:
