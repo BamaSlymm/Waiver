@@ -2,7 +2,6 @@
 @model DPAWaiver.Pages.Private.PersonnelContractor.CreateModel 
 @{ ViewData["Title"] = "Create Waiver - Personnel - State Employee"; }
 
-<<<<<<< HEAD
 <h2>Create</h2>
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -10,12 +9,11 @@
     <partial name="_UserInformation" model="@Model.UserWithDepartment" />
     @if (Model.PersonnelContractorWaiver.OtherFirstName != null && Model.PersonnelContractorWaiver.OtherLastName != null)
     {
-    <div class="panel panel-primary marginTop20px">
+    <div class="panel panel-primary marginTop20px"></div>
         <div class="panel-heading">
             <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
         </div>
         <div class="panel-body">
-
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label asp-for="PersonnelContractorWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
@@ -30,7 +28,7 @@
                     <input asp-for="PersonnelContractorWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.PersonnelContractorWaiver.OtherLastName)" />
                     <span asp-validation-for="PersonnelContractorWaiver.OtherLastName" class="text-danger"></span>
                 </div>
-=======
+
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
         <h3 class="panel-title text-center">User Information</h3>
@@ -53,16 +51,12 @@
                     </div>
                 </div>
 
->>>>>>> 9009f9b7a063a741c8e8aaa3f2e9d25b388b7995
             </div>
 
         </div>
-<<<<<<< HEAD
     </div>
     }
 	
-=======
->>>>>>> 9009f9b7a063a741c8e8aaa3f2e9d25b388b7995
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
