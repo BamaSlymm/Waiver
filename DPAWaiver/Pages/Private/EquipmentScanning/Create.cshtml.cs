@@ -70,7 +70,7 @@ namespace DPAWaiver.Pages.Private.EquipmentScanning
                 w => w.fourthYearVolume,
                 w => w.fifthYearVolume,
                 w => w.scannerType,
-                w => w.numberofEquipment,
+                w => w.NumberofEquipment,
                 w => w.Make,
                 w => w.Model,
                 w => w.acquisitionType,

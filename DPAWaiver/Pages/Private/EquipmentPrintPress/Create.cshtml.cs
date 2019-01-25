@@ -70,7 +70,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintPress
                 w => w.fourthYearVolume,
                 w => w.fifthYearVolume,
                 w => w.equipmentType,
-                w => w.numberofEquipment,
+                w => w.NumberofEquipment,
                 w => w.Make,
                 w => w.Model,
                 w => w.acquisitionType,

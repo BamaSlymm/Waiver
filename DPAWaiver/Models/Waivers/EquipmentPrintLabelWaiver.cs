@@ -25,7 +25,7 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal numberofEquipment {get; set;}
+        public decimal NumberofEquipment {get; set;}
 
         [Required]
         [Display(Name = "Reasons for selecting this particular equipment:")]

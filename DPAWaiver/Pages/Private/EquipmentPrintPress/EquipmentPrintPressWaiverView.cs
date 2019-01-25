@@ -90,7 +90,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal numberofEquipment {get; set;}
+        public decimal NumberofEquipment {get; set;}
 
         [Required]
         [Display(Name = "Make:")]
@@ -314,7 +314,7 @@ public void CopyFromEquipmentPrintPressWaiver(EquipmentPrintPressWaiver other) {
             this.fourthYearVolume = other.fourthYearVolume;
             this.fifthYearVolume = other.fifthYearVolume;
             this.equipmentType = other.equipmentType;
-            this.numberofEquipment = other.numberofEquipment;
+            this.NumberofEquipment = other.NumberofEquipment;
             this.Make = other.Make;
             this.Model = other.Model;
             this.acquisitionType = other.acquisitionType;

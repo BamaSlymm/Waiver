@@ -57,7 +57,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintA4
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.printerType,
-               w => w.numberofEquipment,
+               w => w.NumberofEquipment,
                w => w.Make,
                w => w.Model,
                w => w.newOrReplace,

@@ -79,7 +79,7 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                w => w.solicitationSubType,
                w => w.statepriceSubType,
                w => w.totalLeaseAmount,
-               w => w.estimatedNumberofFTE,
+               w => w.EstimatedNumberofFTE,
                w => w.estimatedNumberofHoursPerFTE,
                w => w.weeklySalaryCost,
                w => w.totalSpaceRequired,

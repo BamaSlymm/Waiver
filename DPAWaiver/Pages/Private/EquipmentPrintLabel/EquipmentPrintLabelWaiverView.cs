@@ -46,7 +46,7 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal numberofEquipment {get; set;}
+        public decimal NumberofEquipment {get; set;}
 
         [Required]
         [Display(Name = "Reasons for selecting this particular equipment:")]
@@ -134,7 +134,7 @@ public void CopyFromEquipmentPrintLabelWaiver(EquipmentPrintLabelWaiver other) {
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
             this.printerType = other.printerType;
-            this.numberofEquipment = other.numberofEquipment;
+            this.NumberofEquipment = other.NumberofEquipment;
             this.Make = other.Make;
             this.Model = other.Model;
             this.vendorChoice = other.vendorChoice;

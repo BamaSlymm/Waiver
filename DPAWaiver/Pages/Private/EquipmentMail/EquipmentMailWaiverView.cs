@@ -124,7 +124,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of FTE:")]
-        public decimal estimatedNumberofFTE { get; set; }
+        public decimal EstimatedNumberofFTE { get; set; }
 
         [Required]
         [Display(Name = "Estimated number of hours Per FTE:")]
@@ -204,7 +204,7 @@ public void CopyFromEquipmentMailWaiver(EquipmentMailWaiver other) {
             this.solicitationSubType = other.solicitationSubType;
             this.statepriceSubType = other.statepriceSubType;
             this.totalLeaseAmount = other.totalLeaseAmount;
-            this.estimatedNumberofFTE = other.estimatedNumberofFTE;
+            this.EstimatedNumberofFTE = other.EstimatedNumberofFTE;
             this.estimatedNumberofHoursPerFTE = other.estimatedNumberofHoursPerFTE;
             this.weeklySalaryCost = other.weeklySalaryCost;
             this.totalSpaceRequired = other.totalSpaceRequired;

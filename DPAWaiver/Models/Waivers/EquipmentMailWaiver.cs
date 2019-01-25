@@ -104,7 +104,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of FTE:")]
-        public decimal estimatedNumberofFTE { get; set; }
+        public decimal EstimatedNumberofFTE { get; set; }
 
         [Required]
         [Display(Name = "Estimated number of hours Per FTE:")]

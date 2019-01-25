@@ -9,4 +9,4 @@ resources:
   disk_size_gb: 10
 
 env_variables:
-  CONNECTIONSTRINGS__DEFAULTCONNECTION: "server=35.192.233.78;database=waiver-test;user=<USER>;password=<PASSWORD>;CertificateFile=client.pfx;SSL Mode=Required"
+  CONNECTIONSTRINGS__DEFAULTCONNECTION: "server=35.192.233.78;database=waiver-test;user=test;password=test123456;CertificateFile=client.pfx;SSL Mode=Required"
