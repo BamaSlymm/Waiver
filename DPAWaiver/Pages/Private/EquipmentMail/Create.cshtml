@@ -2,35 +2,37 @@
 @model DPAWaiver.Pages.Private.EquipmentMail.CreateModel 
 @{ ViewData["Title"] = "Create Waiver - Service - Mail Service"; }
 
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">User Information</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-4 col-xs-4">
-                First Name: Dogan
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+ <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.EquipmentMailWaiver.OtherFirstName != null && Model.EquipmentMailWaiver.OtherLastName != null)
+    {
+        <div class="panel panel-primary marginTop20px">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
             </div>
-            <div class="col-md-3 col-xs-3">
-                Last Name: Cibiceli
-            </div>
-            <div class="col-md-5 col-xs-5">
-                Email Address: dogan.cibiceli@state.co.us
+            <div class="panel-body">
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label asp-for="EquipmentMailWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
+                        <input asp-for="EquipmentMailWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentMailWaiver.OtherFirstName)" />
+                        <span asp-validation-for="EquipmentMailWaiver.OtherFirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label asp-for="EquipmentMailWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                        <input asp-for="EquipmentMailWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentMailWaiver.OtherLastName)" />
+                        <span asp-validation-for="EquipmentMailWaiver.OtherLastName" class="text-danger"></span>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-xs-4">
-                Department: Education
-            </div>
-            <div class="col-md-3 col-xs-3">
-                Division: Teacher
-            </div>
-            <div class="col-md-5 col-xs-5">
-                Phone: 555-330-3303
-            </div>
-        </div>
-    </div>
-</div>
+    }
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -435,6 +437,9 @@ This is a numeric field."></span>
     </a>
 </div>
 
+</form>
+
+<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {

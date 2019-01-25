@@ -2,35 +2,37 @@
 @model DPAWaiver.Pages.Private.EquipmentPrintA3.CreateModel  
 @{ ViewData["Title"] = "Create Waiver - Equipment - Print / Copy - A3 Multi Function Printer";}
 
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">User Information</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-4 col-xs-4">
-                First Name: Dogan
-            </div>
-            <div class="col-md-3 col-xs-3">
-                Last Name: Cibiceli
-            </div>
-            <div class="col-md-5 col-xs-5">
-                Email Address: dogan.cibiceli@state.co.us
-            </div>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.EquipmentPrintA3Waiver.OtherFirstName != null && Model.EquipmentPrintA3Waiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-xs-4">
-                Department: Education
+        <div class="panel-body">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="EquipmentPrintA3Waiver.OtherFirstName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="EquipmentPrintA3Waiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintA3Waiver.OtherFirstName)" />
+                    <span asp-validation-for="EquipmentPrintA3Waiver.OtherFirstName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="col-md-3 col-xs-3">
-                Division: Teacher
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="EquipmentPrintA3Waiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="EquipmentPrintA3Waiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintA3Waiver.OtherLastName)" />
+                    <span asp-validation-for="EquipmentPrintA3Waiver.OtherLastName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="col-md-5 col-xs-5">
-                Phone: 555-330-3303
-            </div>
+
         </div>
     </div>
-</div>
+    }
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -284,6 +286,9 @@
     </div>
 </form>
 
+</form>
+
+<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {

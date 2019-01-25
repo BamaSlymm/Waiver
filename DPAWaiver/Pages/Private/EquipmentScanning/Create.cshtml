@@ -2,35 +2,38 @@
 @model DPAWaiver.Pages.Private.EquipmentScanning.CreateModel  
 @{ ViewData["Title"] = "Create Waiver - Equipment - Scanning/Imaging/Microfilm";}
 
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">User Information</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-4 col-xs-4">
-                First Name: Dogan
-            </div>
-            <div class="col-md-3 col-xs-3">
-                Last Name: Cibiceli
-            </div>
-            <div class="col-md-5 col-xs-5">
-                Email Address: dogan.cibiceli@state.co.us
-            </div>
+<h2>Create</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.EquipmentScanningWaiver.OtherFirstName != null && Model.EquipmentScanningWaiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-xs-4">
-                Department: Education
+        <div class="panel-body">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="EquipmentScanningWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="EquipmentScanningWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentScanningWaiver.OtherFirstName)" />
+                    <span asp-validation-for="EquipmentScanningWaiver.OtherFirstName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="col-md-3 col-xs-3">
-                Division: Teacher
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="EquipmentScanningWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="EquipmentScanningWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentScanningWaiver.OtherLastName)" />
+                    <span asp-validation-for="EquipmentScanningWaiver.OtherLastName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="col-md-5 col-xs-5">
-                Phone: 555-330-3303
-            </div>
+
         </div>
     </div>
-</div>
+    }
 
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
@@ -642,6 +645,9 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
     </a>
 </div>
 
+</form>
+
+<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {
