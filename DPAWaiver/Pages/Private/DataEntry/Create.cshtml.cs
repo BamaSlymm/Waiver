@@ -67,7 +67,8 @@ namespace DPAWaiver.Pages.Private.DataEntry
                 w => w.KeyedIntoSystem,
                 w => w.ReasonForNotKeyedIntoSystem,
                 w => w.ReasonDataEntryCenter,
-                w => w.AdditionalComments
+                w => w.AdditionalComments,
+                w => w.Status
                 ))
             {
                 _context.DataEntryWaiver.Add(emptyWaiver);
