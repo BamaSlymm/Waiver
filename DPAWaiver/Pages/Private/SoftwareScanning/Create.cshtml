@@ -2,31 +2,38 @@ xd@page
 @model DPAWaiver.Pages.Private.SoftwareScanning.CreateModel  
 @{ ViewData["Title"] = "Create Waiver - Software - Design";}
 
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">User Information</h3>
-    </div>
-    <div class="panel-body">
+<h2>Create</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label asp-for="DataEntryWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
-                        <input asp-for="DataEntryWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.DataEntryWaiver.OtherFirstName)" />
-                        <span asp-validation-for="DataEntryWaiver.OtherFirstName" class="text-danger"></span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label asp-for="DataEntryWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
-                        <input asp-for="DataEntryWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.DataEntryWaiver.OtherLastName)" />
-                        <span asp-validation-for="DataEntryWaiver.OtherLastName" class="text-danger"></span>
-                    </div>
-                </div>
-
-            </div>
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.SoftwareScanningWaiver.OtherFirstName != null && Model.SoftwareScanningWaiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">User Infromation</h3>
         </div>
+        <div class="panel-body">
 
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="SoftwareScanningWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="SoftwareScanningWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.SoftwareScanningWaiver.OtherFirstName)" />
+                    <span asp-validation-for="SoftwareScanningWaiver.OtherFirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="SoftwareScanningWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="SoftwareScanningWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.SoftwareScanningWaiver.OtherLastName)" />
+                    <span asp-validation-for="SoftwareScanningWaiver.OtherLastName" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    }
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
         <h3 class="panel-title text-center">Waiver Information</h3>
@@ -311,7 +318,7 @@ xd@page
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
 </div>
-
+</form>
 
 <partial name='_Logout' />
 <div style="clear: both"></div>
