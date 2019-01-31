@@ -53,7 +53,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
-        public int? EstimatedNumberofFields {get;set;}
+        public string EstimatedNumberOfFields {get;set;}
 
         [Required]
         [Display(Name = "Specify system requirements:")]
@@ -61,7 +61,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Can the data be keyed into an internal data system and be imported into the department's internal database?")]
-        public bool? KeyedIntoSystem  {get; set;}
+        public bool? keyedIntoSystem  {get; set;}
         
         [Display(Name = "Please explain why")]
         public string ReasonForNotKeyedIntoSystem {get;set;}
@@ -88,10 +88,10 @@ namespace DPAWaiver.Models.Waivers
             this.AdditionalComments = other.AdditionalComments;
             this.CostEstimate = other.CostEstimate ;
             this.EstimatedNumberofDocuments = other.EstimatedNumberofDocuments ;
-            this.EstimatedNumberofFields = other.EstimatedNumberofFields;
+            this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE ;
             this.EstimatedNumberofHours = other.EstimatedNumberofHours ;
-            this.KeyedIntoSystem = other.KeyedIntoSystem ;
+            this.keyedIntoSystem = other.keyedIntoSystem ;
             this.OtherFirstName = other.OtherFirstName ;
             this.OtherLastName = other.OtherLastName ;
             this.projectName = other.projectName ;

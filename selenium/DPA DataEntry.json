@@ -58,7 +58,7 @@
     },
     {
       "Command": "type",
-      "Target": "id=DataEntryWaiver_EstimatedNumberofFields",
+      "Target": "id=DataEntryWaiver_EstimatedNumberOfFields",
       "Value": "2"
     },
     {

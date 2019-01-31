@@ -33,7 +33,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Describe the current workflow process:")]
-        public string workflowDescription { get; set; }
+        public string WorkflowDescription { get; set; }
 
         [Required]
         [Display(Name = "What type of film are you needing converting?")]
@@ -65,7 +65,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
-        public string estimatedNumberOfFields {get; set;}
+        public string EstimatedNumberOfFields {get; set;}
 
         
 
@@ -88,14 +88,14 @@ namespace DPAWaiver.Models.Waivers
         public string keyedIntoSystem {get; set;}
 
         [Display(Name = "Please explain why")]
-        public string reasonForNotKeyedIntoSystem {get; set;}
+        public string ReasonForNotKeyedIntoSystem {get; set;}
 
         [Required]
         [Display(Name = "Can the microfilm function be provided by the State's scanning unit.")]
         public string doneInHouse {get; set;}
 
         [Display(Name = "Please explain why")]
-        public string notInHouseReason {get; set;}
+        public string NotInHouseReason {get; set;}
         
         [Display(Name = "Additional Waiver Comments:")]
         public string AdditionalComments { get; set; }
@@ -113,7 +113,7 @@ public void CopyFromServiceMicrofilmConversionWaiver(ServiceMicrofilmConversionW
             this.projectName = other.projectName;
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
-            this.workflowDescription = other.workflowDescription;
+            this.WorkflowDescription = other.WorkflowDescription;
             this.typeofFilm = other.typeofFilm;
             this.NumberofRolls = other.NumberofRolls;
             this.numberofCards = other.numberofCards;
@@ -121,15 +121,15 @@ public void CopyFromServiceMicrofilmConversionWaiver(ServiceMicrofilmConversionW
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE;
             this.indexingNeeded = other.indexingNeeded;
             this.textSearchablePDF = other.textSearchablePDF;
-            this.estimatedNumberOfFields = other.estimatedNumberOfFields;
+            this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
             this.imageDelivery = other.imageDelivery;
             this.otherImageDelivery = other.otherImageDelivery;
             this.emailOtherImageDelivery = other.emailOtherImageDelivery;
             this.systemRequirements = other.systemRequirements;
             this.keyedIntoSystem = other.keyedIntoSystem;
-            this.reasonForNotKeyedIntoSystem = other.reasonForNotKeyedIntoSystem;
+            this.ReasonForNotKeyedIntoSystem = other.ReasonForNotKeyedIntoSystem;
             this.doneInHouse = other.doneInHouse;
-            this.notInHouseReason = other.notInHouseReason;
+            this.NotInHouseReason = other.NotInHouseReason;
             this.AdditionalComments = other.AdditionalComments;
             
 

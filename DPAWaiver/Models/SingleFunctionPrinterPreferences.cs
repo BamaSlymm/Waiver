@@ -26,11 +26,11 @@ namespace DPAWaiver.Models
         public decimal cyanTonerCost { get; set; } = 0m;
         public int pageYieldForCyanToner { get; set; } = 0;
 
-        public decimal magentaTonerCost { get; set; } = 0m;
+        public decimal MagentaTonerCost { get; set; } = 0m;
         public int pageYieldForMagentaToner { get; set; } = 0;
 
 
-        public decimal yellowTonerCost { get; set; } = 0m;
+        public decimal YellowTonerCost { get; set; } = 0m;
         public int pageYieldForYellowToner { get; set; } = 0;
 
 
@@ -65,9 +65,9 @@ namespace DPAWaiver.Models
             this.colorTonerDisabled = other.colorTonerDisabled ;
             this.cyanTonerCost = other.cyanTonerCost ;
             this.pageYieldForCyanToner = other.pageYieldForCyanToner ;
-            this.magentaTonerCost = other.magentaTonerCost ;
+            this.MagentaTonerCost = other.MagentaTonerCost ;
             this.pageYieldForMagentaToner = other.pageYieldForMagentaToner ;
-            this.yellowTonerCost = other.yellowTonerCost ;
+            this.YellowTonerCost = other.YellowTonerCost ;
             this.pageYieldForYellowToner = other.pageYieldForYellowToner ;
             return;
         }

@@ -103,11 +103,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Magenta Toner Cartridge Cost (if applicable)")]
-        public decimal magentaTonerCost { get; set; }
+        public decimal MagentaTonerCost { get; set; }
 
         [Required]
         [Display(Name = "Yellow Toner Cartridge Cost (if applicable)")]
-        public decimal yellowTonerCost { get; set; }
+        public decimal YellowTonerCost { get; set; }
 
         [Required]
         [Display(Name = "Please describe the alternatives you have examined before making the request")]
@@ -149,8 +149,8 @@ public void CopyFromEquipmentPrintLabelWaiver(EquipmentPrintLabelWaiver other) {
             this.cyanTonerCost = other.cyanTonerCost;
             this.blackTonerCost = other.blackTonerCost;
             this.purchaseAmount = other.purchaseAmount;
-            this.magentaTonerCost = other.magentaTonerCost;
-            this.yellowTonerCost = other.yellowTonerCost;
+            this.MagentaTonerCost = other.MagentaTonerCost;
+            this.YellowTonerCost = other.YellowTonerCost;
             this.alternativesDescription = other.alternativesDescription;
             this.justificationDescription = other.justificationDescription;            
             this.Status = other.Status;

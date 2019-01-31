@@ -75,7 +75,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of Months of Lease")]
-        public decimal numberofMonths {get; set;}
+        public decimal numberOfMonths {get; set;}
         
         [Required]
         [Display(Name = "Monthly Cost of Present Lease?")]
@@ -140,7 +140,7 @@ public void CopyFromEquipmentPrintA3Waiver(EquipmentPrintA3Waiver other) {
             this.acquisitionType = other.acquisitionType;
             this.solicitationSubType = other.solicitationSubType;
             this.statepriceSubType = other.statepriceSubType;
-            this.numberofMonths = other.numberofMonths;
+            this.numberOfMonths = other.numberOfMonths;
             this.monthlyLeaseAmount = other.monthlyLeaseAmount;
             this.servicesReceived = other.servicesReceived;
             this.leaseDuration = other.leaseDuration;

@@ -13,7 +13,7 @@ namespace DPAWaiver.Models.Waivers
        
         [Required]
         [Display(Name = "Describe the current workflow process:")]
-        public string workflowDescription { get; set; }
+        public string WorkflowDescription { get; set; }
 
         [Required]
         [Display(Name = "What type of film are you needing converting?")]
@@ -45,7 +45,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
-        public string estimatedNumberOfFields {get; set;}
+        public string EstimatedNumberOfFields {get; set;}
 
         [Required]
         [Display(Name = "How do you need the receive the images?")]
@@ -66,14 +66,14 @@ namespace DPAWaiver.Models.Waivers
         public string keyedIntoSystem {get; set;}
 
         [Display(Name = "Please explain why")]
-        public string reasonForNotKeyedIntoSystem {get; set;}
+        public string ReasonForNotKeyedIntoSystem {get; set;}
 
         [Required]
         [Display(Name = "Can the microfilm function be provided by the State's scanning unit.")]
         public string doneInHouse {get; set;}
 
         [Display(Name = "Please explain why")]
-        public string notInHouseReason {get; set;}
+        public string NotInHouseReason {get; set;}
         
         [Display(Name = "Additional Waiver Comments:")]
         public string AdditionalComments { get; set; }

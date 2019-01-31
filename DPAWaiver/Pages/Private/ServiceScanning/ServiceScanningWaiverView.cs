@@ -33,13 +33,13 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Describe the current workflow process:")]
-        public string workflowDescription { get; set; }
+        public string WorkflowDescription { get; set; }
         
         
 
         [Required]
         [Display(Name = "What type of film are you needing converting?")]
-        public decimal estimatedNumberofDocuments {get; set;}
+        public decimal EstimatedNumberofDocuments {get; set;}
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
@@ -51,7 +51,7 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
-        public decimal estimatedNumberOfFields {get; set;}
+        public string EstimatedNumberOfFields {get; set;}
         
         [Required]
         [Display(Name = "Do you need a text searchable .pdf?")]
@@ -82,7 +82,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "What other alternative methods have you looked at? Please provide details.")]
-        public string alternativeMethods {get; set;}
+        public string AlternativeMethods {get; set;}
 
         [Display(Name = "Have you looked at scanning on your MultiFunction printer?")]
         public string scanningInternally {get; set;}
@@ -92,7 +92,7 @@ namespace DPAWaiver.Models.Waivers
         public string importConversion {get; set;}
 
         [Display(Name = "Customer believes that this scanning function cannot be performed by the State's scanning unit. Please provide details as to why:")]
-        public string notInHouseReason {get; set;}
+        public string NotInHouseReason {get; set;}
         
         [Display(Name = "Any additional comments:")]
         public string AdditionalComments { get; set; }
@@ -110,11 +110,11 @@ public void CopyFromServiceScanningWaiver(ServiceScanningWaiver other) {
             this.projectName = other.projectName;
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
-            this.workflowDescription = other.workflowDescription;
-            this.estimatedNumberofDocuments = other.estimatedNumberofDocuments;
+            this.WorkflowDescription = other.WorkflowDescription;
+            this.EstimatedNumberofDocuments = other.EstimatedNumberofDocuments;
             this.EstimatedNumberofHours = other.EstimatedNumberofHours;
             this.indexingNeeded = other.indexingNeeded;
-            this.estimatedNumberOfFields = other.estimatedNumberOfFields;
+            this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
             this.textSearchablePDF = other.textSearchablePDF;
             this.imageDPI = other.imageDPI;
             this.colorFormat = other.colorFormat;
@@ -122,10 +122,10 @@ public void CopyFromServiceScanningWaiver(ServiceScanningWaiver other) {
             this.otherImageDelivery = other.otherImageDelivery;
             this.emailOtherImageDelivery = other.emailOtherImageDelivery;
             this.systemRequirements = other.systemRequirements;
-            this.alternativeMethods = other.alternativeMethods;
+            this.AlternativeMethods = other.AlternativeMethods;
             this.scanningInternally = other.scanningInternally;
             this.importConversion = other.importConversion;
-            this.notInHouseReason = other.notInHouseReason;
+            this.NotInHouseReason = other.NotInHouseReason;
             this.AdditionalComments = other.AdditionalComments;
             
 

@@ -92,9 +92,9 @@ namespace DPAWaiver.Pages.Private.DataEntry
                w => w.EstimatedNumberofFTE,
                w => w.EstimatedNumberofHours,
                w => w.EstimatedNumberofDocuments,
-               w => w.EstimatedNumberofFields,
+               w => w.EstimatedNumberOfFields,
                w => w.SystemRequirementsDescription,
-               w => w.KeyedIntoSystem,
+               w => w.keyedIntoSystem,
                w => w.ReasonForNotKeyedIntoSystem,
                w => w.ReasonDataEntryCenter,
                w => w.AdditionalComments

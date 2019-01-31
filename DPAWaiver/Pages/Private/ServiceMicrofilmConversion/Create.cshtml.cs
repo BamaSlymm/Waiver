@@ -56,7 +56,7 @@ namespace DPAWaiver.Pages.Private.ServiceMicrofilmConversion
                w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
-               w => w.workflowDescription,
+               w => w.WorkflowDescription,
                w => w.typeofFilm,
                w => w.NumberofRolls,
                w => w.numberofCards,
@@ -64,15 +64,15 @@ namespace DPAWaiver.Pages.Private.ServiceMicrofilmConversion
                w => w.EstimatedNumberofFTE,
                w => w.indexingNeeded,
                w => w.textSearchablePDF,
-               w => w.estimatedNumberOfFields,
+               w => w.EstimatedNumberOfFields,
                w => w.imageDelivery,
                w => w.otherImageDelivery,
                w => w.emailOtherImageDelivery,
                w => w.systemRequirements,
                w => w.keyedIntoSystem,
-               w => w.reasonForNotKeyedIntoSystem,
+               w => w.ReasonForNotKeyedIntoSystem,
                w => w.doneInHouse,
-               w => w.notInHouseReason,
+               w => w.NotInHouseReason,
                w => w.AdditionalComments
                ))
             {

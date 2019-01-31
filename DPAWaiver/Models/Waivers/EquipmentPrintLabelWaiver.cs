@@ -79,11 +79,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Magenta Toner Cartridge Cost (if applicable)")]
-        public decimal magentaTonerCost { get; set; }
+        public decimal MagentaTonerCost { get; set; }
 
         [Required]
         [Display(Name = "Yellow Toner Cartridge Cost (if applicable)")]
-        public decimal yellowTonerCost { get; set; }
+        public decimal YellowTonerCost { get; set; }
 
         [Required]
         [Display(Name = "Please describe the alternatives you have examined before making the request")]

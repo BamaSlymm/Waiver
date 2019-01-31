@@ -128,11 +128,11 @@ This is a numeric field."></span>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="form-group required">
-                        <label asp-for="DataEntryWaiver.EstimatedNumberofFields" class="control-label fontWeightNormal"></label>
+                        <label asp-for="DataEntryWaiver.EstimatedNumberOfFields" class="control-label fontWeightNormal"></label>
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
 This is a numeric field."></span>
-                        <input asp-for="DataEntryWaiver.EstimatedNumberofFields" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberofFields)" />
-                        <span asp-validation-for="DataEntryWaiver.EstimatedNumberofFields" class="text-danger"></span>
+                        <input asp-for="DataEntryWaiver.EstimatedNumberOfFields" class="form-control" placeholder="@Html.DisplayNameFor(model => model.DataEntryWaiver.EstimatedNumberOfFields)" />
+                        <span asp-validation-for="DataEntryWaiver.EstimatedNumberOfFields" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -146,13 +146,13 @@ This is a numeric field."></span>
 
 
             <div class="form-group required">
-                <label asp-for="DataEntryWaiver.KeyedIntoSystem" class="control-label fontWeightNormal"></label>
-                <select class="form-control control-label" asp-for="DataEntryWaiver.KeyedIntoSystem">
+                <label asp-for="DataEntryWaiver.keyedIntoSystem" class="control-label fontWeightNormal"></label>
+                <select class="form-control control-label" asp-for="DataEntryWaiver.keyedIntoSystem">
                     <option value=''>Please select one</option>
                     <option value='False'>No</option>
                     <option value='True'>Yes</option>
                 </select>
-                <span asp-validation-for="DataEntryWaiver.KeyedIntoSystem" class="text-danger"></span>
+                <span asp-validation-for="DataEntryWaiver.keyedIntoSystem" class="text-danger"></span>
             </div>
 
             <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>

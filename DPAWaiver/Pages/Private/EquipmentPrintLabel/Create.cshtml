@@ -115,11 +115,11 @@
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class="form-group required">
-                        <label for="numberOfEquipment" class="control-label fontWeightNormal">Number of equipment?
+                        <label for="NumberofEquipment" class="control-label fontWeightNormal">Number of equipment?
                             <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="How many pieces of equipment are being requested?
                 This is a numeric field."></span>
                         </label>
-                        <input type="number" class="form-control" id="numberOfEquipment" aria-describedby="numberOfEquipment" placeholder="Number of Equipment, Integer">
+                        <input type="number" class="form-control" id="NumberofEquipment" aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
                     </div>
                 </div>
             </div>
@@ -220,15 +220,15 @@
                 </div>
 
                 <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required' id='magentaTonerCostDiv'>
-                        <label for='magentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='magentaTonerCost' aria-describedby='magentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
+                    <div class='form-group required' id='MagentaTonerCostDiv'>
+                        <label for='MagentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
+                        <input type='number' class='form-control' id='MagentaTonerCost' aria-describedby='MagentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
-                    <div class='form-group required' id='yellowTonerCostDiv'>
-                        <label for='yellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='yellowTonerCost' aria-describedby='yellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
+                    <div class='form-group required' id='YellowTonerCostDiv'>
+                        <label for='YellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
+                        <input type='number' class='form-control' id='YellowTonerCost' aria-describedby='YellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
                     </div>
                 </div>
             </div>
@@ -286,14 +286,14 @@
         $(document).ready(function () {
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#monthlyColorVolumeDiv','#blackTonerCostDiv',
-                            '#cyanTonerCostDiv','#magentaTonerCostDiv','#yellowTonerCostDiv']
+                            '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
                             , {valueList: ['0'],hide:true });
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv']
                             , {valueList: ['1'] });
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv','#monthlyColorVolumeDiv',
-                            '#cyanTonerCostDiv','#magentaTonerCostDiv','#yellowTonerCostDiv']
+                            '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
                             , {valueList: ['2'] });
             showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['3'] });
 
@@ -304,14 +304,14 @@
         $("#printerType").on("change", function () {
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#monthlyColorVolumeDiv','#blackTonerCostDiv',
-                            '#cyanTonerCostDiv','#magentaTonerCostDiv','#yellowTonerCostDiv']
+                            '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
                             , {valueList: ['0'],hide:true });
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv']
                             , {valueList: ['1'] });
             showIfSelected('#printerType', 
                         ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv','#monthlyColorVolumeDiv',
-                        '#cyanTonerCostDiv','#magentaTonerCostDiv','#yellowTonerCostDiv']
+                        '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
                         , {valueList: ['2'] });
         });
 

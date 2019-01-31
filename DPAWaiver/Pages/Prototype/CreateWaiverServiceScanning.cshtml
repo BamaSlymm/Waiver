@@ -83,8 +83,8 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="workflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
-            <textarea class="form-control" id="workflowDescription" rows='2'></textarea>
+            <label for="WorkflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
+            <textarea class="form-control" id="WorkflowDescription" rows='2'></textarea>
         </div>
 
 
@@ -117,11 +117,11 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
-                <div class="form-group required" id="estimatedNumberOfFieldsDiv">
-                    <label for="estimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+                <div class="form-group required" id="EstimatedNumberOfFieldsDiv">
+                    <label for="EstimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
 This is a numeric field."></span>
                     </label>
-                    <input type="number" class="form-control" id="estimatedNumberOfFields" aria-describedby="estimatedNumberOfFields" placeholder="Estimated number of fields per document">
+                    <input type="number" class="form-control" id="EstimatedNumberOfFields" aria-describedby="EstimatedNumberOfFields" placeholder="Estimated number of fields per document">
                 </div>
             </div>
         </div>
@@ -185,8 +185,8 @@ This is a numeric field."></span>
         </div>
 
         <div class="form-group required">
-            <label for="alternativeMethods" class="control-label fontWeightNormal">What other alternative methods have you looked at? Please provide details.</label>
-            <textarea class="form-control" id="alternativeMethods" rows="2"></textarea>
+            <label for="AlternativeMethods" class="control-label fontWeightNormal">What other alternative methods have you looked at? Please provide details.</label>
+            <textarea class="form-control" id="AlternativeMethods" rows="2"></textarea>
         </div>
 
         <div class="form-group required">
@@ -203,8 +203,8 @@ This is a numeric field."></span>
         </div>
 
         <div class="form-group required">
-            <label for="notInHouseReason" class="control-label fontWeightNormal">Customer believes that this scanning function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
-            <textarea class="form-control" id="notInHouseReason" rows="2"></textarea>
+            <label for="NotInHouseReason" class="control-label fontWeightNormal">Customer believes that this scanning function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
+            <textarea class="form-control" id="NotInHouseReason" rows="2"></textarea>
         </div>
 
 
@@ -238,12 +238,12 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
+        showIfSelected('#indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {textList:['Yes']});
         showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {textList:['Other']});
     });
 
     $("#indexingNeeded").on("change", function () {
-        showIfSelected('#indexingNeeded', ['#estimatedNumberOfFieldsDiv'], {textList:['Yes']});
+        showIfSelected('#indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {textList:['Yes']});
     });
 
     $("#imageDelivery").on("change", function () {

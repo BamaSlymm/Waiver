@@ -41,9 +41,9 @@ namespace DPAWaiver.Models
 
             m553dn.cyanTonerCost = 306.99m;
             m553dn.pageYieldForCyanToner = 4750;
-            m553dn.magentaTonerCost = 306.99m;
+            m553dn.MagentaTonerCost = 306.99m;
             m553dn.pageYieldForMagentaToner = 4750;
-            m553dn.yellowTonerCost = 306.99m;
+            m553dn.YellowTonerCost = 306.99m;
             m553dn.pageYieldForYellowToner = 4750;
             m553dn.colorTonerDisabled = false;
 

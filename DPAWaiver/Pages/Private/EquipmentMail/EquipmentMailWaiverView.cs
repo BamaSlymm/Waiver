@@ -42,7 +42,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal numberOfEquipment { get; set; }
+        public decimal NumberofEquipment { get; set; }
 
         [Required]
         [Display(Name = "Is this new addition or replacement?")]
@@ -183,7 +183,7 @@ public void CopyFromEquipmentMailWaiver(EquipmentMailWaiver other) {
             this.CostEstimate = other.CostEstimate ;
             this.justificationDescription = other.justificationDescription;
             this.equipmentDescription = other.equipmentDescription;
-            this.numberOfEquipment = other.numberOfEquipment;
+            this.NumberofEquipment = other.NumberofEquipment;
             this.newOrReplace = other.newOrReplace;
             this.servicesReceived = other.servicesReceived;
             this.monthlyLeaseAmount = other.monthlyLeaseAmount;

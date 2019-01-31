@@ -346,8 +346,8 @@
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='magentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
-                            <input type='number' class='form-control' id='magentaTonerCost' aria-describedby='magentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
+                            <label for='MagentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
+                            <input type='number' class='form-control' id='MagentaTonerCost' aria-describedby='MagentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
@@ -377,8 +377,8 @@
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='yellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
-                            <input type='number' class='form-control' id='yellowTonerCost' aria-describedby='yellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
+                            <label for='YellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
+                            <input type='number' class='form-control' id='YellowTonerCost' aria-describedby='YellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
@@ -545,18 +545,18 @@
                 $('#pageYieldForCyanToner').prop('readonly', data[0].colorTonerDisabled);
                 calculateInkCostPerPage('#cyanTonerCost', '#pageYieldForCyanToner', '#cyanInkCostPerPage');
 
-                $('#magentaTonerCost').val(roundFloat(data[0].magentaTonerCost));
+                $('#MagentaTonerCost').val(roundFloat(data[0].MagentaTonerCost));
                 $('#pageYieldForMagentaToner').val(data[0].pageYieldForMagentaToner);
-                $('#magentaTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#MagentaTonerCost').prop('readonly', data[0].colorTonerDisabled);
                 $('#pageYieldForMagentaToner').prop('readonly', data[0].colorTonerDisabled);
-                calculateInkCostPerPage('#magentaTonerCost', '#pageYieldForMagentaToner', '#magentaInkCostPerPage');
+                calculateInkCostPerPage('#MagentaTonerCost', '#pageYieldForMagentaToner', '#magentaInkCostPerPage');
 
-                $('#yellowTonerCost').val(roundFloat(data[0].yellowTonerCost));
+                $('#YellowTonerCost').val(roundFloat(data[0].YellowTonerCost));
                 $('#pageYieldForYellowToner').val(data[0].pageYieldForYellowToner);
-                $('#yellowTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#YellowTonerCost').prop('readonly', data[0].colorTonerDisabled);
                 $('#pageYieldForYellowToner').prop('readonly', data[0].colorTonerDisabled);
 
-                calculateInkCostPerPage('#yellowTonerCost', '#pageYieldForYellowToner', '#yellowInkCostPerPage');
+                calculateInkCostPerPage('#YellowTonerCost', '#pageYieldForYellowToner', '#yellowInkCostPerPage');
             },
             function () {
                 console.log('errored');
@@ -571,12 +571,12 @@
         calculateInkCostPerPage('#cyanTonerCost', '#pageYieldForCyanToner', '#cyanInkCostPerPage');
     });
 
-    $("#magentaTonerCost, #pageYieldForMagentaToner").on("change paste keyup", function () {
-        calculateInkCostPerPage('#magentaTonerCost', '#pageYieldForMagentaToner', '#magentaInkCostPerPage');
+    $("#MagentaTonerCost, #pageYieldForMagentaToner").on("change paste keyup", function () {
+        calculateInkCostPerPage('#MagentaTonerCost', '#pageYieldForMagentaToner', '#magentaInkCostPerPage');
     });
 
-    $("#yellowTonerCost, #pageYieldForYellowToner").on("change paste keyup", function () {
-        calculateInkCostPerPage('#yellowTonerCost', '#pageYieldForYellowToner', '#yellowInkCostPerPage');
+    $("#YellowTonerCost, #pageYieldForYellowToner").on("change paste keyup", function () {
+        calculateInkCostPerPage('#YellowTonerCost', '#pageYieldForYellowToner', '#yellowInkCostPerPage');
     });
 
     $("#printerType").on("change", function () {

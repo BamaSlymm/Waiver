@@ -46,7 +46,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of Months of Lease")]
-        public decimal numberofMonths {get; set;}
+        public decimal numberOfMonths {get; set;}
         
         [Required]
         [Display(Name = "Monthly Cost of Present Lease?")]
@@ -58,7 +58,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal numberOfEquipment { get; set; }
+        public decimal NumberofEquipment { get; set; }
         
         [Required]
         [Display(Name = "Purchase Amount:")]

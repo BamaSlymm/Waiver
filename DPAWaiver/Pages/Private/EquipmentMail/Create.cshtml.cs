@@ -58,7 +58,7 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                w => w.CostEstimate,
                w => w.justificationDescription,
                w => w.equipmentDescription,
-               w => w.numberOfEquipment,
+               w => w.NumberofEquipment,
                w => w.newOrReplace,
                w => w.servicesReceived,
                w => w.monthlyLeaseAmount,

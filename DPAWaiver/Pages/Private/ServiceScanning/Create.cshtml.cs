@@ -56,11 +56,11 @@ namespace DPAWaiver.Pages.Private.ServiceScanning
                w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
-               w => w.workflowDescription,
-               w => w.estimatedNumberofDocuments,
+               w => w.WorkflowDescription,
+               w => w.EstimatedNumberofDocuments,
                w => w.EstimatedNumberofHours,
                w => w.indexingNeeded,
-               w => w.estimatedNumberOfFields,
+               w => w.EstimatedNumberOfFields,
                w => w.textSearchablePDF,
                w => w.imageDPI,
                w => w.colorFormat,
@@ -68,10 +68,10 @@ namespace DPAWaiver.Pages.Private.ServiceScanning
                w => w.otherImageDelivery,
                w => w.emailOtherImageDelivery,
                w => w.systemRequirements,
-               w => w.alternativeMethods,
+               w => w.AlternativeMethods,
                w => w.scanningInternally,
                w => w.importConversion,
-               w => w.notInHouseReason,
+               w => w.NotInHouseReason,
                w => w.AdditionalComments
                ))
             {

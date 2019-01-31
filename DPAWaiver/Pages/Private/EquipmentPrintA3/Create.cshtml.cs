@@ -64,7 +64,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintA3
                w => w.acquisitionType,
                w => w.solicitationSubType,
                w => w.statepriceSubType,
-               w => w.numberofMonths,
+               w => w.numberOfMonths,
                w => w.monthlyLeaseAmount,
                w => w.servicesReceived,
                w => w.leaseDuration,

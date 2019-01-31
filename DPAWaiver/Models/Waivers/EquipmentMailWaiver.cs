@@ -22,7 +22,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal numberOfEquipment { get; set; }
+        public decimal NumberofEquipment { get; set; }
 
         [Required]
         [Display(Name = "Is this new addition or replacement?")]
