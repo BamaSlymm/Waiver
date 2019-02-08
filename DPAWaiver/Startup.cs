@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models;
@@ -107,13 +108,16 @@ namespace DPAWaiver
                 }
             }
 
-            services.AddDbContext<DPAWaiverIdentityDbContext>(
-                options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
-                 mysqlOptions =>
+            services.AddEntityFrameworkNpgsql()
+               .AddDbContext<DPAWaiverIdentityDbContext>(
+                options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
+                 dbOptions =>
                  {
-                     mysqlOptions.MaxBatchSize(AppConfig.EfBatchSize);
+                     dbOptions.MaxBatchSize(AppConfig.EfBatchSize);
+                     dbOptions.CommandTimeout(30);
+                     dbOptions.ProvideClientCertificatesCallback(certs=>certs.Add(new X509Certificate2(Configuration["CloudSQL:CertificateFile"])));
                      if (AppConfig.EfRetryOnFailure > 0)
-                         mysqlOptions.EnableRetryOnFailure(AppConfig.EfRetryOnFailure, TimeSpan.FromSeconds(5), null);
+                         dbOptions.EnableRetryOnFailure(AppConfig.EfRetryOnFailure, TimeSpan.FromSeconds(5), null);
                  }));
 
             services.AddIdentity<DPAUser, DPARole>()

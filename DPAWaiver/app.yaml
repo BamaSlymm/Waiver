@@ -9,4 +9,11 @@ resources:
   disk_size_gb: 10
 
 env_variables:
-  CONNECTIONSTRINGS__DEFAULTCONNECTION: "server=35.192.233.78;database=waiver-test;user=test;password=test123456;CertificateFile=client.pfx;SSL Mode=Required"
+  CONNECTIONSTRINGS__DEFAULTCONNECTION: "Host=35.232.144.228;Database=test;Username=test;Password=test123456;SslMode=Require;TrustServerCertificate=true;UseSslStream=true"
+  Email__SendGridKey: "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"
+  GoogleCloudStorage__BucketName: "test-dpa"
+  GoogleCloudStorage__APICredentialLocation: "./test-cloud-storage.json"
+  GoogleCloudStorage__ProjectId: "dpa-waiver"
+  CloudSQL__CertificateFile: "./client.pfx"
+  
+  

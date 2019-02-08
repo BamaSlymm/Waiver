@@ -9,7 +9,7 @@
            "type": "coreclr",
            "request": "launch",
            "preLaunchTask": "build",
-           "program": "${workspaceFolder}/DPAWaiver/bin/Debug/netcoreapp2.1/DPAWaiver.dll",
+           "program": "${workspaceFolder}/DPAWaiver/bin/Debug/netcoreapp2.2/DPAWaiver.dll",
            "args": [],
            "cwd": "${workspaceFolder}/DPAWaiver",
            "stopAtEntry": false,
