@@ -115,7 +115,7 @@ namespace DPAWaiver
                  {
                      dbOptions.MaxBatchSize(AppConfig.EfBatchSize);
                      dbOptions.CommandTimeout(30);
-                    //  dbOptions.ProvideClientCertificatesCallback(certs=>certs.Add(new X509Certificate2(Configuration["CloudSQL:CertificateFile"])));
+                     dbOptions.ProvideClientCertificatesCallback(certs=>certs.Add(new X509Certificate2(Configuration["CloudSQL:CertificateFile"])));
                      if (AppConfig.EfRetryOnFailure > 0)
                          dbOptions.EnableRetryOnFailure(AppConfig.EfRetryOnFailure, TimeSpan.FromSeconds(5), null);
                  }));
