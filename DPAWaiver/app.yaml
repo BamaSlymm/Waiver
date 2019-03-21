@@ -2,7 +2,7 @@ runtime: aspnetcore
 env: flex
 
 manual_scaling:
-  instances: 2
+  instances: 1
 resources:
   cpu: 1
   memory_gb: 1.0
