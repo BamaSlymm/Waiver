@@ -9,12 +9,21 @@ using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
 using Microsoft.AspNetCore.Identity;
 using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private
 {
     public class WaiverListModel : BaseWaiverPageModel
     {
         public IList<BaseWaiver> BaseWaiver { get; set; }
+        public string selectedPurpose  {get; set; }
+        public string selectedType {get; set; }
+        public string selectedSubtype {get; set; }
+        
+        selectedPurpose = BaseWaiver.Purpose;
+        selectedType = BaseWaiver.PurposeType;
+        selectedSubtype = BaseWaiver.SubType;
+        
 
         public WaiverListModel(DPAWaiverIdentityDbContext context,
                               ILOVService iLOVService,
@@ -27,60 +36,82 @@ namespace DPAWaiver.Pages.Private
             UserWithDepartment = await GetUserWithDepartmentAsync();
             BaseWaiver = await _context.BaseWaivers.
                 Include(x => x.Purpose).Include(x => x.PurposeType).
-                Where(x => x.EditdBy == UserWithDepartment).ToListAsync();
+                Where(x => x.EditedBy == UserWithDepartment).ToListAsync();
             return Page();
         }
 
-         public IActionResult OnPost([FromQuery(Name = "otherFirstName")] string otherFirstName,[FromQuery(Name = "otherLastName")] string otherLastName)
+        public async Task<IActionResult> OnGetEditAsync(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var BaseEntryWaiver = await _context.BaseWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            switch (BaseEntryWaiver.Purpose.ID)
+            {
+                case Purposes.Service:
+                    switch (BaseEntryWaiver.PurposeType.ID)
+                    {
+                        case ServiceTypes.DataEntry: return RedirectToPage("./DataEntry/Edit");
+                    }
+                    break;
+                    default: return RedirectToPage(pageName: "./WaiverList");
+
+            }
+            return RedirectToPage(pageName: "./WaiverList");
+        }
+         public IActionResult EditButton()
         {
             
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            String selectedPurpose = BaseWaiver.Purpose;
-            String selectedType = BaseWaiver.PurposeType;
-            String selectedSubtype = BaseWaiver.SubType
+            
             switch (selectedPurpose)
             {
                 case "Service":
                     switch (selectedType)
                     {
-                        case 1: return RedirectToPage("./DataEntry/Edit", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
-                        case "Design Services": return RedirectToPage("./ServiceDesign/Edit", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
-                        case 3: return RedirectToPage("./ServiceMail/Edit");
-                        case 4: return RedirectToPage("./ServicePrint/Edit");
-                        case 5:
+                        case "Data Entry": return RedirectToPage("./DataEntry/Edit");
+                        case "Design Services": return RedirectToPage("./ServiceDesign/Edit");
+                        case "Mail": return RedirectToPage("./ServiceMail/Edit");
+                        case "Print": return RedirectToPage("./ServicePrint/Edit");
+                        case "Microfilm":
                             switch (selectedSubtype)
                             {
-                                case 7: return RedirectToPage("./ServiceMicrofilm/Edit");
-                                case 8: return RedirectToPage("./ServiceMicrofilmConversion/Edit");
+                                case "Microfilm": return RedirectToPage("./ServiceMicrofilm/Edit");
+                                case "Conversion": return RedirectToPage("./ServiceMicrofilmConversion/Edit");
                             }
                             break;
-                        case 6: return RedirectToPage("./ServiceScanning/Edit");
+                        case "Scanning": return RedirectToPage("./ServiceScanning/Edit");
                     }
                     break;
                 case "Personnel":
                     switch (selectedType) /* see LOVPopulator.getPersonnelServiceTypes */
                     {
-                        case 7: return RedirectToPage("./PersonnelRequest/Edit");
-                        case 8: return RedirectToPage("./PersonnelContractor/Edit");
+                        case "Request": return RedirectToPage("./PersonnelRequest/Edit");
+                        case "Contractor": return RedirectToPage("./PersonnelContractor/Edit");
                     }
                     break;
                 case "Equipment":
                     switch (selectedType)
                     {
-                        case 9: return RedirectToPage("./EquipmentMail/Edit");
-                        case 10: return RedirectToPage("./EquipmentScanning/Edit");
-                        case 11:
+                        case "Mail": return RedirectToPage("./EquipmentMail/Edit");
+                        case "Scanning": return RedirectToPage("./EquipmentScanning/Edit");
+                        case "Print":
                             switch (selectedSubtype)
                             {
-                                case 1: return RedirectToPage("./EquipmentPrint/Edit");
-                                case 2: return RedirectToPage("./EquipmentPrintA4/Edit");
-                                case 3: return RedirectToPage("./EquipmentPrintA3/Edit");
-                                case 4: return RedirectToPage("./EquipmentPrintPress/Edit");
-                                case 5: return RedirectToPage("./EquipmentPrintLargeFormat/Edit");
-                                case 6: return RedirectToPage("./EquipmentPrintLabel/Edit");
+                                case "Print": return RedirectToPage("./EquipmentPrint/Edit");
+                                case "A4": return RedirectToPage("./EquipmentPrintA4/Edit");
+                                case "A3": return RedirectToPage("./EquipmentPrintA3/Edit");
+                                case "Press": return RedirectToPage("./EquipmentPrintPress/Edit");
+                                case "Large Format": return RedirectToPage("./EquipmentPrintLargeFormat/Edit");
+                                case "Label": return RedirectToPage("./EquipmentPrintLabel/Edit");
                             }
                             break;
                     }
@@ -88,16 +119,16 @@ namespace DPAWaiver.Pages.Private
                 case "Software":
                     switch (selectedType)
                     {
-                        case 12: return RedirectToPage("./SoftwareDataEntry/Edit");
-                        case 13: return RedirectToPage("./SoftwareDesign/Edit");
-                        case 14: return RedirectToPage("./SoftwareMailProcessing/Edit");
-                        case 15: return RedirectToPage("./SoftwarePrint/Edit");
-                        case 16: return RedirectToPage("./SoftwareScanning/Edit");
+                        case "Data Entry": return RedirectToPage("./SoftwareDataEntry/Edit");
+                        case "Design": return RedirectToPage("./SoftwareDesign/Edit");
+                        case "Processing": return RedirectToPage("./SoftwareMailProcessing/Edit");
+                        case "Print": return RedirectToPage("./SoftwarePrint/Edit");
+                        case "Scanning": return RedirectToPage("./SoftwareScanning/Edit");
                     }
                     break;
 
             }
-            return RedirectToPage(pageName: "./CreateWaiverStep1");
+            return RedirectToPage(pageName: "./WaiverList");
         }
     }
 }

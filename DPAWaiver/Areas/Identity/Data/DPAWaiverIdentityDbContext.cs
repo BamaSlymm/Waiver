@@ -70,6 +70,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DesignType> DesignType { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<BaseWaiver> BaseWaivers { get; set; }
+         public DbSet<DPAWaiver.Models.Waivers.BaseWaiver> BaseWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.DataEntryWaiver> DataEntryWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAction> BaseWaiverActions { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAttachment> BaseWaiverAttachments { get; set; }
