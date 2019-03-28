@@ -243,19 +243,19 @@ namespace DPAWaiver.Pages.Private
             {
                 return RedirectToPage(PageList.ServicePrintEdit, new {id =id});
             }
-             if (baseWaiver is ServiceMicrofilmWaiver)
+            if (baseWaiver is ServiceMicrofilmWaiver)
             {
                 return RedirectToPage(PageList.ServiceMicrofilmEdit, new {id =id});
             }
-             if (baseWaiver is ServiceMicrofilmConversionWaiver)
+            if (baseWaiver is ServiceMicrofilmConversionWaiver)
             {
                 return RedirectToPage(PageList.ServiceMicrofilmConversionEdit, new {id =id});
             }
-             if (baseWaiver is ServiceScanningWaiver)
+            if (baseWaiver is ServiceScanningWaiver)
             {
                 return RedirectToPage(PageList.ServiceScanningEdit, new {id =id});
             }
-             if (baseWaiver is PersonnelRequestWaiver)
+            if (baseWaiver is PersonnelRequestWaiver)
             {
                 return RedirectToPage(PageList.PersonnelEdit, new {id =id});
             }
@@ -303,11 +303,11 @@ namespace DPAWaiver.Pages.Private
             {
                 return RedirectToPage(PageList.SoftwareDesignEdit, new {id =id});
             }
-             if (baseWaiver is SoftwareMailProcessingWaiver)
+            if (baseWaiver is SoftwareMailProcessingWaiver)
             {
                 return RedirectToPage(PageList.SoftwareMailEdit, new {id =id});
             }
-             if (baseWaiver is SoftwarePrintWaiver)
+            if (baseWaiver is SoftwarePrintWaiver)
             {
                 return RedirectToPage(PageList.SoftwarePrintEdit, new {id =id});
             }
