@@ -61,10 +61,28 @@ namespace DPAWaiver.Models.WaiverSelection
 
     }
 
+    public static class SoftwareTypes
+    {
+        public const int DataEntry = 12;
+        public const int Design = 13;
+        public const int Mail = 14;
+        public const int PrintCopy = 15;
+        public const int Scanning = 16;
+
+    }
+
     public static class PersonnelServiceTypes
     {
         public const int StateEmployee = 7;
         public const int ThirdPartyContractor = 8;
+
+    }
+
+    public static class EquipmentTypes
+    {
+        public const int Mail = 9;
+        public const int Scanning = 10;
+        public const int Print = 11;
 
     }
 }

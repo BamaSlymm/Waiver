@@ -43,6 +43,90 @@ namespace DPAWaiver.Pages.Private.Review
             {
                 return RedirectToPage(PageList.ServiceDataEntryDetails, new { id = id });
             }
+            if (baseWaiver is ServiceDesignWaiver)
+            {
+                return RedirectToPage(PageList.ServiceDesignDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceMailWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMailDetails, new {id =id});
+            }
+             if (baseWaiver is ServicePrintWaiver)
+            {
+                return RedirectToPage(PageList.ServicePrintDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmConversionWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmConversionDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceScanningWaiver)
+            {
+                return RedirectToPage(PageList.ServiceScanningDetails, new {id =id});
+            }
+             if (baseWaiver is PersonnelRequestWaiver)
+            {
+                return RedirectToPage(PageList.PersonnelDetails, new {id =id});
+            }
+            if (baseWaiver is PersonnelContractorWaiver)
+            {
+                return RedirectToPage(PageList.ContractorDetails, new {id =id});
+            }
+             if (baseWaiver is EquipmentMailWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentMailDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentScanningWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentScanningDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPrintDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA4Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA4Details, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA3Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA3Details, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintPressWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPressDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLargeFormatWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLabelWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeDetails, new {id =id});
+            }
+            if (baseWaiver is SoftwareDataEntryWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDataEntryDetails, new { id = id });
+            }
+            if (baseWaiver is SoftwareDesignWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDesignDetails, new {id =id});
+            }
+             if (baseWaiver is SoftwareMailProcessingWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareMailDetails, new {id =id});
+            }
+             if (baseWaiver is SoftwarePrintWaiver)
+            {
+                return RedirectToPage(PageList.SoftwarePrintDetails, new {id =id});
+            }
+             if (baseWaiver is SoftwareScanningWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareScanningDetails, new {id =id});
+            }
             return Page();
         }
 

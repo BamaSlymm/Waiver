@@ -16,14 +16,7 @@ namespace DPAWaiver.Pages.Private
     public class WaiverListModel : BaseWaiverPageModel
     {
         public IList<BaseWaiver> BaseWaiver { get; set; }
-        public string selectedPurpose  {get; set; }
-        public string selectedType {get; set; }
-        public string selectedSubtype {get; set; }
-        
-        selectedPurpose = BaseWaiver.Purpose;
-        selectedType = BaseWaiver.PurposeType;
-        selectedSubtype = BaseWaiver.SubType;
-        
+                
 
         public WaiverListModel(DPAWaiverIdentityDbContext context,
                               ILOVService iLOVService,
@@ -36,99 +29,294 @@ namespace DPAWaiver.Pages.Private
             UserWithDepartment = await GetUserWithDepartmentAsync();
             BaseWaiver = await _context.BaseWaivers.
                 Include(x => x.Purpose).Include(x => x.PurposeType).
-                Where(x => x.EditedBy == UserWithDepartment).ToListAsync();
+                Where(x => x.CreatedBy == UserWithDepartment).ToListAsync();
             return Page();
         }
-
-        public async Task<IActionResult> OnGetEditAsync(Guid? id)
+        public async Task<IActionResult> OnGetDetailsAsync(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            
             UserWithDepartment = await GetUserWithDepartmentAsync();
-            var BaseEntryWaiver = await _context.BaseWaiver.
-            FirstOrDefaultAsync(m => m.ID == id);
-            switch (BaseEntryWaiver.Purpose.ID)
+            var baseWaiver = await _context.BaseWaivers.
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver is DataEntryWaiver)
             {
-                case Purposes.Service:
-                    switch (BaseEntryWaiver.PurposeType.ID)
-                    {
-                        case ServiceTypes.DataEntry: return RedirectToPage("./DataEntry/Edit");
-                    }
-                    break;
-                    default: return RedirectToPage(pageName: "./WaiverList");
-
+                return RedirectToPage(PageList.ServiceDataEntryDetails, new { id = id });
+            }
+            if (baseWaiver is ServiceDesignWaiver)
+            {
+                return RedirectToPage(PageList.ServiceDesignDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceMailWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMailDetails, new {id =id});
+            }
+             if (baseWaiver is ServicePrintWaiver)
+            {
+                return RedirectToPage(PageList.ServicePrintDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmConversionWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmConversionDetails, new {id =id});
+            }
+             if (baseWaiver is ServiceScanningWaiver)
+            {
+                return RedirectToPage(PageList.ServiceScanningDetails, new {id =id});
+            }
+             if (baseWaiver is PersonnelRequestWaiver)
+            {
+                return RedirectToPage(PageList.PersonnelDetails, new {id =id});
+            }
+            if (baseWaiver is PersonnelContractorWaiver)
+            {
+                return RedirectToPage(PageList.ContractorDetails, new {id =id});
+            }
+             if (baseWaiver is EquipmentMailWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentMailDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentScanningWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentScanningDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPrintDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA4Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA4Details, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA3Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA3Details, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintPressWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPressDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLargeFormatWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeDetails, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLabelWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeDetails, new {id =id});
+            }
+            if (baseWaiver is SoftwareDataEntryWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDataEntryDetails, new { id = id });
+            }
+            if (baseWaiver is SoftwareDesignWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDesignDetails, new {id =id});
+            }
+             if (baseWaiver is SoftwareMailProcessingWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareMailDetails, new {id =id});
+            }
+             if (baseWaiver is SoftwarePrintWaiver)
+            {
+                return RedirectToPage(PageList.SoftwarePrintDetails, new {id =id});
+            }
+             if (baseWaiver is SoftwareScanningWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareScanningDetails, new {id =id});
             }
             return RedirectToPage(pageName: "./WaiverList");
         }
-         public IActionResult EditButton()
+         public async Task<IActionResult> OnGetDeleteAsync(Guid? id)
         {
-            
-            if (!ModelState.IsValid)
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var baseWaiver = await _context.BaseWaivers.
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver is DataEntryWaiver)
             {
-                return Page();
+                return RedirectToPage(PageList.ServiceDataEntryDelete, new { id = id });
             }
-            
-            switch (selectedPurpose)
+            if (baseWaiver is ServiceDesignWaiver)
             {
-                case "Service":
-                    switch (selectedType)
-                    {
-                        case "Data Entry": return RedirectToPage("./DataEntry/Edit");
-                        case "Design Services": return RedirectToPage("./ServiceDesign/Edit");
-                        case "Mail": return RedirectToPage("./ServiceMail/Edit");
-                        case "Print": return RedirectToPage("./ServicePrint/Edit");
-                        case "Microfilm":
-                            switch (selectedSubtype)
-                            {
-                                case "Microfilm": return RedirectToPage("./ServiceMicrofilm/Edit");
-                                case "Conversion": return RedirectToPage("./ServiceMicrofilmConversion/Edit");
-                            }
-                            break;
-                        case "Scanning": return RedirectToPage("./ServiceScanning/Edit");
-                    }
-                    break;
-                case "Personnel":
-                    switch (selectedType) /* see LOVPopulator.getPersonnelServiceTypes */
-                    {
-                        case "Request": return RedirectToPage("./PersonnelRequest/Edit");
-                        case "Contractor": return RedirectToPage("./PersonnelContractor/Edit");
-                    }
-                    break;
-                case "Equipment":
-                    switch (selectedType)
-                    {
-                        case "Mail": return RedirectToPage("./EquipmentMail/Edit");
-                        case "Scanning": return RedirectToPage("./EquipmentScanning/Edit");
-                        case "Print":
-                            switch (selectedSubtype)
-                            {
-                                case "Print": return RedirectToPage("./EquipmentPrint/Edit");
-                                case "A4": return RedirectToPage("./EquipmentPrintA4/Edit");
-                                case "A3": return RedirectToPage("./EquipmentPrintA3/Edit");
-                                case "Press": return RedirectToPage("./EquipmentPrintPress/Edit");
-                                case "Large Format": return RedirectToPage("./EquipmentPrintLargeFormat/Edit");
-                                case "Label": return RedirectToPage("./EquipmentPrintLabel/Edit");
-                            }
-                            break;
-                    }
-                    break;
-                case "Software":
-                    switch (selectedType)
-                    {
-                        case "Data Entry": return RedirectToPage("./SoftwareDataEntry/Edit");
-                        case "Design": return RedirectToPage("./SoftwareDesign/Edit");
-                        case "Processing": return RedirectToPage("./SoftwareMailProcessing/Edit");
-                        case "Print": return RedirectToPage("./SoftwarePrint/Edit");
-                        case "Scanning": return RedirectToPage("./SoftwareScanning/Edit");
-                    }
-                    break;
-
+                return RedirectToPage(PageList.ServiceDesignDelete, new {id =id});
+            }
+             if (baseWaiver is ServiceMailWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMailDelete, new {id =id});
+            }
+             if (baseWaiver is ServicePrintWaiver)
+            {
+                return RedirectToPage(PageList.ServicePrintDelete, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmDelete, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmConversionWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmConversionDelete, new {id =id});
+            }
+             if (baseWaiver is ServiceScanningWaiver)
+            {
+                return RedirectToPage(PageList.ServiceScanningDelete, new {id =id});
+            }
+             if (baseWaiver is PersonnelRequestWaiver)
+            {
+                return RedirectToPage(PageList.PersonnelDelete, new {id =id});
+            }
+            if (baseWaiver is PersonnelContractorWaiver)
+            {
+                return RedirectToPage(PageList.ContractorDelete, new {id =id});
+            }
+             if (baseWaiver is EquipmentMailWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentMailDelete, new {id =id});
+            }
+            if (baseWaiver is EquipmentScanningWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentScanningDelete, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPrintDelete, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA4Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA4Delete, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA3Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA3Delete, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintPressWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPressDelete, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLargeFormatWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeDelete, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLabelWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeDelete, new {id =id});
+            }
+            if (baseWaiver is SoftwareDataEntryWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDataEntryDelete, new { id = id });
+            }
+            if (baseWaiver is SoftwareDesignWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDesignDelete, new {id =id});
+            }
+             if (baseWaiver is SoftwareMailProcessingWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareMailDelete, new {id =id});
+            }
+             if (baseWaiver is SoftwarePrintWaiver)
+            {
+                return RedirectToPage(PageList.SoftwarePrintDelete, new {id =id});
+            }
+             if (baseWaiver is SoftwareScanningWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareScanningDelete, new {id =id});
             }
             return RedirectToPage(pageName: "./WaiverList");
         }
+         public async Task<IActionResult> OnGetEditAsync(Guid? id)
+        {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var baseWaiver = await _context.BaseWaivers.
+                FirstAsync(x => x.ID == id);
+            if (baseWaiver is DataEntryWaiver)
+            {
+                return RedirectToPage(PageList.ServiceDataEntryEdit, new { id = id });
+            }
+            if (baseWaiver is ServiceDesignWaiver)
+            {
+                return RedirectToPage(PageList.ServiceDesignEdit, new {id =id});
+            }
+             if (baseWaiver is ServiceMailWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMailEdit, new {id =id});
+            }
+             if (baseWaiver is ServicePrintWaiver)
+            {
+                return RedirectToPage(PageList.ServicePrintEdit, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmEdit, new {id =id});
+            }
+             if (baseWaiver is ServiceMicrofilmConversionWaiver)
+            {
+                return RedirectToPage(PageList.ServiceMicrofilmConversionEdit, new {id =id});
+            }
+             if (baseWaiver is ServiceScanningWaiver)
+            {
+                return RedirectToPage(PageList.ServiceScanningEdit, new {id =id});
+            }
+             if (baseWaiver is PersonnelRequestWaiver)
+            {
+                return RedirectToPage(PageList.PersonnelEdit, new {id =id});
+            }
+            if (baseWaiver is PersonnelContractorWaiver)
+            {
+                return RedirectToPage(PageList.ContractorEdit, new {id =id});
+            }
+             if (baseWaiver is EquipmentMailWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentMailEdit, new {id =id});
+            }
+            if (baseWaiver is EquipmentScanningWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentScanningEdit, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPrintEdit, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA4Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA4Edit, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintA3Waiver)
+            {
+                return RedirectToPage(PageList.EquipmentA3Edit, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintPressWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentPressEdit, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLargeFormatWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeEdit, new {id =id});
+            }
+            if (baseWaiver is EquipmentPrintLabelWaiver)
+            {
+                return RedirectToPage(PageList.EquipmentLargeEdit, new {id =id});
+            }
+            if (baseWaiver is SoftwareDataEntryWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDataEntryEdit, new { id = id });
+            }
+            if (baseWaiver is SoftwareDesignWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareDesignEdit, new {id =id});
+            }
+             if (baseWaiver is SoftwareMailProcessingWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareMailEdit, new {id =id});
+            }
+             if (baseWaiver is SoftwarePrintWaiver)
+            {
+                return RedirectToPage(PageList.SoftwarePrintEdit, new {id =id});
+            }
+            if (baseWaiver is SoftwareScanningWaiver)
+            {
+                return RedirectToPage(PageList.SoftwareScanningEdit, new {id =id});
+            }
+            return RedirectToPage(pageName: "./WaiverList");
+        }
+       
     }
 }

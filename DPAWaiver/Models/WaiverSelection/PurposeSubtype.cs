@@ -37,5 +37,25 @@ namespace DPAWaiver.Models.WaiverSelection
             this.isDeletable = other.isDeletable;
             this.isDisabled = other.isDisabled;
         }
+        
+        public static class PrintSubType
+        {
+            public const int SingleA4 = 1;
+            public const int MultiA4 = 2;
+            public const int A3 = 3;
+            public const int Press = 4;
+            public const int Label = 5;
+            public const int Large = 6;
+
+        }
+
+        public static class MicrofilmSubType
+        {
+            public const int Microfilm = 7;
+            public const int Conversion = 8;
+
+        }
+
+
     }
 }
