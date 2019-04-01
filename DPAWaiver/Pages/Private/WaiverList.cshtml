@@ -83,11 +83,11 @@
             </td>
             <td>
                 @if (item.Editable) {
-                    <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="OnGetEditAsync" asp-route-id="@item.ID">Edit</a> 
+                    <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="Edit" asp-route-id="@item.ID">Edit</a> 
                 }
-                <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="OnGetDetailsAsync" asp-route-id="@item.ID">Details</a>
+                <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="Details" asp-route-id="@item.ID">Details</a>
                 @if (item.Editable) {
-                    <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="OnGetDeleteAsync" asp-route-id="@item.ID">Delete</a>
+                    <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="Delete" asp-route-id="@item.ID">Delete</a>
                 }
             </td>
         </tr>
@@ -96,8 +96,6 @@
 </table>
 
 <div class="row add-gutter marginTop20px pull-right">
-    <a type="submit" class="btn btn-default btn-space-2x">Logout&nbsp;
-        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-    </a>
+     <partial name='_Logout' />
     <a asp-page="/Private/CreateWaiverStep1"  type="submit" class="btn btn-primary btn-space" >Create New Waiver</a>
 </div>
