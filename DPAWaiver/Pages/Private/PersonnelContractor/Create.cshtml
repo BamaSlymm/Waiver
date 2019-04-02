@@ -205,4 +205,16 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         showIfSelected('#spaType', ['#spaNumberDiv'], {textList: ['Other'], hide:true});
     });
 </script>
+
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
 }

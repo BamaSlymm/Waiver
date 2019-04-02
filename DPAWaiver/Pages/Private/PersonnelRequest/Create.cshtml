@@ -170,6 +170,15 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
 <div style="clear: both"></div>
 
 @section Scripts {
-<script type="text/javascript">
-</script>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
 }

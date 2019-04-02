@@ -680,4 +680,16 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
     <environment exclude="Development">
         <script type="text/javascript" src="~/js/equipment.scanning.min.js"></script>
     </environment>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
 }

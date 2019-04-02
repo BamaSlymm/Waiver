@@ -316,4 +316,15 @@
         showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
     });
 </script>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
 }

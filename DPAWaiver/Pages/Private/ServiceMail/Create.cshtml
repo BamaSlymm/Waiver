@@ -168,4 +168,15 @@ This is a numeric field."></span></label>
         showIfSelected('#typeOfStock', ['#otherDescriptionId'], {valueList: ['0']});
     });
 </script>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+
+        $("#typeOfDesign").on("change", function () {
+            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
+        });
+    </script>
 }
