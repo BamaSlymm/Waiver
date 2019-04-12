@@ -93,39 +93,39 @@ namespace DPAWaiver.Pages.Private
                     {
                         case 1: return RedirectToPage("./DataEntry/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                         case 2: return RedirectToPage("./ServiceDesign/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
-                        case 3: return RedirectToPage("./ServiceMail/Create");
-                        case 4: return RedirectToPage("./ServicePrint/Create");
+                        case 3: return RedirectToPage("./ServiceMail/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 4: return RedirectToPage("./ServicePrint/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                         case 5:
                             switch (selectedSubtype)
                             {
-                                case 7: return RedirectToPage("./ServiceMicrofilm/Create");
-                                case 8: return RedirectToPage("./ServiceMicrofilmConversion/Create");
+                                case 7: return RedirectToPage("./ServiceMicrofilm/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                                case 8: return RedirectToPage("./ServiceMicrofilmConversion/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                             }
                             break;
-                        case 6: return RedirectToPage("./ServiceScanning/Create");
+                        case 6: return RedirectToPage("./ServiceScanning/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                     }
                     break;
                 case 2:
                     switch (selectedType) /* see LOVPopulator.getPersonnelServiceTypes */
                     {
-                        case 7: return RedirectToPage("./PersonnelRequest/Create");
-                        case 8: return RedirectToPage("./PersonnelContractor/Create");
+                        case 7: return RedirectToPage("./PersonnelRequest/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 8: return RedirectToPage("./PersonnelContractor/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                     }
                     break;
                 case 3:
                     switch (selectedType)
                     {
-                        case 9: return RedirectToPage("./EquipmentMail/Create");
-                        case 10: return RedirectToPage("./EquipmentScanning/Create");
+                        case 9: return RedirectToPage("./EquipmentMail/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 10: return RedirectToPage("./EquipmentScanning/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                         case 11:
                             switch (selectedSubtype)
                             {
-                                case 1: return RedirectToPage("./EquipmentPrint/Create");
-                                case 2: return RedirectToPage("./EquipmentPrintA4/Create");
-                                case 3: return RedirectToPage("./EquipmentPrintA3/Create");
-                                case 4: return RedirectToPage("./EquipmentPrintPress/Create");
-                                case 5: return RedirectToPage("./EquipmentPrintLargeFormat/Create");
-                                case 6: return RedirectToPage("./EquipmentPrintLabel/Create");
+                                case 1: return RedirectToPage("./EquipmentPrint/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                                case 2: return RedirectToPage("./EquipmentPrintA4/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                                case 3: return RedirectToPage("./EquipmentPrintA3/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                                case 4: return RedirectToPage("./EquipmentPrintPress/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                                case 5: return RedirectToPage("./EquipmentPrintLargeFormat/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                                case 6: return RedirectToPage("./EquipmentPrintLabel/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                             }
                             break;
                     }
@@ -133,11 +133,11 @@ namespace DPAWaiver.Pages.Private
                 case 4:
                     switch (selectedType)
                     {
-                        case 12: return RedirectToPage("./SoftwareDataEntry/Create");
-                        case 13: return RedirectToPage("./SoftwareDesign/Create");
-                        case 14: return RedirectToPage("./SoftwareMailProcessing/Create");
-                        case 15: return RedirectToPage("./SoftwarePrint/Create");
-                        case 16: return RedirectToPage("./SoftwareScanning/Create");
+                        case 12: return RedirectToPage("./SoftwareDataEntry/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 13: return RedirectToPage("./SoftwareDesign/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 14: return RedirectToPage("./SoftwareMailProcessing/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 15: return RedirectToPage("./SoftwarePrint/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
+                        case 16: return RedirectToPage("./SoftwareScanning/Create", new{otherFirstName= OtherFirstName, otherLastName= OtherLastName});
                     }
                     break;
 
