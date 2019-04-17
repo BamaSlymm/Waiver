@@ -14,6 +14,6 @@ env_variables:
   GoogleCloudStorage__BucketName: "test-dpa"
   GoogleCloudStorage__APICredentialLocation: "./test-cloud-storage.json"
   GoogleCloudStorage__ProjectId: "dpa-waiver"
-  CloudSQL__CertificateFile: "./clients.pfx"
+  CloudSQL__CertificateFile: "./client.pfx"
   
   
