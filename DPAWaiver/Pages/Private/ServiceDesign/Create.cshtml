@@ -137,9 +137,9 @@ ViewData["Title"] = "Create Waiver - Service - Design";
         <a class="btn btn-default" onclick="print();">Print&nbsp;
             <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
         </a>
-        <a class="btn btn-default btn-space-2x" onclick="reset();">Clear Form&nbsp;
+        <button class="btn btn-default btn-space-2x" type="reset">Clear Form&nbsp;
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </a>
+        </button>
         <button type="submit" class="btn btn-primary" id='createwaiver' value='Submit'>
             Create Waiver&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
@@ -151,15 +151,4 @@ ViewData["Title"] = "Create Waiver - Service - Design";
 
 
 @section Scripts {
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-    </script>
 }
