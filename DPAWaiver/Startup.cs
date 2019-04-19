@@ -42,14 +42,15 @@ namespace DPAWaiver
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddTransient<ILOVService, LOVService>();
-            services.AddAuthorization(options=> {
-                options.AddPolicy("RequireReviewerRole",policy => policy.RequireRole(GroupNames.Reviewer));
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireReviewerRole", policy => policy.RequireRole(GroupNames.Reviewer));
             });
             services.AddMvc().
                 AddRazorPagesOptions(options =>
                     {
                         options.Conventions.AuthorizeFolder("/Private");
-                        options.Conventions.AuthorizeFolder("/Private/Review","RequireReviewerRole");
+                        options.Conventions.AuthorizeFolder("/Private/Review", "RequireReviewerRole");
                     })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -115,7 +116,10 @@ namespace DPAWaiver
                  {
                      dbOptions.MaxBatchSize(AppConfig.EfBatchSize);
                      dbOptions.CommandTimeout(30);
-                     dbOptions.ProvideClientCertificatesCallback(certs=>certs.Add(new X509Certificate2(Configuration["CloudSQL:CertificateFile"])));
+                     if (!string.IsNullOrEmpty(Configuration["CloudSQL:CertificateFile"]))
+                     {
+                         dbOptions.ProvideClientCertificatesCallback(certs => certs.Add(new X509Certificate2(Configuration["CloudSQL:CertificateFile"])));
+                     }
                      if (AppConfig.EfRetryOnFailure > 0)
                          dbOptions.EnableRetryOnFailure(AppConfig.EfRetryOnFailure, TimeSpan.FromSeconds(5), null);
                  }));

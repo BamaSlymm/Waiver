@@ -9,7 +9,7 @@ resources:
   disk_size_gb: 10
 
 env_variables:
-  CONNECTIONSTRINGS__DEFAULTCONNECTION: "Host=35.232.144.228;Database=test;Username=test;Password=test123456;SslMode=Require;TrustServerCertificate=true;UseSslStream=true"
+  CONNECTIONSTRINGS__DEFAULTCONNECTION: "Host=35.222.6.17;Database=test;Username=test;Password=test123456;SslMode=Require;TrustServerCertificate=true"
   Email__SendGridKey: "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"
   GoogleCloudStorage__BucketName: "test-dpa"
   GoogleCloudStorage__APICredentialLocation: "./test-cloud-storage.json"

@@ -48,7 +48,13 @@ With the GAE Flex, after deployment, code can be backed out by simply switching 
 The [app.yaml](https://storage.cloud.google.com/project-settings-dpa-waiver/app.yaml?folder&organizationId) in Google Console Project contains the production parameters. 
 
 ### 5.2 client.pfx / Database access
-The [client.pfx](https://storage.cloud.google.com/project-settings-dpa-waiver/client.pfx?folder&organizationId) is used to establish secure identity with the Google Cloud SQL. The certificate is needed to be included in the docker image. The username and password on their own are not enough to establish connection. The client.pfx needs to be copied to DPAWaiver directory before deployment.
+The [client.pfx](https://storage.cloud.google.com/project-settings-dpa-waiver/client.pfx?folder&organizationId) is used to establish secure identity with the Google Cloud SQL. The certificate is needed to be included in the docker image. The username and password on their own are not enough to establish connection. The client.pfx needs to be copied to DPAWaiver directory before deployment. Use this command to recreate client.pfx file once it has been revoked or changed or removed.
+
+```sh
+$ openssl pkcs12 -export -out client.pfx -inkey client-key.pem -in client-cert.pem -certfile server-ca.pem
+```
+
+The client certificate can be created and downloaded using the [Google Console Application](https://cloud.google.com/sql/docs/postgres/configure-ssl-instance).
 
 ### 5.3 Storage Access
 
