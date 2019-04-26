@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.ServiceDesign
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public ServiceDesignWaiver ServiceDesignWaiver { get; set; }
+        public ServiceDesignWaiverView ServiceDesignWaiver { get; set; }
+
+        public Guid? ID {get;set;}
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager): base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,97 @@ namespace DPAWaiver.Pages.Private.ServiceDesign
                 return NotFound();
             }
 
-            ServiceDesignWaiver = await _context.ServiceDesignWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var ServiceDesignWaiver = await _context.ServiceDesignWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            ServiceDesignWaiver = new ServiceDesignWaiverView(ServiceDesignWaiver);
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
-            if (ServiceDesignWaiver == null)
+            if (ServiceDesignWaiver == null || !ServiceDesignWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(ServiceDesignWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.ServiceDesignWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ServiceDesignWaiverExists(ServiceDesignWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            
+            if (await TryUpdateModelAsync<ServiceDesignWaiver>(
+               waiverToUpdate,
+               "servicedesignwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.CostEstimate,
+               w => w.EstimatedNumberofHours,
+               w => w.DueDate,
+               w => w.StartedOn,
+               w => w.ItemToBeDesigned,
+               w => w.OtherDescription,
+               w => w.Status,
+               w => w.AdditionalComments,
+               w => w.ID,
+               w => w.CreatedOn,
+               w => w.approvedOn
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, ServiceDesignWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ServiceDesignWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool ServiceDesignWaiverExists(Guid id)
+        private bool ServiceDesignWaiverExists(Guid? id)
         {
             return _context.ServiceDesignWaiver.Any(e => e.ID == id);
         }

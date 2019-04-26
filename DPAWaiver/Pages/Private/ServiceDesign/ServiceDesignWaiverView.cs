@@ -77,11 +77,12 @@ public void CopyFromServiceDesignWaiver(ServiceDesignWaiver other) {
             this.ItemToBeDesigned = other.ItemToBeDesigned;
             this.OtherDescription = other.OtherDescription;
             this.AdditionalComments = other.AdditionalComments;
+            
         }
 
-        
         public ServiceDesignWaiverView()
         {
+
         }
 
         [Required]

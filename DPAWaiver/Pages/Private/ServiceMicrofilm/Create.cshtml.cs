@@ -15,13 +15,18 @@ namespace DPAWaiver.Pages.Private.ServiceMicrofilm
 {
     public class CreateModel : BaseWaiverPageModel
     {
+        private readonly ILOVService _ILOVService;
+        
         [BindProperty]
         public ServiceMicrofilmWaiverView ServiceMicrofilmWaiver { get; set; }
 
         public CreateModel(DPAWaiverIdentityDbContext context, ILOVService iLOVService, UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
+            _ILOVService = iLOVService;
         }
 
+        public IEnumerable<SelectListItem> MicrofilmOutputTypes => _ILOVService.GetMicrofilmOutputTypeAsSelectListBySortOrder();
+        
         public async Task<IActionResult> OnGetAsync([FromQuery(Name = "otherFirstName")] string otherFirstName, [FromQuery(Name = "otherLastName")] string otherLastName)
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();

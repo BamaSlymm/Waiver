@@ -145,8 +145,8 @@ This is a numeric field."></span></label>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label for="outputType" class="control-label fontWeightNormal">What output type is needed:</label>
-                    <select class="form-control control-label" id="outputType">
-                        <option>Please select one</option>
+                    <select class="form-control control-label" id="outputType" asp-items="Model.MicrofilmOutputTypes">
+                        <option value="0">Please select one</option>
                     </select>
                 </div>
             </div>

@@ -193,19 +193,4 @@ This is a numeric field."></span>
 
 
 @section Scripts {
-<partial name="_ValidationScriptsPartial" />
-<script type="text/javascript">
-    $(document).ready(function () {
-        showIfSelected('#DataEntryWaiver_KeyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], {
-            valueList: ['False']
-        });
-    });
-
-    $("#DataEntryWaiver_KeyedIntoSystem").on("change", function () {
-        showIfSelected('#DataEntryWaiver_KeyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], {
-            valueList: ['False']
-        });
-    });
-</script>
-
 }

@@ -26,6 +26,7 @@ namespace DPAWaiver.Models.LOV
 
         public MicrofilmOutputType()
         {
+
         }
 
         public void Update(MicrofilmOutputType other)
@@ -41,5 +42,15 @@ namespace DPAWaiver.Models.LOV
             this.isDisabled = other.isDisabled;
         }
 
-    }
+      
+    }  
+    public static class MicrofilmOutputTypes 
+         {
+
+            public const int diazofilm16mm = 1;
+            public const int silverfilm16mm = 2;
+            public const int diazofilm35mm = 3;
+            public const int silverfilm35mm = 4;
+        }
+
 }

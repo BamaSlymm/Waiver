@@ -70,7 +70,7 @@
                 <div class="form-group required">
                     <label for="CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" id="CostEstimate" required="true" placeholder="Please Enter Cost">
                 </div>
             </div>
 
@@ -168,15 +168,4 @@ This is a numeric field."></span></label>
         showIfSelected('#typeOfStock', ['#otherDescriptionId'], {valueList: ['0']});
     });
 </script>
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-    </script>
 }
