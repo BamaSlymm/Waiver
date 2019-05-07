@@ -59,23 +59,26 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
                     <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
                     <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
                     <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
 
@@ -90,14 +93,15 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="WorkflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.WorkflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
             <textarea class="form-control" id="WorkflowDescription" rows='2'></textarea>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.WorkflowDescription" class="text-danger"></span>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="typeOfFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.typeOfFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
                     <select class="form-control control-label" id="typeOfFilm">
                         <option>Please select one</option>
                         <option>16 mm microfilm</option>
@@ -105,18 +109,21 @@
                         <option>aperture card</option>
                         <option>microfiche</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.typeOfFilm" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12" id="numberOfRollsDiv">
                 <div class="form-group required">
-                    <label for="numberOfRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.numberOfRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
                     <input type="number" class="form-control" id="numberOfRolls">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.numberOfRolls" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12" id="numberOfCardsDiv">
                 <div class="form-group required">
-                    <label for="numberOfCards" class="control-label fontWeightNormal">Estimated number of cards/sheets:</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.numberOfCards" class="control-label fontWeightNormal">Estimated number of cards/sheets:</label>
                     <input type="number" class="form-control" id="numberOfCards">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.numberOfCards" class="text-danger"></span>
                 </div>
             </div>
 
@@ -125,21 +132,23 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="numberofCards" class="control-label fontWeightNormal">Estimated number of FTE:
+                    <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="control-label fontWeightNormal">Estimated number of FTE:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                     </label>
                     
-                    <input type="number" class="form-control" id="numberofCards" aria-describedby="numberofCards" placeholder="Full Time Employee Count">
+                    <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
 
                 <div class="form-group required">
-                    <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+                    <label asp-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
                     </label>
                     <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfHours" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -147,19 +156,21 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="indexingNeeded" class="control-label fontWeightNormal">Will the job require indexing</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="control-label fontWeightNormal">Will the job require indexing</label>
                         <select class="form-control control-label" id="indexingNeeded">
                             <option>No</option>
                             <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required" id="EstimatedNumberOfFieldsDiv">
-                    <label for="EstimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+                    <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
 This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="EstimatedNumberOfFields" aria-describedby="EstimatedNumberOfFields" placeholder="Estimated number of fields per document">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -167,16 +178,17 @@ This is a numeric field."></span>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="textSearchablePDF" class="control-label fontWeightNormal">Do you need a text searchable .pdf?</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="control-label fontWeightNormal">Do you need a text searchable .pdf?</label>
                     <select class="form-control control-label" id="textSearchablePDF">
                         <option>No</option>
                         <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="imageDelivery" class="control-label fontWeightNormal">How do you need the receive the images?</label>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="control-label fontWeightNormal">How do you need the receive the images?</label>
                     <select class="form-control control-label" id="imageDelivery">
                         <option>DVD</option>
                         <option>USB</option>
@@ -184,6 +196,7 @@ This is a numeric field."></span>
                         <option>Google Drive</option>
                         <option value=1>Other</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -191,52 +204,60 @@ This is a numeric field."></span>
 
 
         <div class="form-group required" id="otherImageDeliveryDiv">
-            <label for="otherImageDelivery" class="control-label fontWeightNormal">Please specify other delivery method:</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="control-label fontWeightNormal">Please specify other delivery method:</label>
             <textarea class="form-control" id="otherImageDelivery" rows="2"></textarea>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="text-danger"></span>
         </div>
 
         <div class="form-group required" id="emailImageDeliveryDiv">
-            <label for="emailOtherImageDelivery" class="control-label fontWeightNormal">Please specify email address(es) seperated by semicolon:</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery" class="control-label fontWeightNormal">Please specify email address(es) seperated by semicolon:</label>
             <textarea class="form-control" id="emailOtherImageDelivery" rows="2"></textarea>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="systemRequirements" class="control-label fontWeightNormal">Specify system requirements.</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="control-label fontWeightNormal">Specify system requirements.</label>
             <textarea class="form-control" id="systemRequirements" rows="2"></textarea>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="keyedIntoSystem" class="control-label fontWeightNormal">Can the data be converted and imported into your department's internal database.</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="control-label fontWeightNormal">Can the data be converted and imported into your department's internal database.</label>
             <select class="form-control control-label" id="keyedIntoSystem">
                 <option>Please select one</option>
                 <option value='0'>No</option>
                 <option value='1'>Yes</option>
             </select>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="text-danger"></span>
         </div>
 
         <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>
-            <label for='ReasonForNotKeyedIntoSystem' class='control-label fontWeightNormal'>Please explain why</label>
+            <label asp-for='ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem' class='control-label fontWeightNormal'>Please explain why</label>
             <input type='text' class='form-control' id='ReasonForNotKeyedIntoSystem' aria-describedby='ReasonForNotKeyedIntoSystem' placeholder='Please explain why'>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem" class="text-danger"></span>
         </div>
 
       <div class="form-group required">
-            <label for="doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
             <select class="form-control control-label" id="doneInHouse">
                 <option>Please select one</option>
                 <option value='0'>No</option>
                 <option value='1'>Yes</option>
             </select>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="text-danger"></span>
         </div>
 
         <div class='form-group required' id='notInHouseReasonDiv'>
-            <label for='NotInHouseReason' class='control-label fontWeightNormal'>Please explain why</label>
+            <label asp-for='ServiceMicrofilmConversionWaiver.NotInHouseReason' class='control-label fontWeightNormal'>Please explain why</label>
             <input type='text' class='form-control' id='NotInHouseReason' aria-describedby='NotInHouseReason' placeholder='Please explain why'>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.NotInHouseReason" class="text-danger"></span>
         </div>
 
 
         <div class="form-group">
-            <label for="AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <label asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
             <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <span asp-validation-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
     </div>

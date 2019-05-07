@@ -54,23 +54,26 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <label asp-for="SoftwareDataEntryWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
                     <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <label asp-for="SoftwareDataEntryWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
                     <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
+                    <label asp-for="SoftwareDataEntryWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
                     <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -86,14 +89,16 @@
         <div class='row'>
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
-                    <label for='typeOfSoftware' class='control-label fontWeightNormal'>Type of software being requested</label>
+                    <label asp-for='SoftwareDataEntryWaiver.typeOfSoftware' class='control-label fontWeightNormal'>Type of software being requested</label>
                     <input type='text' class='form-control' id='typeOfSoftware' aria-describedby='typeOfSoftware' placeholder='Type of software being requested'>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.typeOfSoftware" class="text-danger"></span>
                 </div>
             </div>
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
-                    <label for='numberOfLicenses' class='control-label fontWeightNormal'>Number of software licenses being requested</label>
+                    <label asp-for='SoftwareDataEntryWaiver.numberOfLicenses' class='control-label fontWeightNormal'>Number of software licenses being requested</label>
                     <input type='number' class='form-control' id='numberOfLicenses' aria-describedby='numberOfLicenses' placeholder='Number of software licenses being requested'>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.numberOfLicenses" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -102,18 +107,20 @@
         <div class='row'>
             <div class='col-sm-6 col-xs-12'>
                 <div class="form-group required">
-                    <label for="newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
+                    <label asp-for="SoftwareDataEntryWaiver.newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
                     <select class="form-control" id="newOrReplace">
                         <option>Additional</option>
                         <option>New</option>
                         <option>Replacement</option>
                     </select>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.newOrReplace" class="text-danger"></span>
                 </div>
             </div>
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
-                    <label for='softwareVersion' class='control-label fontWeightNormal'>Describe software version and acquisition date</label>
+                    <label asp-for='SoftwareDataEntryWaiver.softwareVersion' class='control-label fontWeightNormal'>Describe software version and acquisition date</label>
                     <input type='text' class='form-control' id='softwareVersion' aria-describedby='softwareVersion' placeholder='Describe software version and acquisition date'>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.softwareVersion" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -121,16 +128,18 @@
         <div class='row'>
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
-                    <label for='costOfPresentService' class='control-label fontWeightNormal'>Cost of Present Service
+                    <label asp-for='SoftwareDataEntryWaiver.costOfPresentService' class='control-label fontWeightNormal'>Cost of Present Service
                         <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Cost of Present Service'></span>
                     </label>
                     <input type='number' class='form-control' id='costOfPresentService' aria-describedby='costOfPresentService' placeholder='Cost of Present Service'>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.costOfPresentService" class="text-danger"></span>
                 </div>
             </div>
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
-                    <label for='currentMonthlyVolume' class='control-label fontWeightNormal'>Current Average Montly Volume</label>
+                    <label asp-for='SoftwareDataEntryWaiver.currentMonthlyVolume' class='control-label fontWeightNormal'>Current Average Montly Volume</label>
                     <input type='number' class='form-control' id='currentMonthlyVolume' aria-describedby='currentMonthlyVolume' placeholder='Current Average Montly Volume'>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.currentMonthlyVolume" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -142,44 +151,49 @@
             </div>
             <div class="panel-body">
                 <div class="form-group required col-sm-2 col-sm-offset-1">
-                    <label for="firstYearVolume" class="control-label fontWeightNormal">1
+                    <label asp-for="SoftwareDataEntryWaiver.firstYearVolume" class="control-label fontWeightNormal">1
                         <sup>st</sup> Yr&nbsp;
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for first year
 This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="firstYearVolume">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.firstYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
-                    <label for="secondYearVolume" class="control-label fontWeightNormal">2
+                    <label asp-for="SoftwareDataEntryWaiver.secondYearVolume" class="control-label fontWeightNormal">2
                         <sup>nd</sup> Yr&nbsp;
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for second year
 This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="secondYearVolume">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.secondYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
-                    <label for="thirdYearVolume" class="control-label fontWeightNormal">3
+                    <label asp-for="SoftwareDataEntryWaiver.thirdYearVolume" class="control-label fontWeightNormal">3
                         <sup>rd</sup> Yr&nbsp;
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for third year
 This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="thirdYearVolume">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.thirdYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
-                    <label for="fourthYearVolume" class="control-label fontWeightNormal">4
+                    <label asp-for="SoftwareDataEntryWaiver.fourthYearVolume" class="control-label fontWeightNormal">4
                         <sup>th</sup> Yr&nbsp;
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for fourth year
 This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="fourthYearVolume">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.fourthYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
-                    <label for="fifthYearVolume" class="control-label fontWeightNormal">5
+                    <label asp-for="SoftwareDataEntryWaiver.fifthYearVolume" class="control-label fontWeightNormal">5
                         <sup>th</sup> Yr&nbsp;
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for fifth year
 This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="fifthYearVolume">
+                    <span asp-validation-for="SoftwareDataEntryWaiver.fifthYearVolume" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -192,29 +206,33 @@ This is a numeric field."></span>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
-                            <label for='softwareProvider' class='control-label fontWeightNormal'>Software Provider</label>
+                            <label asp-for='SoftwareDataEntryWaiver.softwareProvider' class='control-label fontWeightNormal'>Software Provider</label>
                             <input type='text' class='form-control' id='softwareProvider' aria-describedby='softwareProvider' placeholder='Software Provider'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.softwareProvider" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
-                            <label for='softwareVolume' class='control-label fontWeightNormal'>Software Version</label>
+                            <label asp-for='SoftwareDataEntryWaiver.softwareVolume' class='control-label fontWeightNormal'>Software Version</label>
                             <input type='text' class='form-control' id='softwareVolume' aria-describedby='softwareVolume' placeholder='Software Version'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.softwareVolume" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group required">
-                    <label for="selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular software:</label>
+                    <label asp-for="SoftwareDataEntryWaiver.selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular software:</label>
                     <textarea class="form-control" id="selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
                         rows='2'></textarea>
+                    <span asp-validation-for="SoftwareDataEntryWaiver.selectionReason" class="text-danger"></span>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
-                            <label for='expectedDuration' class='control-label fontWeightNormal'>Expected duration of use of software</label>
+                            <label asp-for='SoftwareDataEntryWaiver.expectedDuration' class='control-label fontWeightNormal'>Expected duration of use of software</label>
                             <input type='text' class='form-control' id='expectedDuration' aria-describedby='expectedDuration' placeholder='Expected duration of use of software'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.expectedDuration" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -222,7 +240,7 @@ This is a numeric field."></span>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group required">
-                            <label for="acquisitionType" class="control-label fontWeightNormal">How do you plan to acquire this equipment?</label>
+                            <label asp-for="SoftwareDataEntryWaiver.acquisitionType" class="control-label fontWeightNormal">How do you plan to acquire this equipment?</label>
                             <select class="form-control" id="acquisitionType">
                                 <option value="1">Solicitation</option>
                                 <option value="2">State Price Agreement</option>
@@ -230,26 +248,29 @@ This is a numeric field."></span>
                                 <option>Discretionary Purchase</option>
                                 <option>Cancelable Rental</option>
                             </select>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.acquisitionType" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12" id="solicitationSubDiv">
                         <div class="form-group required">
-                            <label for="solicitationSubType" class="control-label fontWeightNormal">Solicitation SubType?</label>
+                            <label asp-for="SoftwareDataEntryWaiver.solicitationSubType" class="control-label fontWeightNormal">Solicitation SubType?</label>
                             <select class="form-control" id="solicitationSubType">
                                 <option>Discretionary</option>
                                 <option>DQ</option>
                                 <option>IFB</option>
                                 <option>RFP</option>
                             </select>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.solicitationSubType" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12" id="statepriceSubDiv">
                         <div class="form-group required">
-                            <label for="statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
+                            <label asp-for="SoftwareDataEntryWaiver.statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
                             <select class="form-control" id="statepriceSubType">
                                 <option>Cancelable Rental</option>
                                 <option>Lease</option>
                             </select>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.statepriceSubType" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -259,16 +280,18 @@ This is a numeric field."></span>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group required">
-                            <label for="purchaseAmount" class="control-label fontWeightNormal">Purchase Amount
+                            <label asp-for="SoftwareDataEntryWaiver.purchaseAmount" class="control-label fontWeightNormal">Purchase Amount
                                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Purchase Amount"></span>
                             </label>
                             <input type="number" class="form-control" id="purchaseAmount" aria-describedby="purchaseAmount" placeholder="Purchase Amount">
+                            <span asp-validation-for="SoftwareDataEntryWaiver.purchaseAmount" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
-                            <label for='annualMaintenanceCost' class='control-label fontWeightNormal'>Annual Maintenance Renewal Cost</label>
+                            <label asp-for='SoftwareDataEntryWaiver.annualMaintenanceCost' class='control-label fontWeightNormal'>Annual Maintenance Renewal Cost</label>
                             <input type='number' class='form-control' id='annualMaintenanceCost' aria-describedby='annualMaintenanceCost' placeholder='Annual Maintenance Renewal Cost'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.annualMaintenanceCost" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -276,14 +299,16 @@ This is a numeric field."></span>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='operatorClassification' class='control-label fontWeightNormal'>Operator Classification</label>
+                            <label asp-for='SoftwareDataEntryWaiver.operatorClassification' class='control-label fontWeightNormal'>Operator Classification</label>
                             <input type='text' class='form-control' id='operatorClassification' aria-describedby='operatorClassification' placeholder='Operator Classification'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.operatorClassification" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='grade' class='control-label fontWeightNormal'>Grade</label>
+                            <label asp-for='SoftwareDataEntryWaiver.grade' class='control-label fontWeightNormal'>Grade</label>
                             <input type='text' class='form-control' id='grade' aria-describedby='grade' placeholder='Grade'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.grade" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -292,14 +317,16 @@ This is a numeric field."></span>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='numberOfFTE' class='control-label fontWeightNormal'>Estimated Number of FTE</label>
+                            <label asp-for='SoftwareDataEntryWaiver.numberOfFTE' class='control-label fontWeightNormal'>Estimated Number of FTE</label>
                             <input type='number' class='form-control' id='numberOfFTE' aria-describedby='numberOfFTE' placeholder='Estimated Number of FTE'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.numberOfFTE" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='hoursPerFTEPerWeek' class='control-label fontWeightNormal'>Hours Per FTE Per Week</label>
+                            <label asp-for='SoftwareDataEntryWaiver.hoursPerFTEPerWeek' class='control-label fontWeightNormal'>Hours Per FTE Per Week</label>
                             <input type='number' class='form-control' id='hoursPerFTEPerWeek' aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per Week'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -308,14 +335,16 @@ This is a numeric field."></span>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='totalWeeklySalary' class='control-label fontWeightNormal'>Total Weekly Salary</label>
+                            <label asp-for='SoftwareDataEntryWaiver.totalWeeklySalary' class='control-label fontWeightNormal'>Total Weekly Salary</label>
                             <input type='number' class='form-control' id='totalWeeklySalary' aria-describedby='totalWeeklySalary' placeholder='Total Weekly Salary'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.totalWeeklySalary" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='totalSpaceInSQFT' class='control-label fontWeightNormal'>Total Space Required In SQFT</label>
+                            <label asp-for='SoftwareDataEntryWaiver.totalSpaceInSQFT' class='control-label fontWeightNormal'>Total Space Required In SQFT</label>
                             <input type='number' class='form-control' id='totalSpaceInSQFT' aria-describedby='totalSpaceInSQFT' placeholder='Total Space Required In SQFT'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.totalSpaceInSQFT" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -333,14 +362,16 @@ This is a numeric field."></span>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='monthlySupervisionAmount' class='control-label fontWeightNormal'>Monthly Supervision Amount</label>
+                            <label asp-for='SoftwareDataEntryWaiver.monthlySupervisionAmount' class='control-label fontWeightNormal'>Monthly Supervision Amount</label>
                             <input type='number' class='form-control' id='monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.monthlySupervisionAmount" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='monthlyManagementAmount' class='control-label fontWeightNormal'>Monthly Management Amount</label>
+                            <label asp-for='SoftwareDataEntryWaiver.monthlyManagementAmount' class='control-label fontWeightNormal'>Monthly Management Amount</label>
                             <input type='text' class='form-control' id='monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.monthlyManagementAmount" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -349,14 +380,16 @@ This is a numeric field."></span>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='monthlyUtilitiesAmount' class='control-label fontWeightNormal'>Monthly Utilities Amount</label>
+                            <label asp-for='SoftwareDataEntryWaiver.monthlyUtilitiesAmount' class='control-label fontWeightNormal'>Monthly Utilities Amount</label>
                             <input type='number' class='form-control' id='monthlyUtilitiesAmount' aria-describedby='monthlyUtilitiesAmount' placeholder='Monthly Utilities Amount'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.monthlyUtilitiesAmount" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='monthlyIndirectCosts' class='control-label fontWeightNormal'>Monthly Indirect Costs</label>
+                            <label asp-for='SoftwareDataEntryWaiver.monthlyIndirectCosts' class='control-label fontWeightNormal'>Monthly Indirect Costs</label>
                             <input type='number' class='form-control' id='monthlyIndirectCosts' aria-describedby='monthlyIndirectCosts' placeholder='Monthly Indirect Costs'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.monthlyIndirectCosts" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -365,8 +398,9 @@ This is a numeric field."></span>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
-                            <label for='monthlyOverheadCosts' class='control-label fontWeightNormal'>Monthly Overhead Costs</label>
+                            <label asp-for='SoftwareDataEntryWaiver.monthlyOverheadCosts' class='control-label fontWeightNormal'>Monthly Overhead Costs</label>
                             <input type='number' class='form-control' id='monthlyOverheadCosts' aria-describedby='monthlyOverheadCosts' placeholder='Monthly Overhead Costs'>
+                            <span asp-validation-for="SoftwareDataEntryWaiver.monthlyOverheadCosts" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
@@ -380,14 +414,16 @@ This is a numeric field."></span>
         <!-- end of panel -->
 
         <div class='form-group required'>
-            <label for='alternativesConsidered' class='control-label fontWeightNormal'>Please describe the alternatives you examined before making this request</label>
+            <label asp-for='SoftwareDataEntryWaiver.alternativesConsidered' class='control-label fontWeightNormal'>Please describe the alternatives you examined before making this request</label>
             <textarea class='form-control' id='alternativesConsidered' aria-describedby='alternativesConsidered' placeholder='Please describe the alternatives you examined before making this request'
                 rows='2'></textarea>
+            <span asp-validation-for="SoftwareDataEntryWaiver.alternativesConsidered" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <label asp-for="SoftwareDataEntryWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
             <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <span asp-validation-for="SoftwareDataEntryWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
     </div>

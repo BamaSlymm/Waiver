@@ -54,23 +54,26 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <label asp-for="ServicePrintWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
                     <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <span asp-validation-for="ServicePrintWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <label asp-for="ServicePrintWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
                     <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <span asp-validation-for="ServicePrintWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="ServicePrintWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
                     <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <span asp-validation-for="ServicePrintWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
 
@@ -85,44 +88,48 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="itemDescription" class="control-label fontWeightNormal">Describe the item to be printed/copied:</label>
+            <label asp-for="ServicePrintWaiver.itemDescription" class="control-label fontWeightNormal">Describe the item to be printed/copied:</label>
             <textarea class="form-control" id="itemDescription" rows='2'></textarea>
+            <span asp-validation-for="ServicePrintWaiver.itemDescription" class="text-danger"></span>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="estimateObtained" class="control-label fontWeightNormal">Have you acquired an estimate from the vendor:</label>
+                    <label asp-for="ServicePrintWaiver.estimateObtained" class="control-label fontWeightNormal">Have you acquired an estimate from the vendor:</label>
                     <select class="form-control control-label" id="estimateObtained">
                         <option>No</option>
                         <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServicePrintWaiver.estimateObtained" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12" id="estimateFileDiv">
                 <div class="form-group required">
-                    <label for="estimateFile" class="control-label fontWeightNormal">Upload the received estimate:</label>
+                    <label asp-for="ServicePrintWaiver.estimateFile" class="control-label fontWeightNormal">Upload the received estimate:</label>
                     <input type="file" class="form-control-file" id="estimateFile">
                 </div>
             </div>
         </div>
 
         <div class="form-group required">
-            <label for="paperStockType" class="control-label fontWeightNormal">Type of Paper Stock:</label>
+            <label asp-for="ServicePrintWaiver.paperStockType" class="control-label fontWeightNormal">Type of Paper Stock:</label>
             <select class="form-control control-label" id="paperStockType">
                 <option>Card Stock</option>
                 <option>Copy Paper Stock</option>
                 <option>Other</option>
             </select>
+            <span asp-validation-for="ServicePrintWaiver.paperStockType" class="text-danger"></span>
         </div>
 
         <div class="form-group required" id="otherPaperStockReasonDiv">
-            <label for="otherPaperStockReason" class="control-label fontWeightNormal">If Other, please explain</label>
+            <label asp-for="ServicePrintWaiver.otherPaperStockReason" class="control-label fontWeightNormal">If Other, please explain</label>
             <textarea class="form-control" id="otherPaperStockReason" rows="1"></textarea>
+            <span asp-validation-for="ServicePrintWaiver.otherPaperStockReason" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="finishingType" class="control-label fontWeightNormal">Type of Finishing:</label>
+            <label asp-for="ServicePrintWaiver.finishingType" class="control-label fontWeightNormal">Type of Finishing:</label>
             <select class="form-control control-label" id="finishingType">
                 <option>Folding</option>
                 <option>Numbering</option>
@@ -132,37 +139,42 @@
                 <option>Saddle Stitch</option>
                 <option>Other</option>
             </select>
+            <span asp-validation-for="ServicePrintWaiver.finishingType" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="reprint" class="control-label fontWeightNormal">Is this a reprint:</label>
+            <label asp-for="ServicePrintWaiver.reprint" class="control-label fontWeightNormal">Is this a reprint:</label>
             <select class="form-control control-label" id="reprint">
                 <option>No</option>
                 <option>Yes</option>
             </select>
+            <span asp-validation-for="ServicePrintWaiver.reprint" class="text-danger"></span>
         </div>
 
         <div class="form-group" id="previousPrinterDiv">
-            <label for="previousPrinter" class="control-label fontWeightNormal">If it is a reprint, who was the previous printer</label>
+            <label asp-for="ServicePrintWaiver.previousPrinter" class="control-label fontWeightNormal">If it is a reprint, who was the previous printer</label>
             <input class="form-control" id="previousPrinter" type="text">
+            <span asp-validation-for="ServicePrintWaiver.previousPrinter" class="text-danger"></span>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="numberOfOriginals" class="control-label fontWeightNormal">Number of Originals:
+                    <label asp-for="ServicePrintWaiver.numberOfOriginals" class="control-label fontWeightNormal">Number of Originals:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the number of originals. 
 This is a numeric field."></i>
                     </label>
                     <input type="number" class="form-control" id="numberOfOriginals" aria-describedby="numberOfOriginals" placeholder="Number of originals">
+                    <span asp-validation-for="ServicePrintWaiver.numberOfOriginals" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="quantity" class="control-label fontWeightNormal">Quantity:
+                    <label asp-for="ServicePrintWaiver.quantity" class="control-label fontWeightNormal">Quantity:
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the quantity. This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="quantity" aria-describedby="quantity" placeholder="Quantity. Numeric .">
+                    <span asp-validation-for="ServicePrintWaiver.quantity" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -170,7 +182,7 @@ This is a numeric field."></i>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="fourColorJob" class="control-label fontWeightNormal">Is this a 4 color print job:
+                    <label asp-for="ServicePrintWaiver.fourColorJob" class="control-label fontWeightNormal">Is this a 4 color print job:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="The definition of 4 color printing is offset printing.  
 4 color printing is not applicable to digital printing.  
 If you are needing digital printing, select 'No'."></i>
@@ -179,14 +191,16 @@ If you are needing digital printing, select 'No'."></i>
                         <option>No</option>
                         <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServicePrintWaiver.fourColorJob" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required" id="numberOfInksDiv">
-                    <label for="numberOfInks" class="control-label fontWeightNormal">Number of Inks:
+                    <label asp-for="ServicePrintWaiver.numberOfInks" class="control-label fontWeightNormal">Number of Inks:
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the number of inks. This is a numeric field."></span>
                     </label>
                     <input type="number" class="form-control" id="numberOfInks" aria-describedby="numberOfInks" placeholder="Number of Inks. Numeric">
+                    <span asp-validation-for="ServicePrintWaiver.numberOfInks" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -194,23 +208,26 @@ If you are needing digital printing, select 'No'."></i>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectDueDate" class="control-label fontWeightNormal">Due Date Of Project: </label>
+                    <label asp-for="ServicePrintWaiver.projectDueDate" class="control-label fontWeightNormal">Due Date Of Project: </label>
                     <input type="date" class="form-control" id="projectDueDate" aria-describedby="projectDueDate" placeholder="Due Date of Project">
+                    <span asp-validation-for="ServicePrintWaiver.projectDueDate" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="finishedSize" class="control-label fontWeightNormal">Finished Size:
+                    <label asp-for="ServicePrintWaiver.finishedSize" class="control-label fontWeightNormal">Finished Size:
                         <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the finished size. 
 (i.e. 8.5 x 11)"></span>
                     </label>
                     <input type="text" class="form-control" id="finishedSize" aria-describedby="finishedSize" placeholder="Finished size, such as 8.5x11">
+                    <span asp-validation-for="ServicePrintWaiver.finishedSize" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="AdditionalComments" class="control-label fontWeightNormal">Additional Waiver Comments:</label>
+            <label asp-for="ServicePrintWaiver.AdditionalComments" class="control-label fontWeightNormal">Additional Waiver Comments:</label>
             <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <span asp-validation-for="ServicePrintWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
     </div>

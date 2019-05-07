@@ -52,23 +52,26 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <label asp-for="PersonnelContractorWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
                     <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <span asp-validation-for="PersonnelContractorWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <label asp-for="PersonnelContractorWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
                     <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <span asp-validation-for="PersonnelContractorWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="PersonnelContractorWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
                     <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <span asp-validation-for="PersonnelContractorWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
 
@@ -83,87 +86,99 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="scopeOfWork" class="control-label fontWeightNormal">Describe the scope of work to be performed:</label>
+            <label asp-for="PersonnelContractorWaiver.scopeOfWork" class="control-label fontWeightNormal">Describe the scope of work to be performed:</label>
             <textarea class="form-control" id="scopeOfWork" rows='2'></textarea>
+            <span asp-validation-for="PersonnelContractorWaiver.scopeOfWork" class="text-danger"></span>
         </div>
 
 
         <div class="row">
         <div class="col-sm-6 col-xs-12">
             <div class="form-group required">
-                <label for="ContractorType" class="control-label fontWeightNormal">Contractor Type:</label>
+                <label asp-for="PersonnelContractorWaiver.ContractorType" class="control-label fontWeightNormal">Contractor Type:</label>
                 <select class="form-control control-label" id="ContractorType">
                     <option>Full Time Employee</option>
                     <option>Permanent Part Time State Employee</option>
                     <option>State Temp</option>
                 </select>
+                <span asp-validation-for="PersonnelContractorWaiver.ContractorType" class="text-danger"></span>
             </div>
         </div>
     <div class="row" id="designDiv">
             <div class="col-sm-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="hourlyRate" class="control-label fontWeightNormal">Hourly Rate</label>
+                    <label asp-for="PersonnelContractorWaiver.hourlyRate" class="control-label fontWeightNormal">Hourly Rate</label>
                     <input type="number" class="form-control" id="hourlyRate" placeholder="Hourly Rate">
+                    <span asp-validation-for="PersonnelContractorWaiver.hourlyRate" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+                    <label asp-for="PersonnelContractorWaiver.estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
                     </label>
                     <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
+                    <span asp-validation-for="PersonnelContractorWaiver.estimatedNumberOfHours" class="text-danger"></span>
                 </div>
             </div>
         </div>
 
         <div class="form-group required">
-            <label for="spaType" class="control-label fontWeightNormal">How do you currently receive this service?</label>
+            <label asp-for="PersonnelContractorWaiver.spaType" class="control-label fontWeightNormal">How do you currently receive this service?</label>
             <select class="form-control" id="spaType">
                 <option>State Price Agreement</option>
                 <option>Other</option>
             </select>
+            <span asp-validation-for="PersonnelContractorWaiver.spaType" class="text-danger"></span>
         </div>
 
         <div class="form-group required" id="spaNumberDiv">
-            <label for="spaNumber" class="control-label fontWeightNormal">Enter State Price Agreement Number</label>
+            <label asp-for="PersonnelContractorWaiver.spaNumber" class="control-label fontWeightNormal">Enter State Price Agreement Number</label>
             <input type="number" class="form-control" id="spaNumber">
+            <span asp-validation-for="PersonnelContractorWaiver.spaNumber" class="text-danger"></span>
         </div>
 
         <div id="otherSPADiv">
             <div class="form-group required">
-                <label for="spaOtherDescription" class="control-label fontWeightNormal">Please Describe Other for SPA:</label>
+                <label asp-for="PersonnelContractorWaiver.spaOtherDescription" class="control-label fontWeightNormal">Please Describe Other for SPA:</label>
                 <textarea class="form-control" id="spaOtherDescription" rows='2'></textarea>
+                <span asp-validation-for="PersonnelContractorWaiver.spaOtherDescription" class="text-danger"></span>
             </div>
         </div>
 
         <div class="form-group required">
-            <label for="EstimatedNumberOfFTE" class="control-label fontWeightNormal">Number of staff requested::
+            <label asp-for="PersonnelContractorWaiver.EstimatedNumberOfFTE" class="control-label fontWeightNormal">Number of staff requested::
                 <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
         This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
             </label>
             <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
+            <span asp-validation-for="PersonnelContractorWaiver.EstimatedNumberOfFTE" class="text-danger"></span>
         </div>
 
 
         <div class="form-group required">
-            <label for="contractDuration" class="control-label fontWeightNormal">Expected duration of contract (numeric in months)</label>
+            <label asp-for="PersonnelContractorWaiver.contractDuration" class="control-label fontWeightNormal">Expected duration of contract (numeric in months)</label>
             <input type="number" class="form-control" id="contractDuration" aria-describedby="contractDuration" placeholder="Contract Duration in Months">
+            <span asp-validation-for="PersonnelContractorWaiver.contractDuration" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="anticipatedExpenditure" class="control-label fontWeightNormal">Anticipated Expenditure (must include mark up rate)</label>
+            <label asp-for="PersonnelContractorWaiver.anticipatedExpenditure" class="control-label fontWeightNormal">Anticipated Expenditure (must include mark up rate)</label>
             <input type="number" class="form-control" id="anticipatedExpenditure" aria-describedby="anticipatedExpenditure" placeholder="Anticipated Expenditure">
+            <span asp-validation-for="PersonnelContractorWaiver.anticipatedExpenditure" class="text-danger"></span>
         </div>
 
 
         <div class="form-group required">
-            <label for="DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
+            <label asp-for="PersonnelContractorWaiver.DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
             <textarea class="form-control" id="DetailJustification" rows="2"></textarea>
+            <span asp-validation-for="PersonnelContractorWaiver.DetailJustification" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <label asp-for="PersonnelContractorWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
             <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <span asp-validation-for="PersonnelContractorWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
     </div>

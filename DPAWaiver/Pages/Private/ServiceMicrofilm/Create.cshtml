@@ -59,23 +59,26 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <label asp-for="ServiceMicrofilmWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
                     <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <label asp-for="ServiceMicrofilmWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
                     <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    <label asp-for="ServiceMicrofilmWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
                     <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
 
@@ -90,24 +93,27 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="itemDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
+            <label asp-for="ServiceMicrofilmWaiver.itemDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
             <textarea class="form-control" id="itemDescription" rows='2'></textarea>
+            <span asp-validation-for="ServiceMicrofilmWaiver.itemDescription" class="text-danger"></span>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="microfilmDuplication" class="control-label fontWeightNormal">Are you requesting only microfilm duplication:</label>
+                    <label asp-for="ServiceMicrofilmWaiver.microfilmDuplication" class="control-label fontWeightNormal">Are you requesting only microfilm duplication:</label>
                     <select class="form-control control-label" id="microfilmDuplication">
                         <option>No</option>
                         <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmWaiver.microfilmDuplication" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12" id="numberOfRollsDiv">
                 <div class="form-group required">
-                    <label for="RequestedRolls" class="control-label fontWeightNormal">How many rolls are you requesting:</label>
+                    <label asp-for="ServiceMicrofilmWaiver.RequestedRolls" class="control-label fontWeightNormal">How many rolls are you requesting:</label>
                     <input type="number" class="form-control" id="RequestedRolls">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.RequestedRolls" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -115,21 +121,23 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="EstimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
+                    <label asp-for="ServiceMicrofilmWaiver.EstimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                     </label>
                     
                     <input type="number" class="form-control" id="EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.EstimatedNumberOfFTE" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
 
                 <div class="form-group required">
-                    <label for="estimatedNumberOfHours" class="control-label fontWeightNormal">Total estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+                    <label asp-for="ServiceMicrofilmWaiver.estimatedNumberOfHours" class="control-label fontWeightNormal">Total estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
                     </label>
                     <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.estimatedNumberOfHours" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -137,17 +145,19 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="estimatedNumberOfDocuments" class="control-label fontWeightNormal">Estimated number of documents:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
+                    <label asp-for="ServiceMicrofilmWaiver.estimatedNumberOfDocuments" class="control-label fontWeightNormal">Estimated number of documents:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
 This is a numeric field."></span></label>
                     <input type="number" class="form-control" id="estimatedNumberOfDocuments" aria-describedby="estimatedNumberOfDocuments" placeholder="Estimated number of documents">
+                    <span asp-validation-for="ServiceMicrofilmWaiver.estimatedNumberOfDocuments" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="outputType" class="control-label fontWeightNormal">What output type is needed:</label>
+                    <label asp-for="ServiceMicrofilmWaiver.outputType" class="control-label fontWeightNormal">What output type is needed:</label>
                     <select class="form-control control-label" id="outputType" asp-items="Model.MicrofilmOutputTypes">
                         <option value="0">Please select one</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmWaiver.outputType" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -155,58 +165,66 @@ This is a numeric field."></span></label>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="rollsLabeled" class="control-label fontWeightNormal">Do you need the rolls labeled?</label>
+                    <label asp-for="ServiceMicrofilmWaiver.rollsLabeled" class="control-label fontWeightNormal">Do you need the rolls labeled?</label>
                     <select class="form-control control-label" id="rollsLabeled">
                         <option>No</option>
                         <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmWaiver.rollsLabeled" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="duplicateRolls" class="control-label fontWeightNormal">Do you need duplicate rolls?</label>
+                    <label asp-for="ServiceMicrofilmWaiver.duplicateRolls" class="control-label fontWeightNormal">Do you need duplicate rolls?</label>
                     <select class="form-control control-label" id="duplicateRolls">
                         <option>No</option>
                         <option>Yes</option>
                     </select>
+                    <span asp-validation-for="ServiceMicrofilmWaiver.duplicateRolls" class="text-danger"></span>
                 </div>
             </div>
         </div>
 
         <div class='form-group required'>
-            <label for='numberOfRolls' class='control-label fontWeightNormal'>Specify number of rolls</label>
+            <label asp-for='ServiceMicrofilmWaiver.numberOfRolls' class='control-label fontWeightNormal'>Specify number of rolls</label>
             <input type='number' class='form-control' id='numberOfRolls' aria-describedby='numberOfRolls' placeholder='Specify number of rolls'>
+            <span asp-validation-for="ServiceMicrofilmWaiver.numberOfRolls" class="text-danger"></span>
         </div>
 
 
         <div class="form-group required">
-            <label for="jobRequirements" class="control-label fontWeightNormal">Specify microfilm job requirements:</label>
+            <label asp-for="ServiceMicrofilmWaiver.jobRequirements" class="control-label fontWeightNormal">Specify microfilm job requirements:</label>
             <textarea class="form-control" id="jobRequirements" rows="2"></textarea>
+            <span asp-validation-for="ServiceMicrofilmWaiver.jobRequirements" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="AlternativeMethods" class="control-label fontWeightNormal">What other alternative methods have you looked at? Please provide details.</label>
+            <label asp-for="ServiceMicrofilmWaiver.AlternativeMethods" class="control-label fontWeightNormal">What other alternative methods have you looked at? Please provide details.</label>
             <textarea class="form-control" id="AlternativeMethods" rows="2"></textarea>
+            <span asp-validation-for="ServiceMicrofilmWaiver.AlternativeMethods" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
-            <label for="doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
+            <label asp-for="ServiceMicrofilmWaiver.doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
             <select class="form-control control-label" id="doneInHouse">
                 <option>Please select one</option>
                 <option value='0'>No</option>
                 <option value='1'>Yes</option>
             </select>
+            <span asp-validation-for="ServiceMicrofilmWaiver.doneInHouse" class="text-danger"></span>
         </div>
 
         <div class='form-group required' id='notInHouseReasonDiv'>
-            <label for='NotInHouseReason' class='control-label fontWeightNormal'>Customer believes that this microfilm function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
+            <label asp-for='ServiceMicrofilmWaiver.NotInHouseReason' class='control-label fontWeightNormal'>Customer believes that this microfilm function cannot be performed by the State's scanning unit. Please provide details as to why:</label>
             <input type='text' class='form-control' id='NotInHouseReason' aria-describedby='NotInHouseReason' placeholder='Please explain why'>
+            <span asp-validation-for="ServiceMicrofilmWaiver.NotInHouseReason" class="text-danger"></span>
         </div>
 
 
         <div class="form-group">
-            <label for="AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+            <label asp-for="ServiceMicrofilmWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
             <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <span asp-validation-for="ServiceMicrofilmWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
     </div>

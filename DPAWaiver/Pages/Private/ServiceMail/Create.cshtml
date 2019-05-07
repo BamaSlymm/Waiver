@@ -54,23 +54,26 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
-                    <label for="projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <label asp-for="ServiceMailWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
+                    <input type="text" class="form-control" asp-for="ServiceMailWaiver.projectName" required="true" placeholder="Your Project Name">
+                    <span asp-validation-for="ServiceMailWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <label asp-for="ServiceMailWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
+                    <input type="date" class="form-control" asp-for="ServiceMailWaiver.SubmittedOn" required="true" value="05/04/2018">
+                    <span asp-validation-for="ServiceMailWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
+                    <label asp-for="ServiceMailWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="CostEstimate" required="true" placeholder="Please Enter Cost">
+                    <input type="number" class="form-control" asp-for="ServiceMailWaiver.CostEstimate" required="true" placeholder="Please Enter Cost">
+                    <span asp-validation-for="ServiceMailWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
 
@@ -85,54 +88,62 @@
     </div>
     <div class="panel-body">
         <div class="form-group required">
-            <label for="itemDescription" class="control-label fontWeightNormal">Describe the item to be mailed:</label>
-            <textarea class="form-control" id="itemDescription" rows='2'></textarea>
+            <label asp-for="ServiceMailWaiver.ItemDescription" class="control-label fontWeightNormal">Describe the item to be mailed:</label>
+            <textarea class="form-control" asp-for="ServiceMailWaiver.ItemDescription" rows='2'></textarea>
+            <span asp-validation-for="ServiceMailWaiver.ItemDescription" class="text-danger"></span>
         </div>
         <div class="form-group required">
-            <label for="jobDescription" class="control-label fontWeightNormal">Describe the job and services required:</label>
-            <textarea class="form-control" id="jobDescription" rows='2'></textarea>
+            <label asp-for="ServiceMailWaiver.JobDescription" class="control-label fontWeightNormal">Describe the job and services required:</label>
+            <textarea class="form-control" asp-for="ServiceMailWaiver.JobDescription" rows='2'></textarea>
+            <span asp-validation-for="ServiceMailWaiver.JobDescription" class="text-danger"></span>
         </div>
         <div class="form-group required">
-            <label for="typeOfStock" class="control-label fontWeightNormal">What stock is the item to be mailed and/or printed on:</label>
-            <select class="form-control" id="typeOfStock">
+            <label asp-for="ServiceMailWaiver.TypeofStock" class="control-label fontWeightNormal">What stock is the item to be mailed and/or printed on:</label>
+            <select class="form-control" asp-for="ServiceMailWaiver.TypeofStock">
                 <option>10x14</option>
                 <option>Regular size business</option>
                 <option value='0'>Other</option>
             </select>
+            <span asp-validation-for="ServiceMailWaiver.TypeofStock" class="text-danger"></span>
         </div>
-        <div class="form-group required" id='otherDescriptionId'>
-            <label for="otherDescription" class="control-label fontWeightNormal">If other, please explain:</label>
-            <input type="text" class="form-control" id="otherDescription">
+        <div class="form-group required" id='OtherDescriptionId'>
+            <label asp-for="ServiceMailWaiver.OtherDescription" class="control-label fontWeightNormal">If other, please explain:</label>
+            <input type="text" class="form-control" asp-for="ServiceMailWaiver.OtherDescription">
+            <span asp-validation-for="ServiceMailWaiver.OtherDescription" class="text-danger"></span>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="numberOfPackets" class="control-label fontWeightNormal">Number of packets to be mailed:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the number of packets to be mailed. 
+                    <label asp-for="ServiceMailWaiver.NumberofPackets" class="control-label fontWeightNormal">Number of packets to be mailed:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the number of packets to be mailed. 
 This is a numeric field."></span></label>
-                    <input type="number" class="form-control" id="numberOfPackets" aria-describedby="numberOfPackets" placeholder="Number of Packets">
+                    <input type="number" class="form-control" asp-for="ServiceMailWaiver.NumberofPackets" aria-describedby="NumberofPackets" placeholder="Number of Packets">
+                    <span asp-validation-for="ServiceMailWaiver.NumberofPackets" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="mailingDate" class="control-label fontWeightNormal">Mailing Date:</label>
-                    <input type="date" class="form-control" id="mailingDate" aria-describedby="mailingDate" placeholder="Date To Mail On(mm/dd/yyyy)">
+                    <label asp-for="ServiceMailWaiver.MailingDate" class="control-label fontWeightNormal">Mailing Date:</label>
+                    <input type="date" class="form-control" asp-for="ServiceMailWaiver.MailingDate" aria-describedby="MailingDate" placeholder="Date To Mail On(mm/dd/yyyy)">
+                    <span asp-validation-for="ServiceMailWaiver.MailingDate" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="mailPermit" class="control-label fontWeightNormal">Do you plan to use our mail permit:</label>
-                    <select class="form-control" id="mailPermit">
+                    <label asp-for="ServiceMailWaiver.MailPermit" class="control-label fontWeightNormal">Do you plan to use our mail permit:</label>
+                    <select class="form-control" asp-for="ServiceMailWaiver.MailPermit">
                         <option>Yes</option>
                         <option>No</option>
                     </select>
+                    <span asp-validation-for="ServiceMailWaiver.MailPermit" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label for="mailRate" class="control-label fontWeightNormal">Mail Rate:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the mail rate. This is a numeric field; decimal can be used (i.e. 0.44)"></span></label>
-                    <input type="number" class="form-control" id="mailRate" aria-describedby="mailRate" placeholder="Mail Rate">
+                    <label asp-for="ServiceMailWaiver.MailRate" class="control-label fontWeightNormal">Mail Rate:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the mail rate. This is a numeric field; decimal can be used (i.e. 0.44)"></span></label>
+                    <input type="number" class="form-control" asp-for="ServiceMailWaiver.MailRate" aria-describedby="MailRate" placeholder="Mail Rate">
+                    <span asp-validation-for="ServiceMailWaiver.MailRate" class="text-danger"></span>
                 </div>
             </div>
         </div>

@@ -86,7 +86,6 @@ public void CopyFromServiceMailWaiver(ServiceMailWaiver other) {
             this.MailingDate = other.MailingDate;
             this.MailRate = other.MailRate;
             this.MailPermit = other.MailPermit;
-            this.projectName = other.projectName ;
             this.Status = other.Status;
             this.OtherDescription = other.OtherDescription;
         }
@@ -96,7 +95,7 @@ public void CopyFromServiceMailWaiver(ServiceMailWaiver other) {
         {
         }
 
-        [Required]
+        
         [Display(Name = "Type of Design:")]
         public int? DesignTypeID{get; set;}
         
