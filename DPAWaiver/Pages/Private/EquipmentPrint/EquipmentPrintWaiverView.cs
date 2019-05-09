@@ -50,6 +50,9 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Are you ordering for a group of individuals?")]
         public string forGroupOfIndividuals { get; set; }
 
+        [Display(Name = "Upload support documents:")]
+        public string uploadFile {get; set;}
+
         [Display(Name = "Reasons for selecting this particular equipment:")]
         public string selectionReason { get; set; }
 

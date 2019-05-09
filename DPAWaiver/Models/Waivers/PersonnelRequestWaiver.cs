@@ -46,7 +46,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal? EstimatedNumberofHours {get;set;}
+        public decimal? EstimatedNumberOfHours {get;set;}
     
         
         public PersonnelRequestWaiver(DPAUser createdBy, string otherFirstName, string otherLastName,

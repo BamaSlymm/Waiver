@@ -105,6 +105,10 @@ namespace DPAWaiver.Models.Waivers
         public string acquisitionType { get; set; }
 
         [Required]
+        [Display(Name = "State Price SubType?")]
+        public string statePriceSubType {get; set;}
+
+        [Required]
         [Display(Name = "Solicitation SubType?")]
         public string solicitationSubType {get; set;}
 
@@ -319,6 +323,7 @@ public void CopyFromEquipmentPrintPressWaiver(EquipmentPrintPressWaiver other) {
             this.Model = other.Model;
             this.acquisitionType = other.acquisitionType;
             this.solicitationSubType = other.solicitationSubType;
+            this.statePriceSubType = other.statePriceSubType;
             this.purchaseAmount = other.purchaseAmount;
             this.leaseDuration = other.leaseDuration;
             this.numberOfMonths = other.numberOfMonths;

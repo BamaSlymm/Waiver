@@ -77,6 +77,10 @@ namespace DPAWaiver.Models.Waivers
         public string expectedDuration {get; set;}
 
         [Required]
+        [Display(Name = "How do you plan to acquire this equipment?")]
+        public string acquisitionType { get; set; }
+
+        [Required]
         [Display(Name = "Solicitation SubType?")]
         public string solicitationSubType { get; set; }
 

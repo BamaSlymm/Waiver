@@ -24,7 +24,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours { get; set; }
+        public decimal EstimatedNumberOfHours { get; set; }
         
         [Display(Name = "If other please explain:")]
         public string OtherDescription { get; set; }

@@ -168,12 +168,12 @@ This is a numeric field."></i>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="fourColorJob" class="control-label fontWeightNormal">Is this a 4 color print job:
+                    <label for="FourColorJob" class="control-label fontWeightNormal">Is this a 4 color print job:
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="The definition of 4 color printing is offset printing.  
 4 color printing is not applicable to digital printing.  
 If you are needing digital printing, select 'No'."></i>
                     </label>
-                    <select class="form-control control-label" id="fourColorJob">
+                    <select class="form-control control-label" id="FourColorJob">
                         <option>No</option>
                         <option>Yes</option>
                     </select>
@@ -198,11 +198,11 @@ If you are needing digital printing, select 'No'."></i>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label for="finishedSize" class="control-label fontWeightNormal">Finished Size:
+                    <label for="FinishedSize" class="control-label fontWeightNormal">Finished Size:
                         <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the finished size. 
 (i.e. 8.5 x 11)"></span>
                     </label>
-                    <input type="text" class="form-control" id="finishedSize" aria-describedby="finishedSize" placeholder="Finished size, such as 8.5x11">
+                    <input type="text" class="form-control" id="FinishedSize" aria-describedby="FinishedSize" placeholder="Finished size, such as 8.5x11">
                 </div>
             </div>
         </div>
@@ -238,7 +238,7 @@ If you are needing digital printing, select 'No'."></i>
         showIfSelected('#estimateObtained', ['#estimateFileDiv'], {textList:['Yes']});
         showIfSelected('#paperStockType', ['#otherPaperStockReasonDiv'], {textList:['Other']});
         showIfSelected('#reprint', ['#previousPrinterDiv'], {textList:['Yes']});
-        showIfSelected('#fourColorJob', ['#numberOfInksDiv'], {textList:['Yes']});
+        showIfSelected('#FourColorJob', ['#numberOfInksDiv'], {textList:['Yes']});
     });
 
     $("#estimateObtained").on("change", function () {
@@ -253,8 +253,8 @@ If you are needing digital printing, select 'No'."></i>
         showIfSelected('#reprint', ['#previousPrinterDiv'], {textList:['Yes']});
     });
 
-    $("#fourColorJob").on("change", function () {
-        showIfSelected('#fourColorJob', ['#numberOfInksDiv'], {textList:['Yes']});
+    $("#FourColorJob").on("change", function () {
+        showIfSelected('#FourColorJob', ['#numberOfInksDiv'], {textList:['Yes']});
     });
 </script>
 }

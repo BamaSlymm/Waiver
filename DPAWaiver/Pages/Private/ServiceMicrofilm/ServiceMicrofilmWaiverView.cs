@@ -49,11 +49,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get; set;}
+        public decimal EstimatedNumberOfHours {get; set;}
 
         [Required]
         [Display(Name = "Esimtated Number of Documents:")]
-        public decimal EstimatedNumberofDocuments {get; set;}
+        public decimal EstimatedNumberOfDocuments {get; set;}
 
         [Required]
         [Display(Name = "What output type is needed:")]
@@ -78,6 +78,10 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "What other alternative methods have you looked at? Please provide details.")]
         public string AlternativeMethods {get; set;}
 
+        [Required]
+        [Display(Name = "Can the microfilm function be provided by the State's scanning unit.")]
+        public string doneInHouse {get; set;}
+
         [Display(Name = "Customer believes that this microfilm function cannot be performed by the State's scanning unit. Please provide details as to why:")]
         public string NotInHouseReason {get; set;}
         
@@ -101,14 +105,15 @@ public void CopyFromServiceMicrofilmWaiver(ServiceMicrofilmWaiver other) {
             this.MicrofilmDuplication = other.MicrofilmDuplication;
             this.RequestedRolls = other.RequestedRolls;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE;
-            this.EstimatedNumberofHours = other.EstimatedNumberofHours;
-            this.EstimatedNumberofDocuments = other.EstimatedNumberofDocuments;
+            this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
+            this.EstimatedNumberOfDocuments = other.EstimatedNumberOfDocuments;
             this.outputType = other.outputType;
             this.RollsLabeled = other.RollsLabeled;
             this.duplicateRolls = other.duplicateRolls;
             this.NumberofRolls = other.NumberofRolls;
             this.JobRequirements = other.JobRequirements;
             this.AlternativeMethods = other.AlternativeMethods;
+            this.doneInHouse = other.doneInHouse;
             this.NotInHouseReason = other.NotInHouseReason;
             this.AdditionalComments = other.AdditionalComments;
 

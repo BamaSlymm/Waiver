@@ -74,6 +74,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintPress
                 w => w.Make,
                 w => w.Model,
                 w => w.acquisitionType,
+                w => w.statePriceSubType,
                 w => w.solicitationSubType,
                 w => w.purchaseAmount,
                 w => w.leaseDuration,

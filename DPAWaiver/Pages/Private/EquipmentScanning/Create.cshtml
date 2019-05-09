@@ -359,10 +359,10 @@ This is a numeric field."></span>
                 </div>
 
                 <div class='form-group required'>
-                    <label asp-for='EquipmentScanningWaiver.reasonSelection' class='control-label fontWeightNormal'>Reasons for selecting this particular equipment</label>
-                    <textarea class='form-control' id='reasonSelection' aria-describedby='reasonSelection' placeholder='Reasons for selecting this particular equipment'
+                    <label asp-for='EquipmentScanningWaiver.selectionReason' class='control-label fontWeightNormal'>Reasons for selecting this particular equipment</label>
+                    <textarea class='form-control' id='selectionReason' aria-describedby='selectionReason' placeholder='Reasons for selecting this particular equipment'
                         rows='2'></textarea>
-                    <span asp-validation-for="EquipmentScanningWaiver.reasonSelection" class="text-danger"></span>
+                    <span asp-validation-for="EquipmentScanningWaiver.selectionReason" class="text-danger"></span>
                 </div>
 
                 <div class='row'>
@@ -414,7 +414,7 @@ This is a numeric field."></span>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.suppliesCost' class='control-label fontWeightNormal'>Cost of Supplies Per Year <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Consumables not included in Maintenance'></span></label>
-                            <input type='string' class='form-control' id='suppliesCost' aria-describedby='suppliesCost' placeholder='Cost of Supplies - Consumables not included in the Maintenance'>
+                            <input type='number' class='form-control' id='suppliesCost' aria-describedby='suppliesCost' placeholder='Cost of Supplies - Consumables not included in the Maintenance'>
                             <span asp-validation-for="EquipmentScanningWaiver.suppliesCost" class="text-danger"></span>
                             <!-- TODO: Is this per year or over all. Also what does consumables not included, does that refer to cost of annual maintenance needs hover or a help -->
                         </div>

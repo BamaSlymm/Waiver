@@ -91,6 +91,7 @@ namespace DPAWaiver.Pages.Private.EquipmentScanning
                 w => w.depreciationCostPerYear,
                 w => w.annualMaintenanceCostPerYear,
                 w => w.suppliesCost,
+                w => w.totalEquipmentCost,
                 w => w.softwareName,
                 w => w.softwareCost,
                 w => w.annualLicenseFee,

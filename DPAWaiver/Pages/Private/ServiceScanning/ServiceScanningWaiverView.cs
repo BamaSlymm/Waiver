@@ -39,11 +39,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "What type of film are you needing converting?")]
-        public decimal EstimatedNumberofDocuments {get; set;}
+        public decimal EstimatedNumberOfDocuments {get; set;}
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get; set;}
+        public decimal EstimatedNumberOfHours {get; set;}
         
         [Required]
         [Display(Name = "Will the job require indexing")]
@@ -111,8 +111,8 @@ public void CopyFromServiceScanningWaiver(ServiceScanningWaiver other) {
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
             this.WorkflowDescription = other.WorkflowDescription;
-            this.EstimatedNumberofDocuments = other.EstimatedNumberofDocuments;
-            this.EstimatedNumberofHours = other.EstimatedNumberofHours;
+            this.EstimatedNumberOfDocuments = other.EstimatedNumberOfDocuments;
+            this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
             this.indexingNeeded = other.indexingNeeded;
             this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
             this.textSearchablePDF = other.textSearchablePDF;

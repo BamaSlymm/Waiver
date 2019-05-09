@@ -30,7 +30,11 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal? EstimatedNumberofHours {get;set;}
+        public decimal? EstimatedNumberOfHours {get;set;}
+
+        [Required]
+        [Display(Name = "How do you currently receive this service?")]
+        public string SPAtype { get; set; }
 
         [Required]
         [Display(Name = "Enter State Price Agreement Number:")]

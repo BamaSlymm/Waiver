@@ -98,6 +98,10 @@ namespace DPAWaiver.Models.Waivers
         public string expectedDuration {get; set;}
 
         [Required]
+        [Display(Name = "How do you plan to acquire this equipment?")]
+        public string acquisitionType { get; set; }
+
+        [Required]
         [Display(Name = "Solicitation SubType?")]
         public string solicitationSubType { get; set; }
 
@@ -198,6 +202,7 @@ public void CopyFromSoftwareDataEntryWaiver(SoftwareDataEntryWaiver other) {
             this.softwareVolume = other.softwareVolume;
             this.selectionReason = other.selectionReason;
             this.expectedDuration = other.expectedDuration;
+            this.acquisitionType = other.acquisitionType;
             this.solicitationSubType = other.solicitationSubType;
             this.statepriceSubType = other.statepriceSubType;
             this.purchaseAmount = other.purchaseAmount;

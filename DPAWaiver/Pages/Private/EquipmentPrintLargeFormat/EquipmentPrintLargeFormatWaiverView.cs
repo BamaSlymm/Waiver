@@ -109,6 +109,10 @@ namespace DPAWaiver.Models.Waivers
         public string solicitationSubType {get; set;}
 
         [Required]
+        [Display(Name = "State Price SubType?")]
+        public string statepriceSubType { get; set; }
+
+        [Required]
         [Display(Name = "Purchase Amount")]
         public decimal purchaseAmount {get; set;}
 

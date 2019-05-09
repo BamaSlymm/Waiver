@@ -29,11 +29,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get; set;}
+        public decimal EstimatedNumberOfHours {get; set;}
 
         [Required]
         [Display(Name = "Esimtated Number of Documents:")]
-        public decimal EstimatedNumberofDocuments {get; set;}
+        public decimal EstimatedNumberOfDocuments {get; set;}
 
         [Required]
         [Display(Name = "What output type is needed:")]
@@ -57,6 +57,10 @@ namespace DPAWaiver.Models.Waivers
 
         [Display(Name = "What other alternative methods have you looked at? Please provide details.")]
         public string AlternativeMethods {get; set;}
+
+        [Required]
+        [Display(Name = "Can the microfilm function be provided by the State's scanning unit.")]
+        public string doneInHouse {get; set;}
 
         [Display(Name = "Customer believes that this microfilm function cannot be performed by the State's scanning unit. Please provide details as to why:")]
         public string NotInHouseReason {get; set;}

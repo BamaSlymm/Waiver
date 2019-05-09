@@ -48,12 +48,12 @@
     },
     {
       "Command": "type",
-      "Target": "id=DataEntryWaiver_EstimatedNumberofHours",
+      "Target": "id=DataEntryWaiver_EstimatedNumberOfHours",
       "Value": "3"
     },
     {
       "Command": "type",
-      "Target": "id=DataEntryWaiver_EstimatedNumberofDocuments",
+      "Target": "id=DataEntryWaiver_EstimatedNumberOfDocuments",
       "Value": "2"
     },
     {

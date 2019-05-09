@@ -51,6 +51,10 @@ namespace DPAWaiver.Models.Waivers
         public string ContractorType {get; set;}
 
         [Required]
+        [Display(Name = "Hourly Rate")]
+        public decimal HourlyRate {get; set;}
+
+        [Required]
         [Column(TypeName="DECIMAL(13,2)")]
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
@@ -66,7 +70,11 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal? EstimatedNumberofHours {get;set;}
+        public decimal? EstimatedNumberOfHours {get;set;}
+
+        [Required]
+        [Display(Name = "How do you currently receive this service?")]
+        public string SPAtype { get; set; }
 
         [Required]
         [Display(Name = "Enter State Price Agreement Number:")]
@@ -115,9 +123,11 @@ namespace DPAWaiver.Models.Waivers
             this.SubmittedOn = other.SubmittedOn ;
             this.ScopeofWork = other.ScopeofWork;
             this.ContractorType = other.ContractorType;
+            this.HourlyRate = other.HourlyRate;
             this.CostEstimate = other.CostEstimate ;
             this.JobDuties = other.JobDuties;
-            this.EstimatedNumberofHours = other.EstimatedNumberofHours ;
+            this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
+            this.SPAtype = other.SPAtype;
             this.SPAnumber = other.SPAnumber;
             this.SPAotherDescription = other.SPAotherDescription;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE ;

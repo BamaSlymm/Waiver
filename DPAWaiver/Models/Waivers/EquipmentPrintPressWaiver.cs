@@ -85,6 +85,10 @@ namespace DPAWaiver.Models.Waivers
         public string acquisitionType { get; set; }
 
         [Required]
+        [Display(Name = "State Price SubType?")]
+        public string statePriceSubType {get; set;}
+
+        [Required]
         [Display(Name = "Solicitation SubType?")]
         public string solicitationSubType {get; set;}
 

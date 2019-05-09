@@ -6,7 +6,7 @@
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 
-    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    <partial name="_UserInformation" Model="@Model.UserWithDepartment" />
     @if (Model.EquipmentPrintPressWaiver.OtherFirstName != null && Model.EquipmentPrintPressWaiver.OtherLastName != null)
     {
     <div class="panel panel-primary marginTop20px">
@@ -18,7 +18,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label asp-for="EquipmentPrintPressWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
-                    <input asp-for="EquipmentPrintPressWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintPressWaiver.OtherFirstName)" />
+                    <input asp-for="EquipmentPrintPressWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(Model => Model.EquipmentPrintPressWaiver.OtherFirstName)" />
                     <span asp-validation-for="EquipmentPrintPressWaiver.OtherFirstName" class="text-danger"></span>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label asp-for="EquipmentPrintPressWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
-                    <input asp-for="EquipmentPrintPressWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintPressWaiver.OtherLastName)" />
+                    <input asp-for="EquipmentPrintPressWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(Model => Model.EquipmentPrintPressWaiver.OtherLastName)" />
                     <span asp-validation-for="EquipmentPrintPressWaiver.OtherLastName" class="text-danger"></span>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="row" id='modelAndAcquisitionDiv'>
+            <div class="row" id='ModelAndAcquisitionDiv'>
                 <div class="col-md-6 col-xs-12">
                     <div class="form-group required">
                         <label asp-for="EquipmentPrintPressWaiver.currentModel" class="control-label fontWeightNormal">Current Model</label>
@@ -247,16 +247,16 @@ This is a numeric field."></span>
                     <div class='row' id='otherequipmentTypeDiv'>
                         <div class='col-sm-6 col-xs-12'>
                             <div class='form-group required'>
-                                <label asp-for='EquipmentPrintPressWaiver.make' class='control-label fontWeightNormal'>Make</label>
-                                <input type='text' class='form-control' id='make' aria-describedby='make' placeholder='Make'>
-                                <span asp-validation-for="EquipmentPrintPressWaiver.make" class="text-danger"></span>
+                                <label asp-for='EquipmentPrintPressWaiver.Make' class='control-label fontWeightNormal'>Make</label>
+                                <input type='text' class='form-control' id='Make' aria-describedby='Make' placeholder='Make'>
+                                <span asp-validation-for="EquipmentPrintPressWaiver.Make" class="text-danger"></span>
                             </div>
                         </div>
                         <div class='col-sm-6 col-xs-12'>
                             <div class='form-group required'>
-                                <label asp-for='EquipmentPrintPressWaiver.model' class='control-label fontWeightNormal'>Model</label>
-                                <input type='text' class='form-control' id='model' aria-describedby='model' placeholder='Model'>
-                                <span asp-validation-for="EquipmentPrintPressWaiver.model" class="text-danger"></span>
+                                <label asp-for='EquipmentPrintPressWaiver.Model' class='control-label fontWeightNormal'>Model</label>
+                                <input type='text' class='form-control' id='Model' aria-describedby='Model' placeholder='Model'>
+                                <span asp-validation-for="EquipmentPrintPressWaiver.Model" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
@@ -291,12 +291,12 @@ This is a numeric field."></span>
                         </div>
                         <div class="col-md-6 col-xs-12" id="statepriceSubDiv">
                             <div class="form-group required">
-                                <label asp-for="EquipmentPrintPressWaiver.statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
-                                <select class="form-control" id="statepriceSubType">
+                                <label asp-for="EquipmentPrintPressWaiver.statePriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
+                                <select class="form-control" id="statePriceSubType">
                                     <option>Cancelable Rental</option>
                                     <option>Lease</option>
                                 </select>
-                                <span asp-validation-for="EquipmentPrintPressWaiver.statepriceSubType" class="text-danger"></span>
+                                <span asp-validation-for="EquipmentPrintPressWaiver.statePriceSubType" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12" id="acquisitionTypeDiv">

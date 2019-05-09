@@ -101,22 +101,22 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.typeOfFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
-                    <select class="form-control control-label" id="typeOfFilm">
+                    <label asp-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
+                    <select class="form-control control-label" id="typeofFilm">
                         <option>Please select one</option>
                         <option>16 mm microfilm</option>
                         <option>35 mm microfilm</option>
                         <option>aperture card</option>
                         <option>microfiche</option>
                     </select>
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.typeOfFilm" class="text-danger"></span>
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="text-danger"></span>
                 </div>
             </div>
-            <div class="col-md-6 col-xs-12" id="numberOfRollsDiv">
+            <div class="col-md-6 col-xs-12" id="NumberofRollsDiv">
                 <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.numberOfRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
-                    <input type="number" class="form-control" id="numberOfRolls">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.numberOfRolls" class="text-danger"></span>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
+                    <input type="number" class="form-control" id="NumberofRolls">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12" id="numberOfCardsDiv">
@@ -144,11 +144,11 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
             <div class="col-md-6 col-xs-12">
 
                 <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+                    <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
                     </label>
-                    <input type="number" class="form-control" id="estimatedNumberOfHours" aria-describedby="estimatedNumberOfHours" placeholder="Estimated number of hours">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.estimatedNumberOfHours" class="text-danger"></span>
+                    <input type="number" class="form-control" id="EstimatedNumberOfHours" aria-describedby="EstimatedNumberOfHours" placeholder="Estimated number of hours">
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -287,7 +287,7 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#typeOfFilm', ['#numberOfRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
+        showIfSelected('#typeOfFilm', ['#NumberofRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
         showIfSelected('#typeOfFilm', ['#numberOfCardsDiv'], {textList:['aperture card','microfiche']});
         showIfSelected('#indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {textList:['Yes']});
         showIfSelected('#imageDelivery', ['#otherImageDeliveryDiv'], {valueList:['1']});
@@ -297,7 +297,7 @@ This is a numeric field."></span>
     });
 
     $("#typeOfFilm").on("change", function () {
-        showIfSelected('#typeOfFilm', ['#numberOfRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
+        showIfSelected('#typeOfFilm', ['#NumberofRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
     });
    
     $("#typeOfFilm").on("change", function () {

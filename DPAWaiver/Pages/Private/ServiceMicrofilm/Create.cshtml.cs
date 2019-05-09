@@ -65,7 +65,7 @@ namespace DPAWaiver.Pages.Private.ServiceMicrofilm
                w => w.MicrofilmDuplication,
                w => w.RequestedRolls,
                w => w.EstimatedNumberofFTE,
-               w => w.EstimatedNumberofHours,
+               w => w.EstimatedNumberOfHours,
                w => w.outputType,
                w => w.RollsLabeled,
                w => w.duplicateRolls,

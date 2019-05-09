@@ -45,11 +45,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display (Name = "Estimated number of cards/sheets:")]
-        public decimal numberofCards {get; set;}
+        public decimal numberOfCards {get; set;}
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get; set;}
+        public decimal EstimatedNumberOfHours {get; set;}
 
         [Required]
         [Display(Name = "Esimtated Number of FTE:")]
@@ -116,8 +116,8 @@ public void CopyFromServiceMicrofilmConversionWaiver(ServiceMicrofilmConversionW
             this.WorkflowDescription = other.WorkflowDescription;
             this.typeofFilm = other.typeofFilm;
             this.NumberofRolls = other.NumberofRolls;
-            this.numberofCards = other.numberofCards;
-            this.EstimatedNumberofHours = other.EstimatedNumberofHours;
+            this.numberOfCards = other.numberOfCards;
+            this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE;
             this.indexingNeeded = other.indexingNeeded;
             this.textSearchablePDF = other.textSearchablePDF;

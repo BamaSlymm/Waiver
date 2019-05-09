@@ -46,6 +46,9 @@ namespace DPAWaiver.Models.Waivers
         [Display (Name = "If Other, please explain")]
         public string otherPaperStockReason {get; set;}
 
+        [Display(Name = "Upload the recieved estimate:")]
+        public string estimateFile {get; set;}
+
         [Required]
         [Display(Name = "Type of Finishing")]
         public string FinishingType {get; set;}
@@ -60,7 +63,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of Originals:")]
-        public decimal numberofOriginals {get; set;}
+        public decimal numberOfOriginals {get; set;}
 
         [Required]
         [Display(Name = "Quantity:")]
@@ -72,7 +75,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of Inks:")]
-        public decimal numberofInks {get; set;}
+        public decimal numberOfInks {get; set;}
 
         [Required]
         [DataType(DataType.Date)]
@@ -105,11 +108,12 @@ public void CopyFromServicePrintWaiver(ServicePrintWaiver other) {
             this.otherPaperStockReason = other.otherPaperStockReason;
             this.FinishingType = other.FinishingType;
             this.Reprint = other.Reprint;
+            this.estimateFile = other.estimateFile;
             this.previousPrinter = other.previousPrinter;
-            this.numberofOriginals = other.numberofOriginals;
+            this.numberOfOriginals = other.numberOfOriginals;
             this.Quantity = other.Quantity;
             this.FourColorJob = other.FourColorJob;
-            this.numberofInks = other.numberofInks;
+            this.numberOfInks = other.numberOfInks;
             this.projectDueDate = other.projectDueDate;
             this.FinishedSize = other.FinishedSize;
             this.AdditionalComments = other.AdditionalComments;

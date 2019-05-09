@@ -45,11 +45,11 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal? EstimatedNumberofHours {get;set;}
+        public decimal? EstimatedNumberOfHours {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of documents:")]
-        public int? EstimatedNumberofDocuments {get;set;}
+        public int? EstimatedNumberOfDocuments {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
@@ -87,10 +87,10 @@ namespace DPAWaiver.Models.Waivers
         public void CopyFromDataEntryWaiver(DataEntryWaiver other) {
             this.AdditionalComments = other.AdditionalComments;
             this.CostEstimate = other.CostEstimate ;
-            this.EstimatedNumberofDocuments = other.EstimatedNumberofDocuments ;
+            this.EstimatedNumberOfDocuments = other.EstimatedNumberOfDocuments ;
             this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE ;
-            this.EstimatedNumberofHours = other.EstimatedNumberofHours ;
+            this.EstimatedNumberOfHours = other.EstimatedNumberOfHours ;
             this.keyedIntoSystem = other.keyedIntoSystem ;
             this.OtherFirstName = other.OtherFirstName ;
             this.OtherLastName = other.OtherLastName ;

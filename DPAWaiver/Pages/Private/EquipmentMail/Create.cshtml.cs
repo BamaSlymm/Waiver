@@ -80,7 +80,7 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                w => w.statepriceSubType,
                w => w.totalLeaseAmount,
                w => w.EstimatedNumberofFTE,
-               w => w.estimatedNumberofHoursPerFTE,
+               w => w.EstimatedNumberOfHoursPerFTE,
                w => w.weeklySalaryCost,
                w => w.totalSpaceRequired,
                w => w.monthlySupervisionAmount,
@@ -89,7 +89,7 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                w => w.monthlyIndirectCosts,
                w => w.miscellaneousCosts,
                w => w.overheadCostDescription,
-               w => w.overheadDescription,
+               w => w.alternativesDescription,
                w => w.Status,
                w => w.AdditionalComments
                ))

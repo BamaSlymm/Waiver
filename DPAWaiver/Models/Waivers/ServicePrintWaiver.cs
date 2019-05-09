@@ -39,7 +39,10 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of Originals:")]
-        public decimal numberofOriginals {get; set;}
+        public decimal numberOfOriginals {get; set;}
+        
+        [Display(Name = "Upload the recieved estimate:")]
+        public string estimateFile {get; set;}
 
         [Required]
         [Display(Name = "Quantity:")]
@@ -51,7 +54,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of Inks:")]
-        public decimal numberofInks {get; set;}
+        public decimal numberOfInks {get; set;}
 
         [Required]
         [DataType(DataType.Date)]

@@ -19,11 +19,11 @@ namespace DPAWaiver.Models.Waivers
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get;set;}
+        public decimal EstimatedNumberOfHours {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of documents:")]
-        public int EstimatedNumberofDocuments {get;set;}
+        public int EstimatedNumberOfDocuments {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]

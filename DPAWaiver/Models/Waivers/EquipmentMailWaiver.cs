@@ -108,7 +108,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of hours Per FTE:")]
-        public decimal estimatedNumberofHoursPerFTE { get; set; }
+        public decimal EstimatedNumberOfHoursPerFTE { get; set; }
 
         [Required]
         [Display(Name = "Total Weekly Salary Cost for FTE:")]
@@ -143,7 +143,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Please describe the alternatives you have examined before making the request:")]
-        public string overheadDescription { get; set; }
+        public string alternativesDescription { get; set; }
 
         [Display(Name = "Any Additional Comments:")]
         public string AdditionalComments { get; set; }

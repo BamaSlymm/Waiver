@@ -128,7 +128,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of hours Per FTE:")]
-        public decimal estimatedNumberofHoursPerFTE { get; set; }
+        public decimal EstimatedNumberOfHoursPerFTE { get; set; }
 
         [Required]
         [Display(Name = "Total Weekly Salary Cost for FTE:")]
@@ -163,7 +163,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Please describe the alternatives you have examined before making the request:")]
-        public string overheadDescription { get; set; }
+        public string alternativesDescription { get; set; }
 
         [Display(Name = "Any Additional Comments:")]
         public string AdditionalComments { get; set; }
@@ -205,7 +205,7 @@ public void CopyFromEquipmentMailWaiver(EquipmentMailWaiver other) {
             this.statepriceSubType = other.statepriceSubType;
             this.totalLeaseAmount = other.totalLeaseAmount;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE;
-            this.estimatedNumberofHoursPerFTE = other.estimatedNumberofHoursPerFTE;
+            this.EstimatedNumberOfHoursPerFTE = other.EstimatedNumberOfHoursPerFTE;
             this.weeklySalaryCost = other.weeklySalaryCost;
             this.totalSpaceRequired = other.totalSpaceRequired;
             this.monthlySupervisionAmount = other.monthlySupervisionAmount;
@@ -214,7 +214,7 @@ public void CopyFromEquipmentMailWaiver(EquipmentMailWaiver other) {
             this.monthlyIndirectCosts = other.monthlyIndirectCosts;
             this.miscellaneousCosts = other.miscellaneousCosts;
             this.overheadCostDescription = other.overheadCostDescription;
-            this.overheadDescription = other.overheadDescription;
+            this.alternativesDescription = other.alternativesDescription;
             this.Status = other.Status;
             this.AdditionalComments = other.AdditionalComments;
         }

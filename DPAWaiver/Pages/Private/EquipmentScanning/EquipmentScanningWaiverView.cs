@@ -118,6 +118,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Solicitation SubType?")]
         public string solicitationSubType {get; set;}
 
+        [Required]
         [Display(Name = "State Price SubType?")]
         public string statepriceSubType { get; set; }
 
@@ -179,7 +180,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Cost of Supplies")]
-        public string suppliesCost {get; set;}
+        public decimal suppliesCost {get; set;}
+
+        [Required]
+        [Display(Name ="Total Equipment Cost")]
+        public decimal totalEquipmentCost {get; set;}
 
         [Required]
         [Display(Name = "Name of Software")]
@@ -353,6 +358,7 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.depreciationCostPerYear = other.depreciationCostPerYear;
             this.annualMaintenanceCostPerYear = other.annualMaintenanceCostPerYear;
             this.suppliesCost = other.suppliesCost;
+            this.totalEquipmentCost = other.totalEquipmentCost;
             this.softwareName = other.softwareName;
             this.softwareCost = other.softwareCost;
             this.annualLicenseFee = other.annualLicenseFee;

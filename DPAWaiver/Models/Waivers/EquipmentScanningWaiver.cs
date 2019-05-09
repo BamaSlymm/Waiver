@@ -159,7 +159,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Cost of Supplies")]
-        public string suppliesCost {get; set;}
+        public decimal suppliesCost {get; set;}
+
+        [Required]
+        [Display(Name ="Total Equipment Cost")]
+        public decimal totalEquipmentCost {get; set;}
 
         [Required]
         [Display(Name = "Name of Software")]

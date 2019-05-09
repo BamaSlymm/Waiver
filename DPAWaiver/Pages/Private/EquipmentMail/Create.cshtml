@@ -211,16 +211,16 @@ This is a numeric field."></span>
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label  asp-for="EquipmentMailWaiver.make" class="control-label fontWeightNormal">Make</label>
-                    <input asp-for="EquipmentMailWaiver.make" type="text" class="form-control" asp-for="EquipmentMailWaiver.make" aria-describedby="make" placeholder="Make">
-                    <span asp-validation-for="EquipmentMailWaiver.make" class="text-danger"></span>
+                    <label  asp-for="EquipmentMailWaiver.Make" class="control-label fontWeightNormal">Make</label>
+                    <input asp-for="EquipmentMailWaiver.Make" type="text" class="form-control" asp-for="EquipmentMailWaiver.Make" aria-describedby="Make" placeholder="Make">
+                    <span asp-validation-for="EquipmentMailWaiver.Make" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label  asp-for="EquipmentMailWaiver.model" class="control-label fontWeightNormal">Model</label>
-                    <input asp-for="EquipmentMailWaiver.model" type="text" class="form-control" asp-for="EquipmentMailWaiver.model" aria-describedby="model" placeholder="Model">
-                    <span asp-validation-for="EquipmentMailWaiver.model" class="text-danger"></span>
+                    <label  asp-for="EquipmentMailWaiver.Model" class="control-label fontWeightNormal">Model</label>
+                    <input asp-for="EquipmentMailWaiver.Model" type="text" class="form-control" asp-for="EquipmentMailWaiver.Model" aria-describedby="Model" placeholder="Model">
+                    <span asp-validation-for="EquipmentMailWaiver.Model" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -327,27 +327,27 @@ This is a numeric field."></span>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group required">
-                           <label  asp-for="EquipmentMailWaiver.EstimatedNumberOfFTE" class="control-label fontWeightNormal">Estimated number of FTE:
+                           <label  asp-for="EquipmentMailWaiver.EstimatedNumberofFTE" class="control-label fontWeightNormal">Estimated number of FTE:
                                 <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
                 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                             </label>
 
-                            <input type="number" class="form-control" asp-for="EquipmentMailWaiver.EstimatedNumberOfFTE" aria-describedby="EstimatedNumberOfFTE" placeholder="Full Time Employee Count">
-                            <span asp-validation-for="EquipmentMailWaiver.EstimatedNumberOfFTE" class="text-danger"></span>
+                            <input type="number" class="form-control" asp-for="EquipmentMailWaiver.EstimatedNumberofFTE" aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
+                            <span asp-validation-for="EquipmentMailWaiver.EstimatedNumberofFTE" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <!-- TODO: Per FTE or overall, question is impacting all the screens ? -->
 
                         <div class="form-group required">
-                           <label  asp-for="EquipmentMailWaiver.estimatedNumberOfHoursPerFTE" class="control-label fontWeightNormal">Estimated number of hours Per FTE:
+                           <label  asp-for="EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE" class="control-label fontWeightNormal">Estimated number of hours Per FTE:
                                 <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip"
                                     title="Enter the estimated number of hours needed to complete this project. 
                 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
                             </label>
-                            <input type="number" class="form-control" asp-for="EquipmentMailWaiver.estimatedNumberOfHoursPerFTE" aria-describedby="estimatedNumberOfHoursPerFTE"
+                            <input type="number" class="form-control" asp-for="EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE" aria-describedby="EstimatedNumberOfHoursPerFTE"
                                 placeholder="Estimated number of hours per FTE">
-                                <span asp-validation-for="EquipmentMailWaiver.estimatedNumberOfHoursPerFTE" class="text-danger"></span>
+                                <span asp-validation-for="EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -403,7 +403,7 @@ This is a numeric field."></span>
                                     title="Monthly Management Amount. Decimal is allowed."></span>
                             </label>
                             <input type="number" class="form-control" asp-for="EquipmentMailWaiver.monthlyManagementAmount" aria-describedby="monthlyManagementAmount" placeholder="Monthly Management Amount. Decimal is allowed">
-                            <span asp-validation-for="EquipmentMailWaive.monthlyManagementAmount." class="text-danger"></span>
+                            <span asp-validation-for="EquipmentMailWaiver.monthlyManagementAmount" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -438,9 +438,9 @@ This is a numeric field."></span>
                     <span asp-validation-for="EquipmentMailWaiver.miscellaneousCosts" class="text-danger"></span>
                 </div>
                 <div class="form-group required" asp-for="EquipmentMailWaiver.overHeadCostsDescription">
-                   <label  asp-for="EquipmentMailWaiver.overheadDescription" class="control-label fontWeightNormal">Overhead Costs Description</label>
-                    <textarea class="form-control" asp-for="EquipmentMailWaiver.overheadDescription" rows="2"></textarea>
-                    <span asp-validation-for="EquipmentMailWaiver.overheadDescription" class="text-danger"></span>
+                   <label  asp-for="EquipmentMailWaiver.overheadCostDescription" class="control-label fontWeightNormal">Overhead Costs Description</label>
+                    <textarea class="form-control" asp-for="EquipmentMailWaiver.overheadCostDescription" rows="2"></textarea>
+                    <span asp-validation-for="EquipmentMailWaiver.overheadCostDescription" class="text-danger"></span>
                 </div>
 
                 <div class="form-group required">

@@ -56,7 +56,7 @@ namespace DPAWaiver.Pages.Private.ServiceDesign
                w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
-               w => w.EstimatedNumberofHours,
+               w => w.EstimatedNumberOfHours,
                w => w.DueDate,
                w => w.StartedOn,
                w => w.ItemToBeDesigned,

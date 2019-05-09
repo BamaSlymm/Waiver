@@ -25,11 +25,11 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display (Name = "Estimated number of cards/sheets:")]
-        public decimal numberofCards {get; set;}
+        public decimal numberOfCards {get; set;}
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberofHours {get; set;}
+        public decimal EstimatedNumberOfHours {get; set;}
 
         [Required]
         [Display(Name = "Esimtated Number of FTE:")]
