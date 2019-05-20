@@ -33,7 +33,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Is this a reprint:")]
         public string Reprint {get; set;}
 
-        [Required]
+       
         [Display(Name = "If it is a reprint, who was the previous printer")]
         public string previousPrinter {get; set;}
 

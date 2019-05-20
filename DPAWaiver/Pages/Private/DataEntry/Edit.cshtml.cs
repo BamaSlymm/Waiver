@@ -91,7 +91,7 @@ namespace DPAWaiver.Pages.Private.DataEntry
                w => w.WorkflowDescription,
                w => w.EstimatedNumberofFTE,
                w => w.EstimatedNumberOfHours,
-               w => w.EstimatedNumberOfDocuments,
+               w => w.estimatedNumberOfDocuments,
                w => w.EstimatedNumberOfFields,
                w => w.SystemRequirementsDescription,
                w => w.keyedIntoSystem,

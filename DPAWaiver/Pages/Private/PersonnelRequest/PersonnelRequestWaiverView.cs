@@ -49,7 +49,7 @@ namespace DPAWaiver.Models.Waivers
         [Range(0, 9999999999999999.99)]
         public decimal? CostEstimate { get ; set;}
 
-        [Required]
+        
         [Display(Name= "Employee Type")]
         public string employeeType {get; set;}
 
@@ -61,15 +61,15 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Total estimated number of Staff:")]
         public decimal? EstimatedNumberofStaff {get;set;}
 
-        [Required]
+        
         [Display(Name = "Upload State Position Description:")]
         public string positionFile {get; set;}
 
-        [Required]
+        
         [Display(Name = "Total estimated number of FTE:")]
         public decimal? EstimatedNumberofFTE {get;set;}
 
-        [Required]
+        
         [Display(Name = "Requested Classification (One waiver request per classification):")]        
         public string RequestedClassification {get; set;}
 
@@ -89,9 +89,6 @@ namespace DPAWaiver.Models.Waivers
         {
         }
 
-          [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
 
         public PersonnelRequestWaiverView(PersonnelRequestWaiver other)
         {

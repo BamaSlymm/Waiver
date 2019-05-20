@@ -35,7 +35,7 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
             return Page();
         }
 
-        public IEnumerable<SelectListItem> designtype => _ILOVService.GetDesignTypesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> designtype => _ILOVService.GetPersonnelServiceTypesAsSelectListBySortOrder();
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -46,9 +46,8 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
                 return Page();
             }
 
-            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
-            var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(PersonnelRequestWaiver.DesignTypeID);
+            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Personnel);
+            var purposeType = _ILOVService.getPersonnelServiceTypes().Single(x => x.ID == PersonnelServiceTypes.StateEmployee);
             PersonnelRequestWaiver emptyWaiver = new PersonnelRequestWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<PersonnelRequestWaiver>(

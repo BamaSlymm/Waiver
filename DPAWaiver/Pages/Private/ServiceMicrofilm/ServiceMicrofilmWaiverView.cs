@@ -29,7 +29,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
         [Range(0, 9999999999999999.99)]
-        public decimal CostEstimate { get ; set;}
+        public decimal? CostEstimate { get ; set;}
 
         [Required]
         [Display(Name = "Describe the item to be mailed:")]
@@ -45,15 +45,15 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display (Name = "Estimated number of FTE:")]
-        public decimal EstimatedNumberofFTE {get; set;}
+        public decimal? EstimatedNumberofFTE {get; set;}
 
         [Required]
         [Display(Name = "Total estimated number of hours:")]
-        public decimal EstimatedNumberOfHours {get; set;}
+        public decimal? EstimatedNumberOfHours {get; set;}
 
         [Required]
         [Display(Name = "Esimtated Number of Documents:")]
-        public decimal EstimatedNumberOfDocuments {get; set;}
+        public decimal? estimatedNumberOfDocuments {get; set;}
 
         [Required]
         [Display(Name = "What output type is needed:")]
@@ -69,7 +69,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Specify number of rolls:")]
-        public decimal NumberofRolls {get; set;}
+        public decimal? NumberofRolls {get; set;}
 
         [Required]
         [Display(Name = "Specify Microfilm Job Requirements:")]
@@ -78,7 +78,6 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "What other alternative methods have you looked at? Please provide details.")]
         public string AlternativeMethods {get; set;}
 
-        [Required]
         [Display(Name = "Can the microfilm function be provided by the State's scanning unit.")]
         public string doneInHouse {get; set;}
 
@@ -89,6 +88,10 @@ namespace DPAWaiver.Models.Waivers
         public string AdditionalComments { get; set; }
 
         public WaiverStatus Status {get;set;}
+        
+        public ServiceMicrofilmWaiverView()
+        {
+        }
 
         public ServiceMicrofilmWaiverView(ServiceMicrofilmWaiver other)
         {
@@ -106,7 +109,7 @@ public void CopyFromServiceMicrofilmWaiver(ServiceMicrofilmWaiver other) {
             this.RequestedRolls = other.RequestedRolls;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE;
             this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
-            this.EstimatedNumberOfDocuments = other.EstimatedNumberOfDocuments;
+            this.estimatedNumberOfDocuments = other.estimatedNumberOfDocuments;
             this.outputType = other.outputType;
             this.RollsLabeled = other.RollsLabeled;
             this.duplicateRolls = other.duplicateRolls;
@@ -119,14 +122,6 @@ public void CopyFromServiceMicrofilmWaiver(ServiceMicrofilmWaiver other) {
 
         }
 
-        
-        public ServiceMicrofilmWaiverView()
-        {
-        }
-
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
         
     }
 

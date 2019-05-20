@@ -43,14 +43,13 @@ namespace DPAWaiver.Pages.Private.ServiceMicrofilm
         {
             UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            if (!ModelState.IsValid)
+        if (!ModelState.IsValid)
             {
                 return Page();
             }
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(ServiceMicrofilmWaiver.DesignTypeID);
             ServiceMicrofilmWaiver emptyWaiver = new ServiceMicrofilmWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<ServiceMicrofilmWaiver>(

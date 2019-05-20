@@ -23,7 +23,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of documents:")]
-        public int EstimatedNumberOfDocuments {get;set;}
+        public int estimatedNumberOfDocuments {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]

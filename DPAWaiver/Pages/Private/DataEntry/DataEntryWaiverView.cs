@@ -49,7 +49,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Estimated number of documents:")]
-        public int? EstimatedNumberOfDocuments {get;set;}
+        public int? estimatedNumberOfDocuments {get;set;}
 
         [Required]
         [Display(Name = "Estimated number of fields per document:")]
@@ -87,7 +87,7 @@ namespace DPAWaiver.Models.Waivers
         public void CopyFromDataEntryWaiver(DataEntryWaiver other) {
             this.AdditionalComments = other.AdditionalComments;
             this.CostEstimate = other.CostEstimate ;
-            this.EstimatedNumberOfDocuments = other.EstimatedNumberOfDocuments ;
+            this.estimatedNumberOfDocuments = other.estimatedNumberOfDocuments ;
             this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
             this.EstimatedNumberofFTE = other.EstimatedNumberofFTE ;
             this.EstimatedNumberOfHours = other.EstimatedNumberOfHours ;

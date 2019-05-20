@@ -45,7 +45,6 @@ namespace DPAWaiver.Pages.Private.ServiceScanning
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(ServiceScanningWaiver.DesignTypeID);
             ServiceScanningWaiver emptyWaiver = new ServiceScanningWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<ServiceScanningWaiver>(
@@ -57,7 +56,7 @@ namespace DPAWaiver.Pages.Private.ServiceScanning
                w => w.SubmittedOn,
                w => w.CostEstimate,
                w => w.WorkflowDescription,
-               w => w.EstimatedNumberOfDocuments,
+               w => w.estimatedNumberOfDocuments,
                w => w.EstimatedNumberOfHours,
                w => w.indexingNeeded,
                w => w.EstimatedNumberOfFields,

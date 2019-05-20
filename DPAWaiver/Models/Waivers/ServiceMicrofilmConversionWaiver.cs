@@ -43,7 +43,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Do you need a text searchable .pdf?")]
         public string textSearchablePDF {get; set;}
 
-        [Required]
+        
         [Display(Name = "Estimated number of fields per document:")]
         public string EstimatedNumberOfFields {get; set;}
 

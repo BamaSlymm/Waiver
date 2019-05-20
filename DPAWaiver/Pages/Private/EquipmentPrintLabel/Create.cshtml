@@ -87,7 +87,7 @@
     </div>
 </div>
 
-<form method="POST">
+
     <div class="panel panel-primary marginTop20px">
         <div class="panel-heading">
             <h3 class="panel-title text-center">Waiver Details</h3>
@@ -187,8 +187,7 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintLabelWaiver.monthlyCostWithoutToner' class='control-label fontWeightNormal'>Monthly Cost Without Toner</label>
-                        <input type='text' class='form-control' id='monthlyCostWithoutToner' aria-describedby='monthlyCostWithoutToner' placeholder='Monthly Cost Without Toner'
-                            disabled="disabled">
+                        <input type='text' class='form-control' id='monthlyCostWithoutToner' aria-describedby='monthlyCostWithoutToner' placeholder='Monthly Cost Without Toner'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyCostWithoutToner" class="text-danger"></span>
                     </div>
                 </div>
@@ -198,9 +197,9 @@
             <div class='form-group required'>
                 <label asp-for='EquipmentPrintLabelWaiver.printerType' class='control-label fontWeightNormal'>Type Of Printer</label>
                 <select class='form-control' id='printerType' aria-describedby='printerType'>
-                    <option value='0'>Thermal</option>
-                    <option value='1'>Black</option>
-                    <option value='2'>Color</option>
+                    <option value='Thermal'>Thermal</option>
+                    <option value='Black'>Black</option>
+                    <option value='Color'>Color</option>
                 </select>
                 <span asp-validation-for="EquipmentPrintLabelWaiver.printerType" class="text-danger"></span>
             </div>
@@ -224,8 +223,7 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='blackTonerCostDiv'>
                         <label asp-for='EquipmentPrintLabelWaiver.blackTonerCost' class='control-label fontWeightNormal'>Black Toner Cartridge Cost</label>
-                        <input type='number' class='form-control' id='blackTonerCost' aria-describedby='blackTonerCost' placeholder='Black Toner Cartridge Cost'
-                            step='0.01'>
+                        <input type='number' class='form-control' id='blackTonerCost' aria-describedby='blackTonerCost' placeholder='Black Toner Cartridge Cost'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.blackTonerCost" class="text-danger"></span>
                     </div>
 
@@ -292,16 +290,12 @@
         <button class="btn btn-default btn-space-2x" type="reset">Clear Form&nbsp;
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
         </button>
-        <a type="submit" class="btn btn-primary" id='createwaiver' value='Submit'>
+        <button type="submit" class="btn btn-primary" id='createwaiver' value='Submit'>
             Create Waiver&nbsp;
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </a>
+        </button>
     </div>
 </form>
-
-</form>
-
-<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {
@@ -310,15 +304,15 @@
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#monthlyColorVolumeDiv','#blackTonerCostDiv',
                             '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                            , {valueList: ['0'],hide:true });
+                            , {valueList: ['Thermal'] });
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv']
-                            , {valueList: ['1'] });
+                            , {valueList: ['Black'] });
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv','#monthlyColorVolumeDiv',
                             '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                            , {valueList: ['2'] });
-            showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['3'] });
+                            , {valueList: ['Color'] });
+            showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0'] });
 
 
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
@@ -328,18 +322,18 @@
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#monthlyColorVolumeDiv','#blackTonerCostDiv',
                             '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                            , {valueList: ['0'],hide:true });
+                            , {valueList: ['Thermal'] });
             showIfSelected('#printerType', 
                             ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv']
-                            , {valueList: ['1'] });
+                            , {valueList: ['Black'] });
             showIfSelected('#printerType', 
                         ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv','#monthlyColorVolumeDiv',
                         '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                        , {valueList: ['2'] });
+                        , {valueList: ['Color'] });
         });
 
         $("#printerReplacementCycle").on("change", function () {
-            showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['3'] });
+            showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0'] });
         });
 
         $("#purchaseAmount, #agreementOrWarrantyCost, #printerReplacementCycle, #otherReplacementCycle").on("change paste keyup", function () {
@@ -364,16 +358,5 @@
             return ;
         }
 
-    </script>
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
     </script>
 }

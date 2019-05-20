@@ -54,7 +54,7 @@
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="PersonnelRequestWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <input type="text" class="form-control" asp-for="PersonnelRequestWaiver.projectName" required="true" placeholder="Your Project Name">
                     <span asp-validation-for="PersonnelRequestWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="PersonnelRequestWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <input type="date" class="form-control" asp-for="PersonnelRequestWaiver.SubmittedOn" required="true" value="05/04/2018">
                     <span asp-validation-for="PersonnelRequestWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 <div class="form-group required">
                     <label asp-for="PersonnelRequestWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.CostEstimate" required="true" step="0.01">
                     <span asp-validation-for="PersonnelRequestWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
@@ -88,7 +88,7 @@
         <div class="col-md-12 col-xs-8">
             <div class="form-group required">
                 <label asp-for="PersonnelRequestWaiver.employeeType" class="control-label fontWeightNormal">Employee Type:</label>
-                <select class="form-control control-label" id="employeeType">
+                <select class="form-control control-label" asp-for="PersonnelRequestWaiver.employeeType">
                     <option>Full Time Employee</option>
                     <option>Permanent Part Time State Employee</option>
                     <option>State Temp</option>
@@ -99,7 +99,7 @@
     <div class="panel-body">
         <div class="form-group required">
             <label asp-for="PersonnelRequestWaiver.JobDuties" class="control-label fontWeightNormal">Describe the job duties:</label>
-            <textarea class="form-control" id="JobDuties" rows='2'></textarea>
+            <textarea class="form-control" asp-for="PersonnelRequestWaiver.JobDuties" rows='2'></textarea>
             <span asp-validation-for="PersonnelRequestWaiver.JobDuties" class="text-danger"></span>
         </div>
         <div class="col-sm-6 col-xs-12">
@@ -107,14 +107,14 @@
                 <label asp-for="PersonnelRequestWaiver.EstimatedNumberofStaff" class="control-label fontWeightNormal">Estimated number of staff requested:
                     <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                 </label>
-            <input type="number" class="form-control" id="EstimatedNumberofStaff" aria-describedby="EstimatedNumberofStaff" placeholder="Estimated Number of Staff">
+            <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.EstimatedNumberofStaff" aria-describedby="EstimatedNumberofStaff" placeholder="Estimated Number of Staff">
             <span asp-validation-for="PersonnelRequestWaiver.EstimatedNumberofStaff" class="text-danger"></span>
             </div>
         </div>
         <div class="col-sm-6 col-xs-12">
             <div class="form-group required">
                 <label asp-for="PersonnelRequestWaiver.positionFile" class="control-label fontWeightNormal">Upload State Position Description</label>
-                <input type="file" class="form-control-file" id="positionFile">
+                <input type="file" class="form-control-file" asp-for="PersonnelRequestWaiver.positionFile">
                 <span asp-validation-for="PersonnelRequestWaiver.positionFile" class="text-danger"></span>
             </div>
         </div>
@@ -124,14 +124,14 @@
                         <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
                     </label>
-                    <input type="number" class="form-control" id="EstimatedNumberofFTE" aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
+                    <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.EstimatedNumberofFTE" aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
                     <span asp-validation-for="PersonnelRequestWaiver.EstimatedNumberofFTE" class="text-danger"></span>
                 </div>
             </div>
         <div class="col-md-12 col-xs-8">
             <div class="form-group required">
                 <label asp-for="PersonnelRequestWaiver.RequestedClassification" class="control-label fontWeightNormal">Requested Classification<i>(One waiver request per classification)</i>:</label>
-                <select class="form-control control-label" id="RequestedClassification">
+                <select class="form-control control-label" asp-for="PersonnelRequestWaiver.RequestedClassification">
                     <option>Accountant I</option>
                     <option>Accountant II</option>
                     <option>Accountant III</option>
@@ -140,44 +140,43 @@ This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1
             </div>
             <div class="form-group required">
                 <label asp-for="PersonnelRequestWaiver.RequestedSalary" class="control-label fontWeightNormal">Requested Loaded Salary (complete state benefit package)</label>
-                <input type="number" class="form-control" id="RequestedSalary" aria-describedby="RequestedSalary" placeholder="Requested Loaded Salary">
+                <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.RequestedSalary" aria-describedby="RequestedSalary" placeholder="Requested Loaded Salary">
                 <span asp-validation-for="PersonnelRequestWaiver.RequestedSalary" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group required">
             <label asp-for="PersonnelRequestWaiver.DetailJustification" class="control-label fontWeightNormal">Please detail justification for request.</label>
-            <textarea class="form-control" id="DetailJustification" rows="2"></textarea>
+            <textarea class="form-control" asp-for="PersonnelRequestWaiver.DetailJustification" rows="2"></textarea>
             <span asp-validation-for="PersonnelRequestWaiver.DetailJustification" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="PersonnelRequestWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <textarea class="form-control" asp-for="PersonnelRequestWaiver.AdditionalComments" rows='2'></textarea>
             <span asp-validation-for="PersonnelRequestWaiver.AdditionalComments" class="text-danger"></span>
         </div>
     </div>
 </div>
-</div>
-</div>
+
+
 
 
 
 
 <div class="row add-gutter marginTop20px pull-right">
-    <partial name='_Logout' />
-    <a class="btn btn-default" onclick="print();">Print&nbsp;
-        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-    </a>
-    <button class="btn btn-default btn-space-2x" type="reset">Clear Form&nbsp;
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <a class="btn btn-default" onclick="print();">Print&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <button class="btn btn-default btn-space-2x" type="reset">Clear Form&nbsp;
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+        <button type="submit" class="btn btn-primary" id='createwaiver' value='Submit'>
+                Create Waiver&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
-    <button type="submit" class="btn btn-primary" id='createwaiver' value='Submit'>
-            Create Waiver&nbsp;
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </button>
-    </a>
-</div>
+        </a>
+    </div>
 </form>
 
+<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {

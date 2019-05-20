@@ -63,11 +63,9 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Do you need a text searchable .pdf?")]
         public string textSearchablePDF {get; set;}
 
-        [Required]
+        
         [Display(Name = "Estimated number of fields per document:")]
         public string EstimatedNumberOfFields {get; set;}
-
-        
 
         [Required]
         [Display(Name = "How do you need the receive the images?")]
@@ -141,10 +139,7 @@ public void CopyFromServiceMicrofilmConversionWaiver(ServiceMicrofilmConversionW
         {
         }
 
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
-        
+       
     }
 
 }

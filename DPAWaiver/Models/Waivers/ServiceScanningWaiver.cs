@@ -18,7 +18,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "What type of film are you needing converting?")]
-        public decimal EstimatedNumberOfDocuments {get; set;}
+        public decimal estimatedNumberOfDocuments {get; set;}
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
@@ -59,7 +59,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Specify system requirements.")]
         public string systemRequirements {get; set;}
 
-        [Required]
+        
         [Display(Name = "What other alternative methods have you looked at? Please provide details.")]
         public string AlternativeMethods {get; set;}
 

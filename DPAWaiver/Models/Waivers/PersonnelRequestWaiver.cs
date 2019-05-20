@@ -10,18 +10,18 @@ namespace DPAWaiver.Models.Waivers
 {
     public class PersonnelRequestWaiver : BaseWaiver
     {
-        [Required]
+        
         [Display(Name= "Employee Type")]
         public string employeeType {get; set;}
         
         [Display(Name = "Describe the job duties:")]
         public string JobDuties {get;set;}
 
-        [Required]
+        
         [Display(Name = "Total estimated number of FTE:")]
         public decimal? EstimatedNumberofFTE {get;set;}
 
-        [Required]
+        
         [Display(Name = "Upload State Position Description:")]
         public string positionFile {get; set;}
 

@@ -53,7 +53,7 @@
     },
     {
       "Command": "type",
-      "Target": "id=DataEntryWaiver_EstimatedNumberOfDocuments",
+      "Target": "id=DataEntryWaiver_estimatedNumberOfDocuments",
       "Value": "2"
     },
     {

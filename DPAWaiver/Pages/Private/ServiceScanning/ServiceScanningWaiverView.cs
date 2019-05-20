@@ -29,7 +29,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
         [Range(0, 9999999999999999.99)]
-        public decimal CostEstimate { get ; set;}
+        public decimal? CostEstimate { get ; set;}
 
         [Required]
         [Display(Name = "Describe the current workflow process:")]
@@ -39,7 +39,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "What type of film are you needing converting?")]
-        public decimal EstimatedNumberOfDocuments {get; set;}
+        public decimal estimatedNumberOfDocuments {get; set;}
         
         [Required]
         [Display(Name = "Total estimated number of hours:")]
@@ -80,7 +80,7 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Specify system requirements.")]
         public string systemRequirements {get; set;}
 
-        [Required]
+        
         [Display(Name = "What other alternative methods have you looked at? Please provide details.")]
         public string AlternativeMethods {get; set;}
 
@@ -111,7 +111,7 @@ public void CopyFromServiceScanningWaiver(ServiceScanningWaiver other) {
             this.SubmittedOn = other.SubmittedOn ;
             this.CostEstimate = other.CostEstimate ;
             this.WorkflowDescription = other.WorkflowDescription;
-            this.EstimatedNumberOfDocuments = other.EstimatedNumberOfDocuments;
+            this.estimatedNumberOfDocuments = other.estimatedNumberOfDocuments;
             this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
             this.indexingNeeded = other.indexingNeeded;
             this.EstimatedNumberOfFields = other.EstimatedNumberOfFields;
@@ -136,10 +136,6 @@ public void CopyFromServiceScanningWaiver(ServiceScanningWaiver other) {
         public ServiceScanningWaiverView()
         {
         }
-
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
         
     }
 

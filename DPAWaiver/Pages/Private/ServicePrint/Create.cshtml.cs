@@ -45,7 +45,6 @@ namespace DPAWaiver.Pages.Private.ServicePrint
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(ServicePrintWaiver.DesignTypeID);
             ServicePrintWaiver emptyWaiver = new ServicePrintWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<ServicePrintWaiver>(
