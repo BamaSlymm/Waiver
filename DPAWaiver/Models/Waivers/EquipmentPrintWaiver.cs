@@ -11,7 +11,7 @@ namespace DPAWaiver.Models.Waivers
     public class EquipmentPrintWaiver : BaseWaiver
     {
        
-         [Required]
+        [Required]
         [Display(Name = "Please select from the printer drop down:")]
         public string printerType { get; set; }
 

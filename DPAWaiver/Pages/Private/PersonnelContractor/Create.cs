@@ -35,7 +35,7 @@ namespace DPAWaiver.Pages.Private.PersonnelContractor
             return Page();
         }
 
-        public IEnumerable<SelectListItem> designtype => _ILOVService.GetDesignTypesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> servicetype => _ILOVService.GetPersonnelServiceTypesAsSelectListBySortOrder();
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -46,9 +46,8 @@ namespace DPAWaiver.Pages.Private.PersonnelContractor
                 return Page();
             }
 
-            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
-            var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(PersonnelContractorWaiver.DesignTypeID);
+            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Personnel);
+            var purposeType = _ILOVService.getPersonnelServiceTypes().Single(x => x.ID == PersonnelServiceTypes.ThirdPartyContractor);
             PersonnelContractorWaiver emptyWaiver = new PersonnelContractorWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<PersonnelContractorWaiver>(
@@ -62,7 +61,6 @@ namespace DPAWaiver.Pages.Private.PersonnelContractor
                w => w.ContractorType,
                w => w.HourlyRate,
                w => w.CostEstimate,
-               w => w.JobDuties,
                w => w.EstimatedNumberOfHours,
                w => w.SPAnumber,
                w => w.SPAtype,

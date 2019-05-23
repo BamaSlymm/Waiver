@@ -378,9 +378,6 @@ public void CopyFromEquipmentPrintPressWaiver(EquipmentPrintPressWaiver other) {
         {
         }
 
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
         
     }
 

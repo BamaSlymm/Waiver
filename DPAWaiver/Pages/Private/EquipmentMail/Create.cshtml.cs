@@ -43,9 +43,8 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                 return Page();
             }
 
-            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
-            var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(EquipmentMailWaiver.DesignTypeID);
+            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Equipment);
+            var purposeType = _ILOVService.getEquipmentTypes().Single(x => x.ID == EquipmentTypes.Mail);
             EquipmentMailWaiver emptyWaiver = new EquipmentMailWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<EquipmentMailWaiver>(

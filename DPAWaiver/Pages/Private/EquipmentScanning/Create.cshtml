@@ -79,7 +79,7 @@
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <input type="text" class="form-control" id="EquipmentScanningWaiver.projectName" required="true" placeholder="Your Project Name">
                     <span asp-validation-for="EquipmentScanningWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <input type="date" class="form-control" id="EquipmentScanningWaiver.SubmittedOn" required="true" value="05/04/2018">
                     <span asp-validation-for="EquipmentScanningWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.CostEstimate" required="true" value="5000.03">
                     <span asp-validation-for="EquipmentScanningWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
@@ -112,13 +112,13 @@
     <div class="panel-body">
         <div class="form-group required">
             <label asp-for="EquipmentScanningWaiver.justificationDescription" class="control-label fontWeightNormal">Justification for the request:</label>
-            <textarea class="form-control" id="justificationDescription" rows='2'></textarea>
+            <textarea class="form-control" id="EquipmentScanningWaiver.justificationDescription" rows='2'></textarea>
             <span asp-validation-for="EquipmentScanningWaiver.justificationDescription" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
             <label asp-for="EquipmentScanningWaiver.currentSystemDescription" class="control-label fontWeightNormal">How do you currently meet this need?</label>
-            <textarea class="form-control" id="currentSystemDescription" rows="2"></textarea>
+            <textarea class="form-control" id="EquipmentScanningWaiver.currentSystemDescription" rows="2"></textarea>
             <span asp-validation-for="EquipmentScanningWaiver.currentSystemDescription" class="text-danger"></span>
         </div>
 
@@ -126,7 +126,7 @@
             <div class='col-sm-6 col-xs-12'>
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
-                    <select class="form-control" id="newOrReplace">
+                    <select class="form-control" id="EquipmentScanningWaiver.newOrReplace">
                         <option>Please select one</option>
                         <option value='0'>Additional</option>
                         <option>New</option>
@@ -138,7 +138,7 @@
             <div class='col-sm-6 col-xs-12' id='currentMakeDiv'>
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.currentMake" class="control-label fontWeightNormal">Current Make</label>
-                    <input type="text" class="form-control" id="currentMake" aria-describedby="currentMake" placeholder="Current Make">
+                    <input type="text" class="form-control" id="EquipmentScanningWaiver.currentMake" aria-describedby="currentMake" placeholder="Current Make">
                     <span asp-validation-for="EquipmentScanningWaiver.currentMake" class="text-danger"></span>
                 </div>
             </div>
@@ -148,28 +148,28 @@
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.currentModel" class="control-label fontWeightNormal">Current Model</label>
-                    <input type="text" class="form-control" id="currentModel" aria-describedby="currentModel" placeholder="Current Model">
+                    <input type="text" class="form-control" id="EquipmentScanningWaiver.currentModel" aria-describedby="currentModel" placeholder="Current Model">
                     <span asp-validation-for="EquipmentScanningWaiver.currentModel" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.acquisitionDate" class="control-label fontWeightNormal">Acquisition Date</label>
-                    <input type="date" class="form-control" id="acquisitionDate" aria-describedby="acquisitionDate" placeholder="Acquisition Date">
+                    <input type="date" class="form-control" id="EquipmentScanningWaiver.acquisitionDate" aria-describedby="acquisitionDate" placeholder="Acquisition Date">
                     <span asp-validation-for="EquipmentScanningWaiver.acquisitionDate" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.monthlyCost" class="control-label fontWeightNormal">Monthly Cost of Current Service</label>
-                    <input type="number" class="form-control" id="monthlyCost" aria-describedby="monthlyCost" placeholder="Monthly Cost of Current Service">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.monthlyCost" aria-describedby="monthlyCost" placeholder="Monthly Cost of Current Service">
                     <span asp-validation-for="EquipmentScanningWaiver.monthlyCost" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.averageMonthlyVolume' class='control-label fontWeightNormal'>Current Average Monthly Volume <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Enter the current average montly volume. This is a numeric field.'></span> </label>
-                    <input type='number' class='form-control' id='averageMonthlyVolume' aria-describedby='averageMonthlyVolume' placeholder='Current Average Monthly Volume'>
+                    <input type='number' class='form-control' id='EquipmentScanningWaiver.averageMonthlyVolume' aria-describedby='averageMonthlyVolume' placeholder='Current Average Monthly Volume'>
                     <span asp-validation-for="EquipmentScanningWaiver.averageMonthlyVolume" class="text-danger"></span>
                 </div>
             </div>
@@ -181,7 +181,7 @@
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.multiFunctionConsidered' class='control-label fontWeightNormal'>Did you consider Multifunction device for scanning</label>
-                    <select class='form-control' id='multiFunctionConsidered' aria-describedby='multiFunctionConsidered'>
+                    <select class='form-control' id='EquipmentScanningWaiver.multiFunctionConsidered' aria-describedby='multiFunctionConsidered'>
                         <option value='0'>No</option>
                         <option value='1'>Yes</option>
                     </select>
@@ -191,7 +191,7 @@
             <div class='col-sm-6 col-xs-12' id='multiFunctionReasonDiv'>
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.multiFunctionReason' class='control-label fontWeightNormal'>If no, please explain</label>
-                    <input type='text' class='form-control' id='multiFunctionReason' aria-describedby='multiFunctionReason' placeholder='If no, please explain'>
+                    <input type='text' class='form-control' id='EquipmentScanningWaiver.multiFunctionReason' aria-describedby='multiFunctionReason' placeholder='If no, please explain'>
                     <span asp-validation-for="EquipmentScanningWaiver.multiFunctionReason" class="text-danger"></span>
                 </div>
 
@@ -209,7 +209,7 @@
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for first year
 This is a numeric field."></span>
                     </label>
-                    <input type="number" class="form-control" id="firstYearVolume">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.firstYearVolume">
                     <span asp-validation-for="EquipmentScanningWaiver.firstYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
@@ -218,7 +218,7 @@ This is a numeric field."></span>
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for second year
 This is a numeric field."></span>
                     </label>
-                    <input type="number" class="form-control" id="secondYearVolume">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.secondYearVolume">
                     <span asp-validation-for="EquipmentScanningWaiver.secondYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
@@ -227,7 +227,7 @@ This is a numeric field."></span>
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for third year
 This is a numeric field."></span>
                     </label>
-                    <input type="number" class="form-control" id="thirdYearVolume">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.thirdYearVolume">
                     <span asp-validation-for="EquipmentScanningWaiver.thirdYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
@@ -236,7 +236,7 @@ This is a numeric field."></span>
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for fourth year
 This is a numeric field."></span>
                     </label>
-                    <input type="number" class="form-control" id="fourthYearVolume">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.fourthYearVolume">
                     <span asp-validation-for="EquipmentScanningWaiver.fourthYearVolume" class="text-danger"></span>
                 </div>
                 <div class="form-group required col-sm-2">
@@ -245,7 +245,7 @@ This is a numeric field."></span>
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the anticipated volume for fifth year
 This is a numeric field."></span>
                     </label>
-                    <input type="number" class="form-control" id="fifthYearVolume">
+                    <input type="number" class="form-control" id="EquipmentScanningWaiver.fifthYearVolume">
                     <span asp-validation-for="EquipmentScanningWaiver.fifthYearVolume" class="text-danger"></span>
                 </div>
 
@@ -267,14 +267,14 @@ This is a numeric field."></span>
                                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="How many pieces of equipment are being requested?
                                     This is a numeric field."></span>
                             </label>
-                            <input type="number" class="form-control" id="NumberofEquipment" aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
+                            <input type="number" class="form-control" id="EquipmentScanningWaiver.NumberofEquipment" aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
                             <span asp-validation-for="EquipmentScanningWaiver.NumberofEquipment" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.scannerType' class='control-label fontWeightNormal'>Type</label>
-                            <select class='form-control' id='scannerType' aria-describedby='scannerType'>
+                            <select class='form-control' id='EquipmentScanningWaiver.scannerType' aria-describedby='scannerType'>
                                 <option>Archive Scanner</option>
                                 <option>Book Scanner</option>
                                 <option>Large Format Scanner</option>
@@ -291,7 +291,7 @@ This is a numeric field."></span>
 
                 <div class='form-group required' id='otherScannerTypeDiv'>
                     <label asp-for='EquipmentScanningWaiver.otherScannerType' class='control-label fontWeightNormal'>Please explain Other</label>
-                    <textarea class='form-control' id='otherScannerType' aria-describedby='otherScannerType' placeholder='Please explain Other'
+                    <textarea class='form-control' id='EquipmentScanningWaiver.otherScannerType' aria-describedby='otherScannerType' placeholder='Please explain Other'
                         rows='2'></textarea>
                     <span asp-validation-for="EquipmentScanningWaiver.otherScannerType" class="text-danger"></span>
                 </div>
@@ -301,7 +301,7 @@ This is a numeric field."></span>
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group required">
                             <label asp-for="EquipmentScanningWaiver.acquisitionType" class="control-label fontWeightNormal">How do you plan to acquire this equipment?</label>
-                            <select class="form-control" id="acquisitionType">
+                            <select class="form-control" id="EquipmentScanningWaiver.acquisitionType">
                                 <option value="1">Solicitation</option>
                                 <option value="2">State Price Agreement</option>
                             </select>
@@ -311,7 +311,7 @@ This is a numeric field."></span>
                     <div class="col-md-6 col-xs-12" id="solicitationSubDiv">
                         <div class="form-group required">
                             <label asp-for="EquipmentScanningWaiver.solicitationSubType" class="control-label fontWeightNormal">Solicitation SubType?</label>
-                            <select class="form-control" id="solicitationSubType">
+                            <select class="form-control" id="EquipmentScanningWaiver.solicitationSubType">
                                 <option>Discretionary</option>
                                 <option>DQ</option>
                                 <option>IFB</option>
@@ -323,7 +323,7 @@ This is a numeric field."></span>
                     <div class="col-md-6 col-xs-12" id="statepriceSubDiv">
                         <div class="form-group required">
                             <label asp-for="EquipmentScanningWaiver.statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
-                            <select class="form-control" id="statepriceSubType">
+                            <select class="form-control" id="EquipmentScanningWaiver.statepriceSubType">
                                 <option value='1'>Lease</option>
                                 <option value='2'>Purchase</option>
                                 <option value='3'>Cancelable Rental</option>
@@ -337,14 +337,14 @@ This is a numeric field."></span>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.numberOfMonths' class='control-label fontWeightNormal'>Number of Months of Lease</label>
-                            <input type='number' class='form-control' id='numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months of Lease'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months of Lease'>
                             <span asp-validation-for="EquipmentScanningWaiver.numberOfMonths" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.monthlyLeaseAmount' class='control-label fontWeightNormal'>Monthly Lease Amount</label>
-                            <input type='number' class='form-control' id='monthlyLeaseAmount' aria-describedby='monthlyLeaseAmount' placeholder='Monthly Lease Amount'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.monthlyLeaseAmount' aria-describedby='monthlyLeaseAmount' placeholder='Monthly Lease Amount'>
                             <span asp-validation-for="EquipmentScanningWaiver.monthlyLeaseAmount" class="text-danger"></span>
                         </div>
                     </div>
@@ -354,13 +354,13 @@ This is a numeric field."></span>
 
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.makeAndModel' class='control-label fontWeightNormal'>Make and Model</label>
-                    <input type='text' class='form-control' id='makeAndModel' aria-describedby='makeAndModel' placeholder='Make and Model'>
+                    <input type='text' class='form-control' id='EquipmentScanningWaiver.makeAndModel' aria-describedby='makeAndModel' placeholder='Make and Model'>
                     <span asp-validation-for="EquipmentScanningWaiver.makeAndModel" class="text-danger"></span>
                 </div>
 
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.selectionReason' class='control-label fontWeightNormal'>Reasons for selecting this particular equipment</label>
-                    <textarea class='form-control' id='selectionReason' aria-describedby='selectionReason' placeholder='Reasons for selecting this particular equipment'
+                    <textarea class='form-control' id='EquipmentScanningWaiver.selectionReason' aria-describedby='selectionReason' placeholder='Reasons for selecting this particular equipment'
                         rows='2'></textarea>
                     <span asp-validation-for="EquipmentScanningWaiver.selectionReason" class="text-danger"></span>
                 </div>
@@ -369,7 +369,7 @@ This is a numeric field."></span>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.productionCapacity' class='control-label fontWeightNormal'>Production Capacity (throughput)<span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Production capacity also throughput'></span></label>
-                            <input type='number' class='form-control' id='productionCapacity' aria-describedby='productionCapacity' placeholder='Production Capacity (throughput)'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.productionCapacity' aria-describedby='productionCapacity' placeholder='Production Capacity (throughput)'>
                             <span asp-validation-for="EquipmentScanningWaiver.productionCapacity" class="text-danger"></span>
                         </div>
                     </div>
@@ -378,7 +378,7 @@ This is a numeric field."></span>
                             <label asp-for="EquipmentScanningWaiver.purchaseAmount" class="control-label fontWeightNormal">Equipment Purchase Cost
                                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Equipment Purchase Cost"></span>
                             </label>
-                            <input type="number" class="form-control usd_input" id="purchaseAmount" aria-describedby="purchaseAmount" placeholder="Equipment Purchase Cost"
+                            <input type="number" class="form-control usd_input" id="EquipmentScanningWaiver.purchaseAmount" aria-describedby="purchaseAmount" placeholder="Equipment Purchase Cost"
                                 step='0.01'>
                             <span asp-validation-for="EquipmentScanningWaiver.purchaseAmount" class="text-danger"></span>
                         </div>
@@ -389,14 +389,14 @@ This is a numeric field."></span>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.expectedUsefulLife' class='control-label fontWeightNormal'>Expected useful life of this equipment</label>
-                            <input type='number' class='form-control' id='expectedUsefulLife' aria-describedby='expectedUsefulLife' placeholder='Expected useful life of this equipment'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.expectedUsefulLife' aria-describedby='expectedUsefulLife' placeholder='Expected useful life of this equipment'>
                             <span asp-validation-for="EquipmentScanningWaiver.expectedUsefulLife" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.depreciationCostPerYear' class='control-label fontWeightNormal'>Depreciation Cost Per Year</label>
-                            <input type='number' class='form-control' id='depreciationCostPerYear' aria-describedby='depreciationCostPerYear' placeholder='Depreciation Cost Per Year'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.depreciationCostPerYear' aria-describedby='depreciationCostPerYear' placeholder='Depreciation Cost Per Year'>
                             <span asp-validation-for="EquipmentScanningWaiver.depreciationCostPerYear" class="text-danger"></span>
                         </div>
                     </div>
@@ -406,7 +406,7 @@ This is a numeric field."></span>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.annualMaintenanceCostPerYear' class='control-label fontWeightNormal'>Cost of Annual Maintenance Per Year</label>
-                            <input type='number' class='form-control' id='annualMaintenanceCostPerYear' aria-describedby='annualMaintenanceCostPerYear'
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.annualMaintenanceCostPerYear' aria-describedby='annualMaintenanceCostPerYear'
                                 placeholder='Cost of Annual Maintenance Per Year'>
                             <span asp-validation-for="EquipmentScanningWaiver.annualMaintenanceCostPerYear" class="text-danger"></span>
                         </div>
@@ -414,7 +414,7 @@ This is a numeric field."></span>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.suppliesCost' class='control-label fontWeightNormal'>Cost of Supplies Per Year <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Consumables not included in Maintenance'></span></label>
-                            <input type='number' class='form-control' id='suppliesCost' aria-describedby='suppliesCost' placeholder='Cost of Supplies - Consumables not included in the Maintenance'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.suppliesCost' aria-describedby='suppliesCost' placeholder='Cost of Supplies - Consumables not included in the Maintenance'>
                             <span asp-validation-for="EquipmentScanningWaiver.suppliesCost" class="text-danger"></span>
                             <!-- TODO: Is this per year or over all. Also what does consumables not included, does that refer to cost of annual maintenance needs hover or a help -->
                         </div>
@@ -424,7 +424,7 @@ This is a numeric field."></span>
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.totalEquipmentCost' class='control-label fontWeightNormal'>Total Equipment Cost <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='System calculated field:  
 Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not included in Maintenance'></span></label>
-                    <input type='money' class='form-control' id='totalEquipmentCost' aria-describedby='totalEquipmentCost' placeholder='Total Equipment Cost' disabled='disabled'>
+                    <input type='money' class='form-control' id='EquipmentScanningWaiver.totalEquipmentCost' aria-describedby='totalEquipmentCost' placeholder='Total Equipment Cost' disabled='disabled'>
                     <span asp-validation-for="EquipmentScanningWaiver.totalEquipmentCost" class="text-danger"></span>
                     <!--TODO: adjust for proper and check javascript, does it only apply to lease-->
                 </div>
@@ -440,14 +440,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.softwareName' class='control-label fontWeightNormal'>Name of software</label>
-                            <input type='text' class='form-control' id='softwareName' aria-describedby='softwareName' placeholder='Name of software'>
+                            <input type='text' class='form-control' id='EquipmentScanningWaiver.softwareName' aria-describedby='softwareName' placeholder='Name of software'>
                             <span asp-validation-for="EquipmentScanningWaiver.softwareName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.softwareCost' class='control-label fontWeightNormal'>Estimated Cost of Software</label>
-                            <input type='number' class='form-control' id='softwareCost' aria-describedby='softwareCost' placeholder='Estimated Cost of Software'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.softwareCost' aria-describedby='softwareCost' placeholder='Estimated Cost of Software'>
                             <span asp-validation-for="EquipmentScanningWaiver.softwareCost" class="text-danger"></span>
                         </div>
                     </div>
@@ -457,14 +457,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.annualLicenseFee' class='control-label fontWeightNormal'>Annual License Fee if any</label>
-                            <input type='number' class='form-control' id='annualLicenseFee' aria-describedby='annualLicenseFee' placeholder='Annual License Fee if any'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.annualLicenseFee' aria-describedby='annualLicenseFee' placeholder='Annual License Fee if any'>
                             <span asp-validation-for="EquipmentScanningWaiver.annualLicenseFee" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.numberOfLicenses' class='control-label fontWeightNormal'>Number of Licenses Required</label>
-                            <input type='number' class='form-control' id='numberOfLicenses' aria-describedby='numberOfLicenses' placeholder='Number of Licenses Required'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.numberOfLicenses' aria-describedby='numberOfLicenses' placeholder='Number of Licenses Required'>
                             <span asp-validation-for="EquipmentScanningWaiver.numberOfLicenses" class="text-danger"></span>
                         </div>
                     </div>
@@ -474,7 +474,7 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.totalAnnualLicenseCost' class='control-label fontWeightNormal'>Total Annual License Cost:</label>
-                            <input type='text' class='form-control' id='totalAnnualLicenseCost' aria-describedby='totalAnnualLicenseCost' placeholder='Total Annual License Cost:'
+                            <input type='text' class='form-control' id='EquipmentScanningWaiver.totalAnnualLicenseCost' aria-describedby='totalAnnualLicenseCost' placeholder='Total Annual License Cost:'
                                 disabled="disabled" value="0.494">
                             <span asp-validation-for="EquipmentScanningWaiver.totalAnnualLicenseCost" class="text-danger"></span>
                         </div>
@@ -482,7 +482,7 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.annualMaintenanceCost' class='control-label fontWeightNormal'>Annual Maintenance Cost</label>
-                            <input type='number' class='form-control' id='annualMaintenanceCost' aria-describedby='annualMaintenanceCost' placeholder='Annual Maintenance Cost'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.annualMaintenanceCost' aria-describedby='annualMaintenanceCost' placeholder='Annual Maintenance Cost'>
                             <span asp-validation-for="EquipmentScanningWaiver.annualMaintenanceCost" class="text-danger"></span>
                         </div>
                     </div>
@@ -494,7 +494,7 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.totalSoftwareCosts' class='control-label fontWeightNormal'>Total Software Costs</label>
-                            <input type='text' class='form-control' id='totalSoftwareCosts' aria-describedby='totalSoftwareCosts' placeholder='Total Software Costs'
+                            <input type='text' class='form-control' id='EquipmentScanningWaiver.totalSoftwareCosts' aria-describedby='totalSoftwareCosts' placeholder='Total Software Costs'
                                 disabled="disabled" value="39">
                             <span asp-validation-for="EquipmentScanningWaiver.totalSoftwareCosts" class="text-danger"></span>
                         </div>
@@ -510,21 +510,21 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
             <div class='panel-body'>
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.operatorClassification' class='control-label fontWeightNormal'>Operator Classification/Grade</label>
-                    <input type='text' class='form-control' id='operatorClassification' aria-describedby='operatorClassification' placeholder='Operator Classification/Grade'>
+                    <input type='text' class='form-control' id='EquipmentScanningWaiver.operatorClassification' aria-describedby='operatorClassification' placeholder='Operator Classification/Grade'>
                     <span asp-validation-for="EquipmentScanningWaiver.operatorClassification" class="text-danger"></span>
                 </div>
                 <div class='row'>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.productionFTE' class='control-label fontWeightNormal'>Production FTE Required <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Number of FTE'></span></label>
-                            <input type='number' class='form-control' id='productionFTE' aria-describedby='productionFTE' placeholder='Production FTE Required'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.productionFTE' aria-describedby='productionFTE' placeholder='Production FTE Required'>
                             <span asp-validation-for="EquipmentScanningWaiver.productionFTE" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.hoursPerFTEPerWeek' class='control-label fontWeightNormal'>Hours Per FTE Per week <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Hours per FTE per week'></span></label>
-                            <input type='number' class='form-control' id='hoursPerFTEPerWeek' aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per week'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.hoursPerFTEPerWeek' aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per week'>
                             <span asp-validation-for="EquipmentScanningWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
                         </div>
                     </div>
@@ -533,14 +533,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.baseHourlyRatePerFTE' class='control-label fontWeightNormal'>Base Hourly Rate Per FTE</label>
-                            <input type='number' class='form-control' id='baseHourlyRatePerFTE' aria-describedby='baseHourlyRatePerFTE' placeholder='Base Hourly Rate Per FTE'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.baseHourlyRatePerFTE' aria-describedby='baseHourlyRatePerFTE' placeholder='Base Hourly Rate Per FTE'>
                             <span asp-validation-for="EquipmentScanningWaiver.baseHourlyRatePerFTE" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE' class='control-label fontWeightNormal'>Fully Loaded Hourly Rate Per FTE</label>
-                            <input type='number' class='form-control' id='fullyLoadedHourlyRatePerFTE' aria-describedby='fullyLoadedHourlyRatePerFTE'
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE' aria-describedby='fullyLoadedHourlyRatePerFTE'
                                 placeholder='Fully Loaded Hourly Rate Per FTE'>
                             <span asp-validation-for="EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE" class="text-danger"></span>
                         </div>
@@ -552,7 +552,7 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.totalAnnualPersonnelCost' class='control-label fontWeightNormal'>Total Annual Personnel Cost</label>
-                            <input type='text' class='form-control' id='totalAnnualPersonnelCost' aria-describedby='totalAnnualPersonnelCost' placeholder='Total Annual Personnel Cost'
+                            <input type='text' class='form-control' id='EquipmentScanningWaiver.totalAnnualPersonnelCost' aria-describedby='totalAnnualPersonnelCost' placeholder='Total Annual Personnel Cost'
                                 disabled='disabled'>
                             <span asp-validation-for="EquipmentScanningWaiver.totalAnnualPersonnelCost" class="text-danger"></span>
                              <!-- TODO: Calculation is not for annual but for per week -->   
@@ -571,14 +571,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.monthlySupervisionAmount' class='control-label fontWeightNormal'>Monthly Supervision Amount <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Monthly Supervision Amount'></span></label>
-                            <input type='number' class='form-control' id='monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
                             <span asp-validation-for="EquipmentScanningWaiver.monthlySupervisionAmount" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.monthlyManagementAmount' class='control-label fontWeightNormal'>Monthly Management Amount <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Monthly Management Amount'></span></label>
-                            <input type='number' class='form-control' id='monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
                             <span asp-validation-for="EquipmentScanningWaiver.monthlyManagementAmount" class="text-danger"></span>
                         </div>
                     </div>
@@ -586,7 +586,7 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
 
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.additionalWorkspaceRequired' class='control-label fontWeightNormal'>Is additional workspace required for equipment and personnel</label>
-                    <select class='form-control' id='additionalWorkspaceRequired' aria-describedby='additionalWorkspaceRequired'>
+                    <select class='form-control' id='EquipmentScanningWaiver.additionalWorkspaceRequired' aria-describedby='additionalWorkspaceRequired'>
                         <option value='0'>No</option>
                         <option value='1'>Yes</option>
                     </select>
@@ -596,14 +596,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.totalSpaceRequiredInSQFT' class='control-label fontWeightNormal'>Total Space Required in Square Feet <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Total Space Required in sq. ft'></span></label>
-                            <input type='number' class='form-control' id='totalSpaceRequiredInSQFT' aria-describedby='totalSpaceRequiredInSQFT' placeholder='Total Space Required in Square Feet'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.totalSpaceRequiredInSQFT' aria-describedby='totalSpaceRequiredInSQFT' placeholder='Total Space Required in Square Feet'>
                             <span asp-validation-for="EquipmentScanningWaiver.totalSpaceRequiredInSQFT" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.costPerSQFT' class='control-label fontWeightNormal'>Cost Per Square Foot</label>
-                            <input type='number' class='form-control' id='costPerSQFT' aria-describedby='costPerSQFT' placeholder='Cost Per Square Foot'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.costPerSQFT' aria-describedby='costPerSQFT' placeholder='Cost Per Square Foot'>
                             <span asp-validation-for="EquipmentScanningWaiver.costPerSQFT" class="text-danger"></span>
                         </div>
                     </div>
@@ -612,14 +612,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.annualAmountForUtilities' class='control-label fontWeightNormal'>Annual Utilies Amount for Additional SQFT</label>
-                            <input type='number' class='form-control' id='annualAmountForUtilities' aria-describedby='annualAmountForUtilities' placeholder='Annual Utilies Amount for Additional SQFT'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.annualAmountForUtilities' aria-describedby='annualAmountForUtilities' placeholder='Annual Utilies Amount for Additional SQFT'>
                             <span asp-validation-for="EquipmentScanningWaiver.annualAmountForUtilities" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.totalSpaceCost' class='control-label fontWeightNormal'>Total Space Cost</label>
-                            <input type='text' class='form-control' id='totalSpaceCost' aria-describedby='totalSpaceCost' placeholder='Total Space Cost'
+                            <input type='text' class='form-control' id='EquipmentScanningWaiver.totalSpaceCost' aria-describedby='totalSpaceCost' placeholder='Total Space Cost'
                                 disabled='disabled'>
                             <span asp-validation-for="EquipmentScanningWaiver.totalSpaceCost" class="text-danger"></span>
                         </div>
@@ -637,14 +637,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.computerCosts' class='control-label fontWeightNormal'>Computer Costs</label>
-                            <input type='number' class='form-control' id='computerCosts' aria-describedby='computerCosts' placeholder='Computer Costs'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.computerCosts' aria-describedby='computerCosts' placeholder='Computer Costs'>
                             <span asp-validation-for="EquipmentScanningWaiver.computerCosts" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.furnitureCosts' class='control-label fontWeightNormal'>Furniture Costs</label>
-                            <input type='number' class='form-control' id='furnitureCosts' aria-describedby='furnitureCosts' placeholder='Furniture Costs'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.furnitureCosts' aria-describedby='furnitureCosts' placeholder='Furniture Costs'>
                             <span asp-validation-for="EquipmentScanningWaiver.furnitureCosts" class="text-danger"></span>
                         </div>
                     </div>
@@ -654,14 +654,14 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.cubiclePartitionCosts' class='control-label fontWeightNormal'>Cubicle Partition Costs</label>
-                            <input type='number' class='form-control' id='cubiclePartitionCosts' aria-describedby='cubiclePartitionCosts' placeholder='Cubicle Partition Costs'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.cubiclePartitionCosts' aria-describedby='cubiclePartitionCosts' placeholder='Cubicle Partition Costs'>
                             <span asp-validation-for="EquipmentScanningWaiver.cubiclePartitionCosts" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.constructionCosts' class='control-label fontWeightNormal'>Construction and Electrical Work Costs</label>
-                            <input type='number' class='form-control' id='constructionCosts' aria-describedby='constructionCosts' placeholder='Construction and Electrical Work Costs'>
+                            <input type='number' class='form-control' id='EquipmentScanningWaiver.constructionCosts' aria-describedby='constructionCosts' placeholder='Construction and Electrical Work Costs'>
                             <span asp-validation-for="EquipmentScanningWaiver.constructionCosts" class="text-danger"></span>
                         </div>
                     </div>
@@ -669,12 +669,12 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
 
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.miscellaneousCosts' class='control-label fontWeightNormal'>Miscellaneous Costs</label>
-                    <input type='number' class='form-control' id='miscellaneousCosts' aria-describedby='miscellaneousCosts' placeholder='Miscellaneous Costs'>
+                    <input type='number' class='form-control' id='EquipmentScanningWaiver.miscellaneousCosts' aria-describedby='miscellaneousCosts' placeholder='Miscellaneous Costs'>
                     <span asp-validation-for="EquipmentScanningWaiver.miscellaneousCosts" class="text-danger"></span>
                 </div>
                 <div class='form-group required'>
                     <label asp-for='EquipmentScanningWaiver.descriptionMiscellaneousCosts' class='control-label fontWeightNormal'>Description of Miscellaneous Costs</label>
-                    <textarea class='form-control' id='descriptionMiscellaneousCosts' aria-describedby='descriptionMiscellaneousCosts' placeholder='Description of Miscellaneous Costs'
+                    <textarea class='form-control' id='EquipmentScanningWaiver.descriptionMiscellaneousCosts' aria-describedby='descriptionMiscellaneousCosts' placeholder='Description of Miscellaneous Costs'
                         rows='2'></textarea>
                     <span asp-validation-for="EquipmentScanningWaiver.descriptionMiscellaneousCosts" class="text-danger"></span>
                 </div>
@@ -683,7 +683,7 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='EquipmentScanningWaiver.totalAdditionalOneTimeCosts' class='control-label fontWeightNormal'>Total Additional One Time Costs</label>
-                            <input type='text' class='form-control' id='totalAdditionalOneTimeCosts' aria-describedby='totalAdditionalOneTimeCosts'
+                            <input type='text' class='form-control' id='EquipmentScanningWaiver.totalAdditionalOneTimeCosts' aria-describedby='totalAdditionalOneTimeCosts'
                                 placeholder='Total Additional One Time Costs' disabled='disabled'>
                             <span asp-validation-for="EquipmentScanningWaiver.totalAdditionalOneTimeCosts" class="text-danger"></span>
                         </div>
@@ -697,21 +697,21 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
 
         <div class='form-group required'>
             <label asp-for='EquipmentScanningWaiver.totalCostOfOwnership' class='control-label fontWeightNormal'>Total Cost of Ownership</label>
-            <input type='text' class='form-control' id='totalCostOfOwnership' aria-describedby='totalCostOfOwnership' placeholder='Total Cost of Ownership'
+            <input type='text' class='form-control' id='EquipmentScanningWaiver.totalCostOfOwnership' aria-describedby='totalCostOfOwnership' placeholder='Total Cost of Ownership'
                 disabled='disabled'>
             <span asp-validation-for="EquipmentScanningWaiver.totalCostOfOwnership" class="text-danger"></span>
         </div>
 
         <div class="form-group required">
             <label asp-for="EquipmentScanningWaiver.alternativesDescription" class="control-label fontWeightNormal">Please describe the alternatives you have examined before making the request</label>
-            <textarea class="form-control" id="alternativesDescription" rows="2"></textarea>
+            <textarea class="form-control" id="EquipmentScanningWaiver.alternativesDescription" rows="2"></textarea>
             <span asp-validation-for="EquipmentScanningWaiver.alternativesDescription" class="text-danger"></span>
         </div>
 
         
         <div class="form-group">
             <label asp-for="EquipmentScanningWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <textarea class="form-control" id="EquipmentScanningWaiver.AdditionalComments" rows='2'></textarea>
             <span asp-validation-for="EquipmentScanningWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
@@ -745,16 +745,4 @@ Total Estimated + Annual Maintenance + Cost of Supplies - Consumables not includ
     <environment exclude="Development">
         <script type="text/javascript" src="~/js/equipment.scanning.min.js"></script>
     </environment>
-
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-    </script>
 }

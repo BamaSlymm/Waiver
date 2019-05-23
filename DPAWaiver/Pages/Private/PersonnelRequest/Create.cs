@@ -35,7 +35,7 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
             return Page();
         }
 
-        public IEnumerable<SelectListItem> designtype => _ILOVService.GetPersonnelServiceTypesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> servicetype => _ILOVService.GetPersonnelServiceTypesAsSelectListBySortOrder();
 
         public async Task<IActionResult> OnPostAsync()
         {

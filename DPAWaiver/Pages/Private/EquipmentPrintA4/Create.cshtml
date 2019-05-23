@@ -61,7 +61,7 @@
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentPrintA4Waiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <input type="text" class="form-control" asp-for="EquipmentPrintA4Waiver.projectName" required="true" placeholder="Your Project Name">
                     <span asp-validation-for="EquipmentPrintA4Waiver.projectName" class="text-danger"></span>
                 </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentPrintA4Waiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <input type="date" class="form-control" asp-for="EquipmentPrintA4Waiver.SubmittedOn" required="true" value="05/04/2018">
                     <span asp-validation-for="EquipmentPrintA4Waiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <div class="form-group required">
                     <label asp-for="EquipmentPrintA4Waiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" asp-for="EquipmentPrintA4Waiver.CostEstimate" required="true" value="5000.03">
                     <span asp-validation-for="EquipmentPrintA4Waiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.printerType' class='control-label fontWeightNormal'>Please select from the printer drop down</label>
-                        <select class='form-control' id='printerType' aria-describedby='printerType'>
+                        <select class='form-control' asp-for='EquipmentPrintA4Waiver.printerType' aria-describedby='printerType'>
                         </select>
                         <span asp-validation-for="EquipmentPrintA4Waiver.printerType" class="text-danger"></span>
                     </div>
@@ -109,7 +109,7 @@
                             <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="How many pieces of equipment are being requested?
             This is a numeric field."></span>
                         </label>
-                        <input type="number" class="form-control" id="NumberofEquipment" aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
+                        <input type="number" class="form-control" asp-for="EquipmentPrintA4Waiver.NumberofEquipment" aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
                         <span asp-validation-for="EquipmentPrintA4Waiver.NumberofEquipment" class="text-danger"></span>
                     </div>
                 </div>
@@ -119,14 +119,14 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.Make' class='control-label fontWeightNormal'>Make</label>
-                        <input type='text' class='form-control' id='Make' aria-describedby='Make' placeholder='Make'>
+                        <input type='text' class='form-control' asp-for='EquipmentPrintA4Waiver.Make' aria-describedby='Make' placeholder='Make'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.Make" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.Model' class='control-label fontWeightNormal'>Model</label>
-                        <input type='text' class='form-control' id='Model' aria-describedby='Model' placeholder='Model'>
+                        <input type='text' class='form-control' asp-for='EquipmentPrintA4Waiver.Model' aria-describedby='Model' placeholder='Model'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.Model" class="text-danger"></span>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
 
             <div class="form-group required">
                 <label asp-for="EquipmentPrintA4Waiver.newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
-                <select class="form-control" id="newOrReplace">
+                <select class="form-control" asp-for="EquipmentPrintA4Waiver.newOrReplace">
                     <option>Additional</option>
                     <option>New</option>
                     <option>Replacement</option>
@@ -145,7 +145,7 @@
 
             <div class="form-group required">
                 <label asp-for="EquipmentPrintA4Waiver.servicesReceived" class="control-label fontWeightNormal">How do you currently receive this services?</label>
-                <textarea class="form-control" id="servicesReceived" rows="2" placeholder="if replacement please describe present equipment including Make, Model and Acquisition Date."></textarea>
+                <textarea class="form-control" asp-for="EquipmentPrintA4Waiver.servicesReceived" rows="2" placeholder="if replacement please describe present equipment including Make, Model and Acquisition Date."></textarea>
                 <span asp-validation-for="EquipmentPrintA4Waiver.servicesReceived" class="text-danger"></span>
             </div>
 
@@ -153,14 +153,14 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.currentMonthlyVolume' class='control-label fontWeightNormal'>Current Average Monthly Volume</label>
-                        <input type='number' class='form-control' id='currentMonthlyVolume' aria-describedby='currentMonthlyVolume' placeholder='Current Average Monthly Volume'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.currentMonthlyVolume' aria-describedby='currentMonthlyVolume' placeholder='Current Average Monthly Volume'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.currentMonthlyVolume" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.anticipatedMonthlyVolume' class='control-label fontWeightNormal'>Anticipated Monthly Volume</label>
-                        <input type='number' class='form-control' id='anticipatedMonthlyVolume' aria-describedby='anticipatedMonthlyVolume' placeholder='Anticipated Monthly Volume'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.anticipatedMonthlyVolume' aria-describedby='anticipatedMonthlyVolume' placeholder='Anticipated Monthly Volume'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.anticipatedMonthlyVolume" class="text-danger"></span>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
 
             <div class="form-group required">
                 <label asp-for="EquipmentPrintA4Waiver.selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular equipment:</label>
-                <textarea class="form-control" id="selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
+                <textarea class="form-control" asp-for="EquipmentPrintA4Waiver.selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
                     rows='2'></textarea>
                 <span asp-validation-for="EquipmentPrintA4Waiver.selectionReason" class="text-danger"></span>
             </div>
@@ -178,7 +178,7 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="form-group required">
                         <label asp-for="EquipmentPrintA4Waiver.acquisitionType" class="control-label fontWeightNormal">How do you plan to acquire this equipment?</label>
-                        <select class="form-control" id="acquisitionType">
+                        <select class="form-control" asp-for="EquipmentPrintA4Waiver.acquisitionType">
                             <option value="1">Solicitation</option>
                             <option value="2">State Price Agreement</option>
                             <option value="3">Lease</option>
@@ -191,7 +191,7 @@
                 <div class="col-md-6 col-xs-12" id="solicitationSubDiv">
                     <div class="form-group required">
                         <label asp-for="EquipmentPrintA4Waiver.solicitationSubType" class="control-label fontWeightNormal">Solicitation SubType?</label>
-                        <select class="form-control" id="solicitationSubType">
+                        <select class="form-control" asp-for="EquipmentPrintA4Waiver.solicitationSubType">
                             <option>Discretionary</option>
                             <option>DQ</option>
                             <option>IFB</option>
@@ -203,7 +203,7 @@
                 <div class="col-md-6 col-xs-12" id="statepriceSubDiv">
                     <div class="form-group required">
                         <label asp-for="EquipmentPrintA4Waiver.statepriceSubType" class="control-label fontWeightNormal">State Price SubType?</label>
-                        <select class="form-control" id="statepriceSubType">
+                        <select class="form-control" asp-for="EquipmentPrintA4Waiver.statepriceSubType">
                             <option>Cancelable Rental</option>
                             <option>Lease</option>
                         </select>
@@ -213,7 +213,7 @@
                 <div class="col-md-6 col-xs-12" id="purchaseAmountDiv">
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.purchaseAmount' class='control-label fontWeightNormal'>Purchase Amount</label>
-                        <input type='number' class='form-control' id='purchaseAmount' aria-describedby='purchaseAmount' placeholder='Purchase Amount'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.purchaseAmount' aria-describedby='purchaseAmount' placeholder='Purchase Amount'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.purchaseAmount" class="text-danger"></span>
                     </div>
                 </div>
@@ -223,14 +223,14 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.monthlyLeaseAmount' class='control-label fontWeightNormal'>Monthly Lease Amount</label>
-                        <input type='number' class='form-control' id='monthlyLeaseAmount' aria-describedby='monthlyLeaseAmount' placeholder='Monthly Lease Amount'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.monthlyLeaseAmount' aria-describedby='monthlyLeaseAmount' placeholder='Monthly Lease Amount'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.monthlyLeaseAmount" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.monthsOfLease' class='control-label fontWeightNormal'>Number of Months of Lease</label>
-                        <input type='number' class='form-control' id='monthsOfLease' aria-describedby='monthsOfLease' placeholder='Number of Months of Lease'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.monthsOfLease' aria-describedby='monthsOfLease' placeholder='Number of Months of Lease'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.monthsOfLease" class="text-danger"></span>
                     </div>
                 </div>
@@ -241,14 +241,14 @@
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.yearlyMaintenanceAmount' class='control-label fontWeightNormal'>Yearly Maintenance Amount</label>
-                        <input type='number' class='form-control' id='yearlyMaintenanceAmount' aria-describedby='yearlyMaintenanceAmount' placeholder='Yearly Maintenance Amount'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.yearlyMaintenanceAmount' aria-describedby='yearlyMaintenanceAmount' placeholder='Yearly Maintenance Amount'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.yearlyMaintenanceAmount" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
                         <label asp-for='EquipmentPrintA4Waiver.tonerCost' class='control-label fontWeightNormal'>Overall Toner Cost</label>
-                        <input type='number' class='form-control' id='tonerCost' aria-describedby='tonerCost' placeholder='Overall Toner Cost'>
+                        <input type='number' class='form-control' asp-for='EquipmentPrintA4Waiver.tonerCost' aria-describedby='tonerCost' placeholder='Overall Toner Cost'>
                         <span asp-validation-for="EquipmentPrintA4Waiver.tonerCost" class="text-danger"></span>
                     </div>
                 </div>
@@ -262,7 +262,7 @@
                         <label asp-for="EquipmentPrintA4Waiver.usefulLife" class="control-label fontWeightNormal">Expected useful life at anticipated volume:
                             <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Expected useful life of equipment at your anticipated volume:"></span>
                         </label>
-                        <input type="number" class="form-control" id="usefulLife" aria-describedby="usefulLife" placeholder="Expected useful life of this equipment">
+                        <input type="number" class="form-control" asp-for="EquipmentPrintA4Waiver.usefulLife" aria-describedby="usefulLife" placeholder="Expected useful life of this equipment">
                         <span asp-validation-for="EquipmentPrintA4Waiver.usefulLife" class="text-danger"></span>
                     </div>
                 </div>
@@ -273,7 +273,7 @@
             <hr class='sectionHeaderHR' />
             <div class='form-group required'>
                 <label asp-for='EquipmentPrintA4Waiver.complianceDescription' class='control-label fontWeightNormal'>Please describe how OIT/DPA recommendations to consolidate printing assets are followed</label>
-                <textarea class='form-control' id='complianceDescription' aria-describedby='complianceDescription' placeholder='"What printing practices are being implemented by you or your division to comply with DPA/OIT Lean Recommendations of the following:
+                <textarea class='form-control' asp-for='EquipmentPrintA4Waiver.complianceDescription' aria-describedby='complianceDescription' placeholder='"What printing practices are being implemented by you or your division to comply with DPA/OIT Lean Recommendations of the following:
 -Eliminate the use of Personal Printers
 -Creating Printer Standards
 -Migrating Print to more cost effective shared devices' rows='2'></textarea>
@@ -282,20 +282,20 @@
 
             <div class="form-group required">
                 <label asp-for="EquipmentPrintA4Waiver.alternativesDescription" class="control-label fontWeightNormal">Please describe the alternatives you have examined before making the request</label>
-                <textarea class="form-control" id="alternativesDescription" rows="2"></textarea>
+                <textarea class="form-control" asp-for="EquipmentPrintA4Waiver.alternativesDescription" rows="2"></textarea>
                 <span asp-validation-for="EquipmentPrintA4Waiver.alternativesDescription" class="text-danger"></span>
             </div>
 
             <div class='form-group required'>
                 <label asp-for='EquipmentPrintA4Waiver.justificationDescription' class='control-label fontWeightNormal'>Justification For Request</label>
-                <textarea class='form-control' id='justificationDescription' aria-describedby='justificationDescription' placeholder='Justification For Request'
+                <textarea class='form-control' asp-for='EquipmentPrintA4Waiver.justificationDescription' aria-describedby='justificationDescription' placeholder='Justification For Request'
                     rows='2'></textarea>
                 <span asp-validation-for="EquipmentPrintA4Waiver.justificationDescription" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="EquipmentPrintA4Waiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-                <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+                <textarea class="form-control" asp-for="EquipmentPrintA4Waiver.AdditionalComments" rows='2'></textarea>
                 <span asp-validation-for="EquipmentPrintA4Waiver.AdditionalComments" class="text-danger"></span>
             </div>
 
@@ -325,55 +325,44 @@
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#solicitationSubDiv'], {
             valueList: ['1']
         });
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#statepriceSubDiv'], {
             valueList: ['2']
         });
-        showIfSelected('#acquisitionType', ['#purchaseAmountDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#purchaseAmountDiv'], {
             valueList: ['4']
         });
-        showIfSelected('#acquisitionType', ['#leaseTermsDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#leaseTermsDiv'], {
             valueList: ['3']
         });
-        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_printerType', ['#otherPrinterTypeDiv'], {
             valueList: ['1']
         });
 
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
     });
 
-    $("#acquisitionType").on("change", function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {
+    $("#EquipmentPrintA4Waiver_acquisitionType").on("change", function () {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#solicitationSubDiv'], {
             valueList: ['1']
         });
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#statepriceSubDiv'], {
             valueList: ['2']
         });
-        showIfSelected('#acquisitionType', ['#purchaseAmountDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#purchaseAmountDiv'], {
             valueList: ['4']
         });
-        showIfSelected('#acquisitionType', ['#leaseTermsDiv'], {
+        showIfSelected('#EquipmentPrintA4Waiver_acquisitionType', ['#leaseTermsDiv'], {
             valueList: ['3']
         });
     });
 
-    $("#printerType").on("change", function () {
-        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {
+    $("#EquipmentPrintA4Waiver_printerType").on("change", function () {
+        showIfSelected('#EquipmentPrintA4Waiver_printerType', ['#otherPrinterTypeDiv'], {
             valueList: ['1']
         });
     });
 </script>
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-    </script>
 }

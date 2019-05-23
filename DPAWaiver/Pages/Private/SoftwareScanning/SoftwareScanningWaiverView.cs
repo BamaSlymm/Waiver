@@ -180,9 +180,7 @@ public void CopyFromSoftwareScanningWaiver(SoftwareScanningWaiver other) {
         {
         }
 
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
+       
         
     }
 

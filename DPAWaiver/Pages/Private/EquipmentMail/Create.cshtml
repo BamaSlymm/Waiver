@@ -1,6 +1,6 @@
 @page 
 @model DPAWaiver.Pages.Private.EquipmentMail.CreateModel 
-@{ ViewData["Title"] = "Create Waiver - Service - Mail Service"; }
+@{ ViewData["Title"] = "Create Waiver - Equipment - Mail Processing"; }
 
 <form method="post">
     <div asp-summary="All" class="text-danger"></div>
@@ -71,13 +71,11 @@
                 <div class="form-group required">
                     <label  asp-for="EquipmentMailWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input asp-for="EquipmentMailWaiver.CostEstimate" type="number" class="form-control" asp-for="EquipmentMailWaiver.CostEstimate" required="true" value="5000.03">
+                    <input asp-for="EquipmentMailWaiver.CostEstimate" type="number" class="form-control" asp-for="EquipmentMailWaiver.CostEstimate" required="true" step="0.01">
                     <span asp-validation-for="EquipmentMailWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
 
@@ -482,17 +480,17 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
-        showIfNotEmpty('#miscellaneousCosts', '#overHeadCostsDescription');
+        showIfSelected('#EquipmentMailWaiver_acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
+        showIfSelected('#EquipmentMailWaiver_acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
+        showIfNotEmpty('#EquipmentMailWaiver_miscellaneousCosts', '#EquipmentMailWaiver_overHeadCostsDescription');
     });
 
-    $("#acquisitionType").on("change", function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
+    $("#EquipmentMailWaiver_acquisitionType").on("change", function () {
+        showIfSelected('#EquipmentMailWaiver_acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
+        showIfSelected('#EquipmentMailWaiver_acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
     });
-    $("#miscellaneousCosts").on("change paste keyup", function () {
-           showIfNotEmpty('#miscellaneousCosts', '#overHeadCostsDescription');
+    $("#EquipmentMailWaiver_miscellaneousCosts").on("change paste keyup", function () {
+           showIfNotEmpty('#EquipmentMailWaiver_miscellaneousCosts', '#EquipmentMailWaiver_overHeadCostsDescription');
     });
 
 </script>

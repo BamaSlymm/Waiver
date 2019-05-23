@@ -163,9 +163,6 @@ public void CopyFromEquipmentPrintA4Waiver(EquipmentPrintA4Waiver other) {
         {
         }
 
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
         
     }
 

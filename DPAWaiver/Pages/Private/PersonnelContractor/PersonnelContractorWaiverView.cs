@@ -59,16 +59,8 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
         [Range(0, 9999999999999999.99)]
-
         public decimal? CostEstimate { get ; set;}
 
-        [Required]
-        [Display(Name = "Describe the job duties:")]
-        public string JobDuties {get;set;}
-
-        
-        
-        [Required]
         [Display(Name = "Total estimated number of hours:")]
         public decimal? EstimatedNumberOfHours {get;set;}
 
@@ -107,9 +99,6 @@ namespace DPAWaiver.Models.Waivers
         {
         }
 
-          [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
 
         public PersonnelContractorWaiverView(PersonnelContractorWaiver other)
         {
@@ -125,7 +114,6 @@ namespace DPAWaiver.Models.Waivers
             this.ContractorType = other.ContractorType;
             this.HourlyRate = other.HourlyRate;
             this.CostEstimate = other.CostEstimate ;
-            this.JobDuties = other.JobDuties;
             this.EstimatedNumberOfHours = other.EstimatedNumberOfHours;
             this.SPAtype = other.SPAtype;
             this.SPAnumber = other.SPAnumber;

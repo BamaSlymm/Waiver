@@ -170,13 +170,13 @@ This is a numeric field."></span></label>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#typeOfStock', ['#otherDescriptionId'], {  valueList: ['0'] });
+        showIfSelected('#ServiceMailWaiver_TypeofStock', ['#ServiceMailWaiver_OtherDescription'], {  valueList: ['0'] });
  
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
     });
 
-    $("#typeOfStock").on("change", function () {
-        showIfSelected('#typeOfStock', ['#otherDescriptionId'], {valueList: ['0']});
+    $("#ServiceMailWaiver_TypeofStock").on("change", function () {
+        showIfSelected('#ServiceMailWaiver_TypeofStock', ['#ServiceMailWaiver_OtherDescription'], {valueList: ['0']});
     });
 </script>
 }

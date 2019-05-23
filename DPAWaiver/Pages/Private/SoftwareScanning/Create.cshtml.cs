@@ -32,7 +32,7 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
             return Page();
         }
 
-        public IEnumerable<SelectListItem> designtype => _ILOVService.GetDesignTypesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> softwaretype => _ILOVService.GetSoftwareTypesAsSelectListBySortOrder();
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -43,9 +43,8 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
                 return Page();
             }
 
-            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
-            var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(SoftwareScanningWaiver.DesignTypeID);
+            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Software);
+            var purposeType = _ILOVService.getSoftwareTypes().Single(x => x.ID == SoftwareTypes.Scanning);
             SoftwareScanningWaiver emptyWaiver = new SoftwareScanningWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<SoftwareScanningWaiver>(

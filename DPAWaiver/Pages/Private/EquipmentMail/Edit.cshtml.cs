@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.EquipmentMail
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public EquipmentMailWaiver EquipmentMailWaiver { get; set; }
+        public EquipmentMailWaiverView EquipmentMailWaiver { get; set; }
+
+        public Guid? ID {get;set;}
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager): base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,122 @@ namespace DPAWaiver.Pages.Private.EquipmentMail
                 return NotFound();
             }
 
-            EquipmentMailWaiver = await _context.EquipmentMailWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var equipmentMailWaiver = await _context.EquipmentMailWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            EquipmentMailWaiver = new EquipmentMailWaiverView(equipmentMailWaiver);
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
-            if (EquipmentMailWaiver == null)
+            if (EquipmentMailWaiver == null || !equipmentMailWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(EquipmentMailWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.EquipmentMailWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EquipmentMailWaiverExists(EquipmentMailWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<EquipmentMailWaiver>(
+               waiverToUpdate,
+               "EquipmentMailwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.CostEstimate,
+               w => w.justificationDescription,
+               w => w.equipmentDescription,
+               w => w.NumberofEquipment,
+               w => w.newOrReplace,
+               w => w.servicesReceived,
+               w => w.monthlyLeaseAmount,
+               w => w.monthlyVolume,
+               w => w.firstYearVolume,
+               w => w.secondYearVolume,
+               w => w.thirdYearVolume,
+               w => w.fourthYearVolume,
+               w => w.fifthYearVolume,
+               w => w.Make,
+               w => w.Model,
+               w => w.selectionReason,
+               w => w.usefulLife,
+               w => w.purchaseAmount,
+               w => w.monthlyLease,
+               w => w.monthsRental,
+               w => w.acquisitionType,
+               w => w.solicitationSubType,
+               w => w.statepriceSubType,
+               w => w.totalLeaseAmount,
+               w => w.EstimatedNumberofFTE,
+               w => w.EstimatedNumberOfHoursPerFTE,
+               w => w.weeklySalaryCost,
+               w => w.totalSpaceRequired,
+               w => w.monthlySupervisionAmount,
+               w => w.monthlyManagementAmount,
+               w => w.monthlyUtilitiesAmount,
+               w => w.monthlyIndirectCosts,
+               w => w.miscellaneousCosts,
+               w => w.overheadCostDescription,
+               w => w.alternativesDescription,
+               w => w.Status,
+               w => w.AdditionalComments
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, EquipmentMailWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!EquipmentMailWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool EquipmentMailWaiverExists(Guid id)
+        private bool EquipmentMailWaiverExists(Guid? id)
         {
             return _context.EquipmentMailWaiver.Any(e => e.ID == id);
         }

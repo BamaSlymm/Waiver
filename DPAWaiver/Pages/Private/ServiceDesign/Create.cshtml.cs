@@ -45,7 +45,6 @@ namespace DPAWaiver.Pages.Private.ServiceDesign
 
             var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
             var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(ServiceDesignWaiver.DesignTypeID);
             ServiceDesignWaiver emptyWaiver = new ServiceDesignWaiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<ServiceDesignWaiver>(

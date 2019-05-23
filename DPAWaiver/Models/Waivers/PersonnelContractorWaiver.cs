@@ -22,13 +22,8 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Hourly Rate")]
         public decimal HourlyRate {get; set;}
-
-
-        [Required]
-        [Display(Name = "Describe the job duties:")]
-        public string JobDuties {get;set;}
         
-        [Required]
+        
         [Display(Name = "Total estimated number of hours:")]
         public decimal? EstimatedNumberOfHours {get;set;}
 
@@ -39,10 +34,6 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Enter State Price Agreement Number:")]
         public decimal? SPAnumber {get; set;}
-
-        [Required]
-        [Display(Name = "How do you currently receive this service?")]
-        public string SPAType {get; set;}
 
         [Display(Name = "Please Describe Other for SPA:")]
         public string SPAotherDescription {get; set;}

@@ -95,9 +95,7 @@ public void CopyFromServiceMailWaiver(ServiceMailWaiver other) {
         {
         }
 
-        
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
+    
         
     }
 

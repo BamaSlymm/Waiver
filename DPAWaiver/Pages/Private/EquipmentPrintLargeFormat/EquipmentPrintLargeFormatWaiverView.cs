@@ -331,7 +331,6 @@ public void CopyFromEquipmentPrintLargeFormatWaiver(EquipmentPrintLargeFormatWai
             this.selectionReason = other.selectionReason;
             this.productionCapacity = other.productionCapacity;
             this.estimatedCost = other.estimatedCost;
-            this.productionCapacity = other.productionCapacity;
             this.leaseOrPurchase = other.leaseOrPurchase;
             this.numberOfYears = other.numberOfYears;
             this.costOfLeasePerYear = other.costOfLeasePerYear;
@@ -377,9 +376,6 @@ public void CopyFromEquipmentPrintLargeFormatWaiver(EquipmentPrintLargeFormatWai
         {
         }
 
-        [Required]
-        [Display(Name = "Type of Design:")]
-        public int? DesignTypeID{get; set;}
         
     }
 

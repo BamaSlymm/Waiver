@@ -77,7 +77,7 @@
                 <div class="form-group required">
                     <label  asp-for="EquipmentPrintWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control"  asp-for="EquipmentPrintWaiver.CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control"  asp-for="EquipmentPrintWaiver.CostEstimate" required="true" step="0.01">
                     <span asp-validation-for="EquipmentPrintWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
@@ -506,44 +506,42 @@
 </form>
 
 </form>
-
-<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], { valueList: ['1']});
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
-        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
-        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1']});
-        showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], { valueList: ['0']});
-        showIfSelected('#statepriceSubType',['#leaseTermsDiv'],{ valueList: ['1']});
+        showIfSelected('#EquipmentPrintWaiver_acquisitionType', ['#solicitationSubDiv'], { valueList: ['1']});
+        showIfSelected('#EquipmentPrintWaiver_acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
+        showIfSelected('#EquipmentPrintWaiver_printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
+        showIfSelected('#EquipmentPrintWaiver_forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1']});
+        showIfSelected('#EquipmentPrintWaiver_printerReplacementCycle', ['#otherReplacementCycleDiv'], { valueList: ['0']});
+        showIfSelected('#EquipmentPrintWaiver_statepriceSubType',['#leaseTermsDiv'],{ valueList: ['1']});
 
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
-        getPrinterData($('#printerType option:checked').val())
+        getPrinterData($('#EquipmentPrintWaiver_printerType option:checked').val())
     });
 
-    $("#acquisitionType").on("change", function () {
-        showIfSelected('#acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
-        showIfSelected('#acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
+    $("#EquipmentPrintWaiver_acquisitionType").on("change", function () {
+        showIfSelected('#EquipmentPrintWaiver_acquisitionType', ['#solicitationSubDiv'], {valueList: ['1']});
+        showIfSelected('#EquipmentPrintWaiver_acquisitionType', ['#statepriceSubDiv'], {valueList: ['2']});
     });
 
-    $("#printerType").on("change", function () {
-        showIfSelected('#printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
+    $("#EquipmentPrintWaiver_printerType").on("change", function () {
+        showIfSelected('#EquipmentPrintWaiver_printerType', ['#otherPrinterTypeDiv'], {valueList: ['1']});
     });
 
-     $("#statepriceSubType").on("change", function () {
-        showIfSelected('#statepriceSubType',['#leaseTermsDiv'],{ valueList: ['1']});
+     $("#EquipmentPrintWaiver_statepriceSubType").on("change", function () {
+        showIfSelected('#EquipmentPrintWaiver_statepriceSubType',['#leaseTermsDiv'],{ valueList: ['1']});
     });
 
 
-    $("#forGroupOfIndividuals").on("change", function () {
-        showIfSelected('#forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1']});
+    $("#EquipmentPrintWaiver_forGroupOfIndividuals").on("change", function () {
+        showIfSelected('#EquipmentPrintWaiver_forGroupOfIndividuals', ['#uploadFileDiv'], {valueList: ['1']});
     });
 
-    $("#printerReplacementCycle").on("change", function () {
-        showIfSelected('#printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0']});
+    $("#EquipmentPrintWaiver_printerReplacementCycle").on("change", function () {
+        showIfSelected('#EquipmentPrintWaiver_printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0']});
     });
 
 
@@ -566,95 +564,84 @@
                     return;
                 }
                 console.log(data[0]);
-                $('#purchaseAmount').val(roundFloat(data[0].equipmentPurchaseCost));
-                $('#monthlyColorVolume').val(roundFloat(data[0].monthlyColorVolume));
-                $('#monthlyColorVolume').prop('readonly', data[0].colorTonerDisabled);
+                $('#EquipmentPrintWaiver_purchaseAmount').val(roundFloat(data[0].equipmentPurchaseCost));
+                $('#EquipmentPrintWaiver_monthlyColorVolume').val(roundFloat(data[0].monthlyColorVolume));
+                $('#EquipmentPrintWaiver_monthlyColorVolume').prop('readonly', data[0].colorTonerDisabled);
                 if (data[0].colorTonerDisabled) {
                     console.log('trying to collapse');
-                    $('#colorTonerBody').collapse('hide');
+                    $('#EquipmentPrintWaiver_colorTonerBody').collapse('hide');
                 }
-                $('#blackTonerCost').val(data[0].blackTonerCost);
-                $('#pageYieldForBlackToner').val(data[0].pageYieldForBlackToner);
-                calculateInkCostPerPage('#blackTonerCost', '#pageYieldForBlackToner', '#blackInkCostPerPage');
+                $('#EquipmentPrintWaiver_blackTonerCost').val(data[0].blackTonerCost);
+                $('#EquipmentPrintWaiver_pageYieldForBlackToner').val(data[0].pageYieldForBlackToner);
+                calculateInkCostPerPage('#EquipmentPrintWaiver_blackTonerCost', '#EquipmentPrintWaiver_pageYieldForBlackToner', '#EquipmentPrintWaiver_blackInkCostPerPage');
 
-                $('#cyanTonerCost').val(roundFloat(data[0].cyanTonerCost));
-                $('#pageYieldForCyanToner').val(data[0].pageYieldForCyanToner);
-                $('#cyanTonerCost').prop('readonly', data[0].colorTonerDisabled);
-                $('#pageYieldForCyanToner').prop('readonly', data[0].colorTonerDisabled);
-                calculateInkCostPerPage('#cyanTonerCost', '#pageYieldForCyanToner', '#cyanInkCostPerPage');
+                $('#EquipmentPrintWaiver_cyanTonerCost').val(roundFloat(data[0].cyanTonerCost));
+                $('#EquipmentPrintWaiver_pageYieldForCyanToner').val(data[0].pageYieldForCyanToner);
+                $('#EquipmentPrintWaiver_cyanTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#EquipmentPrintWaiver_pageYieldForCyanToner').prop('readonly', data[0].colorTonerDisabled);
+                calculateInkCostPerPage('#EquipmentPrintWaiver_cyanTonerCost', '#EquipmentPrintWaiver_pageYieldForCyanToner', '#EquipmentPrintWaiver_cyanInkCostPerPage');
 
-                $('#MagentaTonerCost').val(roundFloat(data[0].MagentaTonerCost));
-                $('#pageYieldForMagentaToner').val(data[0].pageYieldForMagentaToner);
-                $('#MagentaTonerCost').prop('readonly', data[0].colorTonerDisabled);
-                $('#pageYieldForMagentaToner').prop('readonly', data[0].colorTonerDisabled);
-                calculateInkCostPerPage('#MagentaTonerCost', '#pageYieldForMagentaToner', '#MagentaInkCostPerPage');
+                $('#EquipmentPrintWaiver_MagentaTonerCost').val(roundFloat(data[0].MagentaTonerCost));
+                $('#EquipmentPrintWaiver_pageYieldForMagentaToner').val(data[0].pageYieldForMagentaToner);
+                $('#EquipmentPrintWaiver_MagentaTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#EquipmentPrintWaiver_pageYieldForMagentaToner').prop('readonly', data[0].colorTonerDisabled);
+                calculateInkCostPerPage('#EquipmentPrintWaiver_MagentaTonerCost', '#EquipmentPrintWaiver_pageYieldForMagentaToner', '#EquipmentPrintWaiver_MagentaInkCostPerPage');
 
-                $('#YellowTonerCost').val(roundFloat(data[0].YellowTonerCost));
-                $('#pageYieldForYellowToner').val(data[0].pageYieldForYellowToner);
-                $('#YellowTonerCost').prop('readonly', data[0].colorTonerDisabled);
-                $('#pageYieldForYellowToner').prop('readonly', data[0].colorTonerDisabled);
+                $('#EquipmentPrintWaiver_YellowTonerCost').val(roundFloat(data[0].YellowTonerCost));
+                $('#EquipmentPrintWaiver_pageYieldForYellowToner').val(data[0].pageYieldForYellowToner);
+                $('#EquipmentPrintWaiver_YellowTonerCost').prop('readonly', data[0].colorTonerDisabled);
+                $('#EquipmentPrintWaiver_pageYieldForYellowToner').prop('readonly', data[0].colorTonerDisabled);
 
-                calculateInkCostPerPage('#YellowTonerCost', '#pageYieldForYellowToner', '#YellowInkCostPerPage');
+                calculateInkCostPerPage('#EquipmentPrintWaiver_YellowTonerCost', '#EquipmentPrintWaiver_pageYieldForYellowToner', '#EquipmentPrintWaiver_YellowInkCostPerPage');
             },
             function () {
                 console.log('errored');
             });
     }
 
-    $("#blackTonerCost, #pageYieldForBlackToner").on("change paste keyup", function () {
-        calculateInkCostPerPage('#blackTonerCost', '#pageYieldForBlackToner', '#blackInkCostPerPage');
+    $("#EquipmentPrintWaiver_blackTonerCost, #EquipmentPrintWaiver_pageYieldForBlackToner").on("change paste keyup", function () {
+        calculateInkCostPerPage('#EquipmentPrintWaiver_blackTonerCost', '#EquipmentPrintWaiver_pageYieldForBlackToner', '#EquipmentPrintWaiver_blackInkCostPerPage');
     });
 
-    $("#cyanTonerCost, #pageYieldForCyanToner").on("change paste keyup", function () {
-        calculateInkCostPerPage('#cyanTonerCost', '#pageYieldForCyanToner', '#cyanInkCostPerPage');
+    $("#EquipmentPrintWaiver_cyanTonerCost, #EquipmentPrintWaiver_pageYieldForCyanToner").on("change paste keyup", function () {
+        calculateInkCostPerPage('#EquipmentPrintWaiver_cyanTonerCost', '#EquipmentPrintWaiver_pageYieldForCyanToner', '#EquipmentPrintWaiver_cyanInkCostPerPage');
     });
 
-    $("#MagentaTonerCost, #pageYieldForMagentaToner").on("change paste keyup", function () {
-        calculateInkCostPerPage('#MagentaTonerCost', '#pageYieldForMagentaToner', '#MagentaInkCostPerPage');
+    $("#EquipmentPrintWaiver_MagentaTonerCost, #EquipmentPrintWaiver_pageYieldForMagentaToner").on("change paste keyup", function () {
+        calculateInkCostPerPage('#EquipmentPrintWaiver_MagentaTonerCost', '#EquipmentPrintWaiver_pageYieldForMagentaToner', '#EquipmentPrintWaiver_MagentaInkCostPerPage');
     });
 
-    $("#YellowTonerCost, #pageYieldForYellowToner").on("change paste keyup", function () {
-        calculateInkCostPerPage('#YellowTonerCost', '#pageYieldForYellowToner', '#YellowInkCostPerPage');
+    $("#EquipmentPrintWaiver_YellowTonerCost, #EquipmentPrintWaiver_pageYieldForYellowToner").on("change paste keyup", function () {
+        calculateInkCostPerPage('#EquipmentPrintWaiver_YellowTonerCost', '#EquipmentPrintWaiver_pageYieldForYellowToner', '#EquipmentPrintWaiver_YellowInkCostPerPage');
     });
 
-    $("#printerType").on("change", function () {
-        getPrinterData($('#printerType option:checked').val());
+    $("#EquipmentPrintWaiver_printerType").on("change", function () {
+        getPrinterData($('#EquipmentPrintWaiver_printerType option:checked').val());
     });
 
-    $("#purchaseAmount, #agreementOrWarrantyCost, #printerReplacementCycle, #otherReplacementCycle").on(
+    $("#EquipmentPrintWaiver_purchaseAmount, #EquipmentPrintWaiver_agreementOrWarrantyCost, #EquipmentPrintWaiver_printerReplacementCycle, #EquipmentPrintWaiver_otherReplacementCycle").on(
         "change paste keyup",
         function () {
             calculateMonthlyCostWithoutToner();
         });
 
     function calculateMonthlyCostWithoutToner() {
-        let purchaseAmount = $('#purchaseAmount').val();
-        let agreementOrWarrantyCost = $('#agreementOrWarrantyCost').val()
+        let purchaseAmount = $('#EquipmentPrintWaiver_purchaseAmount').val();
+        let agreementOrWarrantyCost = $('#EquipmentPrintWaiver_agreementOrWarrantyCost').val()
         writeToConsole('purchaseAmount=[' + purchaseAmount + '] agreementOrWarrantyCost=[' + agreementOrWarrantyCost + ']') ;
         if ($.isNumeric(purchaseAmount) && $.isNumeric(agreementOrWarrantyCost)) {
-            let replacementMonths = $('#printerReplacementCycle option:selected').val();
+            let replacementMonths = $('#EquipmentPrintWaiver_printerReplacementCycle option:selected').val();
             if (replacementMonths === '0') {
-                replacementMonths = $('#otherReplacementCycle').val();
+                replacementMonths = $('#EquipmentPrintWaiver_otherReplacementCycle').val();
             }
             if ($.isNumeric(replacementMonths)) {
                 let monthlyCostWithoutToner = parseFloat(purchaseAmount) + (agreementOrWarrantyCost / replacementMonths);
-                $('#monthlyCostWithoutToner').val(Number(monthlyCostWithoutToner).toFixed(2));
+                $('#EquipmentPrintWaiver_monthlyCostWithoutToner').val(Number(monthlyCostWithoutToner).toFixed(2));
             }
             return;
         }
-        $('#monthlyCostWithoutToner').val('');
+        $('#EquipmentPrintWaiver_monthlyCostWithoutToner').val('');
         return;
     }
 </script>
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-    </script>
 }

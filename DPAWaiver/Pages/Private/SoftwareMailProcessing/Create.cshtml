@@ -55,7 +55,7 @@
             <div class="col-md-12 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="SoftwareMailProcessingWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" id="projectName" required="true" placeholder="Your Project Name">
+                    <input type="text" class="form-control" asp-for="SoftwareMailProcessingWaiver.projectName" required="true" placeholder="Your Project Name">
                     <span asp-validation-for="SoftwareMailProcessingWaiver.projectName" class="text-danger"></span>
                 </div>
             </div>
@@ -64,7 +64,7 @@
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="SoftwareMailProcessingWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="SubmittedOn" required="true" value="05/04/2018">
+                    <input type="date" class="form-control" asp-for="SoftwareMailProcessingWaiver.SubmittedOn" required="true" value="05/04/2018">
                     <span asp-validation-for="SoftwareMailProcessingWaiver.SubmittedOn" class="text-danger"></span>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 <div class="form-group required">
                     <label asp-for="SoftwareMailProcessingWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" asp-for="SoftwareMailProcessingWaiver.CostEstimate" required="true" value="5000.03">
                     <span asp-validation-for="SoftwareMailProcessingWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
@@ -90,14 +90,14 @@
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
                     <label asp-for='SoftwareMailProcessingWaiver.typeOfSoftware' class='control-label fontWeightNormal'>Type of software being requested</label>
-                    <input type='text' class='form-control' id='typeOfSoftware' aria-describedby='typeOfSoftware' placeholder='Type of software being requested'>
+                    <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.typeOfSoftware' aria-describedby='typeOfSoftware' placeholder='Type of software being requested'>
                     <span asp-validation-for="SoftwareMailProcessingWaiver.typeOfSoftware" class="text-danger"></span>
                 </div>
             </div>
             <div class='col-sm-6 col-xs-12'>
                 <div class='form-group required'>
                     <label asp-for='SoftwareMailProcessingWaiver.numberOfLicenses' class='control-label fontWeightNormal'>Number of software licenses being requested</label>
-                    <input type='number' class='form-control' id='numberOfLicenses' aria-describedby='numberOfLicenses' placeholder='Number of software licenses being requested'>
+                    <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.numberOfLicenses' aria-describedby='numberOfLicenses' placeholder='Number of software licenses being requested'>
                     <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfLicenses" class="text-danger"></span>
                 </div>
             </div>
@@ -108,7 +108,7 @@
             <div class='col-sm-6 col-xs-12'>
                 <div class="form-group required">
                     <label asp-for="SoftwareMailProcessingWaiver.newOrReplace" class="control-label fontWeightNormal">Is this new addition or replacement?</label>
-                    <select class="form-control" id="newOrReplace">
+                    <select class="form-control" asp-for="SoftwareMailProcessingWaiver.newOrReplace">
                         <option>Additional</option>
                         <option>New</option>
                         <option>Replacement</option>
@@ -121,7 +121,7 @@
                     <label asp-for='SoftwareMailProcessingWaiver.costOfPresentService' class='control-label fontWeightNormal'>Cost of Present Service
                         <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip' title='Cost of Present Service'></span>
                     </label>
-                    <input type='number' class='form-control' id='costOfPresentService' aria-describedby='costOfPresentService' placeholder='Cost of Present Service'>
+                    <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.costOfPresentService' aria-describedby='costOfPresentService' placeholder='Cost of Present Service'>
                     <span asp-validation-for="SoftwareMailProcessingWaiver.costOfPresentService" class="text-danger"></span>
                 </div>
             </div>
@@ -129,7 +129,7 @@
 
         <div class="form-group required">
             <label asp-for="SoftwareMailProcessingWaiver.servicesReceived" class="control-label fontWeightNormal">How do you currently receive this services?</label>
-            <textarea class="form-control" id="servicesReceived" rows="2" placeholder="if replacement please describe software version and Acquisition Date."></textarea>
+            <textarea class="form-control" asp-for="SoftwareMailProcessingWaiver.servicesReceived" rows="2" placeholder="if replacement please describe software version and Acquisition Date."></textarea>
             <span asp-validation-for="SoftwareMailProcessingWaiver.servicesReceived" class="text-danger"></span>
         </div>
         
@@ -142,14 +142,14 @@
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.softwareProvider' class='control-label fontWeightNormal'>Software Provider</label>
-                            <input type='text' class='form-control' id='softwareProvider' aria-describedby='softwareProvider' placeholder='Software Provider'>
+                            <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.softwareProvider' aria-describedby='softwareProvider' placeholder='Software Provider'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.softwareProvider" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.softwareVersion' class='control-label fontWeightNormal'>Software Version</label>
-                            <input type='text' class='form-control' id='softwareVersion' aria-describedby='softwareVersion' placeholder='Software Version'>
+                            <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.softwareVersion' aria-describedby='softwareVersion' placeholder='Software Version'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.softwareVersion" class="text-danger"></span>
                         </div>
                     </div>
@@ -157,20 +157,20 @@
 
                 <div class="form-group required">
                     <label asp-for="SoftwareMailProcessingWaiver.selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular software:</label>
-                    <textarea class="form-control" id="selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
+                    <textarea class="form-control" asp-for="SoftwareMailProcessingWaiver.selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
                         rows='2'></textarea>
                     <span asp-validation-for="SoftwareMailProcessingWaiver.selectionReason" class="text-danger"></span>
                 </div>
 
                 <div class='form-group required'>
                     <label asp-for='SoftwareMailProcessingWaiver.expectedDuration' class='control-label fontWeightNormal'>Expected duration of use of software</label>
-                    <input type='text' class='form-control' id='expectedDuration' aria-describedby='expectedDuration' placeholder='Expected duration of use of software'>
+                    <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.expectedDuration' aria-describedby='expectedDuration' placeholder='Expected duration of use of software'>
                     <span asp-validation-for="SoftwareMailProcessingWaiver.expectedDuration" class="text-danger"></span>
                 </div>
 
                 <div class='form-group required'>
                     <label asp-for='SoftwareMailProcessingWaiver.acquisitionType' class='control-label fontWeightNormal'>How do you plan to acquire this software.</label>
-                    <textarea class='form-control' id='acquisitionType' aria-describedby='acquisitionType' 
+                    <textarea class='form-control' asp-for='SoftwareMailProcessingWaiver.acquisitionType' aria-describedby='acquisitionType' 
                     placeholder='How do you plan to acquire this software.If there is a state price agreement, please provide details' 
                     rows='2'></textarea>
                     <span asp-validation-for="SoftwareMailProcessingWaiver.acquisitionType" class="text-danger"></span>
@@ -180,7 +180,7 @@
                     <div class='col-sm-6 col-xs-12'>
                         <div class="form-group required">
                             <label asp-for="SoftwareMailProcessingWaiver.subscriptionOrPurchase" class="control-label fontWeightNormal">Is this a subscription or purchase?</label>
-                            <select class="form-control" id="subscriptionOrPurchase">
+                            <select class="form-control" asp-for="SoftwareMailProcessingWaiver.subscriptionOrPurchase">
                                 <option>Please select one</option>
                                 <option value='1'>Subscription</option>
                                 <option value='2'>Purchase</option>
@@ -193,7 +193,7 @@
                             <label asp-for="SoftwareMailProcessingWaiver.purchaseAmount" class="control-label fontWeightNormal">Purchase Amount
                                 <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Purchase Amount"></span>
                             </label>
-                            <input type="number" class="form-control" id="purchaseAmount" aria-describedby="purchaseAmount" placeholder="Purchase Amount">
+                            <input type="number" class="form-control" asp-for="SoftwareMailProcessingWaiver.purchaseAmount" aria-describedby="purchaseAmount" placeholder="Purchase Amount">
                             <span asp-validation-for="SoftwareMailProcessingWaiver.purchaseAmount" class="text-danger"></span>
                         </div>
                     </div>
@@ -204,14 +204,14 @@
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required' id='monthlySubscriptionAmountDiv'>
                             <label asp-for='SoftwareMailProcessingWaiver.monthlySubscriptionAmount' class='control-label fontWeightNormal'>Monthly Subscription Amount</label>
-                            <input type='number' class='form-control' id='monthlySubscriptionAmount' aria-describedby='monthlySubscriptionAmount' placeholder='Monthly Subscription Amount'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.monthlySubscriptionAmount' aria-describedby='monthlySubscriptionAmount' placeholder='Monthly Subscription Amount'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.monthlySubscriptionAmount" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class='form-group required' id='numberOfMonthsDiv'>
                             <label asp-for='SoftwareMailProcessingWaiver.numberOfMonths' class='control-label fontWeightNormal'>Number of Months</label>
-                            <input type='number' class='form-control' id='numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.numberOfMonths' aria-describedby='numberOfMonths' placeholder='Number of Months'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfMonths" class="text-danger"></span>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required' id='annualMaintenanceCostDiv'>
                             <label asp-for='SoftwareMailProcessingWaiver.annualMaintenanceCost' class='control-label fontWeightNormal'>Annual Maintenance Renewal Cost</label>
-                            <input type='number' class='form-control' id='annualMaintenanceCost' aria-describedby='annualMaintenanceCost' placeholder='Annual Maintenance Renewal Cost'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.annualMaintenanceCost' aria-describedby='annualMaintenanceCost' placeholder='Annual Maintenance Renewal Cost'>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
@@ -232,14 +232,14 @@
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.operatorClassification' class='control-label fontWeightNormal'>Operator Classification</label>
-                            <input type='text' class='form-control' id='operatorClassification' aria-describedby='operatorClassification' placeholder='Operator Classification'>
+                            <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.operatorClassification' aria-describedby='operatorClassification' placeholder='Operator Classification'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.operatorClassification" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.Grade' class='control-label fontWeightNormal'>Grade</label>
-                            <input type='text' class='form-control' id='Grade' aria-describedby='Grade' placeholder='Grade'>
+                            <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.Grade' aria-describedby='Grade' placeholder='Grade'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.Grade" class="text-danger"></span>
                         </div>
                     </div>
@@ -250,14 +250,14 @@
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.numberOfFTE' class='control-label fontWeightNormal'>Estimated Number of FTE</label>
-                            <input type='number' class='form-control' id='numberOfFTE' aria-describedby='numberOfFTE' placeholder='Estimated Number of FTE'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.numberOfFTE' aria-describedby='numberOfFTE' placeholder='Estimated Number of FTE'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.numberOfFTE" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.hoursPerFTEPerWeek' class='control-label fontWeightNormal'>Hours Per FTE Per Week</label>
-                            <input type='number' class='form-control' id='hoursPerFTEPerWeek' aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per Week'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.hoursPerFTEPerWeek' aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per Week'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.totalWeeklySalary' class='control-label fontWeightNormal'>Total Weekly Salary</label>
-                            <input type='number' class='form-control' id='totalWeeklySalary' aria-describedby='totalWeeklySalary' placeholder='Total Weekly Salary'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.totalWeeklySalary' aria-describedby='totalWeeklySalary' placeholder='Total Weekly Salary'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.totalWeeklySalary" class="text-danger"></span>
                         </div>
                     </div>
@@ -290,14 +290,14 @@
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.monthlySupervisionAmount' class='control-label fontWeightNormal'>Monthly Supervision Amount</label>
-                            <input type='number' class='form-control' id='monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
+                            <input type='number' class='form-control' asp-for='SoftwareMailProcessingWaiver.monthlySupervisionAmount' aria-describedby='monthlySupervisionAmount' placeholder='Monthly Supervision Amount'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.monthlySupervisionAmount" class="text-danger"></span>
                         </div>
                     </div>
                     <div class='col-sm-6 col-xs-12'>
                         <div class='form-group required'>
                             <label asp-for='SoftwareMailProcessingWaiver.monthlyManagementAmount' class='control-label fontWeightNormal'>Monthly Management Amount</label>
-                            <input type='text' class='form-control' id='monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
+                            <input type='text' class='form-control' asp-for='SoftwareMailProcessingWaiver.monthlyManagementAmount' aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
                             <span asp-validation-for="SoftwareMailProcessingWaiver.monthlyManagementAmount" class="text-danger"></span>
                         </div>
                     </div>
@@ -310,21 +310,21 @@
 
         <div class="form-group required">
             <label asp-for="SoftwareMailProcessingWaiver.justificationDescription" class="control-label fontWeightNormal">Justification for the request:</label>
-            <textarea class="form-control" id="justificationDescription" rows='2'></textarea>
+            <textarea class="form-control" asp-for="SoftwareMailProcessingWaiver.justificationDescription" rows='2'></textarea>
             <span asp-validation-for="SoftwareMailProcessingWaiver.justificationDescription" class="text-danger"></span>
         </div>
 
 
         <div class='form-group required'>
             <label asp-for='SoftwareMailProcessingWaiver.alternativesConsidered' class='control-label fontWeightNormal'>Please describe the alternatives you examined before making this request</label>
-            <textarea class='form-control' id='alternativesConsidered' aria-describedby='alternativesConsidered' placeholder='Please describe the alternatives you examined before making this request'
+            <textarea class='form-control' asp-for='SoftwareMailProcessingWaiver.alternativesConsidered' aria-describedby='alternativesConsidered' placeholder='Please describe the alternatives you examined before making this request'
                 rows='2'></textarea>
             <span asp-validation-for="SoftwareMailProcessingWaiver.alternativesConsidered" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="SoftwareMailProcessingWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" id="AdditionalComments" rows='2'></textarea>
+            <textarea class="form-control" asp-for="SoftwareMailProcessingWaiver.AdditionalComments" rows='2'></textarea>
             <span asp-validation-for="SoftwareMailProcessingWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
@@ -347,32 +347,19 @@
 </div>
 </form>
 
-
-
-<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-                showIfSelected('#subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
-                showIfSelected('#subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
+                showIfSelected('#SoftwareMailProcessingWaiver_subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
+                showIfSelected('#SoftwareMailProcessingWaiver_subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
         });
 
-        $("#subscriptionOrPurchase").on("change", function () {
-            showIfSelected('#subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
-            showIfSelected('#subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
+        $("#SoftwareMailProcessingWaiver_subscriptionOrPurchase").on("change", function () {
+            showIfSelected('#SoftwareMailProcessingWaiver_subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
+            showIfSelected('#SoftwareMailProcessingWaiver_subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
         });
     </script>
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-
-        $("#typeOfDesign").on("change", function () {
-            showIfSelected('#typeOfDesign', ['#otherDescriptionId'], {valueList: ['0']});
-        });
-    </script>
+    
 }

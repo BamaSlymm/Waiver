@@ -32,7 +32,7 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintA3
             return Page();
         }
 
-        public IEnumerable<SelectListItem> designtype => _ILOVService.GetDesignTypesAsSelectListBySortOrder();
+        public IEnumerable<SelectListItem> equipmenttype => _ILOVService.GetEquipmentTypesAsSelectListBySortOrder();
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -43,9 +43,8 @@ namespace DPAWaiver.Pages.Private.EquipmentPrintA3
                 return Page();
             }
 
-            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Service);
-            var purposeType = _ILOVService.getServiceTypes().Single(x => x.ID == ServiceTypes.Design);
-            var designType = _ILOVService.GetDesignType(EquipmentPrintA3Waiver.DesignTypeID);
+            var purpose = _ILOVService.getPurposes().Single(x => x.ID == Purposes.Equipment);
+            var purposeType = _ILOVService.getEquipmentTypes().Single(x => x.ID == EquipmentTypes.Print);
             EquipmentPrintA3Waiver emptyWaiver = new EquipmentPrintA3Waiver(UserWithDepartment, null, null, purpose, purposeType, null);
 
             if (await TryUpdateModelAsync<EquipmentPrintA3Waiver>(
