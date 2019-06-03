@@ -2,449 +2,794 @@
 @model DPAWaiver.Pages.Private.EquipmentPrintLargeFormat.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Equipment Print Large Format Waiver</h4>
-    <hr />
+@if (Model.EquipmentPrintLabelWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.EquipmentPrintLabelWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.EquipmentPrintLabelWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.justificationDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.justificationDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.servicesReceived)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.servicesReceived)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.currentMake)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.currentMake)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.currentModel)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.currentModel)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.newOrReplace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.newOrReplace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.averageMonthlyVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.averageMonthlyVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.firstYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.firstYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.secondYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.secondYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.thirdYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.thirdYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.fourthYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.fourthYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.fifthYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.fifthYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.equipmentType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.equipmentType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.NumberofEquipment)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.NumberofEquipment)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.equipmentType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.equipmentType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.NumberofEquipment)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.NumberofEquipment)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.Make)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.Make)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.Model)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.Model)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.solicitationSubType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.solicitationSubType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.purchaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.purchaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.leaseDuration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.leaseDuration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfMonths)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfMonths)
-        </dd> 
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount)
-        </dd> 
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.makeAndModel)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.makeAndModel)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.selectionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.selectionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.productionCapacity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.productionCapacity)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.leaseOrPurchase)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.leaseOrPurchase)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfYears)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfYears)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.costOfLeasePerYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.costOfLeasePerYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.expectedUsefulLife)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.expectedUsefulLife)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.depreciationCostPerYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.depreciationCostPerYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCostPerYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCostPerYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.suppliesCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.suppliesCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.softwareName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.softwareName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.softwareCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.softwareCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.annualLicenseFee)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualLicenseFee)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualLicenseCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualLicenseCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalSoftwareCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalSoftwareCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.operatorClassification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.operatorClassification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.productionFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.productionFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.hoursPerFTEPerWeek)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.hoursPerFTEPerWeek)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.baseHourlyRatePerFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.baseHourlyRatePerFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.fullyLoadedHourlyRatePerFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.fullyLoadedHourlyRatePerFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualPersonnelCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualPersonnelCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlySupervisionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlySupervisionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyManagementAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyManagementAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.additionalWorkspaceRequired)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.additionalWorkspaceRequired)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceRequiredInSQFT)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceRequiredInSQFT)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.costPerSQFT)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.costPerSQFT)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.annualAmountForUtilities)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualAmountForUtilities)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.computerCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.computerCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.furnitureCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.furnitureCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.cubiclePartitionCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.cubiclePartitionCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.constructionCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.constructionCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.miscellaneousCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.miscellaneousCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.descriptionMiscellaneousCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.descriptionMiscellaneousCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalAdditionalOneTimeCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalAdditionalOneTimeCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalCostOfOwnership)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalCostOfOwnership)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.alternativesDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.alternativesDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.projectName)
-        </dd>
-       <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.CostEstimate)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.servicesReceived)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.servicesReceived)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.servicesReceived -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.newOrReplace)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.newOrReplace)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.newOrReplace -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.currentMake)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.currentMake)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.currentMake -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.currentModel)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.currentModel)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.currentModel -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionDate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionDate)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.acquisitionDate -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.monthlyCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.averageMonthlyVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.averageMonthlyVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.averageMonthlyVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.firstYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.firstYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.firstYearVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.secondYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.secondYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.secondYearVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.thirdYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.thirdYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.thirdYearVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.fourthYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.fourthYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.fourthYearVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.fifthYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.fifthYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.fifthYearVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.equipmentType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.equipmentType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.equipmentType -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.NumberofEquipment)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.NumberofEquipment)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.NumberofEquipment -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.Make)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.Make)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.Make -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.Model)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.Model)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.Model -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.acquisitionType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.acquisitionType -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.solicitationSubType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.solicitationSubType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.solicitationSubType -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.purchaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.purchaseAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.purchaseAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.leaseDuration)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.leaseDuration)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.leaseDuration -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfMonths)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfMonths)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.numberOfMonths -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.monthlyLeaseAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.makeAndModel)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.makeAndModel)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.makeAndModel -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.selectionReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.selectionReason)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.selectionReason -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.productionCapacity)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.productionCapacity)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.productionCapacity -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.leaseOrPurchase)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.leaseOrPurchase)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.leaseOrPurchase -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfYears)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfYears)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.numberOfYears -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.costOfLeasePerYear)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.costOfLeasePerYear)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.costOfLeasePerYear -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.expectedUsefulLife)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.expectedUsefulLife)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.expectedUsefulLife -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.depreciationCostPerYear)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.depreciationCostPerYear)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.depreciationCostPerYear -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCostPerYear)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCostPerYear)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.annualMaintenanceCostPerYear -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.suppliesCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.suppliesCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.suppliesCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.softwareName)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.softwareName)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.softwareName -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.softwareCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.softwareCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.softwareCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.annualLicenseFee)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualLicenseFee)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.annualLicenseFee -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfLicenses)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.numberOfLicenses)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.numberOfLicenses -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualLicenseCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualLicenseCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalAnnualLicenseCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualMaintenanceCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.annualMaintenanceCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalSoftwareCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalSoftwareCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalSoftwareCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.operatorClassification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.operatorClassification)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.operatorClassification -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.productionFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.productionFTE)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.productionFTE -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.hoursPerFTEPerWeek)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.hoursPerFTEPerWeek)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.hoursPerFTEPerWeek -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.baseHourlyRatePerFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.baseHourlyRatePerFTE)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.baseHourlyRatePerFTE -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.fullyLoadedHourlyRatePerFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.fullyLoadedHourlyRatePerFTE)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.fullyLoadedHourlyRatePerFTE -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.totalAnnualPersonnelCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalAnnualPersonnelCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalAnnualPersonnelCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.monthlySupervisionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlySupervisionAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.monthlySupervisionAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyManagementAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.monthlyManagementAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.monthlyManagementAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.additionalWorkspaceRequired)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.additionalWorkspaceRequired)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.additionalWorkspaceRequired -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.totalSpaceRequiredInSQFT)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceRequiredInSQFT)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalSpaceRequiredInSQFT -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.costPerSQFT)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.costPerSQFT)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.costPerSQFT -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.annualAmountForUtilities)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.annualAmountForUtilities)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.annualAmountForUtilities -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalSpaceCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalSpaceCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.computerCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.computerCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.computerCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.furnitureCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.furnitureCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.furnitureCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.cubiclePartitionCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.cubiclePartitionCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.cubiclePartitionCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.constructionCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.constructionCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.constructionCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.miscellaneousCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.miscellaneousCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.miscellaneousCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.descriptionMiscellaneousCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.descriptionMiscellaneousCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.descriptionMiscellaneousCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model =>
+                            model.EquipmentPrintLargeFormatWaiver.totalAdditionalOneTimeCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalAdditionalOneTimeCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalAdditionalOneTimeCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.totalCostOfOwnership)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.totalCostOfOwnership)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.totalCostOfOwnership -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.alternativesDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.alternativesDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.alternativesDescription -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentPrintLargeFormatWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentPrintLargeFormatWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of EquipmentPrintLargeFormatWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
+    <partial name="_ViewInvoices" model="@Model.Invoices" />
+    <partial name="_ViewAttachments" model="@Model.Attachments" />
+    <partial name="_ViewActions" model="@Model.Actions" />
+    @await Html.PartialAsync("_PostUnderReview",@Model.EquipmentPrintLargeFormatWaiver, new ViewDataDictionary(ViewData)
+    {
+    {"garbage", "garbage"},
+    { "IsUser", @Model.UserWithDepartment.IsUser()},
+    { "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
+    })
+
+
+
+
+    <partial name='_Logout' />
+    <div style="clear: both"></div>
+
+
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.EquipmentPrintLargeFormatWaiver.ID">Edit</a> |

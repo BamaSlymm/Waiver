@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.EquipmentPrint
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public EquipmentPrintWaiver EquipmentPrintWaiver { get; set; }
+        public EquipmentPrintWaiverView EquipmentPrintWaiver { get; set; }
+
+        public Guid? ID {get;set;}
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager): base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,123 @@ namespace DPAWaiver.Pages.Private.EquipmentPrint
                 return NotFound();
             }
 
-            EquipmentPrintWaiver = await _context.EquipmentPrintWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var equipmentPrintWaiver = await _context.EquipmentPrintWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            EquipmentPrintWaiver = new EquipmentPrintWaiverView(equipmentPrintWaiver);
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
-            if (EquipmentPrintWaiver == null)
+            if (EquipmentPrintWaiver == null || !equipmentPrintWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(EquipmentPrintWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.EquipmentPrintWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EquipmentPrintWaiverExists(EquipmentPrintWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<EquipmentPrintWaiver>(
+               waiverToUpdate,
+              "EquipmentPrintwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.CostEstimate,
+               w => w.printerType,
+               w => w.catalogLink,
+               w => w.Make,
+               w => w.Model,
+               w => w.forGroupOfIndividuals,
+               w => w.selectionReason,
+               w => w.acquisitionType,
+               w => w.solicitationSubType,
+               w => w.statepriceSubType,
+               w => w.numberOfMonths,
+               w => w.monthlyLeaseAmount,
+               w => w.servicesReceived,
+               w => w.NumberofEquipment,
+               w => w.purchaseAmount,
+               w => w.agreementOrWarrantyCost,
+               w => w.printerReplacementCycle,
+               w => w.otherReplacementCycle,
+               w => w.monthlyCostWithoutToner,
+               w => w.monthlyMonochromeVolume,
+               w => w.monthlyColorVolume,
+               w => w.blackTonerCost,
+               w => w.pageYieldForBlackToner,
+               w => w.blackInkCostPerPage,
+               w => w.cyanTonerCost,
+               w => w.pageYieldForCyanToner,
+               w => w.cyanInkCostPerPage,
+               w => w.MagentaTonerCost,
+               w => w.pageYieldForMagentaToner,
+               w => w.MagentaInkCostPerPage,
+               w => w.YellowTonerCost,
+               w => w.pageYieldForYellowToner,
+               w => w.YellowInkCostPerPage,
+               w => w.totalInkCostPerPage,
+               w => w.complianceDescription,
+               w => w.alternativesDescription,
+               w => w.Status,
+               w => w.AdditionalComments
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, EquipmentPrintWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!EquipmentPrintWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool EquipmentPrintWaiverExists(Guid id)
+        private bool EquipmentPrintWaiverExists(Guid? id)
         {
             return _context.EquipmentPrintWaiver.Any(e => e.ID == id);
         }

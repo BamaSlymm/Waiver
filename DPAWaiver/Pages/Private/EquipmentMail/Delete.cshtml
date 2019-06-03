@@ -5,259 +5,408 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Equipment Mail Waiver</h4>
-    <hr />
+@if (Model.EquipmentMailWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.EquipmentMailWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.EquipmentMailWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
+
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.justificationDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.justificationDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.CostEstimate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.equipmentDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.equipmentDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.NumberofEquipment)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.NumberofEquipment)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.newOrReplace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.newOrReplace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.servicesReceived)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.servicesReceived)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyLeaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyLeaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.firstYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.firstYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.secondYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.secondYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.thirdYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.thirdYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.fourthYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.fourthYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.fifthYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.fifthYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.Make)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.Make)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.Model)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.Model)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.selectionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.selectionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.usefulLife)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.usefulLife)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.purchaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.purchaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyLease)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyLease)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthsRental)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthsRental)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.acquisitionType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.acquisitionType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.solicitationSubType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.solicitationSubType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.statepriceSubType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.statepriceSubType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.totalLeaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.totalLeaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.EstimatedNumberofFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.EstimatedNumberofFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.weeklySalaryCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.weeklySalaryCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.totalSpaceRequired)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.totalSpaceRequired)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlySupervisionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlySupervisionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyUtilitiesAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyUtilitiesAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyIndirectCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyIndirectCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.miscellaneousCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.miscellaneousCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.overheadCostDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.overheadCostDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentMailWaiver.projectName)
-        </dd>
-       
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.justificationDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.justificationDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.justificationDescription -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.SubmittedOn)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.SubmittedOn)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.SubmittedOn -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.CostEstimate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.CostEstimate)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.CostEstimate -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.totalLeaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.totalLeaseAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.totalLeaseAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.EstimatedNumberofFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.EstimatedNumberofFTE)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.EstimatedNumberofFTE -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.EstimatedNumberOfHoursPerFTE -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.weeklySalaryCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.weeklySalaryCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.weeklySalaryCost -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.totalSpaceRequired)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.totalSpaceRequired)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.totalSpaceRequired -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlySupervisionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlySupervisionAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlySupervisionAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyManagementAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyManagementAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlyManagementAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyUtilitiesAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyUtilitiesAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlyUtilitiesAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyIndirectCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyIndirectCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlyIndirectCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.miscellaneousCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.miscellaneousCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.miscellaneousCosts -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.overheadCostDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.overheadCostDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.overheadCostDescription -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.alternativesDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.alternativesDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.alternativesDescription -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.equipmentDescription)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.equipmentDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.equipmentDescription -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.NumberofEquipment)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.NumberofEquipment)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.NumberofEquipment -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.servicesReceived)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.servicesReceived)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.servicesReceived -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyLeaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyLeaseAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlyLeaseAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlyVolume -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.newOrReplace)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.newOrReplace)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.newOrReplace -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class='form-group required'>
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.Make)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.Make)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.Make -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group required">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.Model)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.Model)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.Model -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.selectionReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.selectionReason)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.selectionReason -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.usefulLife)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.usefulLife)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.usefulLife -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.purchaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.purchaseAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.purchaseAmount -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthlyLease)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthlyLease)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthlyLease -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.monthsRental)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.monthsRental)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.monthsRental -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.acquisitionType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.acquisitionType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.acquisitionType -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.solicitationSubType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.solicitationSubType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.solicitationSubType -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentMailWaiver.statepriceSubType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentMailWaiver.statepriceSubType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentMailWaiver.statepriceSubType -->
+                </div>
+            </div>
+        </div>
     </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="EquipmentMailWaiver.ID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
 </div>
+<div class="row add-gutter marginTop20px pull-right">
+
+    <a class="btn btn-default" onclick="print();">Print&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    </a>
+    <form method="post" style="display: inline;">
+        <input type="hidden" asp-for="EquipmentMailWaiver.ID" />
+        <button type="submit" value="Delete" class="btn btn-primary" >
+            Delete Waiver&nbsp;<span class="glyphicon glyphicon-trash"></span>
+        </button>
+    </form>
+
+</div>  
