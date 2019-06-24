@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.SoftwareMailProcessing
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public SoftwareMailProcessingWaiver SoftwareMailProcessingWaiver { get; set; }
+        public SoftwareMailProcessingWaiverView SoftwareMailProcessingWaiver { get; set; }
+
+        public Guid? ID { get; set; }
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,117 @@ namespace DPAWaiver.Pages.Private.SoftwareMailProcessing
                 return NotFound();
             }
 
-            SoftwareMailProcessingWaiver = await _context.SoftwareMailProcessingWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var softwareMailProcessingWaiver = await _context.SoftwareMailProcessingWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            SoftwareMailProcessingWaiver = new SoftwareMailProcessingWaiverView(softwareMailProcessingWaiver);
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
 
-            if (SoftwareMailProcessingWaiver == null)
+            if (SoftwareMailProcessingWaiver == null || !softwareMailProcessingWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(SoftwareMailProcessingWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.SoftwareMailProcessingWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SoftwareMailProcessingWaiverExists(SoftwareMailProcessingWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+
+            if (await TryUpdateModelAsync<SoftwareMailProcessingWaiver>(
+               waiverToUpdate,
+               "SoftwareMailProcessingwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.CostEstimate,
+               w => w.typeOfSoftware,
+                w => w.numberOfLicenses,
+                w => w.newOrReplace,
+                w => w.costOfPresentService,
+                w => w.servicesReceived,
+                w => w.softwareProvider,
+                w => w.softwareVersion,
+                w => w.selectionReason,
+                w => w.expectedDuration,
+                w => w.acquisitionType,
+                w => w.subscriptionOrPurchase,
+                w => w.purchaseAmount,
+                w => w.monthlySubscriptionAmount,
+                w => w.numberOfMonths,
+                w => w.annualMaintenanceCost,
+                w => w.operatorClassification,
+                w => w.Grade,
+                w => w.numberOfFTE,
+                w => w.hoursPerFTEPerWeek,
+                w => w.totalWeeklySalary,
+                w => w.monthlySupervisionAmount,
+                w => w.monthlyManagementAmount,
+                w => w.justificationDescription,
+                w => w.alternativesConsidered,
+                w => w.Status,
+                w => w.AdditionalComments,
+               w => w.ID,
+               w => w.CreatedOn,
+               w => w.approvedOn
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, SoftwareMailProcessingWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!SoftwareMailProcessingWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool SoftwareMailProcessingWaiverExists(Guid id)
+        private bool SoftwareMailProcessingWaiverExists(Guid? id)
         {
             return _context.SoftwareMailProcessingWaiver.Any(e => e.ID == id);
         }

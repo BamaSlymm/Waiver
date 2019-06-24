@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.PersonnelRequest
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public PersonnelRequestWaiver PersonnelRequestWaiver { get; set; }
+        public PersonnelRequestWaiverView PersonnelRequestWaiver { get; set; }
+
+        public Guid? ID {get;set;}
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager): base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,97 @@ namespace DPAWaiver.Pages.Private.PersonnelRequest
                 return NotFound();
             }
 
-            PersonnelRequestWaiver = await _context.PersonnelRequestWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var personnelRequestWaiver = await _context.PersonnelRequestWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            PersonnelRequestWaiver = new PersonnelRequestWaiverView(personnelRequestWaiver);
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
-            if (PersonnelRequestWaiver == null)
+            if (PersonnelRequestWaiver == null || !personnelRequestWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(PersonnelRequestWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.PersonnelRequestWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PersonnelRequestWaiverExists(PersonnelRequestWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            
+            if (await TryUpdateModelAsync<PersonnelRequestWaiver>(
+               waiverToUpdate,
+               "PersonnelRequestwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.CostEstimate,
+               w => w.JobDuties,
+               w => w.EstimatedNumberofFTE,
+               w => w.positionFile,
+               w => w.EstimatedNumberofStaff,
+               w => w.RequestedClassification,
+               w => w.RequestedSalary,
+               w => w.DetailJustification,
+               w => w.AdditionalComments,
+               w => w.Status,
+               w => w.CreatedOn
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, PersonnelRequestWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PersonnelRequestWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool PersonnelRequestWaiverExists(Guid id)
+        private bool PersonnelRequestWaiverExists(Guid? id)
         {
             return _context.PersonnelRequestWaiver.Any(e => e.ID == id);
         }

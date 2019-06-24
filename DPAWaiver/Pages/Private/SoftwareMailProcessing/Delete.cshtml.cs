@@ -6,17 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
+using DPAWaiver.Models;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
 
 namespace DPAWaiver.Pages.Private.SoftwareMailProcessing
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
 
-        public DeleteModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
+        public DeleteModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+        , ILOVService iLOVService
+                            , UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
-            _context = context;
         }
 
         [BindProperty]
@@ -29,9 +31,16 @@ namespace DPAWaiver.Pages.Private.SoftwareMailProcessing
                 return NotFound();
             }
 
-            SoftwareMailProcessingWaiver = await _context.SoftwareMailProcessingWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            if (SoftwareMailProcessingWaiver == null)
+            SoftwareMailProcessingWaiver = await _context.SoftwareMailProcessingWaiver.Include(x => x.CreatedBy)
+            .ThenInclude(x => x.Department)
+            .Include(x => x.Purpose)
+            .Include(x => x.PurposeType)
+            .Include(x => x.PurposeSubtype)
+            .FirstAsync(m => m.ID == id);
+
+            if (SoftwareMailProcessingWaiver == null || !SoftwareMailProcessingWaiver.Editable)
             {
                 return NotFound();
             }
@@ -47,13 +56,13 @@ namespace DPAWaiver.Pages.Private.SoftwareMailProcessing
 
             SoftwareMailProcessingWaiver = await _context.SoftwareMailProcessingWaiver.FindAsync(id);
 
-            if (SoftwareMailProcessingWaiver != null)
+            if (SoftwareMailProcessingWaiver != null && SoftwareMailProcessingWaiver.Editable)
             {
                 _context.SoftwareMailProcessingWaiver.Remove(SoftwareMailProcessingWaiver);
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage(PageList.WaiverList);
         }
     }
 }

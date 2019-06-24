@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.ServiceMicrofilm
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public ServiceMicrofilmWaiver ServiceMicrofilmWaiver { get; set; }
+        public ServiceMicrofilmWaiverView ServiceMicrofilmWaiver { get; set; }
+
+        public Guid? ID {get;set;}
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager): base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,103 @@ namespace DPAWaiver.Pages.Private.ServiceMicrofilm
                 return NotFound();
             }
 
-            ServiceMicrofilmWaiver = await _context.ServiceMicrofilmWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var serviceMicrofilmWaiver = await _context.ServiceMicrofilmWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            ServiceMicrofilmWaiver = new ServiceMicrofilmWaiverView(serviceMicrofilmWaiver);
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
-            if (ServiceMicrofilmWaiver == null)
+            if (ServiceMicrofilmWaiver == null || !serviceMicrofilmWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(ServiceMicrofilmWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.ServiceMicrofilmWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ServiceMicrofilmWaiverExists(ServiceMicrofilmWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            
+            if (await TryUpdateModelAsync<ServiceMicrofilmWaiver>(
+               waiverToUpdate,
+               "ServiceMicrofilmwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.CostEstimate,
+               w => w.ItemDescription,
+               w => w.MicrofilmDuplication,
+               w => w.RequestedRolls,
+               w => w.EstimatedNumberofFTE,
+               w => w.EstimatedNumberOfHours,
+               w => w.outputType,
+               w => w.RollsLabeled,
+               w => w.duplicateRolls,
+               w => w.NumberofRolls,
+               w => w.JobRequirements,
+               w => w.AlternativeMethods,
+               w => w.NotInHouseReason,
+               w => w.AdditionalComments,
+               w => w.ID,
+               w => w.CreatedOn,
+               w => w.approvedOn
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, ServiceMicrofilmWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ServiceMicrofilmWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool ServiceMicrofilmWaiverExists(Guid id)
+        private bool ServiceMicrofilmWaiverExists(Guid? id)
         {
             return _context.ServiceMicrofilmWaiver.Any(e => e.ID == id);
         }

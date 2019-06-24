@@ -61,7 +61,12 @@ namespace DPAWaiver.Pages.Private.ServiceMail
                w => w.TypeofStock,
                w => w.SubmittedOn,
                w => w.ItemDescription,
-               w => w.OtherDescription
+               w => w.OtherDescription,
+               w => w.Status,
+               w => w.AdditionalComments,
+               w => w.ID,
+               w => w.CreatedOn,
+               w => w.approvedOn
                ))
             {
                 _context.ServiceMailWaiver.Add(emptyWaiver);

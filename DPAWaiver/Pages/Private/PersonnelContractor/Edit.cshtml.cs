@@ -8,20 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
+using DPAWaiver.Models;
+using DPAWaiver.Models.WaiverSelection;
 
 namespace DPAWaiver.Pages.Private.PersonnelContractor
 {
-    public class EditModel : PageModel
+    public class EditModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
-
-        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-        public PersonnelContractorWaiver PersonnelContractorWaiver { get; set; }
+        public PersonnelContractorWaiverView PersonnelContractorWaiver { get; set; }
+
+        public Guid? ID {get;set;}
+
+
+        public EditModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+                       , ILOVService iLOVService
+                       , UserManager<DPAUser> userManager): base(context, iLOVService, userManager)
+        {
+        }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -30,44 +35,101 @@ namespace DPAWaiver.Pages.Private.PersonnelContractor
                 return NotFound();
             }
 
-            PersonnelContractorWaiver = await _context.PersonnelContractorWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            ID = id ;
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+            var personnelContractorWaiver = await _context.PersonnelContractorWaiver.
+            FirstOrDefaultAsync(m => m.ID == id);
+            PersonnelContractorWaiver = new PersonnelContractorWaiverView(personnelContractorWaiver);
+            Invoices = await GetInvoicesAsync(id) ;
+            Attachments = await GetAttachmentsAsync(id) ;
 
-            if (PersonnelContractorWaiver == null)
+            if (PersonnelContractorWaiver == null || !personnelContractorWaiver.Editable)
             {
                 return NotFound();
             }
+
+            UserWithDepartment = await GetUserWithDepartmentAsync();
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
+            UserWithDepartment = await GetUserWithDepartmentAsync();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ID = id ;
+            Invoices = await GetInvoicesAsync(id);
+            Attachments = await GetAttachmentsAsync(id);
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(PersonnelContractorWaiver).State = EntityState.Modified;
+            var waiverToUpdate = await _context.PersonnelContractorWaiver.Include(w => w.Purpose).
+            Include(w => w.PurposeType).
+            Include(w => w.PurposeSubtype).
+            Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PersonnelContractorWaiverExists(PersonnelContractorWaiver.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+            if (!waiverToUpdate.Editable || waiverToUpdate.CreatedBy.Id != UserWithDepartment.Id) {
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            
+            if (await TryUpdateModelAsync<PersonnelContractorWaiver>(
+               waiverToUpdate,
+               "PersonnelContractorwaiver",
+               w => w.OtherFirstName,
+               w => w.OtherLastName,
+               w => w.projectName,
+               w => w.SubmittedOn,
+               w => w.ScopeofWork,
+               w => w.ContractorType,
+               w => w.HourlyRate,
+               w => w.CostEstimate,
+               w => w.EstimatedNumberOfHours,
+               w => w.SPAnumber,
+               w => w.SPAtype,
+               w => w.SPAotherDescription,
+               w => w.EstimatedNumberofFTE,
+               w => w.ContractDuration,
+               w => w.AnticipatedExpediture,
+               w => w.DetailJustification,
+               w => w.AdditionalComments,
+               w => w.Status,
+               w => w.CreatedBy
+               ))
+            {
+                try
+                {
+                    BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
+                                        WaiverActions.Updated, PersonnelContractorWaiver);
+                    _context.BaseWaiverActions.Add(baseWaiverAction);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PersonnelContractorWaiverExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["StatusMessage"] = "Your waiver has been updated";
+                return RedirectToPage(PageList.WaiverList);
+            }
+            return Page();
         }
 
-        private bool PersonnelContractorWaiverExists(Guid id)
+        private bool PersonnelContractorWaiverExists(Guid? id)
         {
             return _context.PersonnelContractorWaiver.Any(e => e.ID == id);
         }

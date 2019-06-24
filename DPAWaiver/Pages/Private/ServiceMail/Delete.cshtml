@@ -4,103 +4,132 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Service Mail Waiver</h4>
-    <hr />
+@if (Model.ServiceMailWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.ServiceMailWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.ServiceMailWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.ItemDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.ItemDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.CostEstimate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.JobDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.JobDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.TypeofStock)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.TypeofStock)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.NumberofPackets)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.NumberofPackets)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.projectName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.MailingDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.MailingDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.MailRate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.MailRate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceMailWaiver.MailPermit)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceMailWaiver.MailPermit)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.NumberofPackets)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.NumberofPackets)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.NumberofPackets -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.MailingDate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.MailingDate)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.MailingDate -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.MailPermit)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.MailPermit)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.MailPermit -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.MailRate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.MailRate)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.MailRate -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.TypeofStock)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.TypeofStock)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.TypeofStock -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.SubmittedOn)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.SubmittedOn)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.SubmittedOn -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.ItemDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.ItemDescription)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.ItemDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.OtherDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.OtherDescription)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.OtherDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceMailWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceMailWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of ServiceMailWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="ServiceMailWaiver.ID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+    <partial name="_ViewInvoices" model="@Model.Invoices" />
+    <partial name="_ViewAttachments" model="@Model.Attachments" />
+    <partial name="_ViewActions" model="@Model.Actions" />
+    @await Html.PartialAsync("_PostUnderReview",@Model.ServiceMailWaiver, new ViewDataDictionary(ViewData)
+    {
+    {"garbage", "garbage"},
+    { "IsUser", @Model.UserWithDepartment.IsUser()},
+    { "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
+    })
+
+
+
+
+    <partial name='_Logout' />
+    <div style="clear: both"></div>
+
+
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ServiceMailWaiver.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
 </div>

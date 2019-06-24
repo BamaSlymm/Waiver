@@ -6,17 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DPAWaiver.Areas.Identity.Data;
+using DPAWaiver.Models;
 using DPAWaiver.Models.Waivers;
+using Microsoft.AspNetCore.Identity;
 
 namespace DPAWaiver.Pages.Private.ServiceMail
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BaseWaiverPageModel
     {
-        private readonly DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext _context;
 
-        public DeleteModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context)
+        public DeleteModel(DPAWaiver.Areas.Identity.Data.DPAWaiverIdentityDbContext context
+        , ILOVService iLOVService
+                            , UserManager<DPAUser> userManager) : base(context, iLOVService, userManager)
         {
-            _context = context;
         }
 
         [BindProperty]
@@ -29,9 +31,16 @@ namespace DPAWaiver.Pages.Private.ServiceMail
                 return NotFound();
             }
 
-            ServiceMailWaiver = await _context.ServiceMailWaiver.FirstOrDefaultAsync(m => m.ID == id);
+            UserWithDepartment = await GetUserWithDepartmentAsync();
 
-            if (ServiceMailWaiver == null)
+            ServiceMailWaiver = await _context.ServiceMailWaiver.Include(x => x.CreatedBy)
+            .ThenInclude(x => x.Department)
+            .Include(x => x.Purpose)
+            .Include(x => x.PurposeType)
+            .Include(x => x.PurposeSubtype)
+            .FirstAsync(m => m.ID == id);
+
+            if (ServiceMailWaiver == null || !ServiceMailWaiver.Editable)
             {
                 return NotFound();
             }
@@ -47,13 +56,13 @@ namespace DPAWaiver.Pages.Private.ServiceMail
 
             ServiceMailWaiver = await _context.ServiceMailWaiver.FindAsync(id);
 
-            if (ServiceMailWaiver != null)
+            if (ServiceMailWaiver != null && ServiceMailWaiver.Editable)
             {
                 _context.ServiceMailWaiver.Remove(ServiceMailWaiver);
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage(PageList.WaiverList);
         }
     }
 }

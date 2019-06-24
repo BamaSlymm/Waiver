@@ -5,11 +5,11 @@
 ViewData["Title"] = "Details";
 }
 
-@if (Model.EquipmentPrintLabelWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+@if (Model.EquipmentPrintLargeFormatWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
 {
-<partial name="_UserInformation" model="@Model.EquipmentPrintLabelWaiver.CreatedBy" />
+<partial name="_UserInformation" model="@Model.EquipmentPrintLargeFormatWaiver.CreatedBy" />
 }
-<partial name="_WaiverInformationDisplayOnly" model="@Model.EquipmentPrintLabelWaiver" />
+<partial name="_WaiverInformationDisplayOnly" model="@Model.EquipmentPrintLargeFormatWaiver" />
 <div class="panel panel-primary marginTop20px">
     <div class="panel-heading">
         <h3 class="panel-title text-center">Waiver Details</h3>

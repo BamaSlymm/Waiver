@@ -121,7 +121,10 @@ namespace DPAWaiver.Pages.Private.EquipmentScanning
                 w => w.totalCostOfOwnership,
                 w => w.alternativesDescription,
                 w => w.Status,
-                w => w.AdditionalComments
+                w => w.AdditionalComments,
+               w => w.ID,
+               w => w.CreatedOn,
+               w => w.approvedOn
                ))
             {
                 _context.EquipmentScanningWaiver.Add(emptyWaiver);
