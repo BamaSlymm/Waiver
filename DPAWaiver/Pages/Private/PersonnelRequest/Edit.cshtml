@@ -2,99 +2,194 @@
 @model DPAWaiver.Pages.Private.PersonnelRequest.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<h4>Personnel Request Waiver</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.JobDuties" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.JobDuties" class="form-control" />
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.PersonnelRequestWaiver.OtherFirstName != null && Model.PersonnelRequestWaiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="PersonnelRequestWaiver.OtherFirstName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="PersonnelRequestWaiver.OtherFirstName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.PersonnelRequestWaiver.OtherFirstName)" />
+                    <span asp-validation-for="PersonnelRequestWaiver.OtherFirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="PersonnelRequestWaiver.OtherLastName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="PersonnelRequestWaiver.OtherLastName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.PersonnelRequestWaiver.OtherLastName)" />
+                    <span asp-validation-for="PersonnelRequestWaiver.OtherLastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-bottom: 14px">
+                <div class="col-md-4 col-xs-4">
+                    Purpose: Personnel Request
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Type: State Employee
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Status: @Model.PersonnelRequestWaiver.Status
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="PersonnelRequestWaiver.projectName"
+                            class="control-label fontWeightNormal">Project Name:</label>
+                        <input type="text" class="form-control" asp-for="PersonnelRequestWaiver.projectName"
+                            required="true" placeholder="Your Project Name">
+                        <span asp-validation-for="PersonnelRequestWaiver.projectName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="PersonnelRequestWaiver.SubmittedOn"
+                            class="control-label fontWeightNormal">Submitted Date:</label>
+                        <input type="date" class="form-control" asp-for="PersonnelRequestWaiver.SubmittedOn"
+                            required="true" value="05/04/2018">
+                        <span asp-validation-for="PersonnelRequestWaiver.SubmittedOn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="PersonnelRequestWaiver.CostEstimate" class="control-label fontWeightNormal">Cost
+                            Estimate:</label>
+                        <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                            title="Enter the project cost and estimate such as 9999.99"></span>
+                        <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.CostEstimate"
+                            required="true" step="0.01">
+                        <span asp-validation-for="PersonnelRequestWaiver.CostEstimate" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Details</h3>
+        </div>
+        <div class="col-md-12 col-xs-8">
+            <div class="form-group required">
+                <label asp-for="PersonnelRequestWaiver.employeeType" class="control-label fontWeightNormal">Employee
+                    Type:</label>
+                <select class="form-control control-label" asp-for="PersonnelRequestWaiver.employeeType">
+                    <option>Full Time Employee</option>
+                    <option>Permanent Part Time State Employee</option>
+                    <option>State Temp</option>
+                </select>
+                <span asp-validation-for="PersonnelRequestWaiver.employeeType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group required">
+                <label asp-for="PersonnelRequestWaiver.JobDuties" class="control-label fontWeightNormal">Describe the
+                    job duties:</label>
+                <textarea class="form-control" asp-for="PersonnelRequestWaiver.JobDuties" rows='2'></textarea>
                 <span asp-validation-for="PersonnelRequestWaiver.JobDuties" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.RequestedSalary" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.RequestedSalary" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.RequestedSalary" class="text-danger"></span>
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="PersonnelRequestWaiver.EstimatedNumberofStaff"
+                        class="control-label fontWeightNormal">Estimated number of staff requested:
+                        <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                            title="Enter the estimated number of full time employees needed to complete this project. This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
+                    </label>
+                    <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.EstimatedNumberofStaff"
+                        aria-describedby="EstimatedNumberofStaff" placeholder="Estimated Number of Staff">
+                    <span asp-validation-for="PersonnelRequestWaiver.EstimatedNumberofStaff" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.DetailJustification" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.DetailJustification" class="form-control" />
+            <div class="col-sm-6 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="PersonnelRequestWaiver.positionFile" class="control-label fontWeightNormal">Upload
+                        State Position Description</label>
+                    <input type="file" class="form-control-file" asp-for="PersonnelRequestWaiver.positionFile">
+                    <span asp-validation-for="PersonnelRequestWaiver.positionFile" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group required">
+                    <label asp-for="PersonnelRequestWaiver.EstimatedNumberofFTE"
+                        class="control-label fontWeightNormal">Total estimated number of FTE:
+                        <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
+This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
+                    </label>
+                    <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.EstimatedNumberofFTE"
+                        aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
+                    <span asp-validation-for="PersonnelRequestWaiver.EstimatedNumberofFTE" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-8">
+                <div class="form-group required">
+                    <label asp-for="PersonnelRequestWaiver.RequestedClassification"
+                        class="control-label fontWeightNormal">Requested Classification<i>(One waiver request per
+                            classification)</i>:</label>
+                    <select class="form-control control-label" asp-for="PersonnelRequestWaiver.RequestedClassification">
+                        <option>Accountant I</option>
+                        <option>Accountant II</option>
+                        <option>Accountant III</option>
+                    </select>
+                    <span asp-validation-for="PersonnelRequestWaiver.RequestedClassification"
+                        class="text-danger"></span>
+                </div>
+                <div class="form-group required">
+                    <label asp-for="PersonnelRequestWaiver.RequestedSalary"
+                        class="control-label fontWeightNormal">Requested Loaded Salary (complete state benefit
+                        package)</label>
+                    <input type="number" class="form-control" asp-for="PersonnelRequestWaiver.RequestedSalary"
+                        aria-describedby="RequestedSalary" placeholder="Requested Loaded Salary">
+                    <span asp-validation-for="PersonnelRequestWaiver.RequestedSalary" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label asp-for="PersonnelRequestWaiver.DetailJustification"
+                    class="control-label fontWeightNormal">Please detail justification for request.</label>
+                <textarea class="form-control" asp-for="PersonnelRequestWaiver.DetailJustification" rows="2"></textarea>
                 <span asp-validation-for="PersonnelRequestWaiver.DetailJustification" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.EstimatedNumberofFTE" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.EstimatedNumberofFTE" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.EstimatedNumberofFTE" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="PersonnelRequestWaiver.ID" />
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.CreatedOn" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.CreatedOn" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.CreatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.approvedOn" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.approvedOn" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.approvedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.OtherFirstName" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.OtherFirstName" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.OtherFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.OtherLastName" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.OtherLastName" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.OtherLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.Status" class="control-label"></label>
-                <select asp-for="PersonnelRequestWaiver.Status" class="form-control"></select>
-                <span asp-validation-for="PersonnelRequestWaiver.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.WaiverNumber" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.WaiverNumber" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.WaiverNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.projectName" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.projectName" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.projectName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.SubmittedOn" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.SubmittedOn" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.SubmittedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.AdditionalComments" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.AdditionalComments" class="form-control" />
+                <label asp-for="PersonnelRequestWaiver.AdditionalComments" class="control-label fontWeightNormal">Any
+                    additional comments:</label>
+                <textarea class="form-control" asp-for="PersonnelRequestWaiver.AdditionalComments" rows='2'></textarea>
                 <span asp-validation-for="PersonnelRequestWaiver.AdditionalComments" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PersonnelRequestWaiver.CostEstimate" class="control-label"></label>
-                <input asp-for="PersonnelRequestWaiver.CostEstimate" class="form-control" />
-                <span asp-validation-for="PersonnelRequestWaiver.CostEstimate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</form>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -4,97 +4,100 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Personnel Request Waiver</h4>
-    <hr />
+@if (Model.PersonnelRequestWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.PersonnelRequestWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.PersonnelRequestWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.EstimatedNumberofFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.EstimatedNumberofFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.RequestedSalary)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.RequestedSalary)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.DetailJustification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.DetailJustification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.JobDuties)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.JobDuties)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.CreatedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.CreatedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.approvedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.approvedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.projectName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelRequestWaiver.CostEstimate)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.JobDuties)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.JobDuties)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.JobDuties -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.EstimatedNumberofStaff)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.EstimatedNumberofStaff)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.EstimatedNumberofStaff -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.positionFile)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.positionFile)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.positionFile -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.EstimatedNumberofStaff)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.EstimatedNumberofStaff)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.EstimatedNumberofStaff -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.RequestedClassification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.RequestedClassification)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.RequestedClassification -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.ReqeustedSalary)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.ReqeustedSalary)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.ReqeustedSalary -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.DetailJustification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.DetailJustification)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.DetailJustification -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelRequestWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelRequestWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of PersonnelRequestWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
 </div>
 <div>

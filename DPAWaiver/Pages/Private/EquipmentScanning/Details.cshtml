@@ -2,455 +2,514 @@
 @model DPAWaiver.Pages.Private.EquipmentScanning.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Equipment Scanning Waiver</h4>
-    <hr />
-    <h4>Equipment Scanning Waiver</h4>
-    <hr />
+@if (Model.EquipmentScanningWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.EquipmentScanningWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.EquipmentScanningWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.justificationDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.justificationDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.currentSystemDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.currentSystemDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.currentMake)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.currentMake)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.currentModel)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.currentModel)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.newOrReplace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.newOrReplace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.acquisitionDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.acquisitionDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlyCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlyCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.averageMonthlyVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.averageMonthlyVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.multiFunctionConsidered)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.multiFunctionConsidered)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.multiFunctionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.multiFunctionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.firstYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.firstYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.secondYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.secondYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.thirdYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.thirdYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.fourthYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.fourthYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.fifthYearVolume)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.fifthYearVolume)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.NumberofEquipment)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.NumberofEquipment)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.scannerType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.scannerType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.otherScannerType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.otherScannerType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.Make)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.Make)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.Model)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.Model)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.acquisitionType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.acquisitionType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.solicitationSubType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.solicitationSubType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.purchaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.purchaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.leaseDuration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.leaseDuration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.numberOfMonths)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.numberOfMonths)
-        </dd> 
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlyLeaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlyLeaseAmount)
-        </dd> 
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.makeAndModel)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.makeAndModel)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.selectionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.selectionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.productionCapacity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.productionCapacity)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.leaseOrPurchase)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.leaseOrPurchase)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.numberOfYears)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.numberOfYears)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.costOfLeasePerYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.costOfLeasePerYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.expectedUsefulLife)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.expectedUsefulLife)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.depreciationCostPerYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.depreciationCostPerYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualMaintenanceCostPerYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualMaintenanceCostPerYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.suppliesCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.suppliesCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.softwareName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.softwareName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.softwareCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.softwareCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualLicenseFee)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualLicenseFee)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalAnnualLicenseCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalAnnualLicenseCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalSoftwareCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalSoftwareCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.operatorClassification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.operatorClassification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.productionFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.productionFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.hoursPerFTEPerWeek)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.hoursPerFTEPerWeek)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.baseHourlyRatePerFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.baseHourlyRatePerFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.fullyLoadedHourlyRatePerFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalAnnualPersonnelCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalAnnualPersonnelCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlySupervisionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlySupervisionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlyManagementAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlyManagementAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.additionalWorkspaceRequired)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.additionalWorkspaceRequired)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalSpaceRequiredInSQFT)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalSpaceRequiredInSQFT)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.costPerSQFT)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.costPerSQFT)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualAmountForUtilities)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualAmountForUtilities)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalSpaceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalSpaceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.computerCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.computerCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.furnitureCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.furnitureCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.cubiclePartitionCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.cubiclePartitionCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.constructionCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.constructionCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.miscellaneousCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.miscellaneousCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.descriptionMiscellaneousCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.descriptionMiscellaneousCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalAdditionalOneTimeCosts)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalAdditionalOneTimeCosts)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalCostOfOwnership)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalCostOfOwnership)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.alternativesDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.alternativesDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.projectName)
-        </dd>
-       <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EquipmentScanningWaiver.CostEstimate)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.currentSystemDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.currentSystemDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.currentSystemDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.newOrReplace)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.newOrReplace)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.newOrReplace -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.currentMake)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.currentMake)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.currentMake -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.currentModel)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.currentModel)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.currentModel -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.acquisitionDate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.acquisitionDate)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.acquisitionDate -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlyCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlyCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.monthlyCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.averageMonthlyVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.averageMonthlyVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.averageMonthlyVolume -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.firstYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.firstYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.firstYearVolume -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.secondYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.secondYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.secondYearVolume -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.thirdYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.thirdYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.thirdYearVolume -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.fourthYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.fourthYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.fourthYearVolume -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.fifthYearVolume)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.fifthYearVolume)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.fifthYearVolume -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.scannerType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.scannerType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.scannerType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.NumberofEquipment)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.NumberofEquipment)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.NumberofEquipment -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.Make)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.Make)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.Make -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.Model)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.Model)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.Model -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.acquisitionType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.acquisitionType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.acquisitionType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.solicitationType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.solicitationType)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.solicitationType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.purchaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.purchaseAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.purchaseAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.leaseDuration)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.leaseDuration)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.leaseDuration -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.numberOfYears)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.numberOfYears)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.numberOfYears -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.costOfLeasePerYear)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.costOfLeasePerYear)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.costOfLeasePerYear -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.expectedUsefulLife)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.expectedUsefulLife)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.expectedUsefulLife -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.depreciationCostPerYear)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.depreciationCostPerYear)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.depreciationCostPerYear -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualMaintenanceCostPerYear)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualMaintenanceCostPerYear)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.annualMaintenanceCostPerYear -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.suppliesCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.suppliesCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.suppliesCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalEquipmentCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalEquipmentCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.totalEquipmentCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.softwareName)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.softwareName)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.softwareName -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.softwareCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.softwareCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.softwareCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualLicenseFee)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualLicenseFee)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.annualLicenseFee -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.numberOfLicenses)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.numberOfLicenses)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.numberOfLicenses -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalAnnualLicenseCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalAnnualLicenseCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.totalAnnualLicenseCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlySupervisionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlySupervisionAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.monthlySupervisionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.monthlyManagementAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.monthlyManagementAmount)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.monthlyManagementAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.additionalWorkspaceRequired)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.additionalWorkspaceRequired)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.additionalWorkspaceRequired -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalSpaceRequiredInSQFT)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalSpaceRequiredInSQFT)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.totalSpaceRequiredInSQFT -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.costPerSQFT)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.costPerSQFT)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.costPerSQFT -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.annualAmountForUtilites)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.annualAmountForUtilites)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.annualAmountForUtilites -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalSpaceCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalSpaceCost)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.totalSpaceCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.computerCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.computerCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.computerCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.furnitureCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.furnitureCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.furnitureCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.cubiclePartitionCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.cubiclePartitionCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.cubiclePartitionCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.constructionCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.constructionCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.constructionCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.miscellaneousCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.miscellaneousCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.miscellaneousCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.descriptionMiscellaneousCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.descriptionMiscellaneousCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.descriptionMiscellaneousCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalAdditionalOneTimeCosts)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalAdditionalOneTimeCosts)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.totalAdditionalOneTimeCosts -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.totalCostOfOwnership)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.totalCostOfOwnership)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.totalCostOfOwnership -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.alternativesDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.alternativesDescription)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.alternativesDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.EquipmentScanningWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.EquipmentScanningWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of EquipmentScanningWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
 </div>
 <div>

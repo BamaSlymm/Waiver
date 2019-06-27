@@ -5,120 +5,140 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Personnel Request Waiver</h4>
-    <hr />
+@if (Model.PersonnelContractorWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.PersonnelContractorWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.PersonnelContractorWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ScopeofWork)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ScopeofWork)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ContractorType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ContractorType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.EstimatedNumberOfHours)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.EstimatedNumberOfHours)
-        </dd>
-          <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SPAnumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SPAnumber)
-        </dd>
-         <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SPAotherDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SPAotherDescription)
-        </dd>
-         <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.EstimatedNumberofFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.EstimatedNumberofFTE)
-        </dd>
-          <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ContractDuration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ContractDuration)
-        </dd>
-          <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.AnticipatedExpediture)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.AnticipatedExpediture)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.DetailJustification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.DetailJustification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.CreatedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.CreatedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.approvedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.approvedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.projectName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PersonnelContractorWaiver.AdditionalComments)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ScopeofWork)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ScopeofWork)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.ScopeofWork -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ContractorType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ContractorType)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.ContractorType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.HourlyRate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.HourlyRate)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.HourlyRate -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.EstimatedNumberOfHours)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.EstimatedNumberOfHours)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.EstimatedNumberOfHours -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SPAnumber)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SPAnumber)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.SPAnumber -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SPAtype)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SPAtype)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.SPAtype -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.SPAotherDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.SPAotherDescription)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.SPAotherDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.EstimatedNumberofFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.EstimatedNumberofFTE)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.EstimatedNumberofFTE -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.ContractDuration)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.ContractDuration)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.ContractDuration -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.AnticipatedExpediture)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.AnticipatedExpediture)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.AnticipatedExpediture -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.DetailJustification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.DetailJustification)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.DetailJustification -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.PersonnelContractorWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.PersonnelContractorWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of PersonnelContractorWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
 </div>
 <div>
