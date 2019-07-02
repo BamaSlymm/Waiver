@@ -2,149 +2,319 @@
 @model DPAWaiver.Pages.Private.ServiceScanning.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<h4>Service Scanning Waiver</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.WorkflowDescription" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.WorkflowDescription" class="form-control" />
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.ServiceScanningWaiver.OtherFirstName != null && Model.ServiceScanningWaiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver On Behalf Of</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="ServiceScanningWaiver.OtherFirstName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="ServiceScanningWaiver.OtherFirstName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.ServiceScanningWaiver.OtherFirstName)" />
+                    <span asp-validation-for="ServiceScanningWaiver.OtherFirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="ServiceScanningWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
+                    <input asp-for="ServiceScanningWaiver.OtherLastName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.ServiceScanningWaiver.OtherLastName)" />
+                    <span asp-validation-for="ServiceScanningWaiver.OtherLastName" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    }
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-bottom: 14px">
+                <div class="col-md-4 col-xs-4">
+                    Purpose: Service
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Type: Scanning
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Status: @Model.ServiceScanningWaiver.Status
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.projectName"
+                            class="control-label fontWeightNormal">Project Name:</label>
+                        <input type="text" class="form-control" asp-for="ServiceScanningWaiver.projectName"
+                            required="true" placeholder="Your Project Name">
+                        <span asp-validation-for="ServiceScanningWaiver.projectName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.SubmittedOn"
+                            class="control-label fontWeightNormal">Submitted Date:</label>
+                        <input type="date" class="form-control" asp-for="ServiceScanningWaiver.SubmittedOn"
+                            required="true" value="05/04/2018">
+                        <span asp-validation-for="ServiceScanningWaiver.SubmittedOn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.CostEstimate" class="control-label fontWeightNormal">Cost
+                            Estimate:</label>
+                        <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                            title="Enter the project cost and estimate such as 9999.99"></span>
+                        <input type="number" class="form-control" asp-for="ServiceScanningWaiver.CostEstimate"
+                            required="true" step="0.01">
+                        <span asp-validation-for="ServiceScanningWaiver.CostEstimate" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Details</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.WorkflowDescription"
+                    class="control-label fontWeightNormal">Describe the current workflow process:</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.WorkflowDescription" rows='2'></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.WorkflowDescription" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="ServiceScanningWaiver.ID" />
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.estimatedNumberOfDocuments" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.estimatedNumberOfDocuments" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.estimatedNumberOfDocuments" class="text-danger"></span>
+
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.estimatedNumberOfDocuments"
+                            class="control-label fontWeightNormal">Estimated number of documents:<span
+                                class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of documents needed to complete this project. 
+This is a numeric field."></span></label>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceScanningWaiver.estimatedNumberOfDocuments"
+                            aria-describedby="estimatedNumberOfDocuments" placeholder="Estimated number of documents">
+                        <span asp-validation-for="ServiceScanningWaiver.estimatedNumberOfDocuments"
+                            class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.EstimatedNumberOfHours"
+                            class="control-label fontWeightNormal">Estimated number of hours:<span
+                                class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
+                        </label>
+                        <input type="number" class="form-control" asp-for="ServiceScanningWaiver.EstimatedNumberOfHours"
+                            aria-describedby="EstimatedNumberOfHours" placeholder="Estimated number of hours">
+                        <span asp-validation-for="ServiceScanningWaiver.EstimatedNumberOfHours"
+                            class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.EstimatedNumberOfHours" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.EstimatedNumberOfHours" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.EstimatedNumberOfHours" class="text-danger"></span>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.indexingNeeded"
+                            class="control-label fontWeightNormal">Will the job require indexing</label>
+                        <select class="form-control control-label" asp-for="ServiceScanningWaiver.indexingNeeded">
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                        <span asp-validation-for="ServiceScanningWaiver.indexingNeeded" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required" asp-for="ServiceScanningWaiver.EstimatedNumberOfFieldsDiv">
+                        <label asp-for="ServiceScanningWaiver.EstimatedNumberOfFields"
+                            class="control-label fontWeightNormal">Estimated number of fields per document:<span
+                                class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+This is a numeric field."></span>
+                        </label>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceScanningWaiver.EstimatedNumberOfFields"
+                            aria-describedby="EstimatedNumberOfFields"
+                            placeholder="Estimated number of fields per document">
+                        <span asp-validation-for="ServiceScanningWaiver.EstimatedNumberOfFields"
+                            class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.indexingNeeded" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.indexingNeeded" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.indexingNeeded" class="text-danger"></span>
+
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.textSearchablePDF"
+                            class="control-label fontWeightNormal">Do you need a text searchable .pdf?</label>
+                        <select class="form-control control-label" asp-for="ServiceScanningWaiver.textSearchablePDF">
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                        <span asp-validation-for="ServiceScanningWaiver.textSearchablePDF" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceScanningWaiver.imageDPI" class="control-label fontWeightNormal">What DPI
+                            would you like the images scanned at?</label>
+                        <select class="form-control control-label" asp-for="ServiceScanningWaiver.imageDPI">
+                            <option>100</option>
+                            <option>200</option>
+                            <option>400</option>
+                            <option>800</option>
+                        </select>
+                        <span asp-validation-for="ServiceScanningWaiver.imageDPI" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.EstimatedNumberOfFields" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.EstimatedNumberOfFields" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.EstimatedNumberOfFields" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.textSearchablePDF" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.textSearchablePDF" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.textSearchablePDF" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.imageDPI" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.imageDPI" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.imageDPI" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.colorFormat" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.colorFormat" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.colorFormat" class="control-label fontWeightNormal">What color
+                    format do you need the images scanned in?</label>
+                <select class="form-control control-label" asp-for="ServiceScanningWaiver.colorFormat">
+                    <option>Black &amp; White</option>
+                    <option>Grayscale</option>
+                    <option>Full Color</option>
+                </select>
                 <span asp-validation-for="ServiceScanningWaiver.colorFormat" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.imageDelivery" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.imageDelivery" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.imageDelivery" class="control-label fontWeightNormal">How do you
+                    need to receive the images?</label>
+                <select class="form-control control-label" asp-for="ServiceScanningWaiver.imageDelivery">
+                    <option>DVD</option>
+                    <option>USB</option>
+                    <option>Email</option>
+                    <option>Google Drive</option>
+                    <option>Other</option>
+                </select>
                 <span asp-validation-for="ServiceScanningWaiver.imageDelivery" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.otherImageDelivery" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.otherImageDelivery" class="form-control" />
+
+            <div class="form-group required" id="otherImageDeliveryDiv">
+                <label asp-for="ServiceScanningWaiver.otherImageDelivery" class="control-label fontWeightNormal">Please
+                    specify other delivery method:</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.otherImageDelivery" rows="2"></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.otherImageDelivery" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.emailOtherImageDelivery" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.emailOtherImageDelivery" class="form-control" />
+
+            <div class="form-group required" id="emailImageDeliveryDiv">
+                <label asp-for="ServiceScanningWaiver.emailOtherImageDelivery"
+                    class="control-label fontWeightNormal">Please specify email address(es) seperated by
+                    semicolon:</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.emailOtherImageDelivery"
+                    rows="2"></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.emailOtherImageDelivery" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.systemRequirements" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.systemRequirements" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.systemRequirements" class="control-label fontWeightNormal">Specify
+                    system requirements.</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.systemRequirements" rows="2"></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.systemRequirements" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.AlternativeMethods" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.AlternativeMethods" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.AlternativeMethods" class="control-label fontWeightNormal">What
+                    other alternative methods have you looked at? Please provide details.</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.AlternativeMethods" rows="2"></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.AlternativeMethods" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.scanningInternally" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.scanningInternally" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.scanningInternally" class="control-label fontWeightNormal">Have
+                    you looked at scanning on your MultiFunction printer?</label>
+                <select class='form-control' asp-for='ServiceScanningWaiver.scanningInternally'
+                    aria-describedby='scanningInternally'>
+                    <option value='0'>No</option>
+                    <option value='1'>Yes</option>
+                </select>
                 <span asp-validation-for="ServiceScanningWaiver.scanningInternally" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.importConversion" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.importConversion" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.importConversion" class="control-label fontWeightNormal">Can the
+                    data be scanned into an external system and imported into your department's application.</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.importConversion" rows="2"></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.importConversion" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.NotInHouseReason" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.NotInHouseReason" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="ServiceScanningWaiver.NotInHouseReason" class="control-label fontWeightNormal">Customer
+                    believes that this scanning function cannot be performed by the State's scanning unit. Please
+                    provide details as to why:</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.NotInHouseReason" rows="2"></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.NotInHouseReason" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.AdditionalComments" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.AdditionalComments" class="form-control" />
+                <label asp-for="ServiceScanningWaiver.AdditionalComments" class="control-label fontWeightNormal">Any
+                    additional comments:</label>
+                <textarea class="form-control" asp-for="ServiceScanningWaiver.AdditionalComments" rows='2'></textarea>
                 <span asp-validation-for="ServiceScanningWaiver.AdditionalComments" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.OtherFirstName" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.OtherFirstName" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.OtherFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.OtherLastName" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.OtherLastName" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.OtherLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.Status" class="control-label"></label>
-                <select asp-for="ServiceScanningWaiver.Status" class="form-control"></select>
-                <span asp-validation-for="ServiceScanningWaiver.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.WaiverNumber" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.WaiverNumber" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.WaiverNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.projectName" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.projectName" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.projectName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.SubmittedOn" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.SubmittedOn" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.SubmittedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ServiceScanningWaiver.CostEstimate" class="control-label"></label>
-                <input asp-for="ServiceScanningWaiver.CostEstimate" class="form-control" />
-                <span asp-validation-for="ServiceScanningWaiver.CostEstimate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+        </div>
+
+    </div>
+    <div>
+        <a asp-page="./Index">Back to List</a>
+        <button type="submit" class="btn btn-primary" id='Submit' value="Submit">
+                Edit Waiver&nbsp;
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+    </div>
+</form>
+<partial name='_Logout' />
+
+<div style="clear: both"></div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    $(document).ready(function () {
+        showIfSelected('#ServiceScanningWaiver_indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {
+            textList: ['Yes']
+        });
+        showIfSelected('#ServiceScanningWaiver_imageDelivery', ['#otherImageDeliveryDiv'], {
+            textList: ['Other']
+        });
+    });
+
+    $("#ServiceScanningWaiver_indexingNeeded").on("change", function () {
+        showIfSelected('#ServiceScanningWaiver_indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {
+            textList: ['Yes']
+        });
+    });
+
+    $("#ServiceScanningWaiver_imageDelivery").on("change", function () {
+        showIfSelected('#ServiceScanningWaiver_imageDelivery', ['#otherImageDeliveryDiv'], {
+            textList: ['Other']
+        });
+    });
+</script>
 }

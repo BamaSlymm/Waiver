@@ -2,216 +2,277 @@
 @model DPAWaiver.Pages.Private.SoftwarePrint.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Software Print Copy Waiver</h4>
-    <hr />
+@if (Model.SoftwarePrintWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.SoftwarePrintWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.SoftwarePrintWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.typeOfSoftware)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.typeOfSoftware)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.softwareVersion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.softwareVersion)
-        </dd>/
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.costOfPresentService)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.costOfPresentService)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.newOrReplace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.newOrReplace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.softwareProvider)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.softwareProvider)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.purchaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.purchaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.selectionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.selectionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.expectedDuration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.expectedDuration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.acquisitionType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.acquisitionType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.subscriptionOrPurchase)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.subscriptionOrPurchase)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.monthlySubscriptionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.monthlySubscriptionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfMonths)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfMonths)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.operatorClassification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.operatorClassification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.Grade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.Grade)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.hoursPerFTEPerWeek)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.hoursPerFTEPerWeek)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.totalWeeklySalary)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.totalWeeklySalary)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.monthlySupervisionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.monthlySupervisionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.monthlyManagementAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.monthlyManagementAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.justificationDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.justificationDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.alternativesConsidered)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.alternativesConsidered)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.projectName)
-        </dd>
-       <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwarePrintWaiver.CostEstimate)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.typeOfSoftware)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.typeOfSoftware)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.typeOfSoftware -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfLicenses)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfLicenses)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.numberOfLicenses -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.newOrReplace)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.newOrReplace)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.newOrReplace -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.costOfPresentService)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.costOfPresentService)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.costOfPresentService -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.servicesReceived)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.servicesReceived)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.servicesReceived -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.softwareProvider)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.softwareProvider)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.softwareProvider -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.softwareVersion)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.softwareVersion)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.softwareVersion -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.selectionReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.selectionReason)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.selectionReason -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.expectedDuration)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.expectedDuration)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.expectedDuration -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.acquisitionType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.acquisitionType)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.acquisitionType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.subscriptionOrPurchase)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.subscriptionOrPurchase)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.subscriptionOrPurchase -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.purchaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.purchaseAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.purchaseAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.monthlySubscriptionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.monthlySubscriptionAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.monthlySubscriptionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfMonths)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfMonths)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.numberOfMonths -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.annualMaintenanceCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.annualMaintenanceCost)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.annualMaintenanceCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.operatorClassification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.operatorClassification)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.operatorClassification -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.Grade)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.Grade)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.Grade -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.numberOfFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.numberOfFTE)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.numberOfFTE -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.hoursPerFTEPerWeek)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.hoursPerFTEPerWeek)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.hoursPerFTEPerWeek -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.totalWeeklySalary)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.totalWeeklySalary)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.totalWeeklySalary -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.monthlySupervisionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.monthlySupervisionAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.monthlySupervisionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.monthlyManagementAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.monthlyManagementAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.monthlyManagementAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.justificationDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.justificationDescription)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.justificationDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.alternativesConsidered)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.alternativesConsidered)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.alternativesConsidered -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwarePrintWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwarePrintWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of SoftwarePrintWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="SoftwarePrintWaiver.ID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |

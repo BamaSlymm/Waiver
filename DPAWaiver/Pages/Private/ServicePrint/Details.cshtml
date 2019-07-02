@@ -2,149 +2,167 @@
 @model DPAWaiver.Pages.Private.ServicePrint.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<div>
-    <h4>Service Printer Waiver</h4>
-    <hr />
+@if (Model.ServicePrintWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.ServicePrintWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.ServicePrintWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.ItemDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.ItemDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.CostEstimate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.EstimateObtained)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.EstimateObtained)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.ItemDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.ItemDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.PaperStockType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.PaperStockType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.otherPaperStockReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.otherPaperStockReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.FinishingType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.FinishingType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.Reprint)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.Reprint)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.previousPrinter)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.previousPrinter)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.numberOfOriginals)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.numberOfOriginals)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.Quantity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.Quantity)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.FourColorJob)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.FourColorJob)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.numberOfInks)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.numberOfInks)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.projectDueDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.projectDueDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.FinishedSize)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.FinishedSize)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServicePrintWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServicePrintWaiver.projectName)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.EstimateObtained)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.EstimateObtained)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.EstimatedObtained -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.PaperStockType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.PaperStockType)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.PaperStockType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.otherPaperStockReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.otherPaperStockReason)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.otherPaperStockReason -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.estimateFile)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.estimateFile)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.estimateFile -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.FinishingType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.FinishingType)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.FinishingType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.Reprint)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.Reprint)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.Reprint -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.previousPrinter)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.previousPrinter)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.previousPrinter -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.numberOfOriginals)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.numberOfOriginals)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.numberOfOriginals -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.Quantity)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.Quantity)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.Quantity -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.FourColorJob)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.FourColorJob)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.FourColorJob -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.numberOfInks)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.numberOfInks)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.numberOfInks -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.projectDueDate)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.projectDueDate)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.projectDueDate -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.FinishedSize)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.FinishedSize)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.FinishedSize -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServicePrintWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServicePrintWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of ServicePrintWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.ServicePrintWaiver.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.ServicePrintWaiver.ID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>

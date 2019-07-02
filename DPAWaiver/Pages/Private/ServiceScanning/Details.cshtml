@@ -2,161 +2,187 @@
 @model DPAWaiver.Pages.Private.ServiceScanning.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<div>
-    <h4>Service Scanning Waiver</h4>
-    <hr />
+@if (Model.ServiceScanningWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.ServiceScanningWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.ServiceScanningWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.WorkflowDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.WorkflowDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.CostEstimate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.estimatedNumberOfDocuments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.estimatedNumberOfDocuments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.EstimatedNumberOfHours)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.EstimatedNumberOfHours)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.indexingNeeded)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.indexingNeeded)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.EstimatedNumberOfFields)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.EstimatedNumberOfFields)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.textSearchablePDF)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.textSearchablePDF)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.imageDPI)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.imageDPI)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.colorFormat)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.colorFormat)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.imageDelivery)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.imageDelivery)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.otherImageDelivery)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.otherImageDelivery)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.emailOtherImageDelivery)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.emailOtherImageDelivery)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.systemRequirements)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.systemRequirements)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.AlternativeMethods)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.AlternativeMethods)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.scanningInternally)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.scanningInternally)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.importConversion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.importConversion)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.NotInHouseReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.NotInHouseReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ServiceScanningWaiver.projectName)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.estimatedNumberOfDocuments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.estimatedNumberOfDocuments)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.estimatedNumberOfDocuments -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.EstimatedNumberOfHours)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.EstimatedNumberOfHours)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.EstimatedNumberOfHours -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.indexingNeeded)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.indexingNeeded)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.indexingNeeded -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.EstimatedNumberOfFields)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.EstimatedNumberOfFields)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.EstimatedNumberOfFields -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.textSearchablePDF)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.textSearchablePDF)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.textSearchablePDF -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.imageDPI)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.imageDPI)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.imageDPI -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.colorFormat)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.colorFormat)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.colorFormat -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.imageDelivery)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.imageDelivery)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.imageDelivery -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.otherImageDelivery)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.otherImageDelivery)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.otherImageDelivery -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.emailOtherImageDelivery)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.emailOtherImageDelivery)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.emailOtherImageDelivery -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.systemRequirements)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.systemRequirements)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.systemRequirements -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.AlternativeMethods)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.AlternativeMethods)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.AlternativeMethods -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.scanningInternally)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.scanningInternally)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.scanningInternally -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.importConversion)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.importConversion)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.importConversion -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.NotInHouseReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.NotInHouseReason)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.NotInHouseReason -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.ServiceScanningWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.ServiceScanningWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of ServiceScanningWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.ServiceScanningWaiver.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.ServiceScanningWaiver.ID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>

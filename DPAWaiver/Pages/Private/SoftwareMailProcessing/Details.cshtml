@@ -2,213 +2,274 @@
 @model DPAWaiver.Pages.Private.SoftwareMailProcessing.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Details";
 }
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h2>Details</h2>
-
-<div>
-    <h4>Software Mail Processing Waiver</h4>
-    <hr />
+@if (Model.SoftwareMailProcessingWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.SoftwareMailProcessingWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.SoftwareMailProcessingWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.typeOfSoftware)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.typeOfSoftware)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.softwareVersion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.softwareVersion)
-        </dd>/
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.costOfPresentService)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.costOfPresentService)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.newOrReplace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.newOrReplace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.softwareProvider)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.softwareProvider)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.purchaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.purchaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.selectionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.selectionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.expectedDuration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.expectedDuration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.acquisitionType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.acquisitionType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.subscriptionOrPurchase)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.subscriptionOrPurchase)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlySubscriptionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlySubscriptionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfMonths)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfMonths)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.operatorClassification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.operatorClassification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.Grade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.Grade)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.hoursPerFTEPerWeek)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.hoursPerFTEPerWeek)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.totalWeeklySalary)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.totalWeeklySalary)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlySupervisionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlySupervisionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlyManagementAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlyManagementAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.justificationDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.justificationDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.alternativesConsidered)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.alternativesConsidered)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.projectName)
-        </dd>
-       <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.CostEstimate)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.typeOfSoftware)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.typeOfSoftware)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.typeOfSoftware -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfLicenses)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.numberOfLicenses -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.newOrReplace)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.newOrReplace)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.newOrReplace -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.costOfPresentService)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.costOfPresentService)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.costOfPresentService -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.servicesReceived)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.servicesReceived)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.servicesReceived -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.softwareProvider)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.softwareProvider)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.softwareProvider -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.softwareVersion)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.softwareVersion)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.softwareVersion -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.selectionReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.selectionReason)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.selectionReason -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.expectedDuration)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.expectedDuration)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.expectedDuration -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.acquisitionType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.acquisitionType)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.acquisitionType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.subscriptionOrPurchase)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.subscriptionOrPurchase)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.subscriptionOrPurchase -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.purchaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.purchaseAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.purchaseAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlySubscriptionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlySubscriptionAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.monthlySubscriptionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfMonths)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfMonths)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.numberOfMonths -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.annualMaintenanceCost)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.annualMaintenanceCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.operatorClassification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.operatorClassification)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.operatorClassification -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.Grade)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.Grade)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.Grade -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.numberOfFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.numberOfFTE)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.numberOfFTE -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.hoursPerFTEPerWeek)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.hoursPerFTEPerWeek)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.hoursPerFTEPerWeek -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.totalWeeklySalary)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.totalWeeklySalary)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.totalWeeklySalary -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlySupervisionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlySupervisionAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.monthlySupervisionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.monthlyManagementAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.monthlyManagementAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.monthlyManagementAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.justificationDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.justificationDescription)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.justificationDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.alternativesConsidered)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.alternativesConsidered)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.alternativesConsidered -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareMailProcessingWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareMailProcessingWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of SoftwareMailProcessingWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
 </div>
 <div>

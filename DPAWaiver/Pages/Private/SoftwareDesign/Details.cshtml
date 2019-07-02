@@ -5,210 +5,262 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<div>
-    <h4>Software Design Waiver</h4>
-    <hr />
+@if (Model.SoftwareDesignWaiver.CreatedBy.Id != Model.UserWithDepartment.Id)
+{
+<partial name="_UserInformation" model="@Model.SoftwareDesignWaiver.CreatedBy" />
+}
+<partial name="_WaiverInformationDisplayOnly" model="@Model.SoftwareDesignWaiver" />
+<div class="panel panel-primary marginTop20px">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">Waiver Details</h3>
+    </div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.typeOfSoftware)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.typeOfSoftware)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.softwareVersion)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.softwareVersion)
-        </dd>/
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.costOfPresentService)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.costOfPresentService)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.newOrReplace)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.newOrReplace)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.softwareProvider)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.softwareProvider)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.purchaseAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.purchaseAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.selectionReason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.selectionReason)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.expectedDuration)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.expectedDuration)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.acquisitionType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.acquisitionType)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.subscriptionOrPurchase)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.subscriptionOrPurchase)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.monthlySubscriptionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.monthlySubscriptionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfMonths)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfMonths)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.operatorClassification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.operatorClassification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.Grade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.Grade)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfFTE)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfFTE)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfLicenses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfLicenses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.hoursPerFTEPerWeek)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.hoursPerFTEPerWeek)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.annualMaintenanceCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.annualMaintenanceCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.totalWeeklySalary)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.totalWeeklySalary)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.monthlySupervisionAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.monthlySupervisionAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.monthlyManagementAmount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.monthlyManagementAmount)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.justificationDescription)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.justificationDescription)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.alternativesConsidered)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.alternativesConsidered)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.AdditionalComments)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.AdditionalComments)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.OtherFirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.OtherFirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.OtherLastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.OtherLastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.WaiverNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.WaiverNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.projectName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.projectName)
-        </dd>
-       <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.SubmittedOn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.SubmittedOn)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.CostEstimate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SoftwareDesignWaiver.CostEstimate)
-        </dd>
+        <div class="panel-body">
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.typeOfSoftware)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.typeOfSoftware)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.typeOfSoftware -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfLicenses)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfLicenses)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.numberOfLicenses -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.newOrReplace)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.newOrReplace)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.newOrReplace -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.costOfPresentService)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.costOfPresentService)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.costOfPresentService -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.servicesReceived)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.servicesReceived)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.servicesReceived -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.softwareProvider)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.softwareProvider)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.softwareProvider -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.softwareVersion)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.softwareVersion)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.softwareVersion -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.selectionReason)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.selectionReason)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.selectionReason -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.expectedDuration)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.expectedDuration)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.expectedDuration -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.acquisitionType)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.acquisitionType)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.acquisitionType -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.subscriptionOrPurchase)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.subscriptionOrPurchase)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.subscriptionOrPurchase -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.purchaseAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.purchaseAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.purchaseAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.monthlySubscriptionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.monthlySubscriptionAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.monthlySubscriptionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfMonths)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfMonths)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.numberOfMonths -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.annualMaintenanceCost)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.annualMaintenanceCost)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.annualMaintenanceCost -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.operatorClassification)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.operatorClassification)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.operatorClassification -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.Grade)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.Grade)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.Grade -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.numberOfFTE)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.numberOfFTE)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.numberOfFTE -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.hoursPerFTEPerWeek)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.hoursPerFTEPerWeek)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.hoursPerFTEPerWeek -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.totalWeeklySalary)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.totalWeeklySalary)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.totalWeeklySalary -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.monthlySupervisionAmount)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.monthlySupervisionAmount)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.monthlySupervisionAmount -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.justificationDescription)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.justificationDescription)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.justificationDescription -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.alternativesConsidered)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.alternativesConsidered)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.alternativesConsidered -->
+                </div>
+                <div class="form-group">
+                    <dl class='custom-dl'>
+                        <dt class='custom-dt'>
+                            @Html.DisplayNameFor(model => model.SoftwareDesignWaiver.AdditionalComments)
+                        </dt>
+                        <dd class='custom-dt'>
+                            @Html.DisplayFor(model => model.SoftwareDesignWaiver.AdditionalComments)
+                        </dd>
+                    </dl><!-- dl end of SoftwareDesignWaiver.AdditionalComments -->
+                </div>
+            </div>
+        </div>
     </dl>
 </div>
 <div>

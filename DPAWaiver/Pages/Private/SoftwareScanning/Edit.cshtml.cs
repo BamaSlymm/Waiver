@@ -17,7 +17,7 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
     public class EditModel : BaseWaiverPageModel
     {
         [BindProperty]
-        public ServiceDesignWaiverView ServiceDesignWaiver { get; set; }
+        public SoftwareScanningWaiverView SoftwareScanningWaiver { get; set; }
 
         public Guid? ID {get;set;}
 
@@ -37,13 +37,13 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
 
             ID = id ;
             UserWithDepartment = await GetUserWithDepartmentAsync();
-            var ServiceDesignWaiver = await _context.ServiceDesignWaiver.
+            var softwareScanningWaiver = await _context.SoftwareScanningWaiver.
             FirstOrDefaultAsync(m => m.ID == id);
-            ServiceDesignWaiver = new ServiceDesignWaiverView(ServiceDesignWaiver);
+            SoftwareScanningWaiver = new SoftwareScanningWaiverView(softwareScanningWaiver);
             Invoices = await GetInvoicesAsync(id) ;
             Attachments = await GetAttachmentsAsync(id) ;
 
-            if (ServiceDesignWaiver == null || !ServiceDesignWaiver.Editable)
+            if (SoftwareScanningWaiver == null || !softwareScanningWaiver.Editable)
             {
                 return NotFound();
             }
@@ -71,7 +71,7 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
                 return Page();
             }
 
-            var waiverToUpdate = await _context.ServiceDesignWaiver.Include(w => w.Purpose).
+            var waiverToUpdate = await _context.SoftwareScanningWaiver.Include(w => w.Purpose).
             Include(w => w.PurposeType).
             Include(w => w.PurposeSubtype).
             Include(w => w.CreatedBy).FirstAsync(x => x.ID == id);
@@ -81,36 +81,52 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
             }
 
             
-            if (await TryUpdateModelAsync<ServiceDesignWaiver>(
+            if (await TryUpdateModelAsync<SoftwareScanningWaiver>(
                waiverToUpdate,
-               "servicedesignwaiver",
+               "SoftwareScanningwaiver",
                w => w.OtherFirstName,
                w => w.OtherLastName,
                w => w.projectName,
                w => w.SubmittedOn,
                w => w.CostEstimate,
-               w => w.EstimatedNumberOfHours,
-               w => w.DueDate,
-               w => w.StartedOn,
-               w => w.ItemToBeDesigned,
-               w => w.OtherDescription,
-               w => w.Status,
-               w => w.AdditionalComments,
-               w => w.ID,
-               w => w.CreatedOn,
-               w => w.approvedOn
+               w => w.typeOfSoftware,
+                w => w.numberOfLicenses,
+                w => w.newOrReplace,
+				w => w.costOfPresentService,
+				w => w.servicesReceived,
+				w => w.softwareProvider,
+                w => w.softwareVersion,
+                w => w.selectionReason,
+                w => w.expectedDuration,
+                w => w.acquisitionType,
+                w => w.subscriptionOrPurchase,
+				w => w.purchaseAmount,
+                w => w.monthlySubscriptionAmount,
+                w => w.numberOfMonths,
+                w => w.annualMaintenanceCost,
+                w => w.operatorClassification,
+                w => w.Grade,
+                w => w.numberOfFTE,
+                w => w.hoursPerFTEPerWeek,
+				w => w.totalWeeklySalary,
+                w => w.monthlySupervisionAmount,
+                w => w.monthlyManagementAmount,
+                w => w.justificationDescription,
+                w => w.alternativesConsidered,
+                w => w.Status,
+                w => w.AdditionalComments
                ))
             {
                 try
                 {
                     BaseWaiverAction baseWaiverAction = new BaseWaiverAction(waiverToUpdate, UserWithDepartment,
-                                        WaiverActions.Updated, ServiceDesignWaiver);
+                                        WaiverActions.Updated, SoftwareScanningWaiver);
                     _context.BaseWaiverActions.Add(baseWaiverAction);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServiceDesignWaiverExists(id))
+                    if (!SoftwareScanningWaiverExists(id))
                     {
                         return NotFound();
                     }
@@ -125,9 +141,9 @@ namespace DPAWaiver.Pages.Private.SoftwareScanning
             return Page();
         }
 
-        private bool ServiceDesignWaiverExists(Guid? id)
+        private bool SoftwareScanningWaiverExists(Guid? id)
         {
-            return _context.ServiceDesignWaiver.Any(e => e.ID == id);
+            return _context.SoftwareScanningWaiver.Any(e => e.ID == id);
         }
     }
 }

@@ -105,6 +105,7 @@ namespace DPAWaiver.Pages.Private.ServicePrint
                w => w.FinishedSize,
                w => w.AdditionalComments,
                w => w.ID,
+               w => w.Status,
                w => w.CreatedOn,
                w => w.approvedOn
                ))

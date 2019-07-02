@@ -2,204 +2,451 @@
 @model DPAWaiver.Pages.Private.SoftwareScanning.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<h4>Software Scanning / Imaging / Microfilm Waiver</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div class="text-danger"></div> 
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.typeOfSoftware" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.typeOfSoftware" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.typeOfSoftware" class="text-danger"></span>
+    <partial name="_UserInformation" model="@Model.UserWithDepartment" />
+    @if (Model.SoftwareScanningWaiver.OtherFirstName != null && Model.SoftwareScanningWaiver.OtherLastName != null)
+    {
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">User Infromation</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="SoftwareScanningWaiver.OtherFirstName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="SoftwareScanningWaiver.OtherFirstName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.SoftwareScanningWaiver.OtherFirstName)" />
+                    <span asp-validation-for="SoftwareScanningWaiver.OtherFirstName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.numberOfLicenses" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.numberOfLicenses" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.numberOfLicenses" class="text-danger"></span>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label asp-for="SoftwareScanningWaiver.OtherLastName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="SoftwareScanningWaiver.OtherLastName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.SoftwareScanningWaiver.OtherLastName)" />
+                    <span asp-validation-for="SoftwareScanningWaiver.OtherLastName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.newOrReplace" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.newOrReplace" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.newOrReplace" class="text-danger"></span>
+
+        </div>
+    </div>
+    }
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-bottom: 14px">
+                <div class="col-md-4 col-xs-4">
+                    Purpose: Software Related to Services
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Type: Scanning / Imaging / Microfilm
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    Status: @Model.SoftwareScanningWaiver.Status
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.softwareVersion" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.softwareVersion" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.softwareVersion" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="SoftwareScanningWaiver.projectName"
+                            class="control-label fontWeightNormal">Project Name:</label>
+                        <input type="text" class="form-control" asp-for="SoftwareScanningWaiver.projectName"
+                            required="true" placeholder="Your Project Name">
+                        <span asp-validation-for="SoftwareScanningWaiver.projectName" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-             <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.costOfPresentService" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.costOfPresentService" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.costOfPresentService" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="SoftwareScanningWaiver.SubmittedOn"
+                            class="control-label fontWeightNormal">Submitted Date:</label>
+                        <input type="date" class="form-control" asp-for="SoftwareScanningWaiver.SubmittedOn"
+                            required="true" value="05/04/2018">
+                        <span asp-validation-for="SoftwareScanningWaiver.SubmittedOn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="SoftwareScanningWaiver.CostEstimate"
+                            class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
+                        <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                            title="Enter the project cost and estimate such as 9999.99"></span>
+                        <input type="number" class="form-control" asp-for="SoftwareScanningWaiver.CostEstimate"
+                            required="true" step="0.01">
+                        <span asp-validation-for="SoftwareScanningWaiver.CostEstimate" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-             <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.softwareProvider" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.softwareProvider" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.softwareProvider" class="text-danger"></span>
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Details</h3>
+        </div>
+        <div class="panel-body">
+            <div class='row'>
+                <div class='col-sm-6 col-xs-12'>
+                    <div class='form-group required'>
+                        <label asp-for='SoftwareScanningWaiver.typeOfSoftware'
+                            class='control-label fontWeightNormal'>Type of software being requested</label>
+                        <input type='text' class='form-control' asp-for='SoftwareScanningWaiver.typeOfSoftware'
+                            aria-describedby='typeOfSoftware' placeholder='Type of software being requested'>
+                        <span asp-validation-for="SoftwareScanningWaiver.typeOfSoftware" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-xs-12'>
+                    <div class='form-group required'>
+                        <label asp-for='SoftwareScanningWaiver.numberOfLicenses'
+                            class='control-label fontWeightNormal'>Number of software licenses being requested</label>
+                        <input type='number' class='form-control' asp-for='SoftwareScanningWaiver.numberOfLicenses'
+                            aria-describedby='numberOfLicenses'
+                            placeholder='Number of software licenses being requested'>
+                        <span asp-validation-for="SoftwareScanningWaiver.numberOfLicenses" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-             <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.softwareVersion" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.softwareVersion" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.softwareVersion" class="text-danger"></span>
+            <!-- end of row -->
+
+            <div class='row'>
+                <div class='col-sm-6 col-xs-12'>
+                    <div class="form-group required">
+                        <label asp-for="SoftwareScanningWaiver.newOrReplace" class="control-label fontWeightNormal">Is
+                            this new addition or replacement?</label>
+                        <select class="form-control" asp-for="SoftwareScanningWaiver.newOrReplace">
+                            <option>Additional</option>
+                            <option>New</option>
+                            <option>Replacement</option>
+                        </select>
+                        <span asp-validation-for="SoftwareScanningWaiver.newOrReplace" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-xs-12'>
+                    <div class="form-group required">
+                        <label asp-for='SoftwareScanningWaiver.costOfPresentService'
+                            class='control-label fontWeightNormal'>Cost of Present Service
+                            <span class='glyphicon glyphicon-question-sign' data-toggle='tooltip'
+                                title='Cost of Present Service'></span>
+                        </label>
+                        <input type='number' class='form-control' asp-for='SoftwareScanningWaiver.costOfPresentService'
+                            aria-describedby='costOfPresentService' placeholder='Cost of Present Service'>
+                        <span asp-validation-for="SoftwareScanningWaiver.costOfPresentService"
+                            class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.selectionReason" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.selectionReason" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.selectionReason" class="text-danger"></span>
+
+            <div class="form-group required">
+                <label asp-for="SoftwareScanningWaiver.servicesReceived" class="control-label fontWeightNormal">How do
+                    you currently receive this services?</label>
+                <textarea class="form-control" asp-for="SoftwareScanningWaiver.servicesReceived" rows="2"
+                    placeholder="if replacement please describe software version and Acquisition Date."></textarea>
+                <span asp-validation-for="SoftwareScanningWaiver.servicesReceived" class="text-danger"></span>
             </div>
-            
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.expectedDuration" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.expectedDuration" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.expectedDuration" class="text-danger"></span>
+
+            <div class="panel panel-primary marginTop40px">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">If you are requesting specific software, please complete the
+                        following</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.softwareProvider'
+                                    class='control-label fontWeightNormal'>Software Provider</label>
+                                <input type='text' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.softwareProvider'
+                                    aria-describedby='softwareProvider' placeholder='Software Provider'>
+                                <span asp-validation-for="SoftwareScanningWaiver.softwareProvider"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.softwareVersion'
+                                    class='control-label fontWeightNormal'>Software Version</label>
+                                <input type='text' class='form-control' asp-for='SoftwareScanningWaiver.softwareVersion'
+                                    aria-describedby='softwareVersion' placeholder='Software Version'>
+                                <span asp-validation-for="SoftwareScanningWaiver.softwareVersion"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label asp-for="SoftwareScanningWaiver.selectionReason"
+                            class="control-label fontWeightNormal">Reasons for selecting this particular
+                            software:</label>
+                        <textarea class="form-control" asp-for="SoftwareScanningWaiver.selectionReason"
+                            aria-describedby="selectionReason" placeholder="Reasons for selection" rows='2'></textarea>
+                        <span asp-validation-for="SoftwareScanningWaiver.selectionReason" class="text-danger"></span>
+                    </div>
+
+                    <div class='form-group required'>
+                        <label asp-for='SoftwareScanningWaiver.expectedDuration'
+                            class='control-label fontWeightNormal'>Expected duration of use of software</label>
+                        <input type='text' class='form-control' asp-for='SoftwareScanningWaiver.expectedDuration'
+                            aria-describedby='expectedDuration' placeholder='Expected duration of use of software'>
+                        <span asp-validation-for="SoftwareScanningWaiver.expectedDuration" class="text-danger"></span>
+                    </div>
+
+                    <div class='form-group required'>
+                        <label asp-for='SoftwareScanningWaiver.acquisitionType'
+                            class='control-label fontWeightNormal'>How do you plan to acquire this software.</label>
+                        <textarea class='form-control' asp-for='SoftwareScanningWaiver.acquisitionType'
+                            aria-describedby='acquisitionType'
+                            placeholder='How do you plan to acquire this software.If there is a state price agreement, please provide details'
+                            rows='2'></textarea>
+                        <span asp-validation-for="SoftwareScanningWaiver.acquisitionType" class="text-danger"></span>
+                    </div>
+
+                    <div class='row'>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class="form-group required">
+                                <label asp-for="SoftwareScanningWaiver.subscriptionOrPurchase"
+                                    class="control-label fontWeightNormal">Is this a subscription or purchase?</label>
+                                <select class="form-control" asp-for="SoftwareScanningWaiver.subscriptionOrPurchase">
+                                    <option>Please select one</option>
+                                    <option value='1'>Subscription</option>
+                                    <option value='2'>Purchase</option>
+                                </select>
+                                <span asp-validation-for="SoftwareScanningWaiver.subscriptionOrPurchase"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class="form-group required" id='purchaseAmountDiv'>
+                                <label asp-for="SoftwareScanningWaiver.purchaseAmount"
+                                    class="control-label fontWeightNormal">Purchase Amount
+                                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                                        title="Purchase Amount"></span>
+                                </label>
+                                <input type="number" class="form-control"
+                                    asp-for="SoftwareScanningWaiver.purchaseAmount" aria-describedby="purchaseAmount"
+                                    placeholder="Purchase Amount">
+                                <span asp-validation-for="SoftwareScanningWaiver.purchaseAmount"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div> <!-- end of row -->
+
+
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class='form-group required' id='monthlySubscriptionAmountDiv'>
+                                <label asp-for='SoftwareScanningWaiver.monthlySubscriptionAmount'
+                                    class='control-label fontWeightNormal'>Monthly Subscription Amount</label>
+                                <input type='number' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.monthlySubscriptionAmount'
+                                    aria-describedby='monthlySubscriptionAmount'
+                                    placeholder='Monthly Subscription Amount'>
+                                <span asp-validation-for="SoftwareScanningWaiver.monthlySubscriptionAmount"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class='form-group required' id='numberOfMonthsDiv'>
+                                <label asp-for='SoftwareScanningWaiver.numberOfMonths'
+                                    class='control-label fontWeightNormal'>Number of Months</label>
+                                <input type='number' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.numberOfMonths' aria-describedby='numberOfMonths'
+                                    placeholder='Number of Months'>
+                                <span asp-validation-for="SoftwareScanningWaiver.numberOfMonths"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required' id='annualMaintenanceCostDiv'>
+                                <label asp-for='SoftwareScanningWaiver.annualMaintenanceCost'
+                                    class='control-label fontWeightNormal'>Annual Maintenance Renewal Cost</label>
+                                <input type='number' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.annualMaintenanceCost'
+                                    aria-describedby='annualMaintenanceCost'
+                                    placeholder='Annual Maintenance Renewal Cost'>
+                                <span asp-validation-for="SoftwareScanningWaiver.annualMaintenanceCost"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-xs-12'>
+                        </div>
+                    </div> <!-- end of row -->
+
+                    <div class='row'>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.operatorClassification'
+                                    class='control-label fontWeightNormal'>Operator Classification</label>
+                                <input type='text' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.operatorClassification'
+                                    aria-describedby='operatorClassification' placeholder='Operator Classification'>
+                                <span asp-validation-for="SoftwareScanningWaiver.operatorClassification"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.Grade'
+                                    class='control-label fontWeightNormal'>Grade</label>
+                                <input type='text' class='form-control' asp-for='SoftwareScanningWaiver.Grade'
+                                    aria-describedby='Grade' placeholder='Grade'>
+                                <span asp-validation-for="SoftwareScanningWaiver.Grade" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of row -->
+
+                    <div class='row'>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.numberOfFTE'
+                                    class='control-label fontWeightNormal'>Estimated Number of FTE</label>
+                                <input type='number' class='form-control' asp-for='SoftwareScanningWaiver.numberOfFTE'
+                                    aria-describedby='numberOfFTE' placeholder='Estimated Number of FTE'>
+                                <span asp-validation-for="SoftwareScanningWaiver.numberOfFTE"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.hoursPerFTEPerWeek'
+                                    class='control-label fontWeightNormal'>Hours Per FTE Per Week</label>
+                                <input type='number' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.hoursPerFTEPerWeek'
+                                    aria-describedby='hoursPerFTEPerWeek' placeholder='Hours Per FTE Per Week'>
+                                <span asp-validation-for="SoftwareScanningWaiver.hoursPerFTEPerWeek"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of row -->
+
+                    <div class='row'>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.totalWeeklySalary'
+                                    class='control-label fontWeightNormal'>Total Weekly Salary</label>
+                                <input type='number' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.totalWeeklySalary'
+                                    aria-describedby='totalWeeklySalary' placeholder='Total Weekly Salary'>
+                                <span asp-validation-for="SoftwareScanningWaiver.totalWeeklySalary"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-xs-12'>
+                        </div>
+                    </div>
+                    <!-- end of row -->
+
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.acquisitionType" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.acquisitionType" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.acquisitionType" class="text-danger"></span>
+
+
+            <div class="panel panel-primary marginTop20px">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Overhead Costs</h3>
+                </div>
+                <div class="panel-body">
+                    <div class='row'>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.monthlySupervisionAmount'
+                                    class='control-label fontWeightNormal'>Monthly Supervision Amount</label>
+                                <input type='number' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.monthlySupervisionAmount'
+                                    aria-describedby='monthlySupervisionAmount'
+                                    placeholder='Monthly Supervision Amount'>
+                                <span asp-validation-for="SoftwareScanningWaiver.monthlySupervisionAmount"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class='col-sm-6 col-xs-12'>
+                            <div class='form-group required'>
+                                <label asp-for='SoftwareScanningWaiver.monthlyManagementAmount'
+                                    class='control-label fontWeightNormal'>Monthly Management Amount</label>
+                                <input type='text' class='form-control'
+                                    asp-for='SoftwareScanningWaiver.monthlyManagementAmount'
+                                    aria-describedby='monthlyManagementAmount' placeholder='Monthly Management Amount'>
+                                <span asp-validation-for="SoftwareScanningWaiver.monthlyManagementAmount"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of row -->
+
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.subscriptionOrPurchase" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.subscriptionOrPurchase" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.subscriptionOrPurchase" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.monthlySubscriptionAmount" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.monthlySubscriptionAmount" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.monthlySubscriptionAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.numberOfMonths" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.numberOfMonths" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.numberOfMonths" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.purchaseAmount" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.purchaseAmount" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.purchaseAmount" class="text-danger"></span>
-            </div>            
-             <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.annualMaintenanceCost" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.annualMaintenanceCost" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.annualMaintenanceCost" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.operatorClassification" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.operatorClassification" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.operatorClassification" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.Grade" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.Grade" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.Grade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.numberOfFTE" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.numberOfFTE" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.numberOfFTE" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.numberOfLicenses" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.numberOfLicenses" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.numberOfLicenses" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.hoursPerFTEPerWeek" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.hoursPerFTEPerWeek" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.annualMaintenanceCost" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.annualMaintenanceCost" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.annualMaintenanceCost" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.hoursPerFTEPerWeek" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.hoursPerFTEPerWeek" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.hoursPerFTEPerWeek" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.totalWeeklySalary" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.totalWeeklySalary" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.totalWeeklySalary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.monthlySupervisionAmount" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.monthlySupervisionAmount" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.monthlySupervisionAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.monthlyManagementAmount" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.monthlyManagementAmount" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.monthlyManagementAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.justificationDescription" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.justificationDescription" class="form-control" />
+            <!-- end of panel -->
+
+            <div class="form-group required">
+                <label asp-for="SoftwareScanningWaiver.justificationDescription"
+                    class="control-label fontWeightNormal">Justification for the request:</label>
+                <textarea class="form-control" asp-for="SoftwareScanningWaiver.justificationDescription"
+                    rows='2'></textarea>
                 <span asp-validation-for="SoftwareScanningWaiver.justificationDescription" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.alternativesConsidered" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.alternativesConsidered" class="form-control" />
+
+
+            <div class='form-group required'>
+                <label asp-for='SoftwareScanningWaiver.alternativesConsidered'
+                    class='control-label fontWeightNormal'>Please describe the alternatives you examined before making
+                    this request</label>
+                <textarea class='form-control' asp-for='SoftwareScanningWaiver.alternativesConsidered'
+                    aria-describedby='alternativesConsidered'
+                    placeholder='Please describe the alternatives you examined before making this request'
+                    rows='2'></textarea>
                 <span asp-validation-for="SoftwareScanningWaiver.alternativesConsidered" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.AdditionalComments" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.AdditionalComments" class="form-control" />
+                <label asp-for="SoftwareScanningWaiver.AdditionalComments" class="control-label fontWeightNormal">Any
+                    additional comments:</label>
+                <textarea class="form-control" asp-for="SoftwareScanningWaiver.AdditionalComments" rows='2'></textarea>
                 <span asp-validation-for="SoftwareScanningWaiver.AdditionalComments" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.OtherFirstName" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.OtherFirstName" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.OtherFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.OtherLastName" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.OtherLastName" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.OtherLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.Status" class="control-label"></label>
-                <select asp-for="SoftwareScanningWaiver.Status" class="form-control"></select>
-                <span asp-validation-for="SoftwareScanningWaiver.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.WaiverNumber" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.WaiverNumber" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.WaiverNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.projectName" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.projectName" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.projectName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.SubmittedOn" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.SubmittedOn" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.SubmittedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoftwareScanningWaiver.CostEstimate" class="control-label"></label>
-                <input asp-for="SoftwareScanningWaiver.CostEstimate" class="form-control" />
-                <span asp-validation-for="SoftwareScanningWaiver.CostEstimate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</form>
 </div>
+<partial name='_Logout' />
+<div style="clear: both"></div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+                showIfSelected('#subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
+                showIfSelected('#subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
+        });
+
+        $("#subscriptionOrPurchase").on("change", function () {
+            showIfSelected('#subscriptionOrPurchase', ['#monthlySubscriptionAmountDiv','#numberOfMonthsDiv'], {valueList: ['1']});
+            showIfSelected('#subscriptionOrPurchase', ['#purchaseAmountDiv','#annualMaintenanceCostDiv'], {valueList: ['2']});
+        });
+    </script>
 }
