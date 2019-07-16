@@ -122,7 +122,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Justification For Request:")]
-        public decimal justificationDescription { get; set; }  
+        public string justificationDescription { get; set; }  
 
         [Required]
         [Display(Name = "Please describe the alternatives you examined before making this request")]
