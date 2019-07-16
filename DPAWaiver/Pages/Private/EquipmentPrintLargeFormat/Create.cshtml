@@ -78,7 +78,7 @@
                 <div class="form-group required">
                     <label asp-for="EquipmentPrintLargeFormatWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
                     <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="EquipmentPrintLargeFormatWaiver.CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" id="EquipmentPrintLargeFormatWaiver.CostEstimate" required="true" step="0.01">
                     <span asp-validation-for="EquipmentPrintLargeFormatWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
