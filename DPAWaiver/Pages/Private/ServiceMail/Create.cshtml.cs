@@ -29,7 +29,9 @@ namespace DPAWaiver.Pages.Private.ServiceMail
             ServiceMailWaiver = new ServiceMailWaiverView();
             ServiceMailWaiver.OtherFirstName = otherFirstName;
             ServiceMailWaiver.OtherLastName = otherLastName;
+            ServiceMailWaiver.MailingDate = DateTime.Today;
             return Page();
+            
         }
 
         public async Task<IActionResult> OnPostAsync()

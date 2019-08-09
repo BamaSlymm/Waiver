@@ -18,8 +18,23 @@ namespace DPAWaiver.Areas.Identity.Data
 
         public DPAWaiverIdentityDbContext(DbContextOptions<DPAWaiverIdentityDbContext> options)
             : base(options)
+
+
         {
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseLoggerFactory(MyLoggerFactory); // Warning: Do not create a new ILoggerFactory instance each time
+
+
+        }
+        public static readonly Microsoft.Extensions.Logging.LoggerFactory MyLoggerFactory =
+        new Microsoft.Extensions.Logging.LoggerFactory(new[] {
+        new Microsoft.Extensions.Logging.Debug.DebugLoggerProvider()
+        });
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -42,18 +57,18 @@ namespace DPAWaiver.Areas.Identity.Data
             .HasKey(b => b.ID);
             builder.Entity<BaseWaiver>()
                 .HasAlternateKey(b => b.WaiverNumber);
-        
-        
+
+
             builder.Entity<BaseWaiverAction>()
                 .Property(e => e.ActionTaken)
-                .HasConversion<string>();    
+                .HasConversion<string>();
             builder.Entity<BaseWaiverAction>()
                 .HasOne(t => t.BaseWaiver)
-                .WithMany(c => c.Actions); 
+                .WithMany(c => c.Actions);
 
             builder.Entity<BaseWaiverAttachment>()
                 .HasOne(t => t.BaseWaiver)
-                .WithMany(c => c.Attachments);                            
+                .WithMany(c => c.Attachments);
 
             builder.Entity<BaseWaiverInvoice>()
                 .HasOne(t => t.BaseWaiver)
@@ -73,7 +88,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.DataEntryWaiver> DataEntryWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAction> BaseWaiverActions { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.BaseWaiverAttachment> BaseWaiverAttachments { get; set; }
-        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverInvoice> BaseWaiverInvoice { get; set; }  
+        public DbSet<DPAWaiver.Models.Waivers.BaseWaiverInvoice> BaseWaiverInvoice { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.EquipmentMailWaiver> EquipmentMailWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintWaiver> EquipmentPrintWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.EquipmentPrintA3Waiver> EquipmentPrintA3Waiver { get; set; }
@@ -87,7 +102,7 @@ namespace DPAWaiver.Areas.Identity.Data
         public DbSet<DPAWaiver.Models.Waivers.ServiceDesignWaiver> ServiceDesignWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.ServiceMailWaiver> ServiceMailWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.ServiceMicrofilmWaiver> ServiceMicrofilmWaiver { get; set; }
-        public DbSet<DPAWaiver.Models.Waivers.ServiceMicrofilmConversionWaiver> ServiceMicrofilmConversionWaiver { get; set; } 
+        public DbSet<DPAWaiver.Models.Waivers.ServiceMicrofilmConversionWaiver> ServiceMicrofilmConversionWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.ServicePrintWaiver> ServicePrintWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.ServiceScanningWaiver> ServiceScanningWaiver { get; set; }
         public DbSet<DPAWaiver.Models.Waivers.SoftwareDataEntryWaiver> SoftwareDataEntryWaiver { get; set; }
@@ -98,12 +113,12 @@ namespace DPAWaiver.Areas.Identity.Data
 
 
 
-       
 
-        
-      
 
-        
+
+
+
+
 
     }
 }
