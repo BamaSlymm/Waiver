@@ -83,11 +83,11 @@
             </td>
             <td>
                 @if (item.Editable) {
-                    <a class="btn btn-default" asp-page="./Private/WaiverList" asp-page-handler="Edit" asp-route-id="@item.ID">Edit</a> 
+                    <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="Edit" asp-route-id="@item.ID">Edit</a> 
                 }
-                <a class="btn btn-default" asp-page="./Private/WaiverList" asp-page-handler="Details" asp-route-id="@item.ID">Details</a>
+                <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="Details" asp-route-id="@item.ID">Details</a>
                 @if (item.Editable) {
-                    <a class="btn btn-default" asp-page="./Private/WaiverList" asp-page-handler="Delete" asp-route-id="@item.ID">Delete</a>
+                    <a class="btn btn-default" asp-page="./WaiverList" asp-page-handler="Delete" asp-route-id="@item.ID">Delete</a>
                 }
             </td>
         </tr>
