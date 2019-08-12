@@ -125,7 +125,7 @@ namespace DPAWaiver.Pages.Private
             {
                 return RedirectToPage(PageList.SoftwareScanningDetails, new {id =id});
             }
-            return RedirectToPage(pageName: "./WaiverList");
+            return RedirectToPage(pageName: "./Private/WaiverList");
         }
          public async Task<IActionResult> OnGetDeleteAsync(Guid? id)
         {
@@ -220,7 +220,7 @@ namespace DPAWaiver.Pages.Private
             {
                 return RedirectToPage(PageList.SoftwareScanningDelete, new {id =id});
             }
-            return RedirectToPage(pageName: "./WaiverList");
+            return RedirectToPage(pageName: "./Private/WaiverList");
         }
          public async Task<IActionResult> OnGetEditAsync(Guid? id)
         {
@@ -315,7 +315,7 @@ namespace DPAWaiver.Pages.Private
             {
                 return RedirectToPage(PageList.SoftwareScanningEdit, new {id =id});
             }
-            return RedirectToPage(pageName: "./WaiverList");
+            return RedirectToPage(pageName: "./Private/WaiverList");
         }
        
     }
