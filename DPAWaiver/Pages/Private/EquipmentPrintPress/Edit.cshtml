@@ -933,22 +933,33 @@ This is a numeric field."></span>
             </div>
         </div>
 
-        <div class="row add-gutter marginTop20px pull-right">
-            <partial name='_Logout' />
-            <a class="btn btn-default" onclick="print();">Print&nbsp;
-                <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-            </a>
-            <button class="btn btn-default btn-space-2x" type="reset">Clear Form&nbsp;
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <partial name="_ViewInvoices" model="@Model.Invoices" />
+        <partial name="_ViewAttachments" model="@Model.Attachments" />
+
+        <div class="row add-gutter marginTop20px">
+            <div class="pull-right">
+                <a class="btn btn-default" asp-page="/Private/Invoice/Invoice" asp-route-id="@Model.ID"
+                    title="Add Invoice" id='addInvoiceButton'>Add Invoice&nbsp;<span
+                        class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></a>
+                <a class="btn btn-default" asp-page="/Private/Attachment/Attachment" asp-route-id="@Model.ID"
+                    title="Upload Supporting Documents" id='uploadAttachmentButton'>Upload Documents&nbsp;<span
+                        class="glyphicon glyphicon-file" aria-hidden="true"></span>
                 </a>
-                <button type="submit" class="btn btn-primary" id='createwaiver' value='Submit'>
-                    Create Waiver&nbsp;
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+
+                <a class="btn btn-default" onclick="print();">Print&nbsp;
+                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                </a>
+                <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                </a>
+                <button type="submit" class="btn btn-primary" id='updateWaiver'>
+                    Update Waiver&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 </button>
+            </div>
         </div>
 </form>
 </div>
-
+<partial name='_Logout' />
 <div style="clear: both"></div>
 
 @section Scripts {

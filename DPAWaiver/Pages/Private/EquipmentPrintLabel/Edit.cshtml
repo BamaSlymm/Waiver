@@ -2,14 +2,15 @@
 @model DPAWaiver.Pages.Private.EquipmentPrintLabel.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+ViewData["Title"] = "Edit";
 }
 
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <partial name="_UserInformation" model="@Model.UserWithDepartment" />
-    @if (Model.EquipmentPrintLabelWaiver.OtherFirstName != null && Model.EquipmentPrintLabelWaiver.OtherLastName != null)
+    @if (Model.EquipmentPrintLabelWaiver.OtherFirstName != null && Model.EquipmentPrintLabelWaiver.OtherLastName !=
+    null)
     {
     <div class="panel panel-primary marginTop20px">
         <div class="panel-heading">
@@ -19,16 +20,20 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
-                    <label asp-for="EquipmentPrintLabelWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
-                    <input asp-for="EquipmentPrintLabelWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintLabelWaiver.OtherFirstName)" />
+                    <label asp-for="EquipmentPrintLabelWaiver.OtherFirstName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="EquipmentPrintLabelWaiver.OtherFirstName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintLabelWaiver.OtherFirstName)" />
                     <span asp-validation-for="EquipmentPrintLabelWaiver.OtherFirstName" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
-                    <label asp-for="EquipmentPrintLabelWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
-                    <input asp-for="EquipmentPrintLabelWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintLabelWaiver.OtherLastName)" />
+                    <label asp-for="EquipmentPrintLabelWaiver.OtherLastName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="EquipmentPrintLabelWaiver.OtherLastName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.EquipmentPrintLabelWaiver.OtherLastName)" />
                     <span asp-validation-for="EquipmentPrintLabelWaiver.OtherLastName" class="text-danger"></span>
                 </div>
             </div>
@@ -37,57 +42,64 @@
     </div>
     }
 
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">Waiver Information</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                Purpose: Equipment
-            </div>
-            <div class="col-md-6 col-xs-12">
-                Type: Print / Copy
-            </div>
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Information</h3>
         </div>
-        <div class="row" style="margin-bottom: 20px">
-            <div class="col-md-6 col-xs-12">
-                Subtype: Label Printer
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    Purpose: Equipment
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    Type: Print / Copy
+                </div>
             </div>
-            <div class="col-md-6 col-xs-12">
-                Status: @Model.EquipmentPrintLabelWaiver.Status
+            <div class="row" style="margin-bottom: 20px">
+                <div class="col-md-6 col-xs-12">
+                    Subtype: Label Printer
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    Status: @Model.EquipmentPrintLabelWaiver.Status
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="EquipmentPrintLabelWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" id="EquipmentPrintLabelWaiver.projectName" required="true" placeholder="Your Project Name">
-                    <span asp-validation-for="EquipmentPrintLabelWaiver.projectName" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="EquipmentPrintLabelWaiver.projectName"
+                            class="control-label fontWeightNormal">Project Name:</label>
+                        <input type="text" class="form-control" id="EquipmentPrintLabelWaiver.projectName"
+                            required="true" placeholder="Your Project Name">
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.projectName" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="EquipmentPrintLabelWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" id="EquipmentPrintLabelWaiver.SubmittedOn" required="true" value="05/04/2018">
-                    <span asp-validation-for="EquipmentPrintLabelWaiver.SubmittedOn" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="EquipmentPrintLabelWaiver.SubmittedOn"
+                            class="control-label fontWeightNormal">Submitted Date:</label>
+                        <input type="date" class="form-control" id="EquipmentPrintLabelWaiver.SubmittedOn"
+                            required="true" value="05/04/2018">
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.SubmittedOn" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="EquipmentPrintLabelWaiver.CostEstimate"
+                            class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
+                        <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                            title="Enter the project cost and estimate such as 9999.99"></span>
+                        <input type="number" class="form-control" id="EquipmentPrintLabelWaiver.CostEstimate"
+                            required="true" step="0.01">
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.CostEstimate" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="EquipmentPrintLabelWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
-                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" id="EquipmentPrintLabelWaiver.CostEstimate" required="true" step="0.01">
-                    <span asp-validation-for="EquipmentPrintLabelWaiver.CostEstimate" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
 
+        </div>
     </div>
-</div>
 
 
     <div class="panel panel-primary marginTop20px">
@@ -99,36 +111,45 @@
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
-                        <label asp-for='EquipmentPrintLabelWaiver.vendorChoice' class='control-label fontWeightNormal'>Please indicate vendor of choice:</label>
-                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.vendorChoice' aria-describedby='vendorChoice' placeholder='Please indicate vendor of choice:'>
+                        <label asp-for='EquipmentPrintLabelWaiver.vendorChoice'
+                            class='control-label fontWeightNormal'>Please indicate vendor of choice:</label>
+                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.vendorChoice'
+                            aria-describedby='vendorChoice' placeholder='Please indicate vendor of choice:'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.vendorChoice" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
-                        <label asp-for='EquipmentPrintLabelWaiver.Make' class='control-label fontWeightNormal'>Make</label>
-                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.Make' aria-describedby='Make' placeholder='Make'>
+                        <label asp-for='EquipmentPrintLabelWaiver.Make'
+                            class='control-label fontWeightNormal'>Make</label>
+                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.Make'
+                            aria-describedby='Make' placeholder='Make'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.Make" class="text-danger"></span>
                     </div>
                 </div>
             </div> <!-- end of row -->
-            
+
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
-                        <label asp-for='EquipmentPrintLabelWaiver.Model' class='control-label fontWeightNormal'>Model</label>
-                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.Model' aria-describedby='Model' placeholder='Model'>
+                        <label asp-for='EquipmentPrintLabelWaiver.Model'
+                            class='control-label fontWeightNormal'>Model</label>
+                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.Model'
+                            aria-describedby='Model' placeholder='Model'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.Model" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class="form-group required">
-                        <label asp-for="EquipmentPrintLabelWaiver.NumberofEquipment" class="control-label fontWeightNormal">Number of equipment?
+                        <label asp-for="EquipmentPrintLabelWaiver.NumberofEquipment"
+                            class="control-label fontWeightNormal">Number of equipment?
                             <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="How many pieces of equipment are being requested?
                 This is a numeric field."></span>
                         </label>
-                        <input type="number" class="form-control" id="EquipmentPrintLabelWaiver.NumberofEquipment" aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.NumberofEquipment" class="text-danger"></span>
+                        <input type="number" class="form-control" id="EquipmentPrintLabelWaiver.NumberofEquipment"
+                            aria-describedby="NumberofEquipment" placeholder="Number of Equipment, Integer">
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.NumberofEquipment"
+                            class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -136,32 +157,41 @@
 
 
             <div class="form-group required">
-                <label asp-for="EquipmentPrintLabelWaiver.selectionReason" class="control-label fontWeightNormal">Reasons for selecting this particular equipment:</label>
-                <textarea class="form-control" id="EquipmentPrintLabelWaiver.selectionReason" aria-describedby="selectionReason" placeholder="Reasons for selection"
-                    rows='2'></textarea>
+                <label asp-for="EquipmentPrintLabelWaiver.selectionReason"
+                    class="control-label fontWeightNormal">Reasons for selecting this particular equipment:</label>
+                <textarea class="form-control" id="EquipmentPrintLabelWaiver.selectionReason"
+                    aria-describedby="selectionReason" placeholder="Reasons for selection" rows='2'></textarea>
                 <span asp-validation-for="EquipmentPrintLabelWaiver.selectionReason" class="text-danger"></span>
             </div>
 
 
             <div class="form-group required">
-                <label asp-for="EquipmentPrintLabelWaiver.servicesReceived" class="control-label fontWeightNormal">How do you currently receive this service: ?</label>
-                <textarea class="form-control" id="EquipmentPrintLabelWaiver.servicesReceived" rows="2" placeholder="if replacement, describe present equipment including make, model and acquisition date"></textarea>
+                <label asp-for="EquipmentPrintLabelWaiver.servicesReceived" class="control-label fontWeightNormal">How
+                    do you currently receive this service: ?</label>
+                <textarea class="form-control" id="EquipmentPrintLabelWaiver.servicesReceived" rows="2"
+                    placeholder="if replacement, describe present equipment including make, model and acquisition date"></textarea>
                 <span asp-validation-for="EquipmentPrintLabelWaiver.servicesReceived" class="text-danger"></span>
             </div>
 
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
-                        <label asp-for='EquipmentPrintLabelWaiver.purchaseAmount' class='control-label fontWeightNormal'>Equipment Purchase Cost:</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.purchaseAmount' aria-describedby='purchaseAmount' placeholder='Purchase Amount'>
+                        <label asp-for='EquipmentPrintLabelWaiver.purchaseAmount'
+                            class='control-label fontWeightNormal'>Equipment Purchase Cost:</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.purchaseAmount'
+                            aria-describedby='purchaseAmount' placeholder='Purchase Amount'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.purchaseAmount" class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
-                        <label asp-for='EquipmentPrintLabelWaiver.agreementOrWarrantyCost' class='control-label fontWeightNormal'>Maintenance or Extended Warranty Cost</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.agreementOrWarrantyCost' aria-describedby='agreementOrWarrantyCost' placeholder='Maintenance Agreement Cost or Extended Warranty Cost'>
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.agreementOrWarrantyCost" class="text-danger"></span>
+                        <label asp-for='EquipmentPrintLabelWaiver.agreementOrWarrantyCost'
+                            class='control-label fontWeightNormal'>Maintenance or Extended Warranty Cost</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.agreementOrWarrantyCost'
+                            aria-describedby='agreementOrWarrantyCost'
+                            placeholder='Maintenance Agreement Cost or Extended Warranty Cost'>
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.agreementOrWarrantyCost"
+                            class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -169,8 +199,10 @@
 
 
             <div class='form-group required'>
-                <label asp-for='EquipmentPrintLabelWaiver.printerReplacementCycle' class='control-label fontWeightNormal'>Printer Replacement Cycle</label>
-                <select class='form-control' id='EquipmentPrintLabelWaiver.printerReplacementCycle' aria-describedby='printerReplacementCycle'>
+                <label asp-for='EquipmentPrintLabelWaiver.printerReplacementCycle'
+                    class='control-label fontWeightNormal'>Printer Replacement Cycle</label>
+                <select class='form-control' id='EquipmentPrintLabelWaiver.printerReplacementCycle'
+                    aria-describedby='printerReplacementCycle'>
                     <option value='48'>48 months</option>
                     <option value='60'>60 months</option>
                     <option value='0'>Other</option>
@@ -181,23 +213,31 @@
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='otherReplacementCycleDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.otherReplacementCycle' class='control-label fontWeightNormal'>Please enter replacement cycle in months</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.otherReplacementCycle' aria-describedby='otherReplacementCycle' placeholder='Please enter replacement cycle in months'>
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.otherReplacementCycle" class="text-danger"></span>
+                        <label asp-for='EquipmentPrintLabelWaiver.otherReplacementCycle'
+                            class='control-label fontWeightNormal'>Please enter replacement cycle in months</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.otherReplacementCycle'
+                            aria-describedby='otherReplacementCycle'
+                            placeholder='Please enter replacement cycle in months'>
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.otherReplacementCycle"
+                            class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required'>
-                        <label asp-for='EquipmentPrintLabelWaiver.monthlyCostWithoutToner' class='control-label fontWeightNormal'>Monthly Cost Without Toner</label>
-                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.monthlyCostWithoutToner' aria-describedby='monthlyCostWithoutToner' placeholder='Monthly Cost Without Toner'>
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyCostWithoutToner" class="text-danger"></span>
+                        <label asp-for='EquipmentPrintLabelWaiver.monthlyCostWithoutToner'
+                            class='control-label fontWeightNormal'>Monthly Cost Without Toner</label>
+                        <input type='text' class='form-control' id='EquipmentPrintLabelWaiver.monthlyCostWithoutToner'
+                            aria-describedby='monthlyCostWithoutToner' placeholder='Monthly Cost Without Toner'>
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyCostWithoutToner"
+                            class="text-danger"></span>
                     </div>
                 </div>
             </div>
             <!-- end of row -->
 
             <div class='form-group required'>
-                <label asp-for='EquipmentPrintLabelWaiver.printerType' class='control-label fontWeightNormal'>Type Of Printer</label>
+                <label asp-for='EquipmentPrintLabelWaiver.printerType' class='control-label fontWeightNormal'>Type Of
+                    Printer</label>
                 <select class='form-control' id='EquipmentPrintLabelWaiver.printerType' aria-describedby='printerType'>
                     <option value='Thermal'>Thermal</option>
                     <option value='Black'>Black</option>
@@ -209,46 +249,65 @@
             <div class='row'>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='monthlyMonochromeVolumeDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.monthlyMonochromeVolume' class='control-label fontWeightNormal'>Anticipated Monochrome(black) Labels Per Month</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.monthlyMonochromeVolume' aria-describedby='monthlyMonochromeVolume' placeholder='Anticipated Average Monochrome(black) monthly volume'>
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyMonochromeVolume" class="text-danger"></span>
+                        <label asp-for='EquipmentPrintLabelWaiver.monthlyMonochromeVolume'
+                            class='control-label fontWeightNormal'>Anticipated Monochrome(black) Labels Per
+                            Month</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.monthlyMonochromeVolume'
+                            aria-describedby='monthlyMonochromeVolume'
+                            placeholder='Anticipated Average Monochrome(black) monthly volume'>
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyMonochromeVolume"
+                            class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='monthlyColorVolumeDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.monthlyColorVolume' class='control-label fontWeightNormal'>Anticipated Color Labels Per Month</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.monthlyColorVolume' aria-describedby='monthlyColorVolume' placeholder='Average color monthly volume'>
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyColorVolume" class="text-danger"></span>
+                        <label asp-for='EquipmentPrintLabelWaiver.monthlyColorVolume'
+                            class='control-label fontWeightNormal'>Anticipated Color Labels Per Month</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.monthlyColorVolume'
+                            aria-describedby='monthlyColorVolume' placeholder='Average color monthly volume'>
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.monthlyColorVolume"
+                            class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='blackTonerCostDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.blackTonerCost' class='control-label fontWeightNormal'>Black Toner Cartridge Cost</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.blackTonerCost' aria-describedby='blackTonerCost' placeholder='Black Toner Cartridge Cost'>
+                        <label asp-for='EquipmentPrintLabelWaiver.blackTonerCost'
+                            class='control-label fontWeightNormal'>Black Toner Cartridge Cost</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.blackTonerCost'
+                            aria-describedby='blackTonerCost' placeholder='Black Toner Cartridge Cost'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.blackTonerCost" class="text-danger"></span>
                     </div>
 
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='cyanTonerCostDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.cyanTonerCost' class='control-label fontWeightNormal'>Cyan Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.cyanTonerCost' aria-describedby='cyanTonerCost' placeholder='Cyan Toner Cartridge Cost (if applicable)'>
+                        <label asp-for='EquipmentPrintLabelWaiver.cyanTonerCost'
+                            class='control-label fontWeightNormal'>Cyan Toner Cartridge Cost (if applicable)</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.cyanTonerCost'
+                            aria-describedby='cyanTonerCost' placeholder='Cyan Toner Cartridge Cost (if applicable)'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.cyanTonerCost" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='MagentaTonerCostDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.MagentaTonerCost' class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.MagentaTonerCost' aria-describedby='MagentaTonerCost' placeholder='Magenta Toner Cartridge Cost (if applicable)'>
-                        <span asp-validation-for="EquipmentPrintLabelWaiver.MagentaTonerCost" class="text-danger"></span>
+                        <label asp-for='EquipmentPrintLabelWaiver.MagentaTonerCost'
+                            class='control-label fontWeightNormal'>Magenta Toner Cartridge Cost (if applicable)</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.MagentaTonerCost'
+                            aria-describedby='MagentaTonerCost'
+                            placeholder='Magenta Toner Cartridge Cost (if applicable)'>
+                        <span asp-validation-for="EquipmentPrintLabelWaiver.MagentaTonerCost"
+                            class="text-danger"></span>
                     </div>
                 </div>
                 <div class='col-sm-6 col-xs-12'>
                     <div class='form-group required' id='YellowTonerCostDiv'>
-                        <label asp-for='EquipmentPrintLabelWaiver.YellowTonerCost' class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
-                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.YellowTonerCost' aria-describedby='YellowTonerCost' placeholder='Yellow Toner Cartridge Cost (if applicable)'>
+                        <label asp-for='EquipmentPrintLabelWaiver.YellowTonerCost'
+                            class='control-label fontWeightNormal'>Yellow Toner Cartridge Cost (if applicable)</label>
+                        <input type='number' class='form-control' id='EquipmentPrintLabelWaiver.YellowTonerCost'
+                            aria-describedby='YellowTonerCost'
+                            placeholder='Yellow Toner Cartridge Cost (if applicable)'>
                         <span asp-validation-for="EquipmentPrintLabelWaiver.YellowTonerCost" class="text-danger"></span>
                     </div>
                 </div>
@@ -259,23 +318,30 @@
 
 
             <div class='form-group required'>
-                <label asp-for='EquipmentPrintLabelWaiver.justificationDescription' class='control-label fontWeightNormal'>Justification For Request</label>
-                <textarea class='form-control' id='EquipmentPrintLabelWaiver.justificationDescription' aria-describedby='justificationDescription' placeholder='Justification For Request'
+                <label asp-for='EquipmentPrintLabelWaiver.justificationDescription'
+                    class='control-label fontWeightNormal'>Justification For Request</label>
+                <textarea class='form-control' id='EquipmentPrintLabelWaiver.justificationDescription'
+                    aria-describedby='justificationDescription' placeholder='Justification For Request'
                     rows='2'></textarea>
-                <span asp-validation-for="EquipmentPrintLabelWaiver.justificationDescription" class="text-danger"></span>
+                <span asp-validation-for="EquipmentPrintLabelWaiver.justificationDescription"
+                    class="text-danger"></span>
             </div>
 
 
 
             <div class="form-group required">
-                <label asp-for="EquipmentPrintLabelWaiver.alternativesDescription" class="control-label fontWeightNormal">Please describe the alternatives you have examined before making the request</label>
-                <textarea class="form-control" id="EquipmentPrintLabelWaiver.alternativesDescription" rows="2" placeholder="Please describe what printing practices are being made to comply with the DPA/OIT Recommendations to consolidate printing assets and move print to more cost effective centralized network devices."></textarea>
+                <label asp-for="EquipmentPrintLabelWaiver.alternativesDescription"
+                    class="control-label fontWeightNormal">Please describe the alternatives you have examined before
+                    making the request</label>
+                <textarea class="form-control" id="EquipmentPrintLabelWaiver.alternativesDescription" rows="2"
+                    placeholder="Please describe what printing practices are being made to comply with the DPA/OIT Recommendations to consolidate printing assets and move print to more cost effective centralized network devices."></textarea>
                 <span asp-validation-for="EquipmentPrintLabelWaiver.alternativesDescription" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
-                <label asp-for="EquipmentPrintLabelWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
+                <label asp-for="EquipmentPrintLabelWaiver.AdditionalComments" class="control-label fontWeightNormal">Any
+                    additional comments:</label>
                 <textarea class="form-control" id="EquipmentPrintLabelWaiver.AdditionalComments" rows='2'></textarea>
                 <span asp-validation-for="EquipmentPrintLabelWaiver.AdditionalComments" class="text-danger"></span>
             </div>
@@ -283,6 +349,9 @@
 
         </div>
     </div>
+
+    <partial name="_ViewInvoices" model="@Model.Invoices" />
+    <partial name="_ViewAttachments" model="@Model.Attachments" />
 
     <div class="row add-gutter marginTop20px">
         <div class="pull-right">
@@ -312,64 +381,79 @@
 <div style="clear: both"></div>
 
 @section Scripts {
-    <script type="text/javascript">
-        $(document).ready(function () {
-            showIfSelected('#EquipmentPrintLabelWaiver_printerType', 
-                            ['#monthlyMonochromeVolumeDiv','#monthlyColorVolumeDiv','#blackTonerCostDiv',
-                            '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                            , {valueList: ['Thermal'] });
-            showIfSelected('#EquipmentPrintLabelWaiver_printerType', 
-                            ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv']
-                            , {valueList: ['Black'] });
-            showIfSelected('#EquipmentPrintLabelWaiver_printerType', 
-                            ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv','#monthlyColorVolumeDiv',
-                            '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                            , {valueList: ['Color'] });
-            showIfSelected('#EquipmentPrintLabelWaiver_printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0'] });
+<script type="text/javascript">
+    $(document).ready(function () {
+        showIfSelected('#EquipmentPrintLabelWaiver_printerType',
+            ['#monthlyMonochromeVolumeDiv', '#monthlyColorVolumeDiv', '#blackTonerCostDiv',
+                '#cyanTonerCostDiv', '#MagentaTonerCostDiv', '#YellowTonerCostDiv'
+            ], {
+                valueList: ['Thermal']
+            });
+        showIfSelected('#EquipmentPrintLabelWaiver_printerType',
+            ['#monthlyMonochromeVolumeDiv', '#blackTonerCostDiv'], {
+                valueList: ['Black']
+            });
+        showIfSelected('#EquipmentPrintLabelWaiver_printerType',
+            ['#monthlyMonochromeVolumeDiv', '#blackTonerCostDiv', '#monthlyColorVolumeDiv',
+                '#cyanTonerCostDiv', '#MagentaTonerCostDiv', '#YellowTonerCostDiv'
+            ], {
+                valueList: ['Color']
+            });
+        showIfSelected('#EquipmentPrintLabelWaiver_printerReplacementCycle', ['#otherReplacementCycleDiv'], {
+            valueList: ['0']
+        });
 
 
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
-        });
+    });
 
-        $("#EquipmentPrintLabelWaiver_printerType").on("change", function () {
-            showIfSelected('#EquipmentPrintLabelWaiver_printerType', 
-                            ['#monthlyMonochromeVolumeDiv','#monthlyColorVolumeDiv','#blackTonerCostDiv',
-                            '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                            , {valueList: ['Thermal'] });
-            showIfSelected('#EquipmentPrintLabelWaiver_printerType', 
-                            ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv']
-                            , {valueList: ['Black'] });
-            showIfSelected('#EquipmentPrintLabelWaiver_printerType', 
-                        ['#monthlyMonochromeVolumeDiv','#blackTonerCostDiv','#monthlyColorVolumeDiv',
-                        '#cyanTonerCostDiv','#MagentaTonerCostDiv','#YellowTonerCostDiv']
-                        , {valueList: ['Color'] });
-        });
+    $("#EquipmentPrintLabelWaiver_printerType").on("change", function () {
+        showIfSelected('#EquipmentPrintLabelWaiver_printerType',
+            ['#monthlyMonochromeVolumeDiv', '#monthlyColorVolumeDiv', '#blackTonerCostDiv',
+                '#cyanTonerCostDiv', '#MagentaTonerCostDiv', '#YellowTonerCostDiv'
+            ], {
+                valueList: ['Thermal']
+            });
+        showIfSelected('#EquipmentPrintLabelWaiver_printerType',
+            ['#monthlyMonochromeVolumeDiv', '#blackTonerCostDiv'], {
+                valueList: ['Black']
+            });
+        showIfSelected('#EquipmentPrintLabelWaiver_printerType',
+            ['#monthlyMonochromeVolumeDiv', '#blackTonerCostDiv', '#monthlyColorVolumeDiv',
+                '#cyanTonerCostDiv', '#MagentaTonerCostDiv', '#YellowTonerCostDiv'
+            ], {
+                valueList: ['Color']
+            });
+    });
 
-        $("#EquipmentPrintLabelWaiver_printerReplacementCycle").on("change", function () {
-            showIfSelected('#EquipmentPrintLabelWaiver_printerReplacementCycle', ['#otherReplacementCycleDiv'], {valueList: ['0'] });
+    $("#EquipmentPrintLabelWaiver_printerReplacementCycle").on("change", function () {
+        showIfSelected('#EquipmentPrintLabelWaiver_printerReplacementCycle', ['#otherReplacementCycleDiv'], {
+            valueList: ['0']
         });
+    });
 
-        $("#EquipmentPrintLabelWaiver_purchaseAmount, #EquipmentPrintLabelWaiver_agreementOrWarrantyCost, #EquipmentPrintLabelWaiver_printerReplacementCycle, #EquipmentPrintLabelWaiver_otherReplacementCycle").on("change paste keyup", function () {
+    $("#EquipmentPrintLabelWaiver_purchaseAmount, #EquipmentPrintLabelWaiver_agreementOrWarrantyCost, #EquipmentPrintLabelWaiver_printerReplacementCycle, #EquipmentPrintLabelWaiver_otherReplacementCycle")
+        .on("change paste keyup", function () {
             calculateMonthlyCostlyWithoutToner();
         });
 
-        function calculateMonthlyCostlyWithoutToner() {
-            let purchaseAmount = $('#EquipmentPrintLabelWaiver_purchaseAmount').val();
-            let agreementOrWarrantyCost = $('#EquipmentPrintLabelWaiver_agreementOrWarrantyCost').val()
-            if ($.isNumeric(purchaseAmount) && $.isNumeric(agreementOrWarrantyCost)) {
-                let replacementMonths = $('#EquipmentPrintLabelWaiver_printerReplacementCycle option:selected').val();
-                if (replacementMonths === '0') {
-                    replacementMonths = $('#EquipmentPrintLabelWaiver_otherReplacementCycle').val();
-                }
-                if ($.isNumeric(replacementMonths)) {
-                    let monthlyCostWithoutToner = parseFloat(purchaseAmount) + (agreementOrWarrantyCost / replacementMonths);
-                    $('#EquipmentPrintLabelWaiver_monthlyCostWithoutToner').val(Number(monthlyCostWithoutToner).toFixed(2));
-                }
-                return ;
+    function calculateMonthlyCostlyWithoutToner() {
+        let purchaseAmount = $('#EquipmentPrintLabelWaiver_purchaseAmount').val();
+        let agreementOrWarrantyCost = $('#EquipmentPrintLabelWaiver_agreementOrWarrantyCost').val()
+        if ($.isNumeric(purchaseAmount) && $.isNumeric(agreementOrWarrantyCost)) {
+            let replacementMonths = $('#EquipmentPrintLabelWaiver_printerReplacementCycle option:selected').val();
+            if (replacementMonths === '0') {
+                replacementMonths = $('#EquipmentPrintLabelWaiver_otherReplacementCycle').val();
             }
-            $('#EquipmentPrintLabelWaiver_monthlyCostWithoutToner').val('');
-            return ;
+            if ($.isNumeric(replacementMonths)) {
+                let monthlyCostWithoutToner = parseFloat(purchaseAmount) + (agreementOrWarrantyCost /
+                replacementMonths);
+                $('#EquipmentPrintLabelWaiver_monthlyCostWithoutToner').val(Number(monthlyCostWithoutToner).toFixed(2));
+            }
+            return;
         }
-
-    </script>
+        $('#EquipmentPrintLabelWaiver_monthlyCostWithoutToner').val('');
+        return;
+    }
+</script>
 }

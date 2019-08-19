@@ -2,14 +2,15 @@
 @model DPAWaiver.Pages.Private.ServiceMicrofilmConversion.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+ViewData["Title"] = "Edit";
 }
 
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <partial name="_UserInformation" model="@Model.UserWithDepartment" />
-    @if (Model.ServiceMicrofilmConversionWaiver.OtherFirstName != null && Model.ServiceMicrofilmConversionWaiver.OtherLastName != null)
+    @if (Model.ServiceMicrofilmConversionWaiver.OtherFirstName != null &&
+    Model.ServiceMicrofilmConversionWaiver.OtherLastName != null)
     {
     <div class="panel panel-primary marginTop20px">
         <div class="panel-heading">
@@ -19,17 +20,23 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="control-label fontWeightNormal"></label>
-                    <input asp-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.ServiceMicrofilmConversionWaiver.OtherFirstName)" />
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="text-danger"></span>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.OtherFirstName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="ServiceMicrofilmConversionWaiver.OtherFirstName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.ServiceMicrofilmConversionWaiver.OtherFirstName)" />
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.OtherFirstName"
+                        class="text-danger"></span>
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="control-label fontWeightNormal"></label>
-                    <input asp-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="form-control" placeholder="@Html.DisplayNameFor(model => Model.ServiceMicrofilmConversionWaiver.OtherLastName)" />
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="text-danger"></span>
+                    <label asp-for="ServiceMicrofilmConversionWaiver.OtherLastName"
+                        class="control-label fontWeightNormal"></label>
+                    <input asp-for="ServiceMicrofilmConversionWaiver.OtherLastName" class="form-control"
+                        placeholder="@Html.DisplayNameFor(model => Model.ServiceMicrofilmConversionWaiver.OtherLastName)" />
+                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.OtherLastName"
+                        class="text-danger"></span>
                 </div>
             </div>
 
@@ -37,238 +44,326 @@
     </div>
     }
 
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">Waiver Information</h3>
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    Purpose: Service
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    Type: Microfilm / Microfilm Conversion
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px">
+                <div class="col-md-6 col-xs-12">
+                    Subtype: Microfilm Conversion
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    Status: @Model.ServiceMicrofilmConversionWaiver.Status
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.projectName"
+                            class="control-label fontWeightNormal">Project Name:</label>
+                        <input type="text" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.projectName"
+                            required="true" placeholder="Your Project Name">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.projectName"
+                            class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn"
+                            class="control-label fontWeightNormal">Submitted Date:</label>
+                        <input type="date" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn"
+                            required="true" value="05/04/2018">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.SubmittedOn"
+                            class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.CostEstimate"
+                            class="control-label fontWeightNormal">Cost Estimate:</label>
+                        <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
+                            title="Enter the project cost and estimate such as 9999.99"></span>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceMicrofilmConversionWaiver.CostEstimate" required="true" step="0.01">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.CostEstimate"
+                            class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                Purpose: Service
-            </div>
-            <div class="col-md-6 col-xs-12">
-                Type: Microfilm / Microfilm Conversion
-            </div>
+
+    <div class="panel panel-primary marginTop20px">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Waiver Details</h3>
         </div>
-        <div class="row"  style="margin-bottom: 20px">
-            <div class="col-md-6 col-xs-12">
-                Subtype: Microfilm Conversion
-            </div>
-            <div class="col-md-6 col-xs-12">
-                Status: @Model.ServiceMicrofilmConversionWaiver.Status
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.projectName" class="control-label fontWeightNormal">Project Name:</label>
-                    <input type="text" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.projectName" required="true" placeholder="Your Project Name">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.projectName" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="control-label fontWeightNormal">Submitted Date:</label>
-                    <input type="date" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.SubmittedOn" required="true" value="05/04/2018">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.SubmittedOn" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
-                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
-                    <input type="number" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.CostEstimate" required="true" step="0.01">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.CostEstimate" class="text-danger"></span>
-                </div>
+        <div class="panel-body">
+            <div class="form-group required">
+                <label asp-for="ServiceMicrofilmConversionWaiver.WorkflowDescription"
+                    class="control-label fontWeightNormal">Describe the current workflow process:</label>
+                <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.WorkflowDescription"
+                    rows='2'></textarea>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.WorkflowDescription"
+                    class="text-danger"></span>
             </div>
 
-        </div>
-
-    </div>
-</div>
-
-<div class="panel panel-primary marginTop20px">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center">Waiver Details</h3>
-    </div>
-    <div class="panel-body">
-        <div class="form-group required">
-            <label asp-for="ServiceMicrofilmConversionWaiver.WorkflowDescription" class="control-label fontWeightNormal">Describe the current workflow process:</label>
-            <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.WorkflowDescription" rows='2'></textarea>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.WorkflowDescription" class="text-danger"></span>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="control-label fontWeightNormal">What type of film are you needing converting?</label>
-                    <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.typeofFilm">
-                        <option>Please select one</option>
-                        <option>16 mm microfilm</option>
-                        <option>35 mm microfilm</option>
-                        <option>aperture card</option>
-                        <option>microfiche</option>
-                    </select>
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.typeofFilm" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.typeofFilm"
+                            class="control-label fontWeightNormal">What type of film are you needing converting?</label>
+                        <select class="form-control control-label"
+                            asp-for="ServiceMicrofilmConversionWaiver.typeofFilm">
+                            <option>Please select one</option>
+                            <option>16 mm microfilm</option>
+                            <option>35 mm microfilm</option>
+                            <option>aperture card</option>
+                            <option>microfiche</option>
+                        </select>
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.typeofFilm"
+                            class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-xs-12" id="NumberofRollsDiv">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="control-label fontWeightNormal">Estimated number of rolls:</label>
-                    <input type="number" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.NumberofRolls" class="text-danger"></span>
+                <div class="col-md-6 col-xs-12" id="NumberofRollsDiv">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls"
+                            class="control-label fontWeightNormal">Estimated number of rolls:</label>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceMicrofilmConversionWaiver.NumberofRolls">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.NumberofRolls"
+                            class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-xs-12" id="numberOfCardsDiv">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.numberOfCards" class="control-label fontWeightNormal">Estimated number of cards/sheets:</label>
-                    <input type="number" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.numberOfCards">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.numberOfCards" class="text-danger"></span>
+                <div class="col-md-6 col-xs-12" id="numberOfCardsDiv">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.numberOfCards"
+                            class="control-label fontWeightNormal">Estimated number of cards/sheets:</label>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceMicrofilmConversionWaiver.numberOfCards">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.numberOfCards"
+                            class="text-danger"></span>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="control-label fontWeightNormal">Estimated number of FTE:
-                        <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE"
+                            class="control-label fontWeightNormal">Estimated number of FTE:
+                            <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of full time employees needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 employees)"></i>
-                    </label>
-                    
-                    <input type="number" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
+                        </label>
 
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours" class="control-label fontWeightNormal">Estimated number of hours:<span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
+                        <input type="number" class="form-control"
+                            asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE"
+                            aria-describedby="EstimatedNumberofFTE" placeholder="Full Time Employee Count">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberofFTE"
+                            class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours"
+                            class="control-label fontWeightNormal">Estimated number of hours:<span
+                                class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Enter the estimated number of hours needed to complete this project. 
 This is a numeric field. Decimal can be used (i.e. 1.5 which would be equal to 1 1/2 hours)"></span>
-                    </label>
-                    <input type="number" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours" aria-describedby="EstimatedNumberOfHours" placeholder="Estimated number of hours">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours" class="text-danger"></span>
+                        </label>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours"
+                            aria-describedby="EstimatedNumberOfHours" placeholder="Estimated number of hours">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfHours"
+                            class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="control-label fontWeightNormal">Will the job require indexing</label>
-                        <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded"
+                            class="control-label fontWeightNormal">Will the job require indexing</label>
+                        <select class="form-control control-label"
+                            asp-for="ServiceMicrofilmConversionWaiver.indexingNeeded">
                             <option>No</option>
                             <option>Yes</option>
-                    </select>
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.indexingNeeded" class="text-danger"></span>
+                        </select>
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.indexingNeeded"
+                            class="text-danger"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required" id="EstimatedNumberOfFieldsDiv">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields" class="control-label fontWeightNormal">Estimated number of fields per document:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required" id="EstimatedNumberOfFieldsDiv">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields"
+                            class="control-label fontWeightNormal">Estimated number of fields per document:<span
+                                class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the estimated number of fields per documents needed to complete this project. 
 This is a numeric field."></span>
-                    </label>
-                    <input type="number" class="form-control" asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields" aria-describedby="EstimatedNumberOfFields" placeholder="Estimated number of fields per document">
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields" class="text-danger"></span>
+                        </label>
+                        <input type="number" class="form-control"
+                            asp-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields"
+                            aria-describedby="EstimatedNumberOfFields"
+                            placeholder="Estimated number of fields per document">
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.EstimatedNumberOfFields"
+                            class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="control-label fontWeightNormal">Do you need a text searchable .pdf?</label>
-                    <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF">
-                        <option>No</option>
-                        <option>Yes</option>
-                    </select>
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.textSearchablePDF" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF"
+                            class="control-label fontWeightNormal">Do you need a text searchable .pdf?</label>
+                        <select class="form-control control-label"
+                            asp-for="ServiceMicrofilmConversionWaiver.textSearchablePDF">
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.textSearchablePDF"
+                            class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group required">
+                        <label asp-for="ServiceMicrofilmConversionWaiver.imageDelivery"
+                            class="control-label fontWeightNormal">How do you need the receive the images?</label>
+                        <select class="form-control control-label"
+                            asp-for="ServiceMicrofilmConversionWaiver.imageDelivery">
+                            <option>DVD</option>
+                            <option>USB</option>
+                            <option value=2>Email</option>
+                            <option>Google Drive</option>
+                            <option value=1>Other</option>
+                        </select>
+                        <span asp-validation-for="ServiceMicrofilmConversionWaiver.imageDelivery"
+                            class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="control-label fontWeightNormal">How do you need the receive the images?</label>
-                    <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.imageDelivery">
-                        <option>DVD</option>
-                        <option>USB</option>
-                        <option value=2>Email</option>
-                        <option>Google Drive</option>
-                        <option value=1>Other</option>
-                    </select>
-                    <span asp-validation-for="ServiceMicrofilmConversionWaiver.imageDelivery" class="text-danger"></span>
-                </div>
+
+
+
+            <div class="form-group required" id="otherImageDeliveryDiv">
+                <label asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery"
+                    class="control-label fontWeightNormal">Please specify other delivery method:</label>
+                <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery"
+                    rows="2"></textarea>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.otherImageDelivery"
+                    class="text-danger"></span>
             </div>
-        </div>
+
+            <div class="form-group required" id="emailImageDeliveryDiv">
+                <label asp-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery"
+                    class="control-label fontWeightNormal">Please specify email address(es) seperated by
+                    semicolon:</label>
+                <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery"
+                    rows="2"></textarea>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery"
+                    class="text-danger"></span>
+            </div>
+
+            <div class="form-group required">
+                <label asp-for="ServiceMicrofilmConversionWaiver.systemRequirements"
+                    class="control-label fontWeightNormal">Specify system requirements.</label>
+                <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.systemRequirements"
+                    rows="2"></textarea>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.systemRequirements"
+                    class="text-danger"></span>
+            </div>
+
+            <div class="form-group required">
+                <label asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem"
+                    class="control-label fontWeightNormal">Can the data be converted and imported into your department's
+                    internal database.</label>
+                <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem">
+                    <option>Please select one</option>
+                    <option value='0'>No</option>
+                    <option value='1'>Yes</option>
+                </select>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="text-danger"></span>
+            </div>
+
+            <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>
+                <label asp-for='ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem'
+                    class='control-label fontWeightNormal'>Please explain why</label>
+                <input type='text' class='form-control'
+                    asp-for='ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem'
+                    aria-describedby='ReasonForNotKeyedIntoSystem' placeholder='Please explain why'>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem"
+                    class="text-danger"></span>
+            </div>
+
+            <div class="form-group required">
+                <label asp-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="control-label fontWeightNormal">Can
+                    the microfilm function be provided by the State's scanning unit.</label>
+                <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.doneInHouse">
+                    <option>Please select one</option>
+                    <option value='0'>No</option>
+                    <option value='1'>Yes</option>
+                </select>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="text-danger"></span>
+            </div>
+
+            <div class='form-group required' id='notInHouseReasonDiv'>
+                <label asp-for='ServiceMicrofilmConversionWaiver.NotInHouseReason'
+                    class='control-label fontWeightNormal'>Please explain why</label>
+                <input type='text' class='form-control' asp-for='ServiceMicrofilmConversionWaiver.NotInHouseReason'
+                    aria-describedby='NotInHouseReason' placeholder='Please explain why'>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.NotInHouseReason" class="text-danger"></span>
+            </div>
 
 
+            <div class="form-group">
+                <label asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments"
+                    class="control-label fontWeightNormal">Any additional comments:</label>
+                <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments"
+                    rows='2'></textarea>
+                <span asp-validation-for="ServiceMicrofilmConversionWaiver.AdditionalComments"
+                    class="text-danger"></span>
+            </div>
 
-        <div class="form-group required" id="otherImageDeliveryDiv">
-            <label asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="control-label fontWeightNormal">Please specify other delivery method:</label>
-            <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" rows="2"></textarea>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.otherImageDelivery" class="text-danger"></span>
-        </div>
-
-        <div class="form-group required" id="emailImageDeliveryDiv">
-            <label asp-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery" class="control-label fontWeightNormal">Please specify email address(es) seperated by semicolon:</label>
-            <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery" rows="2"></textarea>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.emailOtherImageDelivery" class="text-danger"></span>
-        </div>
-
-        <div class="form-group required">
-            <label asp-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="control-label fontWeightNormal">Specify system requirements.</label>
-            <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.systemRequirements" rows="2"></textarea>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.systemRequirements" class="text-danger"></span>
-        </div>
-
-        <div class="form-group required">
-            <label asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="control-label fontWeightNormal">Can the data be converted and imported into your department's internal database.</label>
-            <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem">
-                <option>Please select one</option>
-                <option value='0'>No</option>
-                <option value='1'>Yes</option>
-            </select>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.keyedIntoSystem" class="text-danger"></span>
-        </div>
-
-        <div class='form-group required' id='reasonForNotKeyedIntoSystemDiv'>
-            <label asp-for='ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem' class='control-label fontWeightNormal'>Please explain why</label>
-            <input type='text' class='form-control' asp-for='ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem' aria-describedby='ReasonForNotKeyedIntoSystem' placeholder='Please explain why'>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.ReasonForNotKeyedIntoSystem" class="text-danger"></span>
-        </div>
-
-      <div class="form-group required">
-            <label asp-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="control-label fontWeightNormal">Can the microfilm function be provided by the State's scanning unit.</label>
-            <select class="form-control control-label" asp-for="ServiceMicrofilmConversionWaiver.doneInHouse">
-                <option>Please select one</option>
-                <option value='0'>No</option>
-                <option value='1'>Yes</option>
-            </select>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.doneInHouse" class="text-danger"></span>
-        </div>
-
-        <div class='form-group required' id='notInHouseReasonDiv'>
-            <label asp-for='ServiceMicrofilmConversionWaiver.NotInHouseReason' class='control-label fontWeightNormal'>Please explain why</label>
-            <input type='text' class='form-control' asp-for='ServiceMicrofilmConversionWaiver.NotInHouseReason' aria-describedby='NotInHouseReason' placeholder='Please explain why'>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.NotInHouseReason" class="text-danger"></span>
-        </div>
-
-
-        <div class="form-group">
-            <label asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="control-label fontWeightNormal">Any additional comments:</label>
-            <textarea class="form-control" asp-for="ServiceMicrofilmConversionWaiver.AdditionalComments" rows='2'></textarea>
-            <span asp-validation-for="ServiceMicrofilmConversionWaiver.AdditionalComments" class="text-danger"></span>
         </div>
 
     </div>
+    <partial name="_ViewInvoices" model="@Model.Invoices" />
+    <partial name="_ViewAttachments" model="@Model.Attachments" />
 
-</div>
+    <div class="row add-gutter marginTop20px">
+        <div class="pull-right">
+            <a class="btn btn-default" asp-page="/Private/Invoice/Invoice" asp-route-id="@Model.ID" title="Add Invoice"
+                id='addInvoiceButton'>Add Invoice&nbsp;<span class="glyphicon glyphicon-credit-card"
+                    aria-hidden="true"></span></a>
+            <a class="btn btn-default" asp-page="/Private/Attachment/Attachment" asp-route-id="@Model.ID"
+                title="Upload Supporting Documents" id='uploadAttachmentButton'>Upload Documents&nbsp;<span
+                    class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            </a>
 
-<div>
-    <a asp-page="./Private/WaiverList">Back to List</a>
-</div>
+            <a class="btn btn-default" onclick="print();">Print&nbsp;
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+            </a>
+            <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+            </a>
+            <button type="submit" class="btn btn-primary" id='updateWaiver'>
+                Update Waiver&nbsp;<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
 
 </form>
 
@@ -278,39 +373,69 @@ This is a numeric field."></span>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#NumberofRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#numberOfCardsDiv'], {textList:['aperture card','microfiche']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {textList:['Yes']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#otherImageDeliveryDiv'], {valueList:['1']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#emailImageDeliveryDiv'], {valueList:['2']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_keyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], { valueList: ['0']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_doneInHouse', ['#notInHouseReasonDiv'], { valueList: ['0']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#NumberofRollsDiv'], {
+            textList: ['16 mm microfilm', '35 mm microfilm']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#numberOfCardsDiv'], {
+            textList: ['aperture card', 'microfiche']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {
+            textList: ['Yes']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#otherImageDeliveryDiv'], {
+            valueList: ['1']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#emailImageDeliveryDiv'], {
+            valueList: ['2']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_keyedIntoSystem', [
+        '#reasonForNotKeyedIntoSystemDiv'], {
+            valueList: ['0']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_doneInHouse', ['#notInHouseReasonDiv'], {
+            valueList: ['0']
+        });
     });
 
     $("#ServiceMicrofilmConversionWaiver_typeOfFilm").on("change", function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#NumberofRollsDiv'], {textList:['16 mm microfilm','35 mm microfilm']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#NumberofRollsDiv'], {
+            textList: ['16 mm microfilm', '35 mm microfilm']
+        });
     });
-   
+
     $("#ServiceMicrofilmConversionWaiver_typeOfFilm").on("change", function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#numberOfCardsDiv'], {textList:['aperture card','microfiche']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_typeOfFilm', ['#numberOfCardsDiv'], {
+            textList: ['aperture card', 'microfiche']
+        });
     });
 
     $("#ServiceMicrofilmConversionWaiver_indexingNeeded").on("change", function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {textList:['Yes']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_indexingNeeded', ['#EstimatedNumberOfFieldsDiv'], {
+            textList: ['Yes']
+        });
     });
 
     $("#ServiceMicrofilmConversionWaiver_imageDelivery").on("change", function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#otherImageDeliveryDiv'], {valueList:['1']});
-        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#emailImageDeliveryDiv'], {valueList:['2']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#otherImageDeliveryDiv'], {
+            valueList: ['1']
+        });
+        showIfSelected('#ServiceMicrofilmConversionWaiver_imageDelivery', ['#emailImageDeliveryDiv'], {
+            valueList: ['2']
+        });
     });
 
     $("#ServiceMicrofilmConversionWaiver_keyedIntoSystem").on("change", function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_keyedIntoSystem', ['#reasonForNotKeyedIntoSystemDiv'], { valueList: ['0']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_keyedIntoSystem', [
+        '#reasonForNotKeyedIntoSystemDiv'], {
+            valueList: ['0']
+        });
     });
 
     $("#ServiceMicrofilmConversionWaiver_doneInHouse").on("change", function () {
-        showIfSelected('#ServiceMicrofilmConversionWaiver_doneInHouse', ['#notInHouseReasonDiv'], { valueList: ['0']});
+        showIfSelected('#ServiceMicrofilmConversionWaiver_doneInHouse', ['#notInHouseReasonDiv'], {
+            valueList: ['0']
+        });
     });
-    </script>
+</script>
 
 }

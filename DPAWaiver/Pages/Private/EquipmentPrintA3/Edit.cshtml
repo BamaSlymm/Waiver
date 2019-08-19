@@ -355,6 +355,9 @@ ViewData["Title"] = "Edit";
 
         </div>
     </div>
+    <partial name="_ViewInvoices" model="@Model.Invoices" />
+    <partial name="_ViewAttachments" model="@Model.Attachments" />
+
     <div class="row add-gutter marginTop20px">
         <div class="pull-right">
             <a class="btn btn-default" asp-page="/Private/Invoice/Invoice" asp-route-id="@Model.ID" title="Add Invoice"
