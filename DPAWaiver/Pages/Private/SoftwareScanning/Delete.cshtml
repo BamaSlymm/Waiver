@@ -2,7 +2,7 @@
 @model DPAWaiver.Pages.Private.SoftwareScanning.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+ViewData["Title"] = "Delete";
 }
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -271,10 +271,20 @@
             </div>
         </div>
     </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="SoftwareScanningWaiver.ID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Private/WaiverList">Back to List</a>
-    </form>
+    <div class="row add-gutter marginTop20px pull-right">
+
+        <a class="btn btn-default" onclick="print();">Print&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <form method="post" style="display: inline;">
+            <input type="hidden" asp-for="SoftwareScanningWaiver.ID" />
+            <button type="submit" value="Delete" class="btn btn-primary">
+                Delete Waiver&nbsp;<span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </form>
+
+    </div>
 </div>

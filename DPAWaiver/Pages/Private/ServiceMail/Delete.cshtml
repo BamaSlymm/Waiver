@@ -111,25 +111,20 @@
             </div>
         </div>
     </dl>
-    <partial name="_ViewInvoices" model="@Model.Invoices" />
-    <partial name="_ViewAttachments" model="@Model.Attachments" />
-    <partial name="_ViewActions" model="@Model.Actions" />
-    @await Html.PartialAsync("_PostUnderReview",@Model.ServiceMailWaiver, new ViewDataDictionary(ViewData)
-    {
-    {"garbage", "garbage"},
-    { "IsUser", @Model.UserWithDepartment.IsUser()},
-    { "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
-    })
+    <div class="row add-gutter marginTop20px pull-right">
 
+        <a class="btn btn-default" onclick="print();">Print&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <form method="post" style="display: inline;">
+            <input type="hidden" asp-for="ServiceMailWaiver.ID" />
+            <button type="submit" value="Delete" class="btn btn-primary">
+                Delete Waiver&nbsp;<span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </form>
 
-
-
-    <partial name='_Logout' />
-    <div style="clear: both"></div>
-
-
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.ServiceMailWaiver.ID">Edit</a> |
-    <a asp-page="./Private/WaiverList">Back to List</a>
+    </div>
 </div>

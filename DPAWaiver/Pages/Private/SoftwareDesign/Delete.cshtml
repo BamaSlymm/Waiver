@@ -262,10 +262,20 @@ ViewData["Title"] = "Delete";
             </div>
         </div>
     </dl>
+<div class="row add-gutter marginTop20px pull-right">
 
-    <form method="post">
-        <input type="hidden" asp-for="SoftwareDesignWaiver.ID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Private/WaiverList">Back to List</a>
-    </form>
+        <a class="btn btn-default" onclick="print();">Print&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <a class="btn btn-default btn-space-2x" asp-page="/Private/WaiverList">Waiver List&nbsp;
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+        <form method="post" style="display: inline;">
+            <input type="hidden" asp-for="SoftwareDesignWaiver.ID" />
+            <button type="submit" value="Delete" class="btn btn-primary">
+                Delete Waiver&nbsp;<span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </form>
+
+    </div>
 </div>
