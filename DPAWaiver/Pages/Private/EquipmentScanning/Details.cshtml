@@ -512,7 +512,17 @@ ViewData["Title"] = "Details";
         </div>
     </dl>
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.EquipmentScanningWaiver.ID">Edit</a> |
-    <a asp-page="./Private/WaiverList">Back to List</a>
-</div>
+<partial name="_ViewInvoices" model="@Model.Invoices" />
+<partial name="_ViewAttachments" model="@Model.Attachments" />
+<partial name="_ViewActions" model="@Model.Actions" />
+@await Html.PartialAsync("_PostUnderReview",@Model.EquipmentScanningWaiver, new ViewDataDictionary(ViewData) {
+{"garbage", "garbage"},
+{ "IsUser", @Model.UserWithDepartment.IsUser()},
+{ "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
+})
+
+
+
+
+<partial name='_Logout' />
+<div style="clear: both"></div>
