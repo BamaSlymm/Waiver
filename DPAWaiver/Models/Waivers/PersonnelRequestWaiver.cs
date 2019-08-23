@@ -44,9 +44,6 @@ namespace DPAWaiver.Models.Waivers
        [Display(Name = "Additional Comments")]
         public string AdditionalComments {get;set;}
 
-        [Required]
-        [Display(Name = "Total estimated number of hours:")]
-        public decimal? EstimatedNumberOfHours {get;set;}
     
         
         public PersonnelRequestWaiver(DPAUser createdBy, string otherFirstName, string otherLastName,
