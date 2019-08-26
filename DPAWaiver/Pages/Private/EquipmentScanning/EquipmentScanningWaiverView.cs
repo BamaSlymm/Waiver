@@ -9,7 +9,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DPAWaiver.Models.Waivers
 {
     public class EquipmentScanningWaiverView
-    {  [Display(Name = "Waiver Owner First Name")]
+    {
+        [Display(Name = "Waiver Owner First Name")]
         public string OtherFirstName { get; set; }
 
         [Display(Name = "Waiver Owner Last Name")]
@@ -17,23 +18,23 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Project Name")]
-        public string projectName {get;set;}
+        public string projectName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Submitted Date")]
         public DateTime? SubmittedOn { get; set; }
 
-         [Required]
-        [Column(TypeName="DECIMAL(13,2)")]
+        [Required]
+        [Column(TypeName = "DECIMAL(13,2)")]
         [Display(Name = "Cost Estimate")]
         [RegularExpression(@"^\d+(\.\d{0,2})?$")]
         [Range(0, 9999999999999999.99)]
-        public decimal CostEstimate { get ; set;}
-        
+        public decimal CostEstimate { get; set; }
+
         [Required]
         [Display(Name = "Justification For Request:")]
-        public decimal justificationDescription { get; set; }  
+        public decimal justificationDescription { get; set; }
 
         [Required]
         [Display(Name = "How do you currently meet this need?")]
@@ -42,54 +43,43 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Is this new addition or replacement?")]
-        public string newOrReplace { get; set; }        
-        
-        [Required]
-        [Display(Name = "Current Make:")]
-        public string currentMake { get; set; }
+        public string newOrReplace { get; set; }
+
 
         [Required]
-        [Display(Name = "Current Model:")]
-        public string currentModel { get; set; }
-
-        [Required]
-        [Display(Name = "Acquisition Date")]
-        public DateTime? acquisitionDate {get; set;}
-
-         [Required]
         [Display(Name = "Monthly Cost of Current Service")]
-        public decimal monthlyCost {get; set;}
-        
+        public decimal monthlyCost { get; set; }
+
         [Required]
         [Display(Name = "Current Average Monthly Volume")]
-        public decimal averageMonthlyVolume {get; set;}
+        public decimal averageMonthlyVolume { get; set; }
 
         [Required]
         [Display(Name = "Did you consider Multifunction device for scanning?")]
-        public string multiFunctionConsidered {get; set;}
+        public string multiFunctionConsidered { get; set; }
 
         [Display(Name = "If no, please explain")]
-        public string multiFunctionReason {get; set;}
+        public string multiFunctionReason { get; set; }
 
         [Required]
         [Display(Name = "Enter the anticipated volume for first year. This is a numeric field")]
-        public decimal firstYearVolume {get; set;}
+        public decimal firstYearVolume { get; set; }
 
         [Required]
         [Display(Name = "Enter the anticipated volume for second year. This is a numeric field")]
-        public decimal secondYearVolume {get; set;}
+        public decimal secondYearVolume { get; set; }
 
         [Required]
         [Display(Name = "Enter the anticipated volume for third year. This is a numeric field")]
-        public decimal thirdYearVolume {get; set;}
+        public decimal thirdYearVolume { get; set; }
 
         [Required]
         [Display(Name = "Enter the anticipated volume for fourth year. This is a numeric field")]
-        public decimal fourthYearVolume {get; set;}
+        public decimal fourthYearVolume { get; set; }
 
         [Required]
         [Display(Name = "Enter the anticipated volume for fifth year. This is a numeric field")]
-        public decimal fifthYearVolume {get; set;}
+        public decimal fifthYearVolume { get; set; }
 
         [Required]
         [Display(Name = "Type?")]
@@ -100,23 +90,15 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Number of equipment?")]
-        public decimal NumberofEquipment {get; set;}
+        public decimal NumberofEquipment { get; set; }
 
-        [Required]
-        [Display(Name = "Make:")]
-        public string Make { get; set; }
-        
-        [Required]
-        [Display(Name = "Model:")]
-        public string Model { get; set; }
-                
         [Required]
         [Display(Name = "How do you plan to acquire this equipment?")]
         public string acquisitionType { get; set; }
 
         [Required]
         [Display(Name = "Solicitation SubType?")]
-        public string solicitationSubType {get; set;}
+        public string solicitationSubType { get; set; }
 
         [Required]
         [Display(Name = "State Price SubType?")]
@@ -124,7 +106,7 @@ namespace DPAWaiver.Models.Waivers
 
         [Required]
         [Display(Name = "Purchase Amount")]
-        public decimal purchaseAmount {get; set;}
+        public decimal purchaseAmount { get; set; }
 
         [Required]
         [Display(Name = "Lease Duration")]
@@ -133,14 +115,14 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Number of Months of Lease")]
         public decimal numberOfMonths { get; set; }
-        
+
         [Required]
         [Display(Name = "Monthly Lease Amount")]
         public decimal monthlyLeaseAmount { get; set; }
-        
+
         [Required]
         [Display(Name = "Make and Model")]
-        public string makeAndModel {get; set;}
+        public string makeAndModel { get; set; }
 
         [Required]
         [Display(Name = "Reasons for selecting this particular equipment:")]
@@ -149,154 +131,150 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Production Capacity (throughput)")]
         public decimal productionCapacity { get; set; }
-        
-        [Required]
-        [Display(Name = "Estimated Cost of Equipment")]
-        public decimal estimatedCost {get; set;}
 
         [Required]
-        [Display(Name = "Lease or purchase")]
-        public string leaseOrPurchase { get; set; }
+        [Display(Name = "Estimated Cost of Equipment")]
+        public decimal estimatedCost { get; set; }
 
         [Required]
         [Display(Name = "Number of Years")]
         public decimal numberOfYears { get; set; }
 
         [Required]
-        [Display(Name= "Cost of lease per year")]
-        public decimal costOfLeasePerYear {get; set; }
+        [Display(Name = "Cost of lease per year")]
+        public decimal costOfLeasePerYear { get; set; }
 
         [Required]
-        [Display(Name= "Expected useful life of this equipment")]
-        public decimal expectedUsefulLife {get; set;}
+        [Display(Name = "Expected useful life of this equipment")]
+        public decimal expectedUsefulLife { get; set; }
 
         [Required]
         [Display(Name = "Depreciation Cost Per Year")]
-        public decimal depreciationCostPerYear {get; set;}
+        public decimal depreciationCostPerYear { get; set; }
 
         [Required]
         [Display(Name = "Cost of Annual Maintenance Per Year")]
-        public decimal annualMaintenanceCostPerYear {get; set;}
+        public decimal annualMaintenanceCostPerYear { get; set; }
 
         [Required]
         [Display(Name = "Cost of Supplies")]
-        public decimal suppliesCost {get; set;}
+        public decimal suppliesCost { get; set; }
 
         [Required]
-        [Display(Name ="Total Equipment Cost")]
-        public decimal totalEquipmentCost {get; set;}
+        [Display(Name = "Total Equipment Cost")]
+        public decimal totalEquipmentCost { get; set; }
 
         [Required]
         [Display(Name = "Name of Software")]
-        public string softwareName {get; set;}
+        public string softwareName { get; set; }
 
         [Required]
         [Display(Name = "Cost of Software")]
-        public decimal softwareCost {get; set;}
+        public decimal softwareCost { get; set; }
 
-       
+
         [Display(Name = "Annual License Fee if any")]
-        public decimal annualLicenseFee {get; set;}
+        public decimal annualLicenseFee { get; set; }
 
         [Required]
         [Display(Name = "Number of Licenses Required")]
-        public decimal numberOfLicenses {get; set;}
+        public decimal numberOfLicenses { get; set; }
 
         [Required]
         [Display(Name = "Total Annual License Cost")]
-        public decimal totalAnnualLicenseCost {get; set;}
+        public decimal totalAnnualLicenseCost { get; set; }
 
         [Required]
         [Display(Name = "Annual Maintenance Cost")]
-        public decimal annualMaintenanceCost {get; set;}
+        public decimal annualMaintenanceCost { get; set; }
 
         [Required]
         [Display(Name = "Total Software Costs")]
-        public decimal totalSoftwareCosts {get; set;}
+        public decimal totalSoftwareCosts { get; set; }
 
         [Required]
         [Display(Name = "Operator Classification/Grade")]
-        public string operatorClassification {get; set;}
+        public string operatorClassification { get; set; }
 
         [Required]
         [Display(Name = "Production FTE Required")]
-        public decimal productionFTE {get; set;}
+        public decimal productionFTE { get; set; }
 
         [Required]
         [Display(Name = "Hours Per FTE Per week")]
-        public decimal hoursPerFTEPerWeek {get; set;}
+        public decimal hoursPerFTEPerWeek { get; set; }
 
         [Required]
         [Display(Name = "Base Hourly Rate Per FTE")]
-        public decimal baseHourlyRatePerFTE {get; set;}
+        public decimal baseHourlyRatePerFTE { get; set; }
 
         [Required]
         [Display(Name = "Fully Loaded Hourly Rate Per FTE")]
-        public decimal fullyLoadedHourlyRatePerFTE {get; set;}
+        public decimal fullyLoadedHourlyRatePerFTE { get; set; }
 
         [Required]
         [Display(Name = "Total Annual Personnel Cost")]
-        public decimal totalAnnualPersonnelCost {get; set;}
+        public decimal totalAnnualPersonnelCost { get; set; }
 
         [Required]
         [Display(Name = "Monthly Supervision Amount")]
-        public decimal monthlySupervisionAmount {get; set;}
+        public decimal monthlySupervisionAmount { get; set; }
 
         [Required]
         [Display(Name = "Monthly Management Amount")]
-        public decimal monthlyManagementAmount {get; set;}
+        public decimal monthlyManagementAmount { get; set; }
 
         [Required]
         [Display(Name = "Is additional workspace required?")]
-        public string additionalWorkspaceRequired {get; set;}
+        public string additionalWorkspaceRequired { get; set; }
 
         [Required]
         [Display(Name = "Total Space Required in Square Feet")]
-        public decimal totalSpaceRequiredInSQFT {get; set;}
+        public decimal totalSpaceRequiredInSQFT { get; set; }
 
         [Required]
         [Display(Name = "Cost Per Square Foot")]
-        public decimal costPerSQFT {get; set;}
+        public decimal costPerSQFT { get; set; }
 
         [Required]
         [Display(Name = "Annual Utilies Amount for Additional SQFT")]
-        public decimal annualAmountForUtilities {get; set;}
+        public decimal annualAmountForUtilities { get; set; }
 
         [Required]
         [Display(Name = "Total Space Cost")]
-        public decimal totalSpaceCost {get; set;}
+        public decimal totalSpaceCost { get; set; }
 
         [Required]
         [Display(Name = "Computer Costs")]
-        public decimal computerCosts {get; set;}
+        public decimal computerCosts { get; set; }
 
         [Required]
         [Display(Name = "Furniture Costs")]
-        public decimal furnitureCosts {get; set;}
+        public decimal furnitureCosts { get; set; }
 
         [Required]
         [Display(Name = "Cubicle Partition Costs")]
-        public decimal cubiclePartitionCosts {get; set;}
+        public decimal cubiclePartitionCosts { get; set; }
 
         [Required]
         [Display(Name = "Construction and Electrical Work Costs")]
-        public decimal constructionCosts {get; set;}
+        public decimal constructionCosts { get; set; }
 
         [Required]
         [Display(Name = "Miscellaneous Costs")]
-        public decimal miscellaneousCosts {get; set;}
+        public decimal miscellaneousCosts { get; set; }
 
         [Required]
         [Display(Name = "Description of Miscellaneous Costs")]
-        public decimal descriptionMiscellaneousCosts {get; set;}
+        public decimal descriptionMiscellaneousCosts { get; set; }
 
         [Required]
         [Display(Name = "Total Additional One Time Costs")]
-        public decimal totalAdditionalOneTimeCosts {get; set;}
+        public decimal totalAdditionalOneTimeCosts { get; set; }
 
         [Required]
         [Display(Name = "Total Cost of Ownership")]
-        public decimal totalCostOfOwnership {get; set;}
+        public decimal totalCostOfOwnership { get; set; }
 
         [Required]
         [Display(Name = "Please describe the alternatives you have examined before making the request")]
@@ -305,25 +283,23 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Any Additional Comments:")]
         public string AdditionalComments { get; set; }
 
-        public WaiverStatus Status {get;set;}
+        public WaiverStatus Status { get; set; }
 
         public EquipmentScanningWaiverView(EquipmentScanningWaiver other)
         {
             this.CopyFromEquipmentScanningWaiver(other);
         }
 
-public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
+        public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other)
+        {
             this.OtherFirstName = other.OtherFirstName;
             this.OtherLastName = other.OtherLastName;
             this.projectName = other.projectName;
-            this.SubmittedOn = other.SubmittedOn ;
-            this.CostEstimate = other.CostEstimate ;
+            this.SubmittedOn = other.SubmittedOn;
+            this.CostEstimate = other.CostEstimate;
             this.justificationDescription = other.justificationDescription;
             this.currentSystemDescription = other.currentSystemDescription;
             this.newOrReplace = other.newOrReplace;
-            this.currentMake = other.currentMake;
-            this.currentModel = other.currentModel;
-            this.acquisitionDate = other.acquisitionDate;
             this.monthlyCost = other.monthlyCost;
             this.averageMonthlyVolume = other.averageMonthlyVolume;
             this.multiFunctionConsidered = other.multiFunctionConsidered;
@@ -335,8 +311,6 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.fifthYearVolume = other.fifthYearVolume;
             this.scannerType = other.scannerType;
             this.NumberofEquipment = other.NumberofEquipment;
-            this.Make = other.Make;
-            this.Model = other.Model;
             this.scannerType = other.scannerType;
             this.otherScannerType = other.otherScannerType;
             this.acquisitionType = other.acquisitionType;
@@ -351,7 +325,6 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.productionCapacity = other.productionCapacity;
             this.estimatedCost = other.estimatedCost;
             this.productionCapacity = other.productionCapacity;
-            this.leaseOrPurchase = other.leaseOrPurchase;
             this.numberOfYears = other.numberOfYears;
             this.costOfLeasePerYear = other.costOfLeasePerYear;
             this.expectedUsefulLife = other.expectedUsefulLife;
@@ -392,12 +365,12 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.AdditionalComments = other.AdditionalComments;
         }
 
-        
+
         public EquipmentScanningWaiverView()
         {
         }
 
-        
+
     }
 
 }

@@ -23,18 +23,6 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Is this new addition or replacement?")]
         public string newOrReplace { get; set; }        
-        
-        [Required]
-        [Display(Name = "Current Make:")]
-        public string currentMake { get; set; }
-
-        [Required]
-        [Display(Name = "Current Model:")]
-        public string currentModel { get; set; }
-
-        [Required]
-        [Display(Name = "Acquisition Date")]
-        public DateTime? acquisitionDate {get; set;}
 
          [Required]
         [Display(Name = "Monthly Cost of Current Service")]
@@ -81,14 +69,6 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Number of equipment?")]
         public decimal NumberofEquipment {get; set;}
-
-        [Required]
-        [Display(Name = "Make:")]
-        public string Make { get; set; }
-        
-        [Required]
-        [Display(Name = "Model:")]
-        public string Model { get; set; }
                 
         [Required]
         [Display(Name = "How do you plan to acquire this equipment?")]
@@ -132,10 +112,6 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Estimated Cost of Equipment")]
         public decimal estimatedCost {get; set;}
-
-        [Required]
-        [Display(Name = "Lease or purchase")]
-        public string leaseOrPurchase { get; set; }
 
         [Required]
         [Display(Name = "Number of Years")]
