@@ -43,18 +43,7 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Is this new addition or replacement?")]
         public string newOrReplace { get; set; }        
-        
-        [Required]
-        [Display(Name = "Current Make:")]
-        public string currentMake { get; set; }
-
-        [Required]
-        [Display(Name = "Current Model:")]
-        public string currentModel { get; set; }
-
-        [Required]
-        [Display(Name = "Acquisition Date")]
-        public DateTime? acquisitionDate {get; set;}
+    
 
          [Required]
         [Display(Name = "Monthly Cost of Current Service")]
@@ -101,14 +90,6 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Number of equipment?")]
         public decimal NumberofEquipment {get; set;}
-
-        [Required]
-        [Display(Name = "Make:")]
-        public string Make { get; set; }
-        
-        [Required]
-        [Display(Name = "Model:")]
-        public string Model { get; set; }
                 
         [Required]
         [Display(Name = "How do you plan to acquire this equipment?")]
@@ -153,10 +134,6 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Estimated Cost of Equipment")]
         public decimal estimatedCost {get; set;}
-
-        [Required]
-        [Display(Name = "Lease or purchase")]
-        public string leaseOrPurchase { get; set; }
 
         [Required]
         [Display(Name = "Number of Years")]
@@ -321,9 +298,6 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.justificationDescription = other.justificationDescription;
             this.currentSystemDescription = other.currentSystemDescription;
             this.newOrReplace = other.newOrReplace;
-            this.currentMake = other.currentMake;
-            this.currentModel = other.currentModel;
-            this.acquisitionDate = other.acquisitionDate;
             this.monthlyCost = other.monthlyCost;
             this.averageMonthlyVolume = other.averageMonthlyVolume;
             this.multiFunctionConsidered = other.multiFunctionConsidered;
@@ -335,8 +309,6 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.fifthYearVolume = other.fifthYearVolume;
             this.scannerType = other.scannerType;
             this.NumberofEquipment = other.NumberofEquipment;
-            this.Make = other.Make;
-            this.Model = other.Model;
             this.scannerType = other.scannerType;
             this.otherScannerType = other.otherScannerType;
             this.acquisitionType = other.acquisitionType;
@@ -351,7 +323,6 @@ public void CopyFromEquipmentScanningWaiver(EquipmentScanningWaiver other) {
             this.productionCapacity = other.productionCapacity;
             this.estimatedCost = other.estimatedCost;
             this.productionCapacity = other.productionCapacity;
-            this.leaseOrPurchase = other.leaseOrPurchase;
             this.numberOfYears = other.numberOfYears;
             this.costOfLeasePerYear = other.costOfLeasePerYear;
             this.expectedUsefulLife = other.expectedUsefulLife;

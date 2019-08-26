@@ -23,20 +23,8 @@ namespace DPAWaiver.Models.Waivers
         [Required]
         [Display(Name = "Is this new addition or replacement?")]
         public string newOrReplace { get; set; }        
-        
-        [Required]
-        [Display(Name = "Current Make:")]
-        public string currentMake { get; set; }
 
         [Required]
-        [Display(Name = "Current Model:")]
-        public string currentModel { get; set; }
-
-        [Required]
-        [Display(Name = "Acquisition Date")]
-        public DateTime? acquisitionDate {get; set;}
-
-         [Required]
         [Display(Name = "Monthly Cost of Current Service")]
         public decimal monthlyCost {get; set;}
         
