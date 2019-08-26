@@ -260,23 +260,18 @@ ViewData["Title"] = "Details";
             </div>
         </div>
     </dl>
-    <partial name="_ViewInvoices" model="@Model.Invoices" />
-    <partial name="_ViewAttachments" model="@Model.Attachments" />
-    <partial name="_ViewActions" model="@Model.Actions" />
-    @await Html.PartialAsync("_PostUnderReview",@Model.EquipmentPrintA3Waiver, new ViewDataDictionary(ViewData) {
-    {"garbage", "garbage"},
-    { "IsUser", @Model.UserWithDepartment.IsUser()},
-    { "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
-    })
+</div>
+<partial name="_ViewInvoices" model="@Model.Invoices" />
+<partial name="_ViewAttachments" model="@Model.Attachments" />
+<partial name="_ViewActions" model="@Model.Actions" />
+@await Html.PartialAsync("_PostUnderReview",@Model.EquipmentPrintA3Waiver, new ViewDataDictionary(ViewData) {
+{"garbage", "garbage"},
+{ "IsUser", @Model.UserWithDepartment.IsUser()},
+{ "IsReviewer", @Model.UserWithDepartment.IsReviewer()},
+})
 
 
 
 
-    <partial name='_Logout' />
-    <div style="clear: both"></div>
-
-
-    <div>
-        <a asp-page="./Edit" asp-route-id="@Model.EquipmentPrintA3Waiver.ID">Edit</a> |
-        <a asp-page="./Private/WaiverList">Back to List</a>
-    </div>
+<partial name='_Logout' />
+<div style="clear: both"></div>

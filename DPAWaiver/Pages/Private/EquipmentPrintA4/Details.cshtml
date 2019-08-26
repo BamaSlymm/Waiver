@@ -2,7 +2,7 @@
 @model DPAWaiver.Pages.Private.EquipmentPrintA4.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Details";
 }
 @if (Model.EquipmentPrintA4Waiver.CreatedBy.Id != Model.UserWithDepartment.Id)
 {
@@ -298,12 +298,3 @@
 
 <partial name='_Logout' />
 <div style="clear: both"></div>
-
-
-
-</div>
-
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.EquipmentPrintA4Waiver.ID">Edit</a> |
-    <a asp-page="./Private/WaiverList">Back to List</a>
-</div>
