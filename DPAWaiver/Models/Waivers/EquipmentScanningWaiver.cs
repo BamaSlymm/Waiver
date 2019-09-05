@@ -24,7 +24,11 @@ namespace DPAWaiver.Models.Waivers
         [Display(Name = "Is this new addition or replacement?")]
         public string newOrReplace { get; set; }        
 
+<<<<<<< HEAD
          [Required]
+=======
+        [Required]
+>>>>>>> 861ef7a4e8012da013df235cd8e8c991387bf30f
         [Display(Name = "Monthly Cost of Current Service")]
         public decimal monthlyCost {get; set;}
         
