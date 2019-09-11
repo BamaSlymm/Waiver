@@ -96,8 +96,8 @@
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
-                    <label asp-for="EquipmentScanningWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
-                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <label asp-for="EquipmentScanningWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    
                     <input type="number" class="form-control" asp-for="EquipmentScanningWaiver.CostEstimate" required="true" step="0.01">
                     <span asp-validation-for="EquipmentScanningWaiver.CostEstimate" class="text-danger"></span>
                 </div>
@@ -137,30 +137,9 @@
                     <span asp-validation-for="EquipmentScanningWaiver.newOrReplace" class="text-danger"></span>
                 </div>
             </div>
-            <div class='col-sm-6 col-xs-12' id='currentMakeDiv'>
-                <div class="form-group required">
-                    <label asp-for="EquipmentScanningWaiver.currentMake" class="control-label fontWeightNormal">Current Make</label>
-                    <input type="text" class="form-control" asp-for="EquipmentScanningWaiver.currentMake" aria-describedby="currentMake" placeholder="Current Make">
-                    <span asp-validation-for="EquipmentScanningWaiver.currentMake" class="text-danger"></span>
-                </div>
-            </div>
         </div>
 
         <div class="row" id='modelAndAcquisitionDiv'>
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="EquipmentScanningWaiver.currentModel" class="control-label fontWeightNormal">Current Model</label>
-                    <input type="text" class="form-control" asp-for="EquipmentScanningWaiver.currentModel" aria-describedby="currentModel" placeholder="Current Model">
-                    <span asp-validation-for="EquipmentScanningWaiver.currentModel" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-                <div class="form-group required">
-                    <label asp-for="EquipmentScanningWaiver.acquisitionDate" class="control-label fontWeightNormal">Acquisition Date</label>
-                    <input type="date" class="form-control" asp-for="EquipmentScanningWaiver.acquisitionDate" aria-describedby="acquisitionDate" placeholder="Acquisition Date">
-                    <span asp-validation-for="EquipmentScanningWaiver.acquisitionDate" class="text-danger"></span>
-                </div>
-            </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group required">
                     <label asp-for="EquipmentScanningWaiver.monthlyCost" class="control-label fontWeightNormal">Monthly Cost of Current Service</label>

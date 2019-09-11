@@ -70,8 +70,8 @@
             </div>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
-                    <label asp-for="ServiceMailWaiver.CostEstimate" class="control-label fontWeightNormal">Project Budget/Cost Estimate:</label>
-                    <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the project cost and estimate such as 9999.99"></span>
+                    <label asp-for="ServiceMailWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
+                    
                     <input type="number" class="form-control" asp-for="ServiceMailWaiver.CostEstimate" required="true" placeholder="Please Enter Cost" step="0.01">
                     <span asp-validation-for="ServiceMailWaiver.CostEstimate" class="text-danger"></span>
                 </div>
