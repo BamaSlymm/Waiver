@@ -79,7 +79,7 @@
     "prefix": "zdlbs",
     "body": [
       "<dl class='custom-dl'>",
-      "\t<dt class='custom-dt'>@Html.DisplayNameFor(model => model.$1)</dt>",
+      "\t<dt style="overflow: visible; white-space: initial;" class='custom-dt'>@Html.DisplayNameFor(model => model.$1)</dt>",
       "\t<dd class='custom-dd'>@Html.DisplayFor(model => model.$1)</dd>",
       "</dl><!-- dl end of $1 -->"
     ],

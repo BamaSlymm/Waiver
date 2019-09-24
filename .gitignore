@@ -245,3 +245,6 @@ test-cloud-storage.json
 DPAv2/dpa-waiver
 DPAv2
 pgsql
+DPAWaiver/Pages/Private/Test.cshtml
+DPAWaiver/Pages/Private/Test.cs
+DPAWaiver/Pages/Private/Test.html
