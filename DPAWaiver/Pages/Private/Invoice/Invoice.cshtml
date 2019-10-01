@@ -130,7 +130,7 @@ ViewData["Title"] = "Add Invoices";
 <script type="text/javascript">
     $(document).ready(function () {
         var InvAmount = $('#BaseWaiverInvoice_InvoiceAmount').value()
-        var CostEstimate = $('BaseWaiver_CostEstimate').value()
+        var CostEstimate = $('#BaseWaiver_CostEstimate').value()
 
         if (InvAmount > CostEstimate) {
             $("#ReasonForDifferenceDiv").show();
