@@ -115,40 +115,28 @@ ViewData["Title"] = "Add Invoices";
             </button>
         </div>
     </div>
+    <div class="row add-gutter marginTop40px">
+        <partial name='_Logout' />
+        <a class="btn btn-default pull-right" asp-page="/Private/WaiverList">Done With Waiver&nbsp;
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span></a>
+        <a id='uploadAttachmentButton' class="btn btn-default btn-space-2x pull-right"
+            asp-page="/Private/Attachment/Attachment" asp-route-id="@Model.BaseWaiver.ID"
+            title="Upload Supporting Documents">Upload Supporting Documents&nbsp;
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+        </a>
+    </div>
 </form>
-
-
-
-<partial name='_Logout' />
-<div style="clear: both"></div>
-<div class="row add-gutter marginTop40px">
-    <partial name='_Logout' />
-    <a class="btn btn-default pull-right" asp-page="/Private/WaiverList">Done With Waiver&nbsp;
-    <span class="glyphicon glyphicon-check" aria-hidden="true"></span></a>
-    <a id='uploadAttachmentButton' class="btn btn-default btn-space-2x pull-right" asp-page="/Private/Attachment/Attachment"
-        asp-route-id="@Model.BaseWaiver.ID" title="Upload Supporting Documents">Upload Supporting Documents&nbsp;
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-    </a>
-</div>
-
-
-<partial name='_Logout' />
-<div style="clear: both"></div>
-
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-    var InvAmount = $('#BaseWaiverInvoice_InvoiceAmount').value()
-    var CostEstimate = $('BaseWaiver_CostEstimate').value()
-    
-    if (InvAmount > CostEstimate) {
-        $("#ReasonForDifferenceDiv").show();
-    }
-    else{
-        $("#ReasonForDifferenceDiv").hide();
-    }
-    });
+        var InvAmount = $('#BaseWaiverInvoice_InvoiceAmount').value()
+        var CostEstimate = $('BaseWaiver_CostEstimate').value()
 
-    
+        if (InvAmount > CostEstimate) {
+            $("#ReasonForDifferenceDiv").show();
+        } else {
+            $("#ReasonForDifferenceDiv").hide();
+        }
+    });
 </script>
 }
