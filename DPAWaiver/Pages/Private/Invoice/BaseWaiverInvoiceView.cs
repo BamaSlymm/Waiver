@@ -33,7 +33,6 @@ namespace DPAWaiver.Pages.Private.Invoice
         public decimal InvoiceAmount { get; set; }
 
 
-        
         [Display(Name = "If Invoice total amount is greater than project budget/cost estimate, please explain the reason for difference")]
         public string ReasonForDifference { get; set; }
 
