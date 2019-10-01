@@ -40,19 +40,19 @@ ViewData["Title"] = "Add Invoices";
                 @foreach (var item in Model.BaseWaiver.Invoices) {
                 <tr>
                     <td class="vertical-align-middle">
-                        <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@String.Format("{0:MM/dd/yyyy}",
+                        <span title="@Html.DisplayFor(modelItem => item.VendorName)">@String.Format("{0:MM/dd/yyyy}",
                             item.VendorName)</span>
                     </td>
                     <td class="vertical-align-middle">
-                        <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@Html.DisplayFor(modelItem
+                        <span title="@Html.DisplayFor(modelItem => item.InvoiceNumber)">@Html.DisplayFor(modelItem
                             => item.InvoiceNumber)</span>
                     </td>
                     <td class="vertical-align-middle">
-                        <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@String.Format("{0:MM/dd/yyyy}",
+                        <span title="@Html.DisplayFor(modelItem => item.InvoiceDate)">@String.Format("{0:MM/dd/yyyy}",
                             item.InvoiceDate)</span>
                     </td>
                     <td class="vertical-align-middle">
-                        <span title="@Html.DisplayFor(modelItem => item.ReasonForDifference)">@String.Format("{0:C}",
+                        <span title="@Html.DisplayFor(modelItem => item.InvoiceAmount)">@String.Format("{0:C}",
                             item.InvoiceAmount)</span>
                     </td>
                     <td>
@@ -100,7 +100,7 @@ ViewData["Title"] = "Add Invoices";
             <span asp-validation-for="BaseWaiverInvoice.InvoiceAmount" class="text-danger"></span>
         </div>
     </div>
-    <div class="col-lg-9 col-md-4 col-sm-12">
+    <div class="col-lg-9 col-md-4 col-sm-12" id="ReasonForDifferenceDiv">
         <div class="form-group">
             <label asp-for="BaseWaiverInvoice.ReasonForDifference" class="control-label"></label>
             <input asp-for="BaseWaiverInvoice.ReasonForDifference" class="form-control" />
@@ -136,9 +136,19 @@ ViewData["Title"] = "Add Invoices";
 <div style="clear: both"></div>
 
 @section Scripts {
-<partial name="_ValidationScriptsPartial" />
 <script type="text/javascript">
-    $(document).ready(function () {});
-</script>
+    $(document).ready(function () {
+    var InvAmount = $('#BaseWaiverInvoice_InvoiceAmount').value()
+    var CostEstimate = $('BaseWaiver_CostEstimate').value()
+    
+    if (InvAmount > CostEstimate) {
+        $("#ReasonForDifferenceDiv").show();
+    }
+    else{
+        $("#ReasonForDifferenceDiv").hide();
+    }
+    });
 
+    
+</script>
 }
