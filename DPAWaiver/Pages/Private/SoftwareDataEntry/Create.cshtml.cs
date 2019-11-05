@@ -76,7 +76,6 @@ namespace DPAWaiver.Pages.Private.SoftwareDataEntry
                 w => w.statepriceSubType,
                 w => w.purchaseAmount,
                 w => w.annualMaintenanceCost,
-                w => w.suppliesCost,
                 w => w.operatorClassification,
                 w => w.Grade,
                 w => w.numberOfFTE,

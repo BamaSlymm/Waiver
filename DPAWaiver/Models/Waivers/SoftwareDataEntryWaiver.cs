@@ -97,10 +97,6 @@ namespace DPAWaiver.Models.Waivers
         public decimal annualMaintenanceCost {get; set;}
 
         [Required]
-        [Display(Name = "Cost of Supplies")]
-        public string suppliesCost {get; set;}
-
-        [Required]
         [Display(Name = "Operator Classification")]
         public string operatorClassification {get; set;}
 

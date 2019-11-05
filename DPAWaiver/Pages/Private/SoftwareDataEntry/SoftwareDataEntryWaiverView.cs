@@ -118,10 +118,6 @@ namespace DPAWaiver.Models.Waivers
         public decimal annualMaintenanceCost {get; set;}
 
         [Required]
-        [Display(Name = "Cost of Supplies")]
-        public string suppliesCost {get; set;}
-
-        [Required]
         [Display(Name = "Operator Classification")]
         public string operatorClassification {get; set;}
 
@@ -207,7 +203,6 @@ public void CopyFromSoftwareDataEntryWaiver(SoftwareDataEntryWaiver other) {
             this.statepriceSubType = other.statepriceSubType;
             this.purchaseAmount = other.purchaseAmount;
             this.annualMaintenanceCost = other.annualMaintenanceCost;
-            this.suppliesCost = other.suppliesCost;
             this.operatorClassification = other.operatorClassification;
             this.Grade = other.Grade;
             this.numberOfFTE = other.numberOfFTE;
