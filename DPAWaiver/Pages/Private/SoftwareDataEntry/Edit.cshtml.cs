@@ -126,6 +126,7 @@ namespace DPAWaiver.Pages.Private.SoftwareDataEntry
                 w => w.monthlyIndirectCosts,
                 w => w.monthlyOverheadCosts,
                 w => w.alternativesConsidered,
+                w => w.acquisitionType,
                 w => w.Status,
                 w => w.AdditionalComments,
                 w => w.CreatedBy

@@ -77,6 +77,7 @@ namespace DPAWaiver.Pages.Private.SoftwareDataEntry
                 w => w.purchaseAmount,
                 w => w.annualMaintenanceCost,
                 w => w.operatorClassification,
+                w => w.acquisitionType,
                 w => w.Grade,
                 w => w.numberOfFTE,
                 w => w.numberOfLicenses,

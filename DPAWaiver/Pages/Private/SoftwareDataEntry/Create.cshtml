@@ -72,7 +72,7 @@
                 <div class="form-group required">
                     <label asp-for="SoftwareDataEntryWaiver.CostEstimate" class="control-label fontWeightNormal">Cost Estimate:</label>
                     
-                    <input type="number" class="form-control" asp-for="SoftwareDataEntryWaiver.CostEstimate" required="true" value="5000.03">
+                    <input type="number" class="form-control" asp-for="SoftwareDataEntryWaiver.CostEstimate" required="true" step="0.01">
                     <span asp-validation-for="SoftwareDataEntryWaiver.CostEstimate" class="text-danger"></span>
                 </div>
             </div>
