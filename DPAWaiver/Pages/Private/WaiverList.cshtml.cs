@@ -103,7 +103,7 @@ namespace DPAWaiver.Pages.Private
             }
             if (baseWaiver is EquipmentPrintLabelWaiver)
             {
-                return RedirectToPage(PageList.EquipmentLargeDetails, new {id =id});
+                return RedirectToPage(PageList.EquipmentLabelDetails, new {id =id});
             }
             if (baseWaiver is SoftwareDataEntryWaiver)
             {
@@ -198,7 +198,7 @@ namespace DPAWaiver.Pages.Private
             }
             if (baseWaiver is EquipmentPrintLabelWaiver)
             {
-                return RedirectToPage(PageList.EquipmentLargeDelete, new {id =id});
+                return RedirectToPage(PageList.EquipmentLabelDelete, new {id =id});
             }
             if (baseWaiver is SoftwareDataEntryWaiver)
             {
@@ -293,7 +293,7 @@ namespace DPAWaiver.Pages.Private
             }
             if (baseWaiver is EquipmentPrintLabelWaiver)
             {
-                return RedirectToPage(PageList.EquipmentLargeEdit, new {id =id});
+                return RedirectToPage(PageList.EquipmentLabelEdit, new {id =id});
             }
             if (baseWaiver is SoftwareDataEntryWaiver)
             {
