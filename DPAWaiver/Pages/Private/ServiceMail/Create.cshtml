@@ -142,7 +142,7 @@ This is a numeric field."></span></label>
             <div class="col-md-6 col-xs-6">
                 <div class="form-group required">
                     <label asp-for="ServiceMailWaiver.MailRate" class="control-label fontWeightNormal">Mail Rate:<span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Enter the mail rate. This is a numeric field; decimal can be used (i.e. 0.44)"></span></label>
-                    <input type="number" class="form-control" asp-for="ServiceMailWaiver.MailRate" aria-describedby="MailRate" placeholder="Mail Rate">
+                    <input type="number" class="form-control" asp-for="ServiceMailWaiver.MailRate" aria-describedby="MailRate" placeholder="Mail Rate" step="0.01>
                     <span asp-validation-for="ServiceMailWaiver.MailRate" class="text-danger"></span>
                 </div>
             </div>
@@ -169,13 +169,13 @@ This is a numeric field."></span></label>
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        showIfSelected('#ServiceMailWaiver_TypeofStock', ['#ServiceMailWaiver_OtherDescription'], {  valueList: ['0'] });
+        showIfSelected('#ServiceMailWaiver_TypeofStock', ['#ServiceMailWaiver_OtherDescriptionId'], {  valueList: ['0'] });
  
         // $('.usd_input').mask('0000000.00', { reverse: true }); in case
     });
 
     $("#ServiceMailWaiver_TypeofStock").on("change", function () {
-        showIfSelected('#ServiceMailWaiver_TypeofStock', ['#ServiceMailWaiver_OtherDescription'], {valueList: ['0']});
+        showIfSelected('#ServiceMailWaiver_TypeofStock', ['#ServiceMailWaiver_OtherDescriptionId'], {valueList: ['0']});
     });
 </script>
 }

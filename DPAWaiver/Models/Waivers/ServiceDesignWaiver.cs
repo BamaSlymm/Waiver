@@ -45,10 +45,6 @@ namespace DPAWaiver.Models.Waivers
         {
         }
 
-        public static implicit operator ServiceDesignWaiver(ServiceDesignWaiverView v)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

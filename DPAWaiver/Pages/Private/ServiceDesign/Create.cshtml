@@ -76,7 +76,7 @@ ViewData["Title"] = "Create Waiver - Service - Design";
                         <label asp-for="ServiceDesignWaiver.CostEstimate" class="control-label fontWeightNormal"></label>
                         
                         <input asp-for="ServiceDesignWaiver.CostEstimate" class="form-control fontWeightNormal"
-                            required="true" placeholder="@Html.DisplayNameFor(model => model.ServiceDesignWaiver.CostEstimate)" />
+                            required="true" step="0.01" placeholder="@Html.DisplayNameFor(model => model.ServiceDesignWaiver.CostEstimate)" />
                         <span asp-validation-for="ServiceDesignWaiver.CostEstimate" class="text-danger"></span>
                     </div>
                 </div>

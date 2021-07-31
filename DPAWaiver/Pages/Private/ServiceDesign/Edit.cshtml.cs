@@ -37,13 +37,13 @@ namespace DPAWaiver.Pages.Private.ServiceDesign
 
             ID = id ;
             UserWithDepartment = await GetUserWithDepartmentAsync();
-            var ServiceDesignWaiver = await _context.ServiceDesignWaiver.
+            var serviceDesignWaiver = await _context.ServiceDesignWaiver.
             FirstOrDefaultAsync(m => m.ID == id);
-            ServiceDesignWaiver = new ServiceDesignWaiverView(ServiceDesignWaiver);
+            ServiceDesignWaiver = new ServiceDesignWaiverView(serviceDesignWaiver);
             Invoices = await GetInvoicesAsync(id) ;
             Attachments = await GetAttachmentsAsync(id) ;
 
-            if (ServiceDesignWaiver == null || !ServiceDesignWaiver.Editable)
+            if (ServiceDesignWaiver == null || !serviceDesignWaiver.Editable)
             {
                 return NotFound();
             }

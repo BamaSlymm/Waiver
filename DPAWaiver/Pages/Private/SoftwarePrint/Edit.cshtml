@@ -84,7 +84,7 @@ ViewData["Title"] = "Edit";
                         <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip"
                             title="Enter the project cost and estimate such as 9999.99"></span>
                         <input type="number" class="form-control" asp-for="SoftwarePrintWaiver.CostEstimate"
-                            required="true" value="5000.03">
+                            required="true" step="0.01">
                         <span asp-validation-for="SoftwarePrintWaiver.CostEstimate" class="text-danger"></span>
                     </div>
                 </div>
